@@ -235,7 +235,7 @@ public struct CodeArtifact: AWSService {
     // MARK: Streaming API Calls
 
     ///  Returns an asset (or file) that is in a package. For example, for a Maven package version, use GetPackageVersionAsset to download a JAR file, a POM file, or any other assets in the package version.
-    public func getPackageVersionAssetStreaming(_ input: GetPackageVersionAssetRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil, _ stream: @escaping (ByteBuffer, EventLoop) -> EventLoopFuture<Void>) -> EventLoopFuture<GetPackageVersionAssetResult> {
+    public func getPackageVersionAssetStreaming(_ input: GetPackageVersionAssetRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil, _ stream: @escaping (ByteBuffer, EventLoop)->EventLoopFuture<Void>) -> EventLoopFuture<GetPackageVersionAssetResult> {
         return self.client.execute(operation: "GetPackageVersionAsset", path: "/v1/package/version/asset", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop, stream: stream)
     }
 }

@@ -137,7 +137,7 @@ extension EFS {
     ///   - eventLoop: EventLoop to run this process on
     ///   - onPage: closure called with each paginated response. It combines an accumulating result with the contents of response. This combined result is then returned
     ///         along with a boolean indicating if the paginate operation should continue.
-    @available(*, deprecated, message: "Use ListTagsForResource.")
+    @available(*, deprecated, message:"Use ListTagsForResource.")
     public func describeTagsPaginator<Result>(
         _ input: DescribeTagsRequest,
         _ initialValue: Result,
@@ -163,7 +163,7 @@ extension EFS {
     ///   - logger: Logger used flot logging
     ///   - eventLoop: EventLoop to run this process on
     ///   - onPage: closure called with each block of entries. Returns boolean indicating whether we should continue.
-    @available(*, deprecated, message: "Use ListTagsForResource.")
+    @available(*, deprecated, message:"Use ListTagsForResource.")
     public func describeTagsPaginator(
         _ input: DescribeTagsRequest,
         logger: Logger = AWSClient.loggingDisabled,

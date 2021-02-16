@@ -89,7 +89,7 @@ public struct IoT: AWSService {
     }
 
     /// Attaches the specified policy to the specified principal (certificate or other credential).  Note: This API is deprecated. Please use AttachPolicy instead.
-    @available(*, deprecated, message: "AttachPrincipalPolicy is deprecated.")
+    @available(*, deprecated, message:"AttachPrincipalPolicy is deprecated.")
     @discardableResult public func attachPrincipalPolicy(_ input: AttachPrincipalPolicyRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<Void> {
         return self.client.execute(operation: "AttachPrincipalPolicy", path: "/principal-policies/{policyName}", httpMethod: .PUT, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
@@ -580,7 +580,7 @@ public struct IoT: AWSService {
     }
 
     /// Removes the specified policy from the specified certificate.  Note: This API is deprecated. Please use DetachPolicy instead.
-    @available(*, deprecated, message: "DetachPrincipalPolicy is deprecated.")
+    @available(*, deprecated, message:"DetachPrincipalPolicy is deprecated.")
     @discardableResult public func detachPrincipalPolicy(_ input: DetachPrincipalPolicyRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<Void> {
         return self.client.execute(operation: "DetachPrincipalPolicy", path: "/principal-policies/{policyName}", httpMethod: .DELETE, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
@@ -806,7 +806,7 @@ public struct IoT: AWSService {
     }
 
     /// Lists the principals associated with the specified policy.  Note: This API is deprecated. Please use ListTargetsForPolicy instead.
-    @available(*, deprecated, message: "ListPolicyPrincipals is deprecated.")
+    @available(*, deprecated, message:"ListPolicyPrincipals is deprecated.")
     public func listPolicyPrincipals(_ input: ListPolicyPrincipalsRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<ListPolicyPrincipalsResponse> {
         return self.client.execute(operation: "ListPolicyPrincipals", path: "/policy-principals", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
@@ -817,7 +817,7 @@ public struct IoT: AWSService {
     }
 
     /// Lists the policies attached to the specified principal. If you use an Cognito identity, the ID must be in AmazonCognito Identity format.  Note: This API is deprecated. Please use ListAttachedPolicies instead.
-    @available(*, deprecated, message: "ListPrincipalPolicies is deprecated.")
+    @available(*, deprecated, message:"ListPrincipalPolicies is deprecated.")
     public func listPrincipalPolicies(_ input: ListPrincipalPoliciesRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<ListPrincipalPoliciesResponse> {
         return self.client.execute(operation: "ListPrincipalPolicies", path: "/principal-policies", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }

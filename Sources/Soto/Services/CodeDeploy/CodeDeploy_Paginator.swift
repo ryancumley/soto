@@ -243,7 +243,7 @@ extension CodeDeploy {
     ///   - eventLoop: EventLoop to run this process on
     ///   - onPage: closure called with each paginated response. It combines an accumulating result with the contents of response. This combined result is then returned
     ///         along with a boolean indicating if the paginate operation should continue.
-    @available(*, deprecated, message: "This operation is deprecated, use ListDeploymentTargets instead.")
+    @available(*, deprecated, message:"This operation is deprecated, use ListDeploymentTargets instead.")
     public func listDeploymentInstancesPaginator<Result>(
         _ input: ListDeploymentInstancesInput,
         _ initialValue: Result,
@@ -269,7 +269,7 @@ extension CodeDeploy {
     ///   - logger: Logger used flot logging
     ///   - eventLoop: EventLoop to run this process on
     ///   - onPage: closure called with each block of entries. Returns boolean indicating whether we should continue.
-    @available(*, deprecated, message: "This operation is deprecated, use ListDeploymentTargets instead.")
+    @available(*, deprecated, message:"This operation is deprecated, use ListDeploymentTargets instead.")
     public func listDeploymentInstancesPaginator(
         _ input: ListDeploymentInstancesInput,
         logger: Logger = AWSClient.loggingDisabled,

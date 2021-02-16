@@ -1409,7 +1409,7 @@ extension IoT {
     ///   - eventLoop: EventLoop to run this process on
     ///   - onPage: closure called with each paginated response. It combines an accumulating result with the contents of response. This combined result is then returned
     ///         along with a boolean indicating if the paginate operation should continue.
-    @available(*, deprecated, message: "ListPolicyPrincipals is deprecated.")
+    @available(*, deprecated, message:"ListPolicyPrincipals is deprecated.")
     public func listPolicyPrincipalsPaginator<Result>(
         _ input: ListPolicyPrincipalsRequest,
         _ initialValue: Result,
@@ -1435,7 +1435,7 @@ extension IoT {
     ///   - logger: Logger used flot logging
     ///   - eventLoop: EventLoop to run this process on
     ///   - onPage: closure called with each block of entries. Returns boolean indicating whether we should continue.
-    @available(*, deprecated, message: "ListPolicyPrincipals is deprecated.")
+    @available(*, deprecated, message:"ListPolicyPrincipals is deprecated.")
     public func listPolicyPrincipalsPaginator(
         _ input: ListPolicyPrincipalsRequest,
         logger: Logger = AWSClient.loggingDisabled,
@@ -1464,7 +1464,7 @@ extension IoT {
     ///   - eventLoop: EventLoop to run this process on
     ///   - onPage: closure called with each paginated response. It combines an accumulating result with the contents of response. This combined result is then returned
     ///         along with a boolean indicating if the paginate operation should continue.
-    @available(*, deprecated, message: "ListPrincipalPolicies is deprecated.")
+    @available(*, deprecated, message:"ListPrincipalPolicies is deprecated.")
     public func listPrincipalPoliciesPaginator<Result>(
         _ input: ListPrincipalPoliciesRequest,
         _ initialValue: Result,
@@ -1490,7 +1490,7 @@ extension IoT {
     ///   - logger: Logger used flot logging
     ///   - eventLoop: EventLoop to run this process on
     ///   - onPage: closure called with each block of entries. Returns boolean indicating whether we should continue.
-    @available(*, deprecated, message: "ListPrincipalPolicies is deprecated.")
+    @available(*, deprecated, message:"ListPrincipalPolicies is deprecated.")
     public func listPrincipalPoliciesPaginator(
         _ input: ListPrincipalPoliciesRequest,
         logger: Logger = AWSClient.loggingDisabled,

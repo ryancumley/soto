@@ -128,7 +128,7 @@ public struct ElasticTranscoder: AWSService {
     }
 
     /// The TestRole operation tests the IAM role used to create the pipeline. The TestRole action lets you determine whether the IAM role you are using has sufficient permissions to let Elastic Transcoder perform tasks associated with the transcoding process. The action attempts to assume the specified IAM role, checks read access to the input and output buckets, and tries to send a test notification to Amazon SNS topics that you specify.
-    @available(*, deprecated, message: "TestRole is deprecated.")
+    @available(*, deprecated, message:"TestRole is deprecated.")
     public func testRole(_ input: TestRoleRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<TestRoleResponse> {
         return self.client.execute(operation: "TestRole", path: "/2012-09-25/roleTests", httpMethod: .POST, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }

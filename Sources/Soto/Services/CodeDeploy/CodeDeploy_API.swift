@@ -84,7 +84,7 @@ public struct CodeDeploy: AWSService {
     }
 
     ///   This method works, but is deprecated. Use BatchGetDeploymentTargets instead.    Returns an array of one or more instances associated with a deployment. This method works with EC2/On-premises and AWS Lambda compute platforms. The newer BatchGetDeploymentTargets works with all compute platforms. The maximum number of instances that can be returned is 25.
-    @available(*, deprecated, message: "This operation is deprecated, use BatchGetDeploymentTargets instead.")
+    @available(*, deprecated, message:"This operation is deprecated, use BatchGetDeploymentTargets instead.")
     public func batchGetDeploymentInstances(_ input: BatchGetDeploymentInstancesInput, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<BatchGetDeploymentInstancesOutput> {
         return self.client.execute(operation: "BatchGetDeploymentInstances", path: "/", httpMethod: .POST, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
@@ -185,7 +185,7 @@ public struct CodeDeploy: AWSService {
     }
 
     /// Gets information about an instance as part of a deployment.
-    @available(*, deprecated, message: "This operation is deprecated, use GetDeploymentTarget instead.")
+    @available(*, deprecated, message:"This operation is deprecated, use GetDeploymentTarget instead.")
     public func getDeploymentInstance(_ input: GetDeploymentInstanceInput, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<GetDeploymentInstanceOutput> {
         return self.client.execute(operation: "GetDeploymentInstance", path: "/", httpMethod: .POST, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
@@ -221,7 +221,7 @@ public struct CodeDeploy: AWSService {
     }
 
     ///   The newer BatchGetDeploymentTargets should be used instead because it works with all compute types. ListDeploymentInstances throws an exception if it is used with a compute platform other than EC2/On-premises or AWS Lambda.    Lists the instance for a deployment associated with the IAM user or AWS account.
-    @available(*, deprecated, message: "This operation is deprecated, use ListDeploymentTargets instead.")
+    @available(*, deprecated, message:"This operation is deprecated, use ListDeploymentTargets instead.")
     public func listDeploymentInstances(_ input: ListDeploymentInstancesInput, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<ListDeploymentInstancesOutput> {
         return self.client.execute(operation: "ListDeploymentInstances", path: "/", httpMethod: .POST, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
@@ -272,7 +272,7 @@ public struct CodeDeploy: AWSService {
     }
 
     /// In a blue/green deployment, overrides any specified wait time and starts terminating instances immediately after the traffic routing is complete.
-    @available(*, deprecated, message: "This operation is deprecated, use ContinueDeployment with DeploymentWaitType instead.")
+    @available(*, deprecated, message:"This operation is deprecated, use ContinueDeployment with DeploymentWaitType instead.")
     @discardableResult public func skipWaitTimeForInstanceTermination(_ input: SkipWaitTimeForInstanceTerminationInput, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<Void> {
         return self.client.execute(operation: "SkipWaitTimeForInstanceTermination", path: "/", httpMethod: .POST, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }

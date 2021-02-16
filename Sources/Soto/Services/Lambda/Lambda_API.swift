@@ -213,7 +213,7 @@ public struct Lambda: AWSService {
     }
 
     ///  For asynchronous function invocation, use Invoke.  Invokes a function asynchronously.
-    @available(*, deprecated, message: "InvokeAsync is deprecated.")
+    @available(*, deprecated, message:"InvokeAsync is deprecated.")
     public func invokeAsync(_ input: InvokeAsyncRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<InvokeAsyncResponse> {
         return self.client.execute(operation: "InvokeAsync", path: "/2014-11-13/functions/{FunctionName}/invoke-async/", httpMethod: .POST, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }

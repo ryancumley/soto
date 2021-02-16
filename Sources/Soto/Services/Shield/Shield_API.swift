@@ -109,7 +109,7 @@ public struct Shield: AWSService {
     }
 
     /// Removes AWS Shield Advanced from an account. AWS Shield Advanced requires a 1-year subscription commitment. You cannot delete a subscription prior to the completion of that commitment.
-    @available(*, deprecated, message: "DeleteSubscription is deprecated.")
+    @available(*, deprecated, message:"DeleteSubscription is deprecated.")
     public func deleteSubscription(_ input: DeleteSubscriptionRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<DeleteSubscriptionResponse> {
         return self.client.execute(operation: "DeleteSubscription", path: "/", httpMethod: .POST, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }

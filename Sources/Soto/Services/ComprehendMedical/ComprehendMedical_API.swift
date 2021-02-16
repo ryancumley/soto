@@ -84,7 +84,7 @@ public struct ComprehendMedical: AWSService {
     }
 
     /// The DetectEntities operation is deprecated. You should use the DetectEntitiesV2 operation instead.  Inspects the clinical text for a variety of medical entities and returns specific information about them such as entity category, location, and confidence score on that information .
-    @available(*, deprecated, message: "This operation is deprecated, use DetectEntitiesV2 instead.")
+    @available(*, deprecated, message:"This operation is deprecated, use DetectEntitiesV2 instead.")
     public func detectEntities(_ input: DetectEntitiesRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<DetectEntitiesResponse> {
         return self.client.execute(operation: "DetectEntities", path: "/", httpMethod: .POST, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }

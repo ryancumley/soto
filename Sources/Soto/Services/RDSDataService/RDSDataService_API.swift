@@ -78,7 +78,7 @@ public struct RDSDataService: AWSService {
     }
 
     /// Runs one or more SQL statements.  This operation is deprecated. Use the BatchExecuteStatement or ExecuteStatement operation.
-    @available(*, deprecated, message: "The ExecuteSql API is deprecated, please use the ExecuteStatement API.")
+    @available(*, deprecated, message:"The ExecuteSql API is deprecated, please use the ExecuteStatement API.")
     public func executeSql(_ input: ExecuteSqlRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<ExecuteSqlResponse> {
         return self.client.execute(operation: "ExecuteSql", path: "/ExecuteSql", httpMethod: .POST, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }

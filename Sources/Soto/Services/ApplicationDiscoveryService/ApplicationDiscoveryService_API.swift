@@ -109,7 +109,7 @@ public struct ApplicationDiscoveryService: AWSService {
     }
 
     ///  DescribeExportConfigurations is deprecated. Use DescribeImportTasks, instead.
-    @available(*, deprecated, message: "DescribeExportConfigurations is deprecated.")
+    @available(*, deprecated, message:"DescribeExportConfigurations is deprecated.")
     public func describeExportConfigurations(_ input: DescribeExportConfigurationsRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<DescribeExportConfigurationsResponse> {
         return self.client.execute(operation: "DescribeExportConfigurations", path: "/", httpMethod: .POST, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
@@ -135,7 +135,7 @@ public struct ApplicationDiscoveryService: AWSService {
     }
 
     /// Deprecated. Use StartExportTask instead. Exports all discovered configuration data to an Amazon S3 bucket or an application that enables you to view and evaluate the data. Data includes tags and tag associations, processes, connections, servers, and system performance. This API returns an export ID that you can query using the DescribeExportConfigurations API. The system imposes a limit of two configuration exports in six hours.
-    @available(*, deprecated, message: "ExportConfigurations is deprecated.")
+    @available(*, deprecated, message:"ExportConfigurations is deprecated.")
     public func exportConfigurations(logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<ExportConfigurationsResponse> {
         return self.client.execute(operation: "ExportConfigurations", path: "/", httpMethod: .POST, serviceConfig: self.config, logger: logger, on: eventLoop)
     }

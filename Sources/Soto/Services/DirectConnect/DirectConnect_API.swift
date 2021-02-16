@@ -70,7 +70,7 @@ public struct DirectConnect: AWSService {
     }
 
     /// Deprecated. Use AllocateHostedConnection instead. Creates a hosted connection on an interconnect. Allocates a VLAN number and a specified amount of bandwidth for use by a hosted connection on the specified interconnect.  Intended for use by AWS Direct Connect Partners only.
-    @available(*, deprecated, message: "AllocateConnectionOnInterconnect is deprecated.")
+    @available(*, deprecated, message:"AllocateConnectionOnInterconnect is deprecated.")
     public func allocateConnectionOnInterconnect(_ input: AllocateConnectionOnInterconnectRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<Connection> {
         return self.client.execute(operation: "AllocateConnectionOnInterconnect", path: "/", httpMethod: .POST, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
@@ -226,7 +226,7 @@ public struct DirectConnect: AWSService {
     }
 
     /// Deprecated. Use DescribeLoa instead. Gets the LOA-CFA for a connection. The Letter of Authorization - Connecting Facility Assignment (LOA-CFA) is a document that your APN partner or service provider uses when establishing your cross connect to AWS at the colocation facility. For more information, see Requesting Cross Connects at AWS Direct Connect Locations in the AWS Direct Connect User Guide.
-    @available(*, deprecated, message: "DescribeConnectionLoa is deprecated.")
+    @available(*, deprecated, message:"DescribeConnectionLoa is deprecated.")
     public func describeConnectionLoa(_ input: DescribeConnectionLoaRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<DescribeConnectionLoaResponse> {
         return self.client.execute(operation: "DescribeConnectionLoa", path: "/", httpMethod: .POST, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
@@ -237,7 +237,7 @@ public struct DirectConnect: AWSService {
     }
 
     /// Deprecated. Use DescribeHostedConnections instead. Lists the connections that have been provisioned on the specified interconnect.  Intended for use by AWS Direct Connect Partners only.
-    @available(*, deprecated, message: "DescribeConnectionsOnInterconnect is deprecated.")
+    @available(*, deprecated, message:"DescribeConnectionsOnInterconnect is deprecated.")
     public func describeConnectionsOnInterconnect(_ input: DescribeConnectionsOnInterconnectRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<Connections> {
         return self.client.execute(operation: "DescribeConnectionsOnInterconnect", path: "/", httpMethod: .POST, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
@@ -268,7 +268,7 @@ public struct DirectConnect: AWSService {
     }
 
     /// Deprecated. Use DescribeLoa instead. Gets the LOA-CFA for the specified interconnect. The Letter of Authorization - Connecting Facility Assignment (LOA-CFA) is a document that is used when establishing your cross connect to AWS at the colocation facility. For more information, see Requesting Cross Connects at AWS Direct Connect Locations in the AWS Direct Connect User Guide.
-    @available(*, deprecated, message: "DescribeInterconnectLoa is deprecated.")
+    @available(*, deprecated, message:"DescribeInterconnectLoa is deprecated.")
     public func describeInterconnectLoa(_ input: DescribeInterconnectLoaRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<DescribeInterconnectLoaResponse> {
         return self.client.execute(operation: "DescribeInterconnectLoa", path: "/", httpMethod: .POST, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }

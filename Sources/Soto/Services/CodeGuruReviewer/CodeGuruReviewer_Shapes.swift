@@ -60,6 +60,7 @@ extension CodeGuruReviewer {
     // MARK: Shapes
 
     public struct AssociateRepositoryRequest: AWSEncodableShape {
+
         /// Amazon CodeGuru Reviewer uses this value to prevent the accidental creation of duplicate repository associations if there are failures and retries.
         public let clientRequestToken: String?
         /// The repository to associate.
@@ -93,6 +94,7 @@ extension CodeGuruReviewer {
     }
 
     public struct AssociateRepositoryResponse: AWSDecodableShape {
+
         /// Information about the repository association.
         public let repositoryAssociation: RepositoryAssociation?
         ///  An array of key-value pairs used to tag an associated repository. A tag is a custom attribute label with two parts:    A tag key (for example, CostCenter, Environment, Project, or Secret). Tag keys are case sensitive.   An optional field known as a tag value (for example, 111122223333, Production, or a team name). Omitting the tag value is the same as using an empty string. Like tag keys, tag values are case sensitive.
@@ -110,6 +112,7 @@ extension CodeGuruReviewer {
     }
 
     public struct CodeCommitRepository: AWSEncodableShape {
+
         /// The name of the AWS CodeCommit repository. For more information, see repositoryName in the AWS CodeCommit API Reference.
         public let name: String
 
@@ -129,6 +132,7 @@ extension CodeGuruReviewer {
     }
 
     public struct CodeReview: AWSDecodableShape {
+
         ///  The Amazon Resource Name (ARN) of the  RepositoryAssociation  that contains the reviewed source code. You can retrieve associated repository ARNs by calling  ListRepositoryAssociations .
         public let associationArn: String?
         /// The Amazon Resource Name (ARN) of the  CodeReview  object.
@@ -194,6 +198,7 @@ extension CodeGuruReviewer {
     }
 
     public struct CodeReviewSummary: AWSDecodableShape {
+
         /// The Amazon Resource Name (ARN) of the  CodeReview  object.
         public let codeReviewArn: String?
         ///  The time, in milliseconds since the epoch, when the code review was created.
@@ -247,6 +252,7 @@ extension CodeGuruReviewer {
     }
 
     public struct CodeReviewType: AWSEncodableShape {
+
         ///  A code review that analyzes all code under a specified branch in an associated respository. The assocated repository is specified using its ARN in  CreateCodeReview .
         public let repositoryAnalysis: RepositoryAnalysis
 
@@ -264,6 +270,7 @@ extension CodeGuruReviewer {
     }
 
     public struct CommitDiffSourceCodeType: AWSDecodableShape {
+
         ///  The SHA of the destination commit used to generate a commit diff.
         public let destinationCommit: String?
         ///  The SHA of the source commit used to generate a commit diff.
@@ -281,6 +288,7 @@ extension CodeGuruReviewer {
     }
 
     public struct CreateCodeReviewRequest: AWSEncodableShape {
+
         ///  Amazon CodeGuru Reviewer uses this value to prevent the accidental creation of duplicate code reviews if there are failures and retries.
         public let clientRequestToken: String?
         ///  The name of the code review. The name of each code review in your AWS account must be unique.
@@ -319,6 +327,7 @@ extension CodeGuruReviewer {
     }
 
     public struct CreateCodeReviewResponse: AWSDecodableShape {
+
         public let codeReview: CodeReview?
 
         public init(codeReview: CodeReview? = nil) {
@@ -352,6 +361,7 @@ extension CodeGuruReviewer {
     }
 
     public struct DescribeCodeReviewResponse: AWSDecodableShape {
+
         ///  Information about the code review.
         public let codeReview: CodeReview?
 
@@ -366,8 +376,8 @@ extension CodeGuruReviewer {
 
     public struct DescribeRecommendationFeedbackRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "codeReviewArn", location: .uri(locationName: "CodeReviewArn")),
-            AWSMemberEncoding(label: "recommendationId", location: .querystring(locationName: "RecommendationId")),
+            AWSMemberEncoding(label: "codeReviewArn", location: .uri(locationName: "CodeReviewArn")), 
+            AWSMemberEncoding(label: "recommendationId", location: .querystring(locationName: "RecommendationId")), 
             AWSMemberEncoding(label: "userId", location: .querystring(locationName: "UserId"))
         ]
 
@@ -398,6 +408,7 @@ extension CodeGuruReviewer {
     }
 
     public struct DescribeRecommendationFeedbackResponse: AWSDecodableShape {
+
         ///  The recommendation feedback given by the user.
         public let recommendationFeedback: RecommendationFeedback?
 
@@ -432,6 +443,7 @@ extension CodeGuruReviewer {
     }
 
     public struct DescribeRepositoryAssociationResponse: AWSDecodableShape {
+
         /// Information about the repository association.
         public let repositoryAssociation: RepositoryAssociation?
         ///  An array of key-value pairs used to tag an associated repository. A tag is a custom attribute label with two parts:    A tag key (for example, CostCenter, Environment, Project, or Secret). Tag keys are case sensitive.   An optional field known as a tag value (for example, 111122223333, Production, or a team name). Omitting the tag value is the same as using an empty string. Like tag keys, tag values are case sensitive.
@@ -470,6 +482,7 @@ extension CodeGuruReviewer {
     }
 
     public struct DisassociateRepositoryResponse: AWSDecodableShape {
+
         /// Information about the disassociated repository.
         public let repositoryAssociation: RepositoryAssociation?
         ///  An array of key-value pairs used to tag an associated repository. A tag is a custom attribute label with two parts:    A tag key (for example, CostCenter, Environment, Project, or Secret). Tag keys are case sensitive.   An optional field known as a tag value (for example, 111122223333, Production, or a team name). Omitting the tag value is the same as using an empty string. Like tag keys, tag values are case sensitive.
@@ -488,11 +501,11 @@ extension CodeGuruReviewer {
 
     public struct ListCodeReviewsRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "MaxResults")),
-            AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "NextToken")),
-            AWSMemberEncoding(label: "providerTypes", location: .querystring(locationName: "ProviderTypes")),
-            AWSMemberEncoding(label: "repositoryNames", location: .querystring(locationName: "RepositoryNames")),
-            AWSMemberEncoding(label: "states", location: .querystring(locationName: "States")),
+            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "MaxResults")), 
+            AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "NextToken")), 
+            AWSMemberEncoding(label: "providerTypes", location: .querystring(locationName: "ProviderTypes")), 
+            AWSMemberEncoding(label: "repositoryNames", location: .querystring(locationName: "RepositoryNames")), 
+            AWSMemberEncoding(label: "states", location: .querystring(locationName: "States")), 
             AWSMemberEncoding(label: "type", location: .querystring(locationName: "Type"))
         ]
 
@@ -540,6 +553,7 @@ extension CodeGuruReviewer {
     }
 
     public struct ListCodeReviewsResponse: AWSDecodableShape {
+
         ///  A list of code reviews that meet the criteria of the request.
         public let codeReviewSummaries: [CodeReviewSummary]?
         ///  Pagination token.
@@ -558,10 +572,10 @@ extension CodeGuruReviewer {
 
     public struct ListRecommendationFeedbackRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "codeReviewArn", location: .uri(locationName: "CodeReviewArn")),
-            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "MaxResults")),
-            AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "NextToken")),
-            AWSMemberEncoding(label: "recommendationIds", location: .querystring(locationName: "RecommendationIds")),
+            AWSMemberEncoding(label: "codeReviewArn", location: .uri(locationName: "CodeReviewArn")), 
+            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "MaxResults")), 
+            AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "NextToken")), 
+            AWSMemberEncoding(label: "recommendationIds", location: .querystring(locationName: "RecommendationIds")), 
             AWSMemberEncoding(label: "userIds", location: .querystring(locationName: "UserIds"))
         ]
 
@@ -610,6 +624,7 @@ extension CodeGuruReviewer {
     }
 
     public struct ListRecommendationFeedbackResponse: AWSDecodableShape {
+
         ///  If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged.
         public let nextToken: String?
         ///  Recommendation feedback summaries corresponding to the code review ARN.
@@ -628,8 +643,8 @@ extension CodeGuruReviewer {
 
     public struct ListRecommendationsRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "codeReviewArn", location: .uri(locationName: "CodeReviewArn")),
-            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "MaxResults")),
+            AWSMemberEncoding(label: "codeReviewArn", location: .uri(locationName: "CodeReviewArn")), 
+            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "MaxResults")), 
             AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "NextToken"))
         ]
 
@@ -660,6 +675,7 @@ extension CodeGuruReviewer {
     }
 
     public struct ListRecommendationsResponse: AWSDecodableShape {
+
         ///  Pagination token.
         public let nextToken: String?
         ///  List of recommendations for the requested code review.
@@ -678,11 +694,11 @@ extension CodeGuruReviewer {
 
     public struct ListRepositoryAssociationsRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "MaxResults")),
-            AWSMemberEncoding(label: "names", location: .querystring(locationName: "Name")),
-            AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "NextToken")),
-            AWSMemberEncoding(label: "owners", location: .querystring(locationName: "Owner")),
-            AWSMemberEncoding(label: "providerTypes", location: .querystring(locationName: "ProviderType")),
+            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "MaxResults")), 
+            AWSMemberEncoding(label: "names", location: .querystring(locationName: "Name")), 
+            AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "NextToken")), 
+            AWSMemberEncoding(label: "owners", location: .querystring(locationName: "Owner")), 
+            AWSMemberEncoding(label: "providerTypes", location: .querystring(locationName: "ProviderType")), 
             AWSMemberEncoding(label: "states", location: .querystring(locationName: "State"))
         ]
 
@@ -737,6 +753,7 @@ extension CodeGuruReviewer {
     }
 
     public struct ListRepositoryAssociationsResponse: AWSDecodableShape {
+
         /// The nextToken value to include in a future ListRecommendations request. When the results of a ListRecommendations request exceed maxResults, this value can be used to retrieve the next page of results. This value is null when there are no more results to return.
         public let nextToken: String?
         /// A list of repository associations that meet the criteria of the request.
@@ -775,6 +792,7 @@ extension CodeGuruReviewer {
     }
 
     public struct ListTagsForResourceResponse: AWSDecodableShape {
+
         ///  An array of key-value pairs used to tag an associated repository. A tag is a custom attribute label with two parts:    A tag key (for example, CostCenter, Environment, Project, or Secret). Tag keys are case sensitive.   An optional field known as a tag value (for example, 111122223333, Production, or a team name). Omitting the tag value is the same as using an empty string. Like tag keys, tag values are case sensitive.
         public let tags: [String: String]?
 
@@ -788,6 +806,7 @@ extension CodeGuruReviewer {
     }
 
     public struct Metrics: AWSDecodableShape {
+
         ///  Total number of recommendations found in the code review.
         public let findingsCount: Int64?
         ///  Lines of code metered in the code review. For the initial code review pull request and all subsequent revisions, this includes all lines of code in the files added to the pull request. In subsequent revisions, for files that already existed in the pull request, this includes only the changed lines of code. In both cases, this does not include non-code lines such as comments and import statements. For example, if you submit a pull request containing 5 files, each with 500 lines of code, and in a subsequent revision you added a new file with 200 lines of code, and also modified a total of 25 lines across the initial 5 files, MeteredLinesOfCodeCount includes the first 5 files (5 * 500 = 2,500 lines), the new file (200 lines) and the 25 changed lines of code for a total of 2,725 lines of code.
@@ -805,6 +824,7 @@ extension CodeGuruReviewer {
     }
 
     public struct MetricsSummary: AWSDecodableShape {
+
         ///  Total number of recommendations found in the code review.
         public let findingsCount: Int64?
         ///  Lines of code metered in the code review. For the initial code review pull request and all subsequent revisions, this includes all lines of code in the files added to the pull request. In subsequent revisions, for files that already existed in the pull request, this includes only the changed lines of code. In both cases, this does not include non-code lines such as comments and import statements. For example, if you submit a pull request containing 5 files, each with 500 lines of code, and in a subsequent revision you added a new file with 200 lines of code, and also modified a total of 25 lines across the initial 5 files, MeteredLinesOfCodeCount includes the first 5 files (5 * 500 = 2,500 lines), the new file (200 lines) and the 25 changed lines of code for a total of 2,725 lines of code.
@@ -822,6 +842,7 @@ extension CodeGuruReviewer {
     }
 
     public struct PutRecommendationFeedbackRequest: AWSEncodableShape {
+
         /// The Amazon Resource Name (ARN) of the  CodeReview  object.
         public let codeReviewArn: String
         ///  List for storing reactions. Reactions are utf-8 text code for emojis. If you send an empty list it clears all your feedback.
@@ -853,10 +874,15 @@ extension CodeGuruReviewer {
     }
 
     public struct PutRecommendationFeedbackResponse: AWSDecodableShape {
-        public init() {}
+
+
+        public init() {
+        }
+
     }
 
     public struct RecommendationFeedback: AWSDecodableShape {
+
         /// The Amazon Resource Name (ARN) of the  CodeReview  object.
         public let codeReviewArn: String?
         ///  The time at which the feedback was created.
@@ -890,6 +916,7 @@ extension CodeGuruReviewer {
     }
 
     public struct RecommendationFeedbackSummary: AWSDecodableShape {
+
         ///  List for storing reactions. Reactions are utf-8 text code for emojis.
         public let reactions: [Reaction]?
         ///  The recommendation ID that can be used to track the provided recommendations. Later on it can be used to collect the feedback.
@@ -911,6 +938,7 @@ extension CodeGuruReviewer {
     }
 
     public struct RecommendationSummary: AWSDecodableShape {
+
         ///  A description of the recommendation generated by CodeGuru Reviewer for the lines of code between the start line and the end line.
         public let description: String?
         ///  Last line where the recommendation is applicable in the source commit or source branch. For a single line comment the start line and end line values are the same.
@@ -940,6 +968,7 @@ extension CodeGuruReviewer {
     }
 
     public struct Repository: AWSEncodableShape {
+
         ///  Information about a Bitbucket repository.
         public let bitbucket: ThirdPartySourceRepository?
         /// Information about an AWS CodeCommit repository.
@@ -967,6 +996,7 @@ extension CodeGuruReviewer {
     }
 
     public struct RepositoryAnalysis: AWSEncodableShape {
+
         ///  A  SourceCodeType  that specifies the tip of a branch in an associated repository.
         public let repositoryHead: RepositoryHeadSourceCodeType
 
@@ -984,6 +1014,7 @@ extension CodeGuruReviewer {
     }
 
     public struct RepositoryAssociation: AWSDecodableShape {
+
         /// The Amazon Resource Name (ARN) identifying the repository association.
         public let associationArn: String?
         /// The ID of the repository association.
@@ -1033,6 +1064,7 @@ extension CodeGuruReviewer {
     }
 
     public struct RepositoryAssociationSummary: AWSDecodableShape {
+
         ///  The Amazon Resource Name (ARN) of the  RepositoryAssociation  object. You can retrieve this ARN by calling  ListRepositoryAssociations .
         public let associationArn: String?
         ///  The repository association ID.
@@ -1074,6 +1106,7 @@ extension CodeGuruReviewer {
     }
 
     public struct RepositoryHeadSourceCodeType: AWSEncodableShape & AWSDecodableShape {
+
         ///  The name of the branch in an associated repository. The RepositoryHeadSourceCodeType specifies the tip of this branch.
         public let branchName: String
 
@@ -1092,6 +1125,7 @@ extension CodeGuruReviewer {
     }
 
     public struct SourceCodeType: AWSDecodableShape {
+
         ///  A  SourceCodeType  that specifies a commit diff created by a pull request on an associated repository.
         public let commitDiff: CommitDiffSourceCodeType?
         public let repositoryHead: RepositoryHeadSourceCodeType?
@@ -1139,10 +1173,15 @@ extension CodeGuruReviewer {
     }
 
     public struct TagResourceResponse: AWSDecodableShape {
-        public init() {}
+
+
+        public init() {
+        }
+
     }
 
     public struct ThirdPartySourceRepository: AWSEncodableShape {
+
         ///  The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection. Its format is arn:aws:codestar-connections:region-id:aws-account_id:connection/connection-id. For more information, see  Connection  in the AWS CodeStar Connections API Reference.
         public let connectionArn: String
         ///  The name of the third party source repository.
@@ -1177,7 +1216,7 @@ extension CodeGuruReviewer {
 
     public struct UntagResourceRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "resourceArn", location: .uri(locationName: "resourceArn")),
+            AWSMemberEncoding(label: "resourceArn", location: .uri(locationName: "resourceArn")), 
             AWSMemberEncoding(label: "tagKeys", location: .querystring(locationName: "tagKeys"))
         ]
 
@@ -1207,6 +1246,10 @@ extension CodeGuruReviewer {
     }
 
     public struct UntagResourceResponse: AWSDecodableShape {
-        public init() {}
+
+
+        public init() {
+        }
+
     }
 }
