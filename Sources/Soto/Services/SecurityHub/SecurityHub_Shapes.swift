@@ -96,7 +96,7 @@ extension SecurityHub {
     }
 
     public enum Partition: String, CustomStringConvertible, Codable {
-        case aws = "aws"
+        case aws
         case awsCn = "aws-cn"
         case awsUsGov = "aws-us-gov"
         public var description: String { return self.rawValue }
@@ -126,8 +126,8 @@ extension SecurityHub {
     }
 
     public enum SortOrder: String, CustomStringConvertible, Codable {
-        case asc = "asc"
-        case desc = "desc"
+        case asc
+        case desc
         public var description: String { return self.rawValue }
     }
 
@@ -201,7 +201,6 @@ extension SecurityHub {
     // MARK: Shapes
 
     public struct AcceptInvitationRequest: AWSEncodableShape {
-
         /// The ID of the invitation sent from the Security Hub master account.
         public let invitationId: String
         /// The account ID of the Security Hub master account that sent the invitation.
@@ -224,15 +223,10 @@ extension SecurityHub {
     }
 
     public struct AcceptInvitationResponse: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct AccountDetails: AWSEncodableShape {
-
         /// The ID of an AWS account.
         public let accountId: String
         /// The email of an AWS account.
@@ -254,7 +248,6 @@ extension SecurityHub {
     }
 
     public struct Action: AWSEncodableShape & AWSDecodableShape {
-
         /// The type of action that was detected. The possible action types are:    NETWORK_CONNECTION     AWS_API_CALL     DNS_REQUEST     PORT_PROBE
         public let actionType: String?
         /// Included if ActionType is AWS_API_CALL. Provides details about the API call that was detected.
@@ -292,7 +285,6 @@ extension SecurityHub {
     }
 
     public struct ActionLocalIpDetails: AWSEncodableShape & AWSDecodableShape {
-
         /// The IP address.
         public let ipAddressV4: String?
 
@@ -310,7 +302,6 @@ extension SecurityHub {
     }
 
     public struct ActionLocalPortDetails: AWSEncodableShape & AWSDecodableShape {
-
         /// The number of the port.
         public let port: Int?
         /// The port name of the local connection.
@@ -332,7 +323,6 @@ extension SecurityHub {
     }
 
     public struct ActionRemoteIpDetails: AWSEncodableShape & AWSDecodableShape {
-
         /// The city where the remote IP address is located.
         public let city: City?
         /// The country where the remote IP address is located.
@@ -369,7 +359,6 @@ extension SecurityHub {
     }
 
     public struct ActionRemotePortDetails: AWSEncodableShape & AWSDecodableShape {
-
         /// The number of the port.
         public let port: Int?
         /// The port name of the remote connection.
@@ -391,7 +380,6 @@ extension SecurityHub {
     }
 
     public struct ActionTarget: AWSDecodableShape {
-
         /// The ARN for the target action.
         public let actionTargetArn: String
         /// The description of the target action.
@@ -413,7 +401,6 @@ extension SecurityHub {
     }
 
     public struct AdminAccount: AWSDecodableShape {
-
         /// The AWS account identifier of the Security Hub administrator account.
         public let accountId: String?
         /// The current status of the Security Hub administrator account. Indicates whether the account is currently enabled as a Security Hub administrator.
@@ -431,7 +418,6 @@ extension SecurityHub {
     }
 
     public struct AvailabilityZone: AWSEncodableShape & AWSDecodableShape {
-
         /// The ID of the subnet. You can specify one subnet per Availability Zone.
         public let subnetId: String?
         /// The name of the Availability Zone.
@@ -454,7 +440,6 @@ extension SecurityHub {
     }
 
     public struct AwsApiCallAction: AWSEncodableShape & AWSDecodableShape {
-
         /// Identifies the resources that were affected by the API call.
         public let affectedResources: [String: String]?
         /// The name of the API method that was issued.
@@ -510,7 +495,6 @@ extension SecurityHub {
     }
 
     public struct AwsApiCallActionDomainDetails: AWSEncodableShape & AWSDecodableShape {
-
         /// The name of the DNS domain that issued the API call.
         public let domain: String?
 
@@ -528,7 +512,6 @@ extension SecurityHub {
     }
 
     public struct AwsApiGatewayAccessLogSettings: AWSEncodableShape & AWSDecodableShape {
-
         /// The ARN of the CloudWatch Logs log group that receives the access logs.
         public let destinationArn: String?
         /// A single-line format of the access logs of data, as specified by selected $context variables. The format must include at least $context.requestId.
@@ -551,7 +534,6 @@ extension SecurityHub {
     }
 
     public struct AwsApiGatewayCanarySettings: AWSEncodableShape & AWSDecodableShape {
-
         /// The deployment identifier for the canary deployment.
         public let deploymentId: String?
         /// The percentage of traffic that is diverted to a canary deployment.
@@ -585,7 +567,6 @@ extension SecurityHub {
     }
 
     public struct AwsApiGatewayEndpointConfiguration: AWSEncodableShape & AWSDecodableShape {
-
         /// A list of endpoint types for the REST API. For an edge-optimized API, the endpoint type is EDGE. For a Regional API, the endpoint type is REGIONAL. For a private API, the endpoint type is PRIVATE.
         public let types: [String]?
 
@@ -605,7 +586,6 @@ extension SecurityHub {
     }
 
     public struct AwsApiGatewayMethodSettings: AWSEncodableShape & AWSDecodableShape {
-
         /// Indicates whether the cached responses are encrypted.
         public let cacheDataEncrypted: Bool?
         /// Specifies the time to live (TTL), in seconds, for cached responses. The higher the TTL, the longer the response is cached.
@@ -670,7 +650,6 @@ extension SecurityHub {
     }
 
     public struct AwsApiGatewayRestApiDetails: AWSEncodableShape & AWSDecodableShape {
-
         /// The source of the API key for metering requests according to a usage plan.  HEADER indicates whether to read the API key from the X-API-Key header of a request.  AUTHORIZER indicates whether to read the API key from the UsageIdentifierKey from a custom authorizer.
         public let apiKeySource: String?
         /// The list of binary media types supported by the REST API.
@@ -729,7 +708,6 @@ extension SecurityHub {
     }
 
     public struct AwsApiGatewayStageDetails: AWSEncodableShape & AWSDecodableShape {
-
         /// Settings for logging access for the stage.
         public let accessLogSettings: AwsApiGatewayAccessLogSettings?
         /// Indicates whether a cache cluster is enabled for the stage.
@@ -825,7 +803,6 @@ extension SecurityHub {
     }
 
     public struct AwsApiGatewayV2ApiDetails: AWSEncodableShape & AWSDecodableShape {
-
         /// The URI of the API.  Uses the format  &lt;api-id&gt;.execute-api.&lt;region&gt;.amazonaws.com  The stage name is typically appended to the URI to form a complete path to a deployed API stage.
         public let apiEndpoint: String?
         /// The identifier of the API.
@@ -888,7 +865,6 @@ extension SecurityHub {
     }
 
     public struct AwsApiGatewayV2RouteSettings: AWSEncodableShape & AWSDecodableShape {
-
         /// Indicates whether data trace logging is enabled. Data trace logging affects the log entries that are pushed to CloudWatch Logs. Supported only for WebSocket APIs.
         public let dataTraceEnabled: Bool?
         /// Indicates whether detailed metrics are enabled.
@@ -922,7 +898,6 @@ extension SecurityHub {
     }
 
     public struct AwsApiGatewayV2StageDetails: AWSEncodableShape & AWSDecodableShape {
-
         /// Information about settings for logging access for the stage.
         public let accessLogSettings: AwsApiGatewayAccessLogSettings?
         /// Indicates whether the stage is managed by API Gateway.
@@ -996,7 +971,6 @@ extension SecurityHub {
     }
 
     public struct AwsAutoScalingAutoScalingGroupDetails: AWSEncodableShape & AWSDecodableShape {
-
         /// Indicates when the auto scaling group was created. Uses the date-time format specified in RFC 3339 section 5.6, Internet Date/Time Format. The value cannot contain spaces. For example, 2020-03-22T13:22:13.933Z.
         public let createdTime: String?
         /// The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before it checks the health status of an EC2 instance that has come into service.
@@ -1035,7 +1009,6 @@ extension SecurityHub {
     }
 
     public struct AwsCertificateManagerCertificateDetails: AWSEncodableShape & AWSDecodableShape {
-
         /// The ARN of the private certificate authority (CA) that will be used to issue the certificate.
         public let certificateAuthorityArn: String?
         /// Indicates when the certificate was requested. Uses the date-time format specified in RFC 3339 section 5.6, Internet Date/Time Format. The value cannot contain spaces. For example, 2020-03-22T13:22:13.933Z.
@@ -1173,7 +1146,6 @@ extension SecurityHub {
     }
 
     public struct AwsCertificateManagerCertificateDomainValidationOption: AWSEncodableShape & AWSDecodableShape {
-
         /// A fully qualified domain name (FQDN) in the certificate.
         public let domainName: String?
         /// The CNAME record that is added to the DNS database for domain validation.
@@ -1218,7 +1190,6 @@ extension SecurityHub {
     }
 
     public struct AwsCertificateManagerCertificateExtendedKeyUsage: AWSEncodableShape & AWSDecodableShape {
-
         /// The name of an extension value. Indicates the purpose for which the certificate public key can be used.
         public let name: String?
         /// An object identifier (OID) for the extension value. The format is numbers separated by periods.
@@ -1241,7 +1212,6 @@ extension SecurityHub {
     }
 
     public struct AwsCertificateManagerCertificateKeyUsage: AWSEncodableShape & AWSDecodableShape {
-
         /// The key usage extension name.
         public let name: String?
 
@@ -1259,7 +1229,6 @@ extension SecurityHub {
     }
 
     public struct AwsCertificateManagerCertificateOptions: AWSEncodableShape & AWSDecodableShape {
-
         /// Whether to add the certificate to a transparency log. Valid values: DISABLED | ENABLED
         public let certificateTransparencyLoggingPreference: String?
 
@@ -1277,7 +1246,6 @@ extension SecurityHub {
     }
 
     public struct AwsCertificateManagerCertificateRenewalSummary: AWSEncodableShape & AWSDecodableShape {
-
         /// Information about the validation of each domain name in the certificate, as it pertains to AWS Certificate Manager managed renewal. Provided only when the certificate type is AMAZON_ISSUED.
         public let domainValidationOptions: [AwsCertificateManagerCertificateDomainValidationOption]?
         /// The status of the AWS Certificate Manager managed renewal of the certificate. Valid values: PENDING_AUTO_RENEWAL | PENDING_VALIDATION | SUCCESS | FAILED
@@ -1312,7 +1280,6 @@ extension SecurityHub {
     }
 
     public struct AwsCertificateManagerCertificateResourceRecord: AWSEncodableShape & AWSDecodableShape {
-
         /// The name of the resource.
         public let name: String?
         /// The type of resource.
@@ -1340,7 +1307,6 @@ extension SecurityHub {
     }
 
     public struct AwsCloudFrontDistributionCacheBehavior: AWSEncodableShape & AWSDecodableShape {
-
         /// The protocol that viewers can use to access the files in an origin. You can specify the following options:    allow-all - Viewers can use HTTP or HTTPS.    redirect-to-https - CloudFront responds to HTTP requests with an HTTP status code of 301 (Moved Permanently) and the HTTPS URL. The viewer then uses the new URL to resubmit.    https-only - CloudFront responds to HTTP request with an HTTP status code of 403 (Forbidden).
         public let viewerProtocolPolicy: String?
 
@@ -1358,7 +1324,6 @@ extension SecurityHub {
     }
 
     public struct AwsCloudFrontDistributionCacheBehaviors: AWSEncodableShape & AWSDecodableShape {
-
         /// The cache behaviors for the distribution.
         public let items: [AwsCloudFrontDistributionCacheBehavior]?
 
@@ -1378,7 +1343,6 @@ extension SecurityHub {
     }
 
     public struct AwsCloudFrontDistributionDefaultCacheBehavior: AWSEncodableShape & AWSDecodableShape {
-
         /// The protocol that viewers can use to access the files in an origin. You can specify the following options:    allow-all - Viewers can use HTTP or HTTPS.    redirect-to-https - CloudFront responds to HTTP requests with an HTTP status code of 301 (Moved Permanently) and the HTTPS URL. The viewer then uses the new URL to resubmit.    https-only - CloudFront responds to HTTP request with an HTTP status code of 403 (Forbidden).
         public let viewerProtocolPolicy: String?
 
@@ -1396,7 +1360,6 @@ extension SecurityHub {
     }
 
     public struct AwsCloudFrontDistributionDetails: AWSEncodableShape & AWSDecodableShape {
-
         /// Provides information about the cache configuration for the distribution.
         public let cacheBehaviors: AwsCloudFrontDistributionCacheBehaviors?
         /// The default cache behavior for the configuration.
@@ -1463,7 +1426,6 @@ extension SecurityHub {
     }
 
     public struct AwsCloudFrontDistributionLogging: AWSEncodableShape & AWSDecodableShape {
-
         /// The Amazon S3 bucket to store the access logs in.
         public let bucket: String?
         /// With this field, you can enable or disable the selected distribution.
@@ -1494,7 +1456,6 @@ extension SecurityHub {
     }
 
     public struct AwsCloudFrontDistributionOriginGroup: AWSEncodableShape & AWSDecodableShape {
-
         /// Provides the criteria for an origin group to fail over.
         public let failoverCriteria: AwsCloudFrontDistributionOriginGroupFailover?
 
@@ -1508,7 +1469,6 @@ extension SecurityHub {
     }
 
     public struct AwsCloudFrontDistributionOriginGroupFailover: AWSEncodableShape & AWSDecodableShape {
-
         /// Information about the status codes that cause an origin group to fail over.
         public let statusCodes: AwsCloudFrontDistributionOriginGroupFailoverStatusCodes?
 
@@ -1522,7 +1482,6 @@ extension SecurityHub {
     }
 
     public struct AwsCloudFrontDistributionOriginGroupFailoverStatusCodes: AWSEncodableShape & AWSDecodableShape {
-
         /// The list of status code values that can cause a failover to the next origin.
         public let items: [Int]?
         /// The number of status codes that can cause a failover.
@@ -1540,7 +1499,6 @@ extension SecurityHub {
     }
 
     public struct AwsCloudFrontDistributionOriginGroups: AWSEncodableShape & AWSDecodableShape {
-
         /// The list of origin groups.
         public let items: [AwsCloudFrontDistributionOriginGroup]?
 
@@ -1554,7 +1512,6 @@ extension SecurityHub {
     }
 
     public struct AwsCloudFrontDistributionOriginItem: AWSEncodableShape & AWSDecodableShape {
-
         /// Amazon S3 origins: The DNS name of the Amazon S3 bucket from which you want CloudFront to get objects for this origin.
         public let domainName: String?
         /// A unique identifier for the origin or origin group.
@@ -1587,7 +1544,6 @@ extension SecurityHub {
     }
 
     public struct AwsCloudFrontDistributionOriginS3OriginConfig: AWSEncodableShape & AWSDecodableShape {
-
         /// The CloudFront origin access identity to associate with the origin.
         public let originAccessIdentity: String?
 
@@ -1605,7 +1561,6 @@ extension SecurityHub {
     }
 
     public struct AwsCloudFrontDistributionOrigins: AWSEncodableShape & AWSDecodableShape {
-
         /// A complex type that contains origins or origin groups for this distribution.
         public let items: [AwsCloudFrontDistributionOriginItem]?
 
@@ -1625,7 +1580,6 @@ extension SecurityHub {
     }
 
     public struct AwsCloudTrailTrailDetails: AWSEncodableShape & AWSDecodableShape {
-
         /// The ARN of the log group that CloudTrail logs are delivered to.
         public let cloudWatchLogsLogGroupArn: String?
         /// The ARN of the role that the CloudWatch Logs endpoint assumes when it writes to the log group.
@@ -1708,7 +1662,6 @@ extension SecurityHub {
     }
 
     public struct AwsCodeBuildProjectDetails: AWSEncodableShape & AWSDecodableShape {
-
         /// The AWS Key Management Service (AWS KMS) customer master key (CMK) used to encrypt the build output artifacts. You can specify either the Amazon Resource Name (ARN) of the CMK or, if available, the CMK alias (using the format alias/alias-name).
         public let encryptionKey: String?
         /// Information about the build environment for this build project.
@@ -1751,7 +1704,6 @@ extension SecurityHub {
     }
 
     public struct AwsCodeBuildProjectEnvironment: AWSEncodableShape & AWSDecodableShape {
-
         /// The certificate to use with this build project.
         public let certificate: String?
         /// The type of credentials AWS CodeBuild uses to pull images in your build. Valid values:    CODEBUILD specifies that AWS CodeBuild uses its own credentials. This requires that you modify your ECR repository policy to trust the AWS CodeBuild service principal.    SERVICE_ROLE specifies that AWS CodeBuild uses your build project's service role.   When you use a cross-account or private registry image, you must use SERVICE_ROLE credentials. When you use an AWS CodeBuild curated image, you must use CODEBUILD credentials.
@@ -1784,7 +1736,6 @@ extension SecurityHub {
     }
 
     public struct AwsCodeBuildProjectEnvironmentRegistryCredential: AWSEncodableShape & AWSDecodableShape {
-
         /// The Amazon Resource Name (ARN) or name of credentials created using AWS Secrets Manager.  The credential can use the name of the credentials only if they exist in your current AWS Region.
         public let credential: String?
         /// The service that created the credentials to access a private Docker registry. The valid value, SECRETS_MANAGER, is for AWS Secrets Manager.
@@ -1807,7 +1758,6 @@ extension SecurityHub {
     }
 
     public struct AwsCodeBuildProjectSource: AWSEncodableShape & AWSDecodableShape {
-
         /// Information about the Git clone depth for the build project.
         public let gitCloneDepth: Int?
         /// Whether to ignore SSL warnings while connecting to the project source code.
@@ -1838,7 +1788,6 @@ extension SecurityHub {
     }
 
     public struct AwsCodeBuildProjectVpcConfig: AWSEncodableShape & AWSDecodableShape {
-
         /// A list of one or more security group IDs in your Amazon VPC.
         public let securityGroupIds: [String]?
         /// A list of one or more subnet IDs in your Amazon VPC.
@@ -1870,7 +1819,6 @@ extension SecurityHub {
     }
 
     public struct AwsCorsConfiguration: AWSEncodableShape & AWSDecodableShape {
-
         /// Indicates whether the CORS request includes credentials.
         public let allowCredentials: Bool?
         /// The allowed headers for CORS requests.
@@ -1919,7 +1867,6 @@ extension SecurityHub {
     }
 
     public struct AwsDynamoDbTableAttributeDefinition: AWSEncodableShape & AWSDecodableShape {
-
         /// The name of the attribute.
         public let attributeName: String?
         /// The type of the attribute.
@@ -1942,7 +1889,6 @@ extension SecurityHub {
     }
 
     public struct AwsDynamoDbTableBillingModeSummary: AWSEncodableShape & AWSDecodableShape {
-
         /// The method used to charge for read and write throughput and to manage capacity.
         public let billingMode: String?
         /// If the billing mode is PAY_PER_REQUEST, indicates when the billing mode was set to that value. Uses the date-time format specified in RFC 3339 section 5.6, Internet Date/Time Format. The value cannot contain spaces. For example, 2020-03-22T13:22:13.933Z.
@@ -1965,7 +1911,6 @@ extension SecurityHub {
     }
 
     public struct AwsDynamoDbTableDetails: AWSEncodableShape & AWSDecodableShape {
-
         /// A list of attribute definitions for the table.
         public let attributeDefinitions: [AwsDynamoDbTableAttributeDefinition]?
         /// Information about the billing for read/write capacity on the table.
@@ -2081,7 +2026,6 @@ extension SecurityHub {
     }
 
     public struct AwsDynamoDbTableGlobalSecondaryIndex: AWSEncodableShape & AWSDecodableShape {
-
         /// Whether the index is currently backfilling.
         public let backfilling: Bool?
         /// The ARN of the index.
@@ -2138,7 +2082,6 @@ extension SecurityHub {
     }
 
     public struct AwsDynamoDbTableKeySchema: AWSEncodableShape & AWSDecodableShape {
-
         /// The name of the key schema attribute.
         public let attributeName: String?
         /// The type of key used for the key schema attribute.
@@ -2161,7 +2104,6 @@ extension SecurityHub {
     }
 
     public struct AwsDynamoDbTableLocalSecondaryIndex: AWSEncodableShape & AWSDecodableShape {
-
         /// The ARN of the index.
         public let indexArn: String?
         /// The name of the index.
@@ -2196,7 +2138,6 @@ extension SecurityHub {
     }
 
     public struct AwsDynamoDbTableProjection: AWSEncodableShape & AWSDecodableShape {
-
         /// The nonkey attributes that are projected into the index. For each attribute, provide the attribute name.
         public let nonKeyAttributes: [String]?
         /// The types of attributes that are projected into the index.
@@ -2221,7 +2162,6 @@ extension SecurityHub {
     }
 
     public struct AwsDynamoDbTableProvisionedThroughput: AWSEncodableShape & AWSDecodableShape {
-
         /// Indicates when the provisioned throughput was last decreased. Uses the date-time format specified in RFC 3339 section 5.6, Internet Date/Time Format. The value cannot contain spaces. For example, 2020-03-22T13:22:13.933Z.
         public let lastDecreaseDateTime: String?
         /// Indicates when the provisioned throughput was last increased. Uses the date-time format specified in RFC 3339 section 5.6, Internet Date/Time Format. The value cannot contain spaces. For example, 2020-03-22T13:22:13.933Z.
@@ -2256,7 +2196,6 @@ extension SecurityHub {
     }
 
     public struct AwsDynamoDbTableProvisionedThroughputOverride: AWSEncodableShape & AWSDecodableShape {
-
         /// The read capacity units for the replica.
         public let readCapacityUnits: Int?
 
@@ -2270,7 +2209,6 @@ extension SecurityHub {
     }
 
     public struct AwsDynamoDbTableReplica: AWSEncodableShape & AWSDecodableShape {
-
         /// List of global secondary indexes for the replica.
         public let globalSecondaryIndexes: [AwsDynamoDbTableReplicaGlobalSecondaryIndex]?
         /// The identifier of the AWS KMS customer master key (CMK) that will be used for AWS KMS encryption for the replica.
@@ -2314,7 +2252,6 @@ extension SecurityHub {
     }
 
     public struct AwsDynamoDbTableReplicaGlobalSecondaryIndex: AWSEncodableShape & AWSDecodableShape {
-
         /// The name of the index.
         public let indexName: String?
         /// Replica-specific configuration for the provisioned throughput for the index.
@@ -2336,7 +2273,6 @@ extension SecurityHub {
     }
 
     public struct AwsDynamoDbTableRestoreSummary: AWSEncodableShape & AWSDecodableShape {
-
         /// Indicates the point in time that the table was restored to. Uses the date-time format specified in RFC 3339 section 5.6, Internet Date/Time Format. The value cannot contain spaces. For example, 2020-03-22T13:22:13.933Z.
         public let restoreDateTime: String?
         /// Whether a restore is currently in progress.
@@ -2368,7 +2304,6 @@ extension SecurityHub {
     }
 
     public struct AwsDynamoDbTableSseDescription: AWSEncodableShape & AWSDecodableShape {
-
         /// If the key is inaccessible, the date and time when DynamoDB detected that the key was inaccessible. Uses the date-time format specified in RFC 3339 section 5.6, Internet Date/Time Format. The value cannot contain spaces. For example, 2020-03-22T13:22:13.933Z.
         public let inaccessibleEncryptionDateTime: String?
         /// The ARN of the AWS KMS customer master key (CMK) that is used for the AWS KMS encryption.
@@ -2401,7 +2336,6 @@ extension SecurityHub {
     }
 
     public struct AwsDynamoDbTableStreamSpecification: AWSEncodableShape & AWSDecodableShape {
-
         /// Indicates whether DynamoDB Streams is enabled on the table.
         public let streamEnabled: Bool?
         /// Determines the information that is written to the table.
@@ -2423,7 +2357,6 @@ extension SecurityHub {
     }
 
     public struct AwsEc2EipDetails: AWSEncodableShape & AWSDecodableShape {
-
         /// The identifier that AWS assigns to represent the allocation of the Elastic IP address for use with Amazon VPC.
         public let allocationId: String?
         /// The identifier that represents the association of the Elastic IP address with an EC2 instance.
@@ -2486,7 +2419,6 @@ extension SecurityHub {
     }
 
     public struct AwsEc2InstanceDetails: AWSEncodableShape & AWSDecodableShape {
-
         /// The IAM profile ARN of the instance.
         public let iamInstanceProfileArn: String?
         /// The Amazon Machine Image (AMI) ID of the instance.
@@ -2548,7 +2480,6 @@ extension SecurityHub {
     }
 
     public struct AwsEc2NetworkInterfaceAttachment: AWSEncodableShape & AWSDecodableShape {
-
         /// The identifier of the network interface attachment
         public let attachmentId: String?
         /// Indicates when the attachment initiated. Uses the date-time format specified in RFC 3339 section 5.6, Internet Date/Time Format. The value cannot contain spaces. For example, 2020-03-22T13:22:13.933Z.
@@ -2594,7 +2525,6 @@ extension SecurityHub {
     }
 
     public struct AwsEc2NetworkInterfaceDetails: AWSEncodableShape & AWSDecodableShape {
-
         /// The network interface attachment.
         public let attachment: AwsEc2NetworkInterfaceAttachment?
         /// The IPv6 addresses associated with the network interface.
@@ -2652,7 +2582,6 @@ extension SecurityHub {
     }
 
     public struct AwsEc2NetworkInterfaceIpV6AddressDetail: AWSEncodableShape & AWSDecodableShape {
-
         /// The IPV6 address.
         public let ipV6Address: String?
 
@@ -2670,7 +2599,6 @@ extension SecurityHub {
     }
 
     public struct AwsEc2NetworkInterfacePrivateIpAddressDetail: AWSEncodableShape & AWSDecodableShape {
-
         /// The private DNS name for the IP address.
         public let privateDnsName: String?
         /// The IP address.
@@ -2693,7 +2621,6 @@ extension SecurityHub {
     }
 
     public struct AwsEc2NetworkInterfaceSecurityGroup: AWSEncodableShape & AWSDecodableShape {
-
         /// The ID of the security group.
         public let groupId: String?
         /// The name of the security group.
@@ -2716,7 +2643,6 @@ extension SecurityHub {
     }
 
     public struct AwsEc2SecurityGroupDetails: AWSEncodableShape & AWSDecodableShape {
-
         /// The ID of the security group.
         public let groupId: String?
         /// The name of the security group.
@@ -2763,7 +2689,6 @@ extension SecurityHub {
     }
 
     public struct AwsEc2SecurityGroupIpPermission: AWSEncodableShape & AWSDecodableShape {
-
         /// The start of the port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type number. A value of -1 indicates all ICMP/ICMPv6 types. If you specify all ICMP/ICMPv6 types, you must specify all codes.
         public let fromPort: Int?
         /// The IP protocol name (tcp, udp, icmp, icmpv6) or number. [VPC only] Use -1 to specify all protocols. When authorizing security group rules, specifying -1 or a protocol number other than tcp, udp, icmp, or icmpv6 allows traffic on all ports, regardless of any port range you specify. For tcp, udp, and icmp, you must specify a port range. For icmpv6, the port range is optional. If you omit the port range, traffic for all types and codes is allowed.
@@ -2817,7 +2742,6 @@ extension SecurityHub {
     }
 
     public struct AwsEc2SecurityGroupIpRange: AWSEncodableShape & AWSDecodableShape {
-
         /// The IPv4 CIDR range. You can specify either a CIDR range or a source security group, but not both. To specify a single IPv4 address, use the /32 prefix length.
         public let cidrIp: String?
 
@@ -2835,7 +2759,6 @@ extension SecurityHub {
     }
 
     public struct AwsEc2SecurityGroupIpv6Range: AWSEncodableShape & AWSDecodableShape {
-
         /// The IPv6 CIDR range. You can specify either a CIDR range or a source security group, but not both. To specify a single IPv6 address, use the /128 prefix length.
         public let cidrIpv6: String?
 
@@ -2853,7 +2776,6 @@ extension SecurityHub {
     }
 
     public struct AwsEc2SecurityGroupPrefixListId: AWSEncodableShape & AWSDecodableShape {
-
         /// The ID of the prefix.
         public let prefixListId: String?
 
@@ -2871,7 +2793,6 @@ extension SecurityHub {
     }
 
     public struct AwsEc2SecurityGroupUserIdGroupPair: AWSEncodableShape & AWSDecodableShape {
-
         /// The ID of the security group.
         public let groupId: String?
         /// The name of the security group.
@@ -2914,7 +2835,6 @@ extension SecurityHub {
     }
 
     public struct AwsEc2VolumeAttachment: AWSEncodableShape & AWSDecodableShape {
-
         /// The datetime when the attachment initiated.
         public let attachTime: String?
         /// Whether the EBS volume is deleted when the EC2 instance is terminated.
@@ -2946,7 +2866,6 @@ extension SecurityHub {
     }
 
     public struct AwsEc2VolumeDetails: AWSEncodableShape & AWSDecodableShape {
-
         /// The volume attachments.
         public let attachments: [AwsEc2VolumeAttachment]?
         /// Indicates when the volume was created. Uses the date-time format specified in RFC 3339 section 5.6, Internet Date/Time Format. The value cannot contain spaces. For example, 2020-03-22T13:22:13.933Z.
@@ -2994,7 +2913,6 @@ extension SecurityHub {
     }
 
     public struct AwsEc2VpcDetails: AWSEncodableShape & AWSDecodableShape {
-
         /// Information about the IPv4 CIDR blocks associated with the VPC.
         public let cidrBlockAssociationSet: [CidrBlockAssociation]?
         /// The identifier of the set of Dynamic Host Configuration Protocol (DHCP) options that are associated with the VPC. If the default options are associated with the VPC, then this is default.
@@ -3031,7 +2949,6 @@ extension SecurityHub {
     }
 
     public struct AwsElasticsearchDomainDetails: AWSEncodableShape & AWSDecodableShape {
-
         /// IAM policy document specifying the access policies for the new Amazon ES domain.
         public let accessPolicies: String?
         /// Additional options for the domain endpoint.
@@ -3096,7 +3013,6 @@ extension SecurityHub {
     }
 
     public struct AwsElasticsearchDomainDomainEndpointOptions: AWSEncodableShape & AWSDecodableShape {
-
         /// Whether to require that all traffic to the domain arrive over HTTPS.
         public let enforceHTTPS: Bool?
         /// The TLS security policy to apply to the HTTPS endpoint of the Elasticsearch domain. Valid values:    Policy-Min-TLS-1-0-2019-07, which supports TLSv1.0 and higher    Policy-Min-TLS-1-2-2019-07, which only supports TLSv1.2
@@ -3118,7 +3034,6 @@ extension SecurityHub {
     }
 
     public struct AwsElasticsearchDomainEncryptionAtRestOptions: AWSEncodableShape & AWSDecodableShape {
-
         /// Whether encryption at rest is enabled.
         public let enabled: Bool?
         /// The KMS key ID. Takes the form 1a2a3a4-1a2a-3a4a-5a6a-1a2a3a4a5a6a.
@@ -3140,7 +3055,6 @@ extension SecurityHub {
     }
 
     public struct AwsElasticsearchDomainNodeToNodeEncryptionOptions: AWSEncodableShape & AWSDecodableShape {
-
         /// Whether node-to-node encryption is enabled.
         public let enabled: Bool?
 
@@ -3154,7 +3068,6 @@ extension SecurityHub {
     }
 
     public struct AwsElasticsearchDomainVPCOptions: AWSEncodableShape & AWSDecodableShape {
-
         /// The list of Availability Zones associated with the VPC subnets.
         public let availabilityZones: [String]?
         /// The list of security group IDs associated with the VPC endpoints for the domain.
@@ -3193,7 +3106,6 @@ extension SecurityHub {
     }
 
     public struct AwsElbAppCookieStickinessPolicy: AWSEncodableShape & AWSDecodableShape {
-
         /// The name of the application cookie used for stickiness.
         public let cookieName: String?
         /// The mnemonic name for the policy being created. The name must be unique within the set of policies for the load balancer.
@@ -3216,7 +3128,6 @@ extension SecurityHub {
     }
 
     public struct AwsElbLbCookieStickinessPolicy: AWSEncodableShape & AWSDecodableShape {
-
         /// The amount of time, in seconds, after which the cookie is considered stale. If an expiration period is not specified, the stickiness session lasts for the duration of the browser session.
         public let cookieExpirationPeriod: Int64?
         /// The name of the policy. The name must be unique within the set of policies for the load balancer.
@@ -3238,7 +3149,6 @@ extension SecurityHub {
     }
 
     public struct AwsElbLoadBalancerAccessLog: AWSEncodableShape & AWSDecodableShape {
-
         /// The interval in minutes for publishing the access logs. You can publish access logs either every 5 minutes or every 60 minutes.
         public let emitInterval: Int?
         /// Indicates whether access logs are enabled for the load balancer.
@@ -3269,7 +3179,6 @@ extension SecurityHub {
     }
 
     public struct AwsElbLoadBalancerAttributes: AWSEncodableShape & AWSDecodableShape {
-
         /// Information about the access log configuration for the load balancer. If the access log is enabled, the load balancer captures detailed information about all requests. It delivers the information to a specified S3 bucket.
         public let accessLog: AwsElbLoadBalancerAccessLog?
         /// Information about the connection draining configuration for the load balancer. If connection draining is enabled, the load balancer allows existing requests to complete before it shifts traffic away from a deregistered or unhealthy instance.
@@ -3299,7 +3208,6 @@ extension SecurityHub {
     }
 
     public struct AwsElbLoadBalancerBackendServerDescription: AWSEncodableShape & AWSDecodableShape {
-
         /// The port on which the EC2 instance is listening.
         public let instancePort: Int?
         /// The names of the policies that are enabled for the EC2 instance.
@@ -3323,7 +3231,6 @@ extension SecurityHub {
     }
 
     public struct AwsElbLoadBalancerConnectionDraining: AWSEncodableShape & AWSDecodableShape {
-
         /// Indicates whether connection draining is enabled for the load balancer.
         public let enabled: Bool?
         /// The maximum time, in seconds, to keep the existing connections open before deregistering the instances.
@@ -3341,7 +3248,6 @@ extension SecurityHub {
     }
 
     public struct AwsElbLoadBalancerConnectionSettings: AWSEncodableShape & AWSDecodableShape {
-
         /// The time, in seconds, that the connection can be idle (no data is sent over the connection) before it is closed by the load balancer.
         public let idleTimeout: Int?
 
@@ -3355,7 +3261,6 @@ extension SecurityHub {
     }
 
     public struct AwsElbLoadBalancerCrossZoneLoadBalancing: AWSEncodableShape & AWSDecodableShape {
-
         /// Indicates whether cross-zone load balancing is enabled for the load balancer.
         public let enabled: Bool?
 
@@ -3369,7 +3274,6 @@ extension SecurityHub {
     }
 
     public struct AwsElbLoadBalancerDetails: AWSEncodableShape & AWSDecodableShape {
-
         /// The list of Availability Zones for the load balancer.
         public let availabilityZones: [String]?
         /// Information about the configuration of the EC2 instances.
@@ -3479,7 +3383,6 @@ extension SecurityHub {
     }
 
     public struct AwsElbLoadBalancerHealthCheck: AWSEncodableShape & AWSDecodableShape {
-
         /// The number of consecutive health check successes required before the instance is moved to the Healthy state.
         public let healthyThreshold: Int?
         /// The approximate interval, in seconds, between health checks of an individual instance.
@@ -3513,7 +3416,6 @@ extension SecurityHub {
     }
 
     public struct AwsElbLoadBalancerInstance: AWSEncodableShape & AWSDecodableShape {
-
         /// The instance identifier.
         public let instanceId: String?
 
@@ -3531,7 +3433,6 @@ extension SecurityHub {
     }
 
     public struct AwsElbLoadBalancerListener: AWSEncodableShape & AWSDecodableShape {
-
         /// The port on which the instance is listening.
         public let instancePort: Int?
         /// The protocol to use to route traffic to instances. Valid values: HTTP | HTTPS | TCP | SSL
@@ -3567,7 +3468,6 @@ extension SecurityHub {
     }
 
     public struct AwsElbLoadBalancerListenerDescription: AWSEncodableShape & AWSDecodableShape {
-
         /// Information about the listener.
         public let listener: AwsElbLoadBalancerListener?
         /// The policies enabled for the listener.
@@ -3592,7 +3492,6 @@ extension SecurityHub {
     }
 
     public struct AwsElbLoadBalancerPolicies: AWSEncodableShape & AWSDecodableShape {
-
         /// The stickiness policies that are created using CreateAppCookieStickinessPolicy.
         public let appCookieStickinessPolicies: [AwsElbAppCookieStickinessPolicy]?
         /// The stickiness policies that are created using CreateLBCookieStickinessPolicy.
@@ -3626,7 +3525,6 @@ extension SecurityHub {
     }
 
     public struct AwsElbLoadBalancerSourceSecurityGroup: AWSEncodableShape & AWSDecodableShape {
-
         /// The name of the security group.
         public let groupName: String?
         /// The owner of the security group.
@@ -3649,7 +3547,6 @@ extension SecurityHub {
     }
 
     public struct AwsElbv2LoadBalancerDetails: AWSEncodableShape & AWSDecodableShape {
-
         /// The Availability Zones for the load balancer.
         public let availabilityZones: [AvailabilityZone]?
         /// The ID of the Amazon Route 53 hosted zone associated with the load balancer.
@@ -3716,7 +3613,6 @@ extension SecurityHub {
     }
 
     public struct AwsIamAccessKeyDetails: AWSEncodableShape & AWSDecodableShape {
-
         /// The identifier of the access key.
         public let accessKeyId: String?
         /// The AWS account ID of the account for the key.
@@ -3768,7 +3664,6 @@ extension SecurityHub {
     }
 
     public struct AwsIamAccessKeySessionContext: AWSEncodableShape & AWSDecodableShape {
-
         /// Attributes of the session that the key was used for.
         public let attributes: AwsIamAccessKeySessionContextAttributes?
         /// Information about the entity that created the session.
@@ -3791,7 +3686,6 @@ extension SecurityHub {
     }
 
     public struct AwsIamAccessKeySessionContextAttributes: AWSEncodableShape & AWSDecodableShape {
-
         /// Indicates when the session was created. Uses the date-time format specified in RFC 3339 section 5.6, Internet Date/Time Format. The value cannot contain spaces. For example, 2020-03-22T13:22:13.933Z.
         public let creationDate: String?
         /// Indicates whether the session used multi-factor authentication (MFA).
@@ -3813,7 +3707,6 @@ extension SecurityHub {
     }
 
     public struct AwsIamAccessKeySessionContextSessionIssuer: AWSEncodableShape & AWSDecodableShape {
-
         /// The identifier of the AWS account that created the session.
         public let accountId: String?
         /// The ARN of the session.
@@ -3851,7 +3744,6 @@ extension SecurityHub {
     }
 
     public struct AwsIamAttachedManagedPolicy: AWSEncodableShape & AWSDecodableShape {
-
         /// The ARN of the policy.
         public let policyArn: String?
         /// The name of the policy.
@@ -3874,7 +3766,6 @@ extension SecurityHub {
     }
 
     public struct AwsIamGroupDetails: AWSEncodableShape & AWSDecodableShape {
-
         /// A list of the managed policies that are attached to the IAM group.
         public let attachedManagedPolicies: [AwsIamAttachedManagedPolicy]?
         /// Indicates when the IAM group was created. Uses the date-time format specified in RFC 3339 section 5.6, Internet Date/Time Format. The value cannot contain spaces. For example, 2020-03-22T13:22:13.933Z.
@@ -3921,7 +3812,6 @@ extension SecurityHub {
     }
 
     public struct AwsIamGroupPolicy: AWSEncodableShape & AWSDecodableShape {
-
         /// The name of the policy.
         public let policyName: String?
 
@@ -3939,7 +3829,6 @@ extension SecurityHub {
     }
 
     public struct AwsIamInstanceProfile: AWSEncodableShape & AWSDecodableShape {
-
         /// The ARN of the instance profile.
         public let arn: String?
         /// Indicates when the instance profile was created. Uses the date-time format specified in RFC 3339 section 5.6, Internet Date/Time Format. The value cannot contain spaces. For example, 2020-03-22T13:22:13.933Z.
@@ -3984,7 +3873,6 @@ extension SecurityHub {
     }
 
     public struct AwsIamInstanceProfileRole: AWSEncodableShape & AWSDecodableShape {
-
         /// The ARN of the role.
         public let arn: String?
         /// The policy that grants an entity permission to assume the role.
@@ -4009,7 +3897,7 @@ extension SecurityHub {
 
         public func validate(name: String) throws {
             try self.validate(self.arn, name: "arn", parent: name, pattern: ".*\\S.*")
-            try self.validate(self.assumeRolePolicyDocument, name: "assumeRolePolicyDocument", parent: name, max: 131072)
+            try self.validate(self.assumeRolePolicyDocument, name: "assumeRolePolicyDocument", parent: name, max: 131_072)
             try self.validate(self.assumeRolePolicyDocument, name: "assumeRolePolicyDocument", parent: name, min: 1)
             try self.validate(self.assumeRolePolicyDocument, name: "assumeRolePolicyDocument", parent: name, pattern: "[\\u0009\\u000A\\u000D\\u0020-\\u007E\\u00A1-\\u00FF]+")
             try self.validate(self.createDate, name: "createDate", parent: name, pattern: ".*\\S.*")
@@ -4029,7 +3917,6 @@ extension SecurityHub {
     }
 
     public struct AwsIamPermissionsBoundary: AWSEncodableShape & AWSDecodableShape {
-
         /// The ARN of the policy used to set the permissions boundary.
         public let permissionsBoundaryArn: String?
         /// The usage type for the permissions boundary.
@@ -4052,7 +3939,6 @@ extension SecurityHub {
     }
 
     public struct AwsIamPolicyDetails: AWSEncodableShape & AWSDecodableShape {
-
         /// The number of users, groups, and roles that the policy is attached to.
         public let attachmentCount: Int?
         /// When the policy was created. Uses the date-time format specified in RFC 3339 section 5.6, Internet Date/Time Format. The value cannot contain spaces. For example, 2020-03-22T13:22:13.933Z.
@@ -4119,7 +4005,6 @@ extension SecurityHub {
     }
 
     public struct AwsIamPolicyVersion: AWSEncodableShape & AWSDecodableShape {
-
         /// Indicates when the version was created. Uses the date-time format specified in RFC 3339 section 5.6, Internet Date/Time Format. The value cannot contain spaces. For example, 2020-03-22T13:22:13.933Z.
         public let createDate: String?
         /// Whether the version is the default version.
@@ -4146,7 +4031,6 @@ extension SecurityHub {
     }
 
     public struct AwsIamRoleDetails: AWSEncodableShape & AWSDecodableShape {
-
         /// The trust policy that grants permission to assume the role.
         public let assumeRolePolicyDocument: String?
         /// The list of the managed policies that are attached to the role.
@@ -4181,7 +4065,7 @@ extension SecurityHub {
         }
 
         public func validate(name: String) throws {
-            try self.validate(self.assumeRolePolicyDocument, name: "assumeRolePolicyDocument", parent: name, max: 131072)
+            try self.validate(self.assumeRolePolicyDocument, name: "assumeRolePolicyDocument", parent: name, max: 131_072)
             try self.validate(self.assumeRolePolicyDocument, name: "assumeRolePolicyDocument", parent: name, min: 1)
             try self.validate(self.assumeRolePolicyDocument, name: "assumeRolePolicyDocument", parent: name, pattern: "[\\u0009\\u000A\\u000D\\u0020-\\u007E\\u00A1-\\u00FF]+")
             try self.attachedManagedPolicies?.forEach {
@@ -4215,7 +4099,6 @@ extension SecurityHub {
     }
 
     public struct AwsIamRolePolicy: AWSEncodableShape & AWSDecodableShape {
-
         /// The name of the policy.
         public let policyName: String?
 
@@ -4233,7 +4116,6 @@ extension SecurityHub {
     }
 
     public struct AwsIamUserDetails: AWSEncodableShape & AWSDecodableShape {
-
         /// A list of the managed policies that are attached to the user.
         public let attachedManagedPolicies: [AwsIamAttachedManagedPolicy]?
         /// Indicates when the user was created. Uses the date-time format specified in RFC 3339 section 5.6, Internet Date/Time Format. The value cannot contain spaces. For example, 2020-03-22T13:22:13.933Z.
@@ -4292,7 +4174,6 @@ extension SecurityHub {
     }
 
     public struct AwsIamUserPolicy: AWSEncodableShape & AWSDecodableShape {
-
         /// The name of the policy.
         public let policyName: String?
 
@@ -4310,7 +4191,6 @@ extension SecurityHub {
     }
 
     public struct AwsKmsKeyDetails: AWSEncodableShape & AWSDecodableShape {
-
         /// The twelve-digit account ID of the AWS account that owns the CMK.
         public let aWSAccountId: String?
         /// Indicates when the CMK was created. Uses the date-time format specified in RFC 3339 section 5.6, Internet Date/Time Format. The value cannot contain spaces. For example, 2020-03-22T13:22:13.933Z.
@@ -4357,7 +4237,6 @@ extension SecurityHub {
     }
 
     public struct AwsLambdaFunctionCode: AWSEncodableShape & AWSDecodableShape {
-
         /// An Amazon S3 bucket in the same AWS Region as your function. The bucket can be in a different AWS account.
         public let s3Bucket: String?
         /// The Amazon S3 key of the deployment package.
@@ -4390,7 +4269,6 @@ extension SecurityHub {
     }
 
     public struct AwsLambdaFunctionDeadLetterConfig: AWSEncodableShape & AWSDecodableShape {
-
         /// The Amazon Resource Name (ARN) of an Amazon SQS queue or Amazon SNS topic.
         public let targetArn: String?
 
@@ -4408,7 +4286,6 @@ extension SecurityHub {
     }
 
     public struct AwsLambdaFunctionDetails: AWSEncodableShape & AWSDecodableShape {
-
         /// An AwsLambdaFunctionCode object.
         public let code: AwsLambdaFunctionCode?
         /// The SHA256 hash of the function's deployment package.
@@ -4511,7 +4388,6 @@ extension SecurityHub {
     }
 
     public struct AwsLambdaFunctionEnvironment: AWSEncodableShape & AWSDecodableShape {
-
         /// An AwsLambdaFunctionEnvironmentError object.
         public let error: AwsLambdaFunctionEnvironmentError?
         /// Environment variable key-value pairs.
@@ -4537,7 +4413,6 @@ extension SecurityHub {
     }
 
     public struct AwsLambdaFunctionEnvironmentError: AWSEncodableShape & AWSDecodableShape {
-
         /// The error code.
         public let errorCode: String?
         /// The error message.
@@ -4560,7 +4435,6 @@ extension SecurityHub {
     }
 
     public struct AwsLambdaFunctionLayer: AWSEncodableShape & AWSDecodableShape {
-
         /// The Amazon Resource Name (ARN) of the function layer.
         public let arn: String?
         /// The size of the layer archive in bytes.
@@ -4582,7 +4456,6 @@ extension SecurityHub {
     }
 
     public struct AwsLambdaFunctionTracingConfig: AWSEncodableShape & AWSDecodableShape {
-
         /// The tracing mode.
         public let mode: String?
 
@@ -4600,7 +4473,6 @@ extension SecurityHub {
     }
 
     public struct AwsLambdaFunctionVpcConfig: AWSEncodableShape & AWSDecodableShape {
-
         /// A list of VPC security groups IDs.
         public let securityGroupIds: [String]?
         /// A list of VPC subnet IDs.
@@ -4632,7 +4504,6 @@ extension SecurityHub {
     }
 
     public struct AwsLambdaLayerVersionDetails: AWSEncodableShape & AWSDecodableShape {
-
         /// The layer's compatible runtimes. Maximum number of five items. Valid values: nodejs10.x | nodejs12.x | java8 | java11 | python2.7 | python3.6 | python3.7 | python3.8 | dotnetcore1.0 | dotnetcore2.1 | go1.x | ruby2.5 | provided
         public let compatibleRuntimes: [String]?
         /// Indicates when the version was created. Uses the date-time format specified in RFC 3339 section 5.6, Internet Date/Time Format. The value cannot contain spaces. For example, 2020-03-22T13:22:13.933Z.
@@ -4661,7 +4532,6 @@ extension SecurityHub {
     }
 
     public struct AwsRdsDbClusterAssociatedRole: AWSEncodableShape & AWSDecodableShape {
-
         /// The ARN of the IAM role.
         public let roleArn: String?
         /// The status of the association between the IAM role and the DB cluster.
@@ -4684,7 +4554,6 @@ extension SecurityHub {
     }
 
     public struct AwsRdsDbClusterDetails: AWSEncodableShape & AWSDecodableShape {
-
         /// The status of the database activity stream.
         public let activityStreamStatus: String?
         /// For all database engines except Aurora, specifies the allocated storage size in gibibytes (GiB).
@@ -4890,7 +4759,6 @@ extension SecurityHub {
     }
 
     public struct AwsRdsDbClusterMember: AWSEncodableShape & AWSDecodableShape {
-
         /// The status of the DB cluster parameter group for this member of the DB cluster.
         public let dbClusterParameterGroupStatus: String?
         /// The instance identifier for this member of the DB cluster.
@@ -4921,7 +4789,6 @@ extension SecurityHub {
     }
 
     public struct AwsRdsDbClusterOptionGroupMembership: AWSEncodableShape & AWSDecodableShape {
-
         /// The name of the DB cluster option group.
         public let dbClusterOptionGroupName: String?
         /// The status of the DB cluster option group.
@@ -4944,7 +4811,6 @@ extension SecurityHub {
     }
 
     public struct AwsRdsDbClusterSnapshotDetails: AWSEncodableShape & AWSDecodableShape {
-
         /// Specifies the allocated storage size in gibibytes (GiB).
         public let allocatedStorage: Int?
         /// A list of Availability Zones where instances in the DB cluster can be created.
@@ -5044,7 +4910,6 @@ extension SecurityHub {
     }
 
     public struct AwsRdsDbDomainMembership: AWSEncodableShape & AWSDecodableShape {
-
         /// The identifier of the Active Directory domain.
         public let domain: String?
         /// The fully qualified domain name of the Active Directory domain.
@@ -5077,7 +4942,6 @@ extension SecurityHub {
     }
 
     public struct AwsRdsDbInstanceAssociatedRole: AWSEncodableShape & AWSDecodableShape {
-
         /// The name of the feature associated with the IAM)role.
         public let featureName: String?
         /// The Amazon Resource Name (ARN) of the IAM role that is associated with the DB instance.
@@ -5105,7 +4969,6 @@ extension SecurityHub {
     }
 
     public struct AwsRdsDbInstanceDetails: AWSEncodableShape & AWSDecodableShape {
-
         /// The amount of storage (in gigabytes) to initially allocate for the DB instance.
         public let allocatedStorage: Int?
         /// The AWS Identity and Access Management (IAM) roles associated with the DB instance.
@@ -5408,7 +5271,6 @@ extension SecurityHub {
     }
 
     public struct AwsRdsDbInstanceEndpoint: AWSEncodableShape & AWSDecodableShape {
-
         /// Specifies the DNS address of the DB instance.
         public let address: String?
         /// Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
@@ -5435,7 +5297,6 @@ extension SecurityHub {
     }
 
     public struct AwsRdsDbInstanceVpcSecurityGroup: AWSEncodableShape & AWSDecodableShape {
-
         /// The status of the VPC security group.
         public let status: String?
         /// The name of the VPC security group.
@@ -5458,7 +5319,6 @@ extension SecurityHub {
     }
 
     public struct AwsRdsDbOptionGroupMembership: AWSEncodableShape & AWSDecodableShape {
-
         /// The name of the option group.
         public let optionGroupName: String?
         /// The status of the option group membership.
@@ -5481,7 +5341,6 @@ extension SecurityHub {
     }
 
     public struct AwsRdsDbParameterGroup: AWSEncodableShape & AWSDecodableShape {
-
         /// The name of the parameter group.
         public let dbParameterGroupName: String?
         /// The status of parameter updates.
@@ -5504,7 +5363,6 @@ extension SecurityHub {
     }
 
     public struct AwsRdsDbPendingModifiedValues: AWSEncodableShape & AWSDecodableShape {
-
         /// The new value of the allocated storage for the DB instance.
         public let allocatedStorage: Int?
         /// The new backup retention period for the DB instance.
@@ -5589,7 +5447,6 @@ extension SecurityHub {
     }
 
     public struct AwsRdsDbProcessorFeature: AWSEncodableShape & AWSDecodableShape {
-
         /// The name of the processor feature.
         public let name: String?
         /// The value of the processor feature.
@@ -5612,7 +5469,6 @@ extension SecurityHub {
     }
 
     public struct AwsRdsDbSnapshotDetails: AWSEncodableShape & AWSDecodableShape {
-
         /// The amount of storage (in gigabytes) to be initially allocated for the database instance.
         public let allocatedStorage: Int?
         /// Specifies the name of the Availability Zone in which the DB instance was located at the time of the DB snapshot.
@@ -5756,7 +5612,6 @@ extension SecurityHub {
     }
 
     public struct AwsRdsDbStatusInfo: AWSEncodableShape & AWSDecodableShape {
-
         /// If the read replica is currently in an error state, provides the error details.
         public let message: String?
         /// Whether the read replica instance is operating normally.
@@ -5788,7 +5643,6 @@ extension SecurityHub {
     }
 
     public struct AwsRdsDbSubnetGroup: AWSEncodableShape & AWSDecodableShape {
-
         /// The ARN of the subnet group.
         public let dbSubnetGroupArn: String?
         /// The description of the subnet group.
@@ -5833,7 +5687,6 @@ extension SecurityHub {
     }
 
     public struct AwsRdsDbSubnetGroupSubnet: AWSEncodableShape & AWSDecodableShape {
-
         /// Information about the Availability Zone for a subnet in the subnet group.
         public let subnetAvailabilityZone: AwsRdsDbSubnetGroupSubnetAvailabilityZone?
         /// The identifier of a subnet in the subnet group.
@@ -5861,7 +5714,6 @@ extension SecurityHub {
     }
 
     public struct AwsRdsDbSubnetGroupSubnetAvailabilityZone: AWSEncodableShape & AWSDecodableShape {
-
         /// The name of the Availability Zone for a subnet in the subnet group.
         public let name: String?
 
@@ -5879,7 +5731,6 @@ extension SecurityHub {
     }
 
     public struct AwsRdsPendingCloudWatchLogsExports: AWSEncodableShape & AWSDecodableShape {
-
         /// A list of log types that are being disabled.
         public let logTypesToDisable: [String]?
         /// A list of log types that are being enabled.
@@ -5906,7 +5757,6 @@ extension SecurityHub {
     }
 
     public struct AwsRedshiftClusterClusterNode: AWSEncodableShape & AWSDecodableShape {
-
         /// The role of the node. A node might be a leader node or a compute node.
         public let nodeRole: String?
         /// The private IP address of the node.
@@ -5934,7 +5784,6 @@ extension SecurityHub {
     }
 
     public struct AwsRedshiftClusterClusterParameterGroup: AWSEncodableShape & AWSDecodableShape {
-
         /// The list of parameter statuses.
         public let clusterParameterStatusList: [AwsRedshiftClusterClusterParameterStatus]?
         /// The status of updates to the parameters.
@@ -5964,7 +5813,6 @@ extension SecurityHub {
     }
 
     public struct AwsRedshiftClusterClusterParameterStatus: AWSEncodableShape & AWSDecodableShape {
-
         /// The error that prevented the parameter from being applied to the database.
         public let parameterApplyErrorDescription: String?
         /// The status of the parameter. Indicates whether the parameter is in sync with the database, waiting for a cluster reboot, or encountered an error when it was applied. Valid values: in-sync | pending-reboot | applying | invalid-parameter | apply-deferred | apply-error | unknown-error
@@ -5992,7 +5840,6 @@ extension SecurityHub {
     }
 
     public struct AwsRedshiftClusterClusterSecurityGroup: AWSEncodableShape & AWSDecodableShape {
-
         /// The name of the cluster security group.
         public let clusterSecurityGroupName: String?
         /// The status of the cluster security group.
@@ -6015,7 +5862,6 @@ extension SecurityHub {
     }
 
     public struct AwsRedshiftClusterClusterSnapshotCopyStatus: AWSEncodableShape & AWSDecodableShape {
-
         /// The destination Region that snapshots are automatically copied to when cross-Region snapshot copy is enabled.
         public let destinationRegion: String?
         /// The number of days that manual snapshots are retained in the destination region after they are copied from a source region. If the value is -1, then the manual snapshot is retained indefinitely. Valid values: Either -1 or an integer between 1 and 3,653
@@ -6046,7 +5892,6 @@ extension SecurityHub {
     }
 
     public struct AwsRedshiftClusterDeferredMaintenanceWindow: AWSEncodableShape & AWSDecodableShape {
-
         /// The end of the time window for which maintenance was deferred. Uses the date-time format specified in RFC 3339 section 5.6, Internet Date/Time Format. The value cannot contain spaces. For example, 2020-03-22T13:22:13.933Z.
         public let deferMaintenanceEndTime: String?
         /// The identifier of the maintenance window.
@@ -6074,7 +5919,6 @@ extension SecurityHub {
     }
 
     public struct AwsRedshiftClusterDetails: AWSEncodableShape & AWSDecodableShape {
-
         /// Indicates whether major version upgrades are applied automatically to the cluster during the maintenance window.
         public let allowVersionUpgrade: Bool?
         /// The number of days that automatic cluster snapshots are retained.
@@ -6309,7 +6153,6 @@ extension SecurityHub {
     }
 
     public struct AwsRedshiftClusterElasticIpStatus: AWSEncodableShape & AWSDecodableShape {
-
         /// The elastic IP address for the cluster.
         public let elasticIp: String?
         /// The status of the elastic IP address.
@@ -6332,7 +6175,6 @@ extension SecurityHub {
     }
 
     public struct AwsRedshiftClusterEndpoint: AWSEncodableShape & AWSDecodableShape {
-
         /// The DNS address of the cluster.
         public let address: String?
         /// The port that the database engine listens on.
@@ -6354,7 +6196,6 @@ extension SecurityHub {
     }
 
     public struct AwsRedshiftClusterHsmStatus: AWSEncodableShape & AWSDecodableShape {
-
         /// The name of the HSM client certificate that the Amazon Redshift cluster uses to retrieve the data encryption keys that are stored in an HSM.
         public let hsmClientCertificateIdentifier: String?
         /// The name of the HSM configuration that contains the information that the Amazon Redshift cluster can use to retrieve and store keys in an HSM.
@@ -6382,7 +6223,6 @@ extension SecurityHub {
     }
 
     public struct AwsRedshiftClusterIamRole: AWSEncodableShape & AWSDecodableShape {
-
         /// The status of the IAM role's association with the cluster. Valid values: in-sync | adding | removing
         public let applyStatus: String?
         /// The ARN of the IAM role.
@@ -6405,7 +6245,6 @@ extension SecurityHub {
     }
 
     public struct AwsRedshiftClusterPendingModifiedValues: AWSEncodableShape & AWSDecodableShape {
-
         /// The pending or in-progress change to the automated snapshot retention period.
         public let automatedSnapshotRetentionPeriod: Int?
         /// The pending or in-progress change to the identifier for the cluster.
@@ -6469,7 +6308,6 @@ extension SecurityHub {
     }
 
     public struct AwsRedshiftClusterResizeInfo: AWSEncodableShape & AWSDecodableShape {
-
         /// Indicates whether the resize operation can be canceled.
         public let allowCancelResize: Bool?
         /// The type of resize operation. Valid values: ClassicResize
@@ -6491,7 +6329,6 @@ extension SecurityHub {
     }
 
     public struct AwsRedshiftClusterRestoreStatus: AWSEncodableShape & AWSDecodableShape {
-
         /// The number of megabytes per second being transferred from the backup storage. Returns the average rate for a completed backup. This field is only updated when you restore to DC2 and DS2 node types.
         public let currentRestoreRateInMegaBytesPerSecond: Double?
         /// The amount of time an in-progress restore has been running, or the amount of time it took a completed restore to finish. This field is only updated when you restore to DC2 and DS2 node types.
@@ -6529,7 +6366,6 @@ extension SecurityHub {
     }
 
     public struct AwsRedshiftClusterVpcSecurityGroup: AWSEncodableShape & AWSDecodableShape {
-
         /// The status of the VPC security group.
         public let status: String?
         /// The identifier of the VPC security group.
@@ -6552,7 +6388,6 @@ extension SecurityHub {
     }
 
     public struct AwsS3AccountPublicAccessBlockDetails: AWSEncodableShape & AWSDecodableShape {
-
         /// Indicates whether to reject calls to update an S3 bucket if the calls include a public access control list (ACL).
         public let blockPublicAcls: Bool?
         /// Indicates whether to reject calls to update the access policy for an S3 bucket or access point if the policy allows public access.
@@ -6578,7 +6413,6 @@ extension SecurityHub {
     }
 
     public struct AwsS3BucketDetails: AWSEncodableShape & AWSDecodableShape {
-
         /// Indicates when the S3 bucket was created. Uses the date-time format specified in RFC 3339 section 5.6, Internet Date/Time Format. The value cannot contain spaces. For example, 2020-03-22T13:22:13.933Z.
         public let createdAt: String?
         /// The canonical user ID of the owner of the S3 bucket.
@@ -6615,7 +6449,6 @@ extension SecurityHub {
     }
 
     public struct AwsS3BucketServerSideEncryptionByDefault: AWSEncodableShape & AWSDecodableShape {
-
         /// AWS KMS customer master key (CMK) ID to use for the default encryption.
         public let kMSMasterKeyID: String?
         /// Server-side encryption algorithm to use for the default encryption.
@@ -6638,7 +6471,6 @@ extension SecurityHub {
     }
 
     public struct AwsS3BucketServerSideEncryptionConfiguration: AWSEncodableShape & AWSDecodableShape {
-
         /// The encryption rules that are applied to the S3 bucket.
         public let rules: [AwsS3BucketServerSideEncryptionRule]?
 
@@ -6658,7 +6490,6 @@ extension SecurityHub {
     }
 
     public struct AwsS3BucketServerSideEncryptionRule: AWSEncodableShape & AWSDecodableShape {
-
         /// Specifies the default server-side encryption to apply to new objects in the bucket. If a PUT object request doesn't specify any server-side encryption, this default encryption is applied.
         public let applyServerSideEncryptionByDefault: AwsS3BucketServerSideEncryptionByDefault?
 
@@ -6676,7 +6507,6 @@ extension SecurityHub {
     }
 
     public struct AwsS3ObjectDetails: AWSEncodableShape & AWSDecodableShape {
-
         /// A standard MIME type describing the format of the object data.
         public let contentType: String?
         /// The opaque identifier assigned by a web server to a specific version of a resource found at a URL.
@@ -6719,7 +6549,6 @@ extension SecurityHub {
     }
 
     public struct AwsSecretsManagerSecretDetails: AWSEncodableShape & AWSDecodableShape {
-
         /// Whether the secret is deleted.
         public let deleted: Bool?
         /// The user-provided description of the secret.
@@ -6768,7 +6597,6 @@ extension SecurityHub {
     }
 
     public struct AwsSecretsManagerSecretRotationRules: AWSEncodableShape & AWSDecodableShape {
-
         /// The number of days after the previous rotation to rotate the secret.
         public let automaticallyAfterDays: Int?
 
@@ -6782,7 +6610,6 @@ extension SecurityHub {
     }
 
     public struct AwsSecurityFinding: AWSEncodableShape & AWSDecodableShape {
-
         /// Provides details about an action that affects or that was taken on a resource.
         public let action: Action?
         /// The AWS account ID that a finding is generated in.
@@ -6989,7 +6816,6 @@ extension SecurityHub {
     }
 
     public struct AwsSecurityFindingFilters: AWSEncodableShape & AWSDecodableShape {
-
         /// The AWS account ID that a finding is generated in.
         public let awsAccountId: [StringFilter]?
         /// The name of the findings provider (company) that owns the solution (product) that generates findings.
@@ -7601,7 +7427,6 @@ extension SecurityHub {
     }
 
     public struct AwsSecurityFindingIdentifier: AWSEncodableShape & AWSDecodableShape {
-
         /// The identifier of the finding that was specified by the finding provider.
         public let id: String
         /// The ARN generated by Security Hub that uniquely identifies a product that generates findings. This can be the ARN for a third-party product that is integrated with Security Hub, or the ARN for a custom integration.
@@ -7624,7 +7449,6 @@ extension SecurityHub {
     }
 
     public struct AwsSnsTopicDetails: AWSEncodableShape & AWSDecodableShape {
-
         /// The ID of an AWS managed customer master key (CMK) for Amazon SNS or a custom CMK.
         public let kmsMasterKeyId: String?
         /// The subscription's owner.
@@ -7659,7 +7483,6 @@ extension SecurityHub {
     }
 
     public struct AwsSnsTopicSubscription: AWSEncodableShape & AWSDecodableShape {
-
         /// The subscription's endpoint (format depends on the protocol).
         public let endpoint: String?
         /// The subscription's protocol.
@@ -7682,7 +7505,6 @@ extension SecurityHub {
     }
 
     public struct AwsSqsQueueDetails: AWSEncodableShape & AWSDecodableShape {
-
         /// The Amazon Resource Name (ARN) of the dead-letter queue to which Amazon SQS moves messages after the value of maxReceiveCount is exceeded.
         public let deadLetterTargetArn: String?
         /// The length of time, in seconds, for which Amazon SQS can reuse a data key to encrypt or decrypt messages before calling AWS KMS again.
@@ -7714,7 +7536,6 @@ extension SecurityHub {
     }
 
     public struct AwsSsmComplianceSummary: AWSEncodableShape & AWSDecodableShape {
-
         /// The type of resource for which the compliance was determined. For AwsSsmPatchCompliance, ComplianceType is Patch.
         public let complianceType: String?
         /// For the patches that are compliant, the number that have a severity of CRITICAL.
@@ -7805,7 +7626,6 @@ extension SecurityHub {
     }
 
     public struct AwsSsmPatch: AWSEncodableShape & AWSDecodableShape {
-
         /// The compliance status details for the patch.
         public let complianceSummary: AwsSsmComplianceSummary?
 
@@ -7823,7 +7643,6 @@ extension SecurityHub {
     }
 
     public struct AwsSsmPatchComplianceDetails: AWSEncodableShape & AWSDecodableShape {
-
         /// Information about the status of a patch.
         public let patch: AwsSsmPatch?
 
@@ -7841,7 +7660,6 @@ extension SecurityHub {
     }
 
     public struct AwsWafWebAclDetails: AWSEncodableShape & AWSDecodableShape {
-
         /// The action to perform if none of the rules contained in the WebACL match.
         public let defaultAction: String?
         /// A friendly name or description of the WebACL. You can't change the name of a WebACL after you create it.
@@ -7876,7 +7694,6 @@ extension SecurityHub {
     }
 
     public struct AwsWafWebAclRule: AWSEncodableShape & AWSDecodableShape {
-
         /// Specifies the action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule.
         public let action: WafAction?
         /// Rules to exclude from a rule group.
@@ -7920,7 +7737,6 @@ extension SecurityHub {
     }
 
     public struct BatchDisableStandardsRequest: AWSEncodableShape {
-
         /// The ARNs of the standards subscriptions to disable.
         public let standardsSubscriptionArns: [String]
 
@@ -7942,7 +7758,6 @@ extension SecurityHub {
     }
 
     public struct BatchDisableStandardsResponse: AWSDecodableShape {
-
         /// The details of the standards subscriptions that were disabled.
         public let standardsSubscriptions: [StandardsSubscription]?
 
@@ -7956,7 +7771,6 @@ extension SecurityHub {
     }
 
     public struct BatchEnableStandardsRequest: AWSEncodableShape {
-
         /// The list of standards checks to enable.
         public let standardsSubscriptionRequests: [StandardsSubscriptionRequest]
 
@@ -7978,7 +7792,6 @@ extension SecurityHub {
     }
 
     public struct BatchEnableStandardsResponse: AWSDecodableShape {
-
         /// The details of the standards subscriptions that were enabled.
         public let standardsSubscriptions: [StandardsSubscription]?
 
@@ -7992,7 +7805,6 @@ extension SecurityHub {
     }
 
     public struct BatchImportFindingsRequest: AWSEncodableShape {
-
         /// A list of findings to import. To successfully import a finding, it must follow the AWS Security Finding Format. Maximum of 100 findings per request.
         public let findings: [AwsSecurityFinding]
 
@@ -8014,7 +7826,6 @@ extension SecurityHub {
     }
 
     public struct BatchImportFindingsResponse: AWSDecodableShape {
-
         /// The number of findings that failed to import.
         public let failedCount: Int
         /// The list of findings that failed to import.
@@ -8036,7 +7847,6 @@ extension SecurityHub {
     }
 
     public struct BatchUpdateFindingsRequest: AWSEncodableShape {
-
         /// The updated value for the finding confidence. Confidence is defined as the likelihood that a finding accurately identifies the behavior or issue that it was intended to identify. Confidence is scored on a 0-100 basis using a ratio scale, where 0 means zero percent confidence and 100 means 100 percent confidence.
         public let confidence: Int?
         /// The updated value for the level of importance assigned to the resources associated with the findings. A score of 0 means that the underlying resources have no criticality, and a score of 100 is reserved for the most critical resources.
@@ -8107,7 +7917,6 @@ extension SecurityHub {
     }
 
     public struct BatchUpdateFindingsResponse: AWSDecodableShape {
-
         /// The list of findings that were updated successfully.
         public let processedFindings: [AwsSecurityFindingIdentifier]
         /// The list of findings that were not updated.
@@ -8125,7 +7934,6 @@ extension SecurityHub {
     }
 
     public struct BatchUpdateFindingsUnprocessedFinding: AWSDecodableShape {
-
         /// The code associated with the error.
         public let errorCode: String
         /// The message associated with the error.
@@ -8147,7 +7955,6 @@ extension SecurityHub {
     }
 
     public struct Cell: AWSEncodableShape & AWSDecodableShape {
-
         /// For a Microsoft Excel workbook, provides the location of the cell, as an absolute cell reference, that contains the data. For example, Sheet2!C5 for cell C5 on Sheet2.
         public let cellReference: String?
         /// The column number of the column that contains the data. For a Microsoft Excel workbook, the column number corresponds to the alphabetical column identifiers. For example, a value of 1 for Column corresponds to the A column in the workbook.
@@ -8178,7 +7985,6 @@ extension SecurityHub {
     }
 
     public struct CidrBlockAssociation: AWSEncodableShape & AWSDecodableShape {
-
         /// The association ID for the IPv4 CIDR block.
         public let associationId: String?
         /// The IPv4 CIDR block.
@@ -8206,7 +8012,6 @@ extension SecurityHub {
     }
 
     public struct City: AWSEncodableShape & AWSDecodableShape {
-
         /// The name of the city.
         public let cityName: String?
 
@@ -8224,7 +8029,6 @@ extension SecurityHub {
     }
 
     public struct ClassificationResult: AWSEncodableShape & AWSDecodableShape {
-
         /// Indicates whether there are additional occurrences of sensitive data that are not included in the finding. This occurs when the number of occurrences exceeds the maximum that can be included.
         public let additionalOccurrences: Bool?
         /// Provides details about sensitive data that was identified based on customer-defined configuration.
@@ -8267,7 +8071,6 @@ extension SecurityHub {
     }
 
     public struct ClassificationStatus: AWSEncodableShape & AWSDecodableShape {
-
         /// The code that represents the status of the sensitive data detection.
         public let code: String?
         /// A longer description of the current status of the sensitive data detection.
@@ -8290,7 +8093,6 @@ extension SecurityHub {
     }
 
     public struct Compliance: AWSEncodableShape & AWSDecodableShape {
-
         /// For a control, the industry or regulatory framework requirements that are related to the control. The check for that control is aligned with these requirements.
         public let relatedRequirements: [String]?
         /// The result of a standards check. The valid values for Status are as follows.      PASSED - Standards check passed for all evaluated resources.    WARNING - Some information is missing or this check is not supported for your configuration.    FAILED - Standards check failed for at least one evaluated resource.    NOT_AVAILABLE - Check could not be performed due to a service outage, API error, or because the result of the AWS Config evaluation was NOT_APPLICABLE. If the AWS Config evaluation result was NOT_APPLICABLE, then after 3 days, Security Hub automatically archives the finding.
@@ -8321,7 +8123,6 @@ extension SecurityHub {
     }
 
     public struct ContainerDetails: AWSEncodableShape & AWSDecodableShape {
-
         /// The identifier of the image related to a finding.
         public let imageId: String?
         /// The name of the image related to a finding.
@@ -8354,7 +8155,6 @@ extension SecurityHub {
     }
 
     public struct Country: AWSEncodableShape & AWSDecodableShape {
-
         /// The 2-letter ISO 3166 country code for the country.
         public let countryCode: String?
         /// The name of the country.
@@ -8377,7 +8177,6 @@ extension SecurityHub {
     }
 
     public struct CreateActionTargetRequest: AWSEncodableShape {
-
         /// The description for the custom action target.
         public let description: String
         /// The ID for the custom action target.
@@ -8405,7 +8204,6 @@ extension SecurityHub {
     }
 
     public struct CreateActionTargetResponse: AWSDecodableShape {
-
         /// The ARN for the custom action target.
         public let actionTargetArn: String
 
@@ -8419,7 +8217,6 @@ extension SecurityHub {
     }
 
     public struct CreateInsightRequest: AWSEncodableShape {
-
         /// One or more attributes used to filter the findings included in the insight. The insight only includes findings that match the criteria defined in the filters.
         public let filters: AwsSecurityFindingFilters
         /// The attribute used to group the findings for the insight. The grouping attribute identifies the type of item that the insight applies to. For example, if an insight is grouped by resource identifier, then the insight produces a list of resource identifiers.
@@ -8447,7 +8244,6 @@ extension SecurityHub {
     }
 
     public struct CreateInsightResponse: AWSDecodableShape {
-
         /// The ARN of the insight created.
         public let insightArn: String
 
@@ -8461,7 +8257,6 @@ extension SecurityHub {
     }
 
     public struct CreateMembersRequest: AWSEncodableShape {
-
         /// The list of accounts to associate with the Security Hub master account. For each account, the list includes the account ID and optionally the email address.
         public let accountDetails: [AccountDetails]
 
@@ -8481,7 +8276,6 @@ extension SecurityHub {
     }
 
     public struct CreateMembersResponse: AWSDecodableShape {
-
         /// The list of AWS accounts that were not processed. For each account, the list includes the account ID and the email address.
         public let unprocessedAccounts: [Result]?
 
@@ -8495,7 +8289,6 @@ extension SecurityHub {
     }
 
     public struct CustomDataIdentifiersDetections: AWSEncodableShape & AWSDecodableShape {
-
         /// The ARN of the custom identifier that was used to detect the sensitive data.
         public let arn: String?
         /// The total number of occurrences of sensitive data that were detected.
@@ -8527,7 +8320,6 @@ extension SecurityHub {
     }
 
     public struct CustomDataIdentifiersResult: AWSEncodableShape & AWSDecodableShape {
-
         /// The list of detected instances of sensitive data.
         public let detections: [CustomDataIdentifiersDetections]?
         /// The total number of occurrences of sensitive data.
@@ -8551,7 +8343,6 @@ extension SecurityHub {
     }
 
     public struct Cvss: AWSEncodableShape & AWSDecodableShape {
-
         /// The base CVSS score.
         public let baseScore: Double?
         /// The base scoring vector for the CVSS score.
@@ -8578,7 +8369,6 @@ extension SecurityHub {
     }
 
     public struct DataClassificationDetails: AWSEncodableShape & AWSDecodableShape {
-
         /// The path to the folder or file that contains the sensitive data.
         public let detailedResultsLocation: String?
         /// The details about the sensitive data that was detected on the resource.
@@ -8601,7 +8391,6 @@ extension SecurityHub {
     }
 
     public struct DateFilter: AWSEncodableShape & AWSDecodableShape {
-
         /// A date range for the date filter.
         public let dateRange: DateRange?
         /// An end date for the date filter.
@@ -8628,7 +8417,6 @@ extension SecurityHub {
     }
 
     public struct DateRange: AWSEncodableShape & AWSDecodableShape {
-
         /// A date range unit for the date filter.
         public let unit: DateRangeUnit?
         /// A date range value for the date filter.
@@ -8646,7 +8434,6 @@ extension SecurityHub {
     }
 
     public struct DeclineInvitationsRequest: AWSEncodableShape {
-
         /// The list of account IDs for the accounts from which to decline the invitations to Security Hub.
         public let accountIds: [String]
 
@@ -8666,7 +8453,6 @@ extension SecurityHub {
     }
 
     public struct DeclineInvitationsResponse: AWSDecodableShape {
-
         /// The list of AWS accounts that were not processed. For each account, the list includes the account ID and the email address.
         public let unprocessedAccounts: [Result]?
 
@@ -8699,7 +8485,6 @@ extension SecurityHub {
     }
 
     public struct DeleteActionTargetResponse: AWSDecodableShape {
-
         /// The ARN of the custom action target that was deleted.
         public let actionTargetArn: String
 
@@ -8732,7 +8517,6 @@ extension SecurityHub {
     }
 
     public struct DeleteInsightResponse: AWSDecodableShape {
-
         /// The ARN of the insight that was deleted.
         public let insightArn: String
 
@@ -8746,7 +8530,6 @@ extension SecurityHub {
     }
 
     public struct DeleteInvitationsRequest: AWSEncodableShape {
-
         /// The list of the account IDs that sent the invitations to delete.
         public let accountIds: [String]
 
@@ -8766,7 +8549,6 @@ extension SecurityHub {
     }
 
     public struct DeleteInvitationsResponse: AWSDecodableShape {
-
         /// The list of AWS accounts for which the invitations were not deleted. For each account, the list includes the account ID and the email address.
         public let unprocessedAccounts: [Result]?
 
@@ -8780,7 +8562,6 @@ extension SecurityHub {
     }
 
     public struct DeleteMembersRequest: AWSEncodableShape {
-
         /// The list of account IDs for the member accounts to delete.
         public let accountIds: [String]
 
@@ -8800,7 +8581,6 @@ extension SecurityHub {
     }
 
     public struct DeleteMembersResponse: AWSDecodableShape {
-
         /// The list of AWS accounts that were not deleted. For each account, the list includes the account ID and the email address.
         public let unprocessedAccounts: [Result]?
 
@@ -8814,7 +8594,6 @@ extension SecurityHub {
     }
 
     public struct DescribeActionTargetsRequest: AWSEncodableShape {
-
         /// A list of custom action target ARNs for the custom action targets to retrieve.
         public let actionTargetArns: [String]?
         /// The maximum number of results to return.
@@ -8844,7 +8623,6 @@ extension SecurityHub {
     }
 
     public struct DescribeActionTargetsResponse: AWSDecodableShape {
-
         /// A list of ActionTarget objects. Each object includes the ActionTargetArn, Description, and Name of a custom action target available in Security Hub.
         public let actionTargets: [ActionTarget]
         /// The pagination token to use to request the next page of results.
@@ -8881,7 +8659,6 @@ extension SecurityHub {
     }
 
     public struct DescribeHubResponse: AWSDecodableShape {
-
         /// Whether to automatically enable new controls when they are added to standards that are enabled. If set to true, then new controls for enabled standards are enabled automatically. If set to false, then new controls are not enabled.
         public let autoEnableControls: Bool?
         /// The ARN of the Hub resource that was retrieved.
@@ -8903,15 +8680,10 @@ extension SecurityHub {
     }
 
     public struct DescribeOrganizationConfigurationRequest: AWSEncodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct DescribeOrganizationConfigurationResponse: AWSDecodableShape {
-
         /// Whether to automatically enable Security Hub for new accounts in the organization. If set to true, then Security Hub is enabled for new accounts. If set to false, then new accounts are not added automatically.
         public let autoEnable: Bool?
         /// Whether the maximum number of allowed member accounts are already associated with the Security Hub administrator account.
@@ -8930,8 +8702,8 @@ extension SecurityHub {
 
     public struct DescribeProductsRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "MaxResults")), 
-            AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "NextToken")), 
+            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "MaxResults")),
+            AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "NextToken")),
             AWSMemberEncoding(label: "productArn", location: .querystring(locationName: "ProductArn"))
         ]
 
@@ -8958,7 +8730,6 @@ extension SecurityHub {
     }
 
     public struct DescribeProductsResponse: AWSDecodableShape {
-
         /// The pagination token to use to request the next page of results.
         public let nextToken: String?
         /// A list of products, including details for each product.
@@ -8977,8 +8748,8 @@ extension SecurityHub {
 
     public struct DescribeStandardsControlsRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "MaxResults")), 
-            AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "NextToken")), 
+            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "MaxResults")),
+            AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "NextToken")),
             AWSMemberEncoding(label: "standardsSubscriptionArn", location: .uri(locationName: "StandardsSubscriptionArn"))
         ]
 
@@ -9005,7 +8776,6 @@ extension SecurityHub {
     }
 
     public struct DescribeStandardsControlsResponse: AWSDecodableShape {
-
         /// A list of security standards controls.
         public let controls: [StandardsControl]?
         /// The pagination token to use to request the next page of results.
@@ -9024,7 +8794,7 @@ extension SecurityHub {
 
     public struct DescribeStandardsRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "MaxResults")), 
+            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "MaxResults")),
             AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "NextToken"))
         ]
 
@@ -9047,7 +8817,6 @@ extension SecurityHub {
     }
 
     public struct DescribeStandardsResponse: AWSDecodableShape {
-
         /// The pagination token to use to request the next page of results.
         public let nextToken: String?
         /// A list of available standards.
@@ -9084,15 +8853,10 @@ extension SecurityHub {
     }
 
     public struct DisableImportFindingsForProductResponse: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct DisableOrganizationAdminAccountRequest: AWSEncodableShape {
-
         /// The AWS account identifier of the Security Hub administrator account.
         public let adminAccountId: String
 
@@ -9110,47 +8874,26 @@ extension SecurityHub {
     }
 
     public struct DisableOrganizationAdminAccountResponse: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct DisableSecurityHubRequest: AWSEncodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct DisableSecurityHubResponse: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct DisassociateFromMasterAccountRequest: AWSEncodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct DisassociateFromMasterAccountResponse: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct DisassociateMembersRequest: AWSEncodableShape {
-
         /// The account IDs of the member accounts to disassociate from the master account.
         public let accountIds: [String]
 
@@ -9170,15 +8913,10 @@ extension SecurityHub {
     }
 
     public struct DisassociateMembersResponse: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct DnsRequestAction: AWSEncodableShape & AWSDecodableShape {
-
         /// Indicates whether the DNS request was blocked.
         public let blocked: Bool?
         /// The DNS domain that is associated with the DNS request.
@@ -9205,7 +8943,6 @@ extension SecurityHub {
     }
 
     public struct EnableImportFindingsForProductRequest: AWSEncodableShape {
-
         /// The ARN of the product to enable the integration for.
         public let productArn: String
 
@@ -9223,7 +8960,6 @@ extension SecurityHub {
     }
 
     public struct EnableImportFindingsForProductResponse: AWSDecodableShape {
-
         /// The ARN of your subscription to the product to enable integrations for.
         public let productSubscriptionArn: String?
 
@@ -9237,7 +8973,6 @@ extension SecurityHub {
     }
 
     public struct EnableOrganizationAdminAccountRequest: AWSEncodableShape {
-
         /// The AWS account identifier of the account to designate as the Security Hub administrator account.
         public let adminAccountId: String
 
@@ -9255,15 +8990,10 @@ extension SecurityHub {
     }
 
     public struct EnableOrganizationAdminAccountResponse: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct EnableSecurityHubRequest: AWSEncodableShape {
-
         /// Whether to enable the security standards that Security Hub has designated as automatically enabled. If you do not provide a value for EnableDefaultStandards, it is set to true. To not enable the automatically enabled standards, set EnableDefaultStandards to false.
         public let enableDefaultStandards: Bool?
         /// The tags to add to the hub resource when you enable Security Hub.
@@ -9290,15 +9020,10 @@ extension SecurityHub {
     }
 
     public struct EnableSecurityHubResponse: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct FindingProviderFields: AWSEncodableShape & AWSDecodableShape {
-
         /// A finding's confidence. Confidence is defined as the likelihood that a finding accurately identifies the behavior or issue that it was intended to identify. Confidence is scored on a 0-100 basis using a ratio scale, where 0 means zero percent confidence and 100 means 100 percent confidence.
         public let confidence: Int?
         /// The level of importance assigned to the resources associated with the finding. A score of 0 means that the underlying resources have no criticality, and a score of 100 is reserved for the most critical resources.
@@ -9342,7 +9067,6 @@ extension SecurityHub {
     }
 
     public struct FindingProviderSeverity: AWSEncodableShape & AWSDecodableShape {
-
         /// The severity label assigned to the finding by the finding provider.
         public let label: SeverityLabel?
         /// The finding provider's original value for the severity.
@@ -9364,7 +9088,6 @@ extension SecurityHub {
     }
 
     public struct GeoLocation: AWSEncodableShape & AWSDecodableShape {
-
         /// The latitude of the location.
         public let lat: Double?
         /// The longitude of the location.
@@ -9382,7 +9105,6 @@ extension SecurityHub {
     }
 
     public struct GetEnabledStandardsRequest: AWSEncodableShape {
-
         /// The maximum number of results to return in the response.
         public let maxResults: Int?
         /// The token that is required for pagination. On your first call to the GetEnabledStandards operation, set the value of this parameter to NULL. For subsequent calls to the operation, to continue listing data, set the value of this parameter to the value returned from the previous response.
@@ -9414,7 +9136,6 @@ extension SecurityHub {
     }
 
     public struct GetEnabledStandardsResponse: AWSDecodableShape {
-
         /// The pagination token to use to request the next page of results.
         public let nextToken: String?
         /// The list of StandardsSubscriptions objects that include information about the enabled standards.
@@ -9432,7 +9153,6 @@ extension SecurityHub {
     }
 
     public struct GetFindingsRequest: AWSEncodableShape {
-
         /// The finding attributes used to define a condition to filter the returned findings. You can filter by up to 10 finding attributes. For each attribute, you can provide up to 20 filter values. Note that in the available filter fields, WorkflowState is deprecated. To search for a finding based on its workflow status, use WorkflowStatus.
         public let filters: AwsSecurityFindingFilters?
         /// The maximum number of findings to return.
@@ -9467,7 +9187,6 @@ extension SecurityHub {
     }
 
     public struct GetFindingsResponse: AWSDecodableShape {
-
         /// The findings that matched the filters specified in the request.
         public let findings: [AwsSecurityFinding]
         /// The pagination token to use to request the next page of results.
@@ -9504,7 +9223,6 @@ extension SecurityHub {
     }
 
     public struct GetInsightResultsResponse: AWSDecodableShape {
-
         /// The insight results returned by the operation.
         public let insightResults: InsightResults
 
@@ -9518,7 +9236,6 @@ extension SecurityHub {
     }
 
     public struct GetInsightsRequest: AWSEncodableShape {
-
         /// The ARNs of the insights to describe. If you do not provide any insight ARNs, then GetInsights returns all of your custom insights. It does not return any managed insights.
         public let insightArns: [String]?
         /// The maximum number of items to return in the response.
@@ -9548,7 +9265,6 @@ extension SecurityHub {
     }
 
     public struct GetInsightsResponse: AWSDecodableShape {
-
         /// The insights returned by the operation.
         public let insights: [Insight]
         /// The pagination token to use to request the next page of results.
@@ -9566,15 +9282,10 @@ extension SecurityHub {
     }
 
     public struct GetInvitationsCountRequest: AWSEncodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct GetInvitationsCountResponse: AWSDecodableShape {
-
         /// The number of all membership invitations sent to this Security Hub member account, not including the currently accepted invitation.
         public let invitationsCount: Int?
 
@@ -9588,15 +9299,10 @@ extension SecurityHub {
     }
 
     public struct GetMasterAccountRequest: AWSEncodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct GetMasterAccountResponse: AWSDecodableShape {
-
         /// A list of details about the Security Hub master account for the current member account.
         public let master: Invitation?
 
@@ -9610,7 +9316,6 @@ extension SecurityHub {
     }
 
     public struct GetMembersRequest: AWSEncodableShape {
-
         /// The list of account IDs for the Security Hub member accounts to return the details for.
         public let accountIds: [String]
 
@@ -9630,7 +9335,6 @@ extension SecurityHub {
     }
 
     public struct GetMembersResponse: AWSDecodableShape {
-
         /// The list of details about the Security Hub member accounts.
         public let members: [Member]?
         /// The list of AWS accounts that could not be processed. For each account, the list includes the account ID and the email address.
@@ -9648,7 +9352,6 @@ extension SecurityHub {
     }
 
     public struct ImportFindingsError: AWSDecodableShape {
-
         /// The code of the error returned by the BatchImportFindings operation.
         public let errorCode: String
         /// The message of the error returned by the BatchImportFindings operation.
@@ -9670,7 +9373,6 @@ extension SecurityHub {
     }
 
     public struct Insight: AWSDecodableShape {
-
         /// One or more attributes used to filter the findings included in the insight. The insight only includes findings that match the criteria defined in the filters.
         public let filters: AwsSecurityFindingFilters
         /// The grouping attribute for the insight's findings. Indicates how to group the matching findings, and identifies the type of item that the insight applies to. For example, if an insight is grouped by resource identifier, then the insight produces a list of resource identifiers.
@@ -9696,7 +9398,6 @@ extension SecurityHub {
     }
 
     public struct InsightResultValue: AWSDecodableShape {
-
         /// The number of findings returned for each GroupByAttributeValue.
         public let count: Int
         /// The value of the attribute that the findings are grouped by for the insight whose results are returned by the GetInsightResults operation.
@@ -9714,7 +9415,6 @@ extension SecurityHub {
     }
 
     public struct InsightResults: AWSDecodableShape {
-
         /// The attribute that the findings are grouped by for the insight whose results are returned by the GetInsightResults operation.
         public let groupByAttribute: String
         /// The ARN of the insight whose results are returned by the GetInsightResults operation.
@@ -9736,7 +9436,6 @@ extension SecurityHub {
     }
 
     public struct Invitation: AWSDecodableShape {
-
         /// The account ID of the Security Hub master account that the invitation was sent from.
         public let accountId: String?
         /// The ID of the invitation sent to the member account.
@@ -9763,7 +9462,6 @@ extension SecurityHub {
     }
 
     public struct InviteMembersRequest: AWSEncodableShape {
-
         /// The list of account IDs of the AWS accounts to invite to Security Hub as members.
         public let accountIds: [String]
 
@@ -9783,7 +9481,6 @@ extension SecurityHub {
     }
 
     public struct InviteMembersResponse: AWSDecodableShape {
-
         /// The list of AWS accounts that could not be processed. For each account, the list includes the account ID and the email address.
         public let unprocessedAccounts: [Result]?
 
@@ -9797,7 +9494,6 @@ extension SecurityHub {
     }
 
     public struct IpFilter: AWSEncodableShape & AWSDecodableShape {
-
         /// A finding's CIDR value.
         public let cidr: String?
 
@@ -9815,7 +9511,6 @@ extension SecurityHub {
     }
 
     public struct IpOrganizationDetails: AWSEncodableShape & AWSDecodableShape {
-
         /// The Autonomous System Number (ASN) of the internet provider
         public let asn: Int?
         /// The name of the organization that registered the ASN.
@@ -9847,7 +9542,6 @@ extension SecurityHub {
     }
 
     public struct Ipv6CidrBlockAssociation: AWSEncodableShape & AWSDecodableShape {
-
         /// The association ID for the IPv6 CIDR block.
         public let associationId: String?
         /// Information about the state of the CIDR block.
@@ -9875,7 +9569,6 @@ extension SecurityHub {
     }
 
     public struct KeywordFilter: AWSEncodableShape & AWSDecodableShape {
-
         /// A value for the keyword.
         public let value: String?
 
@@ -9894,7 +9587,7 @@ extension SecurityHub {
 
     public struct ListEnabledProductsForImportRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "MaxResults")), 
+            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "MaxResults")),
             AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "NextToken"))
         ]
 
@@ -9917,7 +9610,6 @@ extension SecurityHub {
     }
 
     public struct ListEnabledProductsForImportResponse: AWSDecodableShape {
-
         /// The pagination token to use to request the next page of results.
         public let nextToken: String?
         /// The list of ARNs for the resources that represent your subscriptions to products.
@@ -9936,7 +9628,7 @@ extension SecurityHub {
 
     public struct ListInvitationsRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "MaxResults")), 
+            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "MaxResults")),
             AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "NextToken"))
         ]
 
@@ -9959,7 +9651,6 @@ extension SecurityHub {
     }
 
     public struct ListInvitationsResponse: AWSDecodableShape {
-
         /// The details of the invitations returned by the operation.
         public let invitations: [Invitation]?
         /// The pagination token to use to request the next page of results.
@@ -9978,8 +9669,8 @@ extension SecurityHub {
 
     public struct ListMembersRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "MaxResults")), 
-            AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "NextToken")), 
+            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "MaxResults")),
+            AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "NextToken")),
             AWSMemberEncoding(label: "onlyAssociated", location: .querystring(locationName: "OnlyAssociated"))
         ]
 
@@ -10005,7 +9696,6 @@ extension SecurityHub {
     }
 
     public struct ListMembersResponse: AWSDecodableShape {
-
         /// Member details returned by the operation.
         public let members: [Member]?
         /// The pagination token to use to request the next page of results.
@@ -10024,7 +9714,7 @@ extension SecurityHub {
 
     public struct ListOrganizationAdminAccountsRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "MaxResults")), 
+            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "MaxResults")),
             AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "NextToken"))
         ]
 
@@ -10047,7 +9737,6 @@ extension SecurityHub {
     }
 
     public struct ListOrganizationAdminAccountsResponse: AWSDecodableShape {
-
         /// The list of Security Hub administrator accounts.
         public let adminAccounts: [AdminAccount]?
         /// The pagination token to use to request the next page of results.
@@ -10084,7 +9773,6 @@ extension SecurityHub {
     }
 
     public struct ListTagsForResourceResponse: AWSDecodableShape {
-
         /// The tags associated with a resource.
         public let tags: [String: String]?
 
@@ -10098,7 +9786,6 @@ extension SecurityHub {
     }
 
     public struct LoadBalancerState: AWSEncodableShape & AWSDecodableShape {
-
         /// The state code. The initial state of the load balancer is provisioning. After the load balancer is fully set up and ready to route traffic, its state is active. If the load balancer could not be set up, its state is failed.
         public let code: String?
         /// A description of the state.
@@ -10121,7 +9808,6 @@ extension SecurityHub {
     }
 
     public struct Malware: AWSEncodableShape & AWSDecodableShape {
-
         /// The name of the malware that was observed.
         public let name: String
         /// The file system path of the malware that was observed.
@@ -10152,7 +9838,6 @@ extension SecurityHub {
     }
 
     public struct MapFilter: AWSEncodableShape & AWSDecodableShape {
-
         /// The condition to apply to the key value when querying for findings with a map filter. To search for values that exactly match the filter value, use EQUALS. For example, for the ResourceTags field, the filter Department EQUALS Security matches findings that have the value Security for the tag Department. To search for values other than the filter value, use NOT_EQUALS. For example, for the ResourceTags field, the filter Department NOT_EQUALS Finance matches findings that do not have the value Finance for the tag Department.  EQUALS filters on the same field are joined by OR. A finding matches if it matches any one of those filters.  NOT_EQUALS filters on the same field are joined by AND. A finding matches only if it matches all of those filters. You cannot have both an EQUALS filter and a NOT_EQUALS filter on the same field.
         public let comparison: MapFilterComparison?
         /// The key of the map filter. For example, for ResourceTags, Key identifies the name of the tag. For UserDefinedFields, Key is the name of the field.
@@ -10179,7 +9864,6 @@ extension SecurityHub {
     }
 
     public struct Member: AWSDecodableShape {
-
         /// The AWS account ID of the member account.
         public let accountId: String?
         /// The email address of the member account.
@@ -10215,7 +9899,6 @@ extension SecurityHub {
     }
 
     public struct Network: AWSEncodableShape & AWSDecodableShape {
-
         /// The destination domain of network-related information about a finding.
         public let destinationDomain: String?
         /// The destination IPv4 address of network-related information about a finding.
@@ -10284,7 +9967,6 @@ extension SecurityHub {
     }
 
     public struct NetworkConnectionAction: AWSEncodableShape & AWSDecodableShape {
-
         /// Indicates whether the network connection attempt was blocked.
         public let blocked: Bool?
         /// The direction of the network connection request (IN or OUT).
@@ -10326,7 +10008,6 @@ extension SecurityHub {
     }
 
     public struct NetworkHeader: AWSEncodableShape & AWSDecodableShape {
-
         /// Information about the destination of the component.
         public let destination: NetworkPathComponentDetails?
         /// The protocol used for the component.
@@ -10354,7 +10035,6 @@ extension SecurityHub {
     }
 
     public struct NetworkPathComponent: AWSEncodableShape & AWSDecodableShape {
-
         /// The identifier of a component in the network path.
         public let componentId: String?
         /// The type of component.
@@ -10387,7 +10067,6 @@ extension SecurityHub {
     }
 
     public struct NetworkPathComponentDetails: AWSEncodableShape & AWSDecodableShape {
-
         /// The IP addresses of the destination.
         public let address: [String]?
         /// A list of port ranges for the destination.
@@ -10411,7 +10090,6 @@ extension SecurityHub {
     }
 
     public struct Note: AWSEncodableShape & AWSDecodableShape {
-
         /// The text of a note.
         public let text: String
         /// The timestamp of when the note was updated. Uses the date-time format specified in RFC 3339 section 5.6, Internet Date/Time Format. The value cannot contain spaces. For example, 2020-03-22T13:22:13.933Z.
@@ -10439,7 +10117,6 @@ extension SecurityHub {
     }
 
     public struct NoteUpdate: AWSEncodableShape {
-
         /// The updated note text.
         public let text: String
         /// The principal that updated the note.
@@ -10462,7 +10139,6 @@ extension SecurityHub {
     }
 
     public struct NumberFilter: AWSEncodableShape & AWSDecodableShape {
-
         /// The equal-to condition to be applied to a single field when querying for findings.
         public let eq: Double?
         /// The greater-than-equal condition to be applied to a single field when querying for findings.
@@ -10484,7 +10160,6 @@ extension SecurityHub {
     }
 
     public struct Occurrences: AWSEncodableShape & AWSDecodableShape {
-
         /// Occurrences of sensitive data detected in Microsoft Excel workbooks, comma-separated value (CSV) files, or tab-separated value (TSV) files.
         public let cells: [Cell]?
         /// Occurrences of sensitive data detected in a non-binary text file or a Microsoft Word file. Non-binary text files include files such as HTML, XML, JSON, and TXT files.
@@ -10523,7 +10198,6 @@ extension SecurityHub {
     }
 
     public struct Page: AWSEncodableShape & AWSDecodableShape {
-
         /// An occurrence of sensitive data detected in a non-binary text file or a Microsoft Word file. Non-binary text files include files such as HTML, XML, JSON, and TXT files.
         public let lineRange: Range?
         /// An occurrence of sensitive data detected in a binary text file.
@@ -10545,7 +10219,6 @@ extension SecurityHub {
     }
 
     public struct PatchSummary: AWSEncodableShape & AWSDecodableShape {
-
         /// The number of patches from the compliance standard that failed to install.
         public let failedCount: Int?
         /// The identifier of the compliance standard that was used to determine the patch compliance status.
@@ -10607,7 +10280,6 @@ extension SecurityHub {
     }
 
     public struct PortProbeAction: AWSEncodableShape & AWSDecodableShape {
-
         /// Indicates whether the port probe was blocked.
         public let blocked: Bool?
         /// Information about the ports affected by the port probe.
@@ -10631,7 +10303,6 @@ extension SecurityHub {
     }
 
     public struct PortProbeDetail: AWSEncodableShape & AWSDecodableShape {
-
         /// Provides information about the IP address where the scanned port is located.
         public let localIpDetails: ActionLocalIpDetails?
         /// Provides information about the port that was scanned.
@@ -10659,7 +10330,6 @@ extension SecurityHub {
     }
 
     public struct PortRange: AWSEncodableShape & AWSDecodableShape {
-
         /// The first port in the port range.
         public let begin: Int?
         /// The last port in the port range.
@@ -10677,7 +10347,6 @@ extension SecurityHub {
     }
 
     public struct ProcessDetails: AWSEncodableShape & AWSDecodableShape {
-
         /// Indicates when the process was launched. Uses the date-time format specified in RFC 3339 section 5.6, Internet Date/Time Format. The value cannot contain spaces. For example, 2020-03-22T13:22:13.933Z.
         public let launchedAt: String?
         /// The name of the process.
@@ -10718,7 +10387,6 @@ extension SecurityHub {
     }
 
     public struct Product: AWSDecodableShape {
-
         /// The URL used to activate the product.
         public let activationUrl: String?
         /// The categories assigned to the product.
@@ -10764,7 +10432,6 @@ extension SecurityHub {
     }
 
     public struct Range: AWSEncodableShape & AWSDecodableShape {
-
         /// The number of lines (for a line range) or characters (for an offset range) from the beginning of the file to the end of the sensitive data.
         public let end: Int64?
         /// The number of lines (for a line range) or characters (for an offset range) from the beginning of the file to the end of the sensitive data.
@@ -10786,7 +10453,6 @@ extension SecurityHub {
     }
 
     public struct Recommendation: AWSEncodableShape & AWSDecodableShape {
-
         /// Describes the recommended steps to take to remediate an issue identified in a finding.
         public let text: String?
         /// A URL to a page or site that contains information about how to remediate a finding.
@@ -10809,7 +10475,6 @@ extension SecurityHub {
     }
 
     public struct Record: AWSEncodableShape & AWSDecodableShape {
-
         /// The path, as a JSONPath expression, to the field in the record that contains the data. If the field name is longer than 20 characters, it is truncated. If the path is longer than 250 characters, it is truncated.
         public let jsonPath: String?
         /// The record index, starting from 0, for the record that contains the data.
@@ -10831,7 +10496,6 @@ extension SecurityHub {
     }
 
     public struct RelatedFinding: AWSEncodableShape & AWSDecodableShape {
-
         /// The product-generated identifier for a related finding.
         public let id: String
         /// The ARN of the product that generated a related finding.
@@ -10854,7 +10518,6 @@ extension SecurityHub {
     }
 
     public struct Remediation: AWSEncodableShape & AWSDecodableShape {
-
         /// A recommendation on the steps to take to remediate the issue identified by a finding.
         public let recommendation: Recommendation?
 
@@ -10872,7 +10535,6 @@ extension SecurityHub {
     }
 
     public struct Resource: AWSEncodableShape & AWSDecodableShape {
-
         /// Contains information about sensitive data that was detected on the resource.
         public let dataClassification: DataClassificationDetails?
         /// Additional details about the resource related to a finding.
@@ -10927,7 +10589,6 @@ extension SecurityHub {
     }
 
     public struct ResourceDetails: AWSEncodableShape & AWSDecodableShape {
-
         /// Provides information about a REST API in version 1 of Amazon API Gateway.
         public let awsApiGatewayRestApi: AwsApiGatewayRestApiDetails?
         /// Provides information about a version 1 Amazon API Gateway stage.
@@ -11152,7 +10813,6 @@ extension SecurityHub {
     }
 
     public struct Result: AWSDecodableShape {
-
         /// An AWS account ID of the account that was not processed.
         public let accountId: String?
         /// The reason that the account was not processed.
@@ -11170,7 +10830,6 @@ extension SecurityHub {
     }
 
     public struct SensitiveDataDetections: AWSEncodableShape & AWSDecodableShape {
-
         /// The total number of occurrences of sensitive data that were detected.
         public let count: Int64?
         /// Details about the sensitive data that was detected.
@@ -11197,7 +10856,6 @@ extension SecurityHub {
     }
 
     public struct SensitiveDataResult: AWSEncodableShape & AWSDecodableShape {
-
         /// The category of sensitive data that was detected. For example, the category can indicate that the sensitive data involved credentials, financial information, or personal information.
         public let category: String?
         /// The list of detected instances of sensitive data.
@@ -11226,7 +10884,6 @@ extension SecurityHub {
     }
 
     public struct Severity: AWSEncodableShape & AWSDecodableShape {
-
         /// The severity value of the finding. The allowed values are the following.    INFORMATIONAL - No issue was found.    LOW - The issue does not require action on its own.    MEDIUM - The issue must be addressed but not urgently.    HIGH - The issue must be addressed as a priority.    CRITICAL - The issue must be remediated immediately to avoid it escalating.   If you provide Normalized and do not provide Label, then Label is set automatically as follows.    0 - INFORMATIONAL    1–39 - LOW    40–69 - MEDIUM    70–89 - HIGH    90–100 - CRITICAL
         public let label: SeverityLabel?
         /// Deprecated. The normalized severity of a finding. This attribute is being deprecated. Instead of providing Normalized, provide Label. If you provide Label and do not provide Normalized, then Normalized is set automatically as follows.    INFORMATIONAL - 0    LOW - 1    MEDIUM - 40    HIGH - 70    CRITICAL - 90
@@ -11256,7 +10913,6 @@ extension SecurityHub {
     }
 
     public struct SeverityUpdate: AWSEncodableShape {
-
         /// The severity value of the finding. The allowed values are the following.    INFORMATIONAL - No issue was found.    LOW - The issue does not require action on its own.    MEDIUM - The issue must be addressed but not urgently.    HIGH - The issue must be addressed as a priority.    CRITICAL - The issue must be remediated immediately to avoid it escalating.
         public let label: SeverityLabel?
         /// The normalized severity for the finding. This attribute is to be deprecated in favor of Label. If you provide Normalized and do not provide Label, Label is set automatically as follows.   0 - INFORMATIONAL    1–39 - LOW    40–69 - MEDIUM    70–89 - HIGH    90–100 - CRITICAL
@@ -11283,7 +10939,6 @@ extension SecurityHub {
     }
 
     public struct SoftwarePackage: AWSEncodableShape & AWSDecodableShape {
-
         /// The architecture used for the software package.
         public let architecture: String?
         /// The epoch of the software package.
@@ -11321,7 +10976,6 @@ extension SecurityHub {
     }
 
     public struct SortCriterion: AWSEncodableShape {
-
         /// The finding attribute used to sort findings.
         public let field: String?
         /// The order used to sort findings.
@@ -11343,7 +10997,6 @@ extension SecurityHub {
     }
 
     public struct Standard: AWSDecodableShape {
-
         /// A description of the standard.
         public let description: String?
         /// Whether the standard is enabled by default. When Security Hub is enabled from the console, if a standard is enabled by default, the check box for that standard is selected by default. When Security Hub is enabled using the EnableSecurityHub API operation, the standard is enabled by default unless EnableDefaultStandards is set to false.
@@ -11369,7 +11022,6 @@ extension SecurityHub {
     }
 
     public struct StandardsControl: AWSDecodableShape {
-
         /// The identifier of the security standard control.
         public let controlId: String?
         /// The current status of the security standard control. Indicates whether the control is enabled or disabled. Security Hub does not check against disabled controls.
@@ -11420,7 +11072,6 @@ extension SecurityHub {
     }
 
     public struct StandardsSubscription: AWSDecodableShape {
-
         /// The ARN of a standard.
         public let standardsArn: String
         /// A key-value pair of input for the standard.
@@ -11446,7 +11097,6 @@ extension SecurityHub {
     }
 
     public struct StandardsSubscriptionRequest: AWSEncodableShape {
-
         /// The ARN of the standard that you want to enable. To view the list of available standards and their ARNs, use the  DescribeStandards  operation.
         public let standardsArn: String
         /// A key-value pair of input for the standard.
@@ -11472,7 +11122,6 @@ extension SecurityHub {
     }
 
     public struct StatusReason: AWSEncodableShape & AWSDecodableShape {
-
         /// The corresponding description for the status reason code.
         public let description: String?
         /// A code that represents a reason for the control status. For the list of status reason codes and their meanings, see Standards-related information in the ASFF in the AWS Security Hub User Guide.
@@ -11495,7 +11144,6 @@ extension SecurityHub {
     }
 
     public struct StringFilter: AWSEncodableShape & AWSDecodableShape {
-
         /// The condition to apply to a string value when querying for findings. To search for values that contain the filter criteria value, use one of the following comparison operators:   To search for values that exactly match the filter value, use EQUALS. For example, the filter ResourceType EQUALS AwsEc2SecurityGroup only matches findings that have a resource type of AwsEc2SecurityGroup.   To search for values that start with the filter value, use PREFIX. For example, the filter ResourceType PREFIX AwsIam matches findings that have a resource type that starts with AwsIam. Findings with a resource type of AwsIamPolicy, AwsIamRole, or AwsIamUser would all match.    EQUALS and PREFIX filters on the same field are joined by OR. A finding matches if it matches any one of those filters. To search for values that do not contain the filter criteria value, use one of the following comparison operators:   To search for values that do not exactly match the filter value, use NOT_EQUALS. For example, the filter ResourceType NOT_EQUALS AwsIamPolicy matches findings that have a resource type other than AwsIamPolicy.   To search for values that do not start with the filter value, use PREFIX_NOT_EQUALS. For example, the filter ResourceType PREFIX_NOT_EQUALS AwsIam matches findings that have a resource type that does not start with AwsIam. Findings with a resource type of AwsIamPolicy, AwsIamRole, or AwsIamUser would all be excluded from the results.    NOT_EQUALS and PREFIX_NOT_EQUALS filters on the same field are joined by AND. A finding matches only if it matches all of those filters. For filters on the same field, you cannot provide both an EQUALS filter and a NOT_EQUALS or PREFIX_NOT_EQUALS filter. Combining filters in this way always returns an error, even if the provided filter values would return valid results. You can combine PREFIX filters with NOT_EQUALS or PREFIX_NOT_EQUALS filters for the same field. Security Hub first processes the PREFIX filters, then the NOT_EQUALS or PREFIX_NOT_EQUALS filters.  For example, for the following filter, Security Hub first identifies findings that have resource types that start with either AwsIAM or AwsEc2. It then excludes findings that have a resource type of AwsIamPolicy and findings that have a resource type of AwsEc2NetworkInterface.    ResourceType PREFIX AwsIam     ResourceType PREFIX AwsEc2     ResourceType NOT_EQUALS AwsIamPolicy     ResourceType NOT_EQUALS AwsEc2NetworkInterface
         public let comparison: StringFilterComparison?
         /// The string filter value. Filter values are case sensitive. For example, the product name for control-based findings is Security Hub. If you provide security hub as the filter text, then there is no match.
@@ -11547,15 +11195,10 @@ extension SecurityHub {
     }
 
     public struct TagResourceResponse: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct ThreatIntelIndicator: AWSEncodableShape & AWSDecodableShape {
-
         /// The category of a threat intelligence indicator.
         public let category: ThreatIntelIndicatorCategory?
         /// Indicates when the most recent instance of a threat intelligence indicator was observed. Uses the date-time format specified in RFC 3339 section 5.6, Internet Date/Time Format. The value cannot contain spaces. For example, 2020-03-22T13:22:13.933Z.
@@ -11597,7 +11240,7 @@ extension SecurityHub {
 
     public struct UntagResourceRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "resourceArn", location: .uri(locationName: "ResourceArn")), 
+            AWSMemberEncoding(label: "resourceArn", location: .uri(locationName: "ResourceArn")),
             AWSMemberEncoding(label: "tagKeys", location: .querystring(locationName: "tagKeys"))
         ]
 
@@ -11626,11 +11269,7 @@ extension SecurityHub {
     }
 
     public struct UntagResourceResponse: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct UpdateActionTargetRequest: AWSEncodableShape {
@@ -11664,15 +11303,10 @@ extension SecurityHub {
     }
 
     public struct UpdateActionTargetResponse: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct UpdateFindingsRequest: AWSEncodableShape {
-
         /// A collection of attributes that specify which findings you want to update.
         public let filters: AwsSecurityFindingFilters
         /// The updated note for the finding.
@@ -11699,11 +11333,7 @@ extension SecurityHub {
     }
 
     public struct UpdateFindingsResponse: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct UpdateInsightRequest: AWSEncodableShape {
@@ -11742,15 +11372,10 @@ extension SecurityHub {
     }
 
     public struct UpdateInsightResponse: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct UpdateOrganizationConfigurationRequest: AWSEncodableShape {
-
         /// Whether to automatically enable Security Hub for new accounts in the organization. By default, this is false, and new accounts are not added automatically. To automatically enable Security Hub for new accounts, set this to true.
         public let autoEnable: Bool
 
@@ -11764,15 +11389,10 @@ extension SecurityHub {
     }
 
     public struct UpdateOrganizationConfigurationResponse: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct UpdateSecurityHubConfigurationRequest: AWSEncodableShape {
-
         /// Whether to automatically enable new controls when they are added to standards that are enabled. By default, this is set to true, and new controls are enabled automatically. To not automatically enable new controls, set this to false.
         public let autoEnableControls: Bool?
 
@@ -11786,11 +11406,7 @@ extension SecurityHub {
     }
 
     public struct UpdateSecurityHubConfigurationResponse: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct UpdateStandardsControlRequest: AWSEncodableShape {
@@ -11823,15 +11439,10 @@ extension SecurityHub {
     }
 
     public struct UpdateStandardsControlResponse: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct Vulnerability: AWSEncodableShape & AWSDecodableShape {
-
         /// CVSS scores from the advisory related to the vulnerability.
         public let cvss: [Cvss]?
         /// The identifier of the vulnerability.
@@ -11882,7 +11493,6 @@ extension SecurityHub {
     }
 
     public struct VulnerabilityVendor: AWSEncodableShape & AWSDecodableShape {
-
         /// The name of the vendor.
         public let name: String
         /// The URL of the vulnerability advisory.
@@ -11920,7 +11530,6 @@ extension SecurityHub {
     }
 
     public struct WafAction: AWSEncodableShape & AWSDecodableShape {
-
         /// Specifies how you want AWS WAF to respond to requests that match the settings in a rule. Valid settings include the following:    ALLOW - AWS WAF allows requests    BLOCK - AWS WAF blocks requests    COUNT - AWS WAF increments a counter of the requests that match all of the conditions in the rule. AWS WAF then continues to inspect the web request based on the remaining rules in the web ACL. You can't specify COUNT for the default action for a WebACL.
         public let type: String?
 
@@ -11938,7 +11547,6 @@ extension SecurityHub {
     }
 
     public struct WafExcludedRule: AWSEncodableShape & AWSDecodableShape {
-
         /// The unique identifier for the rule to exclude from the rule group.
         public let ruleId: String?
 
@@ -11956,7 +11564,6 @@ extension SecurityHub {
     }
 
     public struct WafOverrideAction: AWSEncodableShape & AWSDecodableShape {
-
         ///  COUNT overrides the action specified by the individual rule within a RuleGroup . If set to NONE, the rule's action takes place.
         public let type: String?
 
@@ -11974,7 +11581,6 @@ extension SecurityHub {
     }
 
     public struct Workflow: AWSEncodableShape & AWSDecodableShape {
-
         /// The status of the investigation into the finding. The allowed values are the following.    NEW - The initial state of a finding, before it is reviewed. Security Hub also resets the workflow status from NOTIFIED or RESOLVED to NEW in the following cases:    RecordState changes from ARCHIVED to ACTIVE.    ComplianceStatus changes from PASSED to either WARNING, FAILED, or NOT_AVAILABLE.      NOTIFIED - Indicates that you notified the resource owner about the security issue. Used when the initial reviewer is not the resource owner, and needs intervention from the resource owner.    SUPPRESSED - The finding will not be reviewed again and will not be acted upon.    RESOLVED - The finding was reviewed and remediated and is now considered resolved.
         public let status: WorkflowStatus?
 
@@ -11988,7 +11594,6 @@ extension SecurityHub {
     }
 
     public struct WorkflowUpdate: AWSEncodableShape {
-
         /// The status of the investigation into the finding. The allowed values are the following.    NEW - The initial state of a finding, before it is reviewed. Security Hub also resets WorkFlowStatus from NOTIFIED or RESOLVED to NEW in the following cases:   The record state changes from ARCHIVED to ACTIVE.   The compliance status changes from PASSED to either WARNING, FAILED, or NOT_AVAILABLE.      NOTIFIED - Indicates that you notified the resource owner about the security issue. Used when the initial reviewer is not the resource owner, and needs intervention from the resource owner.    RESOLVED - The finding was reviewed and remediated and is now considered resolved.    SUPPRESSED - The finding will not be reviewed again and will not be acted upon.
         public let status: WorkflowStatus?
 

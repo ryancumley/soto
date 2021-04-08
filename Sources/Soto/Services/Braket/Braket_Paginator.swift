@@ -72,6 +72,29 @@ extension Braket {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func searchDevicesPaginator(
+        _ input: SearchDevicesRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<SearchDevicesRequest, SearchDevicesResponse> {
+        return .init(
+            input: input,
+            command: searchDevices,
+            inputKey: \SearchDevicesRequest.nextToken,
+            outputKey: \SearchDevicesResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Searches for tasks that match the specified filter values.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -124,6 +147,29 @@ extension Braket {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func searchQuantumTasksPaginator(
+        _ input: SearchQuantumTasksRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<SearchQuantumTasksRequest, SearchQuantumTasksResponse> {
+        return .init(
+            input: input,
+            command: searchQuantumTasks,
+            inputKey: \SearchQuantumTasksRequest.nextToken,
+            outputKey: \SearchQuantumTasksResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 }
 
 extension Braket.SearchDevicesRequest: AWSPaginateToken {

@@ -72,6 +72,29 @@ extension SSM {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func describeActivationsPaginator(
+        _ input: DescribeActivationsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<DescribeActivationsRequest, DescribeActivationsResult> {
+        return .init(
+            input: input,
+            command: describeActivations,
+            inputKey: \DescribeActivationsRequest.nextToken,
+            outputKey: \DescribeActivationsResult.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Use this API action to view information about a specific execution of a specific association.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -124,6 +147,29 @@ extension SSM {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func describeAssociationExecutionTargetsPaginator(
+        _ input: DescribeAssociationExecutionTargetsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<DescribeAssociationExecutionTargetsRequest, DescribeAssociationExecutionTargetsResult> {
+        return .init(
+            input: input,
+            command: describeAssociationExecutionTargets,
+            inputKey: \DescribeAssociationExecutionTargetsRequest.nextToken,
+            outputKey: \DescribeAssociationExecutionTargetsResult.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Use this API action to view all executions for a specific association ID.
     ///
@@ -178,6 +224,29 @@ extension SSM {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func describeAssociationExecutionsPaginator(
+        _ input: DescribeAssociationExecutionsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<DescribeAssociationExecutionsRequest, DescribeAssociationExecutionsResult> {
+        return .init(
+            input: input,
+            command: describeAssociationExecutions,
+            inputKey: \DescribeAssociationExecutionsRequest.nextToken,
+            outputKey: \DescribeAssociationExecutionsResult.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Provides details about all active and terminated Automation executions.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -230,6 +299,29 @@ extension SSM {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func describeAutomationExecutionsPaginator(
+        _ input: DescribeAutomationExecutionsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<DescribeAutomationExecutionsRequest, DescribeAutomationExecutionsResult> {
+        return .init(
+            input: input,
+            command: describeAutomationExecutions,
+            inputKey: \DescribeAutomationExecutionsRequest.nextToken,
+            outputKey: \DescribeAutomationExecutionsResult.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Information about all active and terminated step executions in an Automation workflow.
     ///
@@ -284,6 +376,29 @@ extension SSM {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func describeAutomationStepExecutionsPaginator(
+        _ input: DescribeAutomationStepExecutionsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<DescribeAutomationStepExecutionsRequest, DescribeAutomationStepExecutionsResult> {
+        return .init(
+            input: input,
+            command: describeAutomationStepExecutions,
+            inputKey: \DescribeAutomationStepExecutionsRequest.nextToken,
+            outputKey: \DescribeAutomationStepExecutionsResult.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Lists all patches eligible to be included in a patch baseline.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -336,6 +451,29 @@ extension SSM {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func describeAvailablePatchesPaginator(
+        _ input: DescribeAvailablePatchesRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<DescribeAvailablePatchesRequest, DescribeAvailablePatchesResult> {
+        return .init(
+            input: input,
+            command: describeAvailablePatches,
+            inputKey: \DescribeAvailablePatchesRequest.nextToken,
+            outputKey: \DescribeAvailablePatchesResult.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  All associations for the instance(s).
     ///
@@ -390,6 +528,29 @@ extension SSM {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func describeEffectiveInstanceAssociationsPaginator(
+        _ input: DescribeEffectiveInstanceAssociationsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<DescribeEffectiveInstanceAssociationsRequest, DescribeEffectiveInstanceAssociationsResult> {
+        return .init(
+            input: input,
+            command: describeEffectiveInstanceAssociations,
+            inputKey: \DescribeEffectiveInstanceAssociationsRequest.nextToken,
+            outputKey: \DescribeEffectiveInstanceAssociationsResult.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Retrieves the current effective patches (the patch and the approval state) for the specified patch baseline. Note that this API applies only to Windows patch baselines.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -442,6 +603,29 @@ extension SSM {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func describeEffectivePatchesForPatchBaselinePaginator(
+        _ input: DescribeEffectivePatchesForPatchBaselineRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<DescribeEffectivePatchesForPatchBaselineRequest, DescribeEffectivePatchesForPatchBaselineResult> {
+        return .init(
+            input: input,
+            command: describeEffectivePatchesForPatchBaseline,
+            inputKey: \DescribeEffectivePatchesForPatchBaselineRequest.nextToken,
+            outputKey: \DescribeEffectivePatchesForPatchBaselineResult.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  The status of the associations for the instance(s).
     ///
@@ -496,6 +680,29 @@ extension SSM {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func describeInstanceAssociationsStatusPaginator(
+        _ input: DescribeInstanceAssociationsStatusRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<DescribeInstanceAssociationsStatusRequest, DescribeInstanceAssociationsStatusResult> {
+        return .init(
+            input: input,
+            command: describeInstanceAssociationsStatus,
+            inputKey: \DescribeInstanceAssociationsStatusRequest.nextToken,
+            outputKey: \DescribeInstanceAssociationsStatusResult.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Describes one or more of your instances, including information about the operating system platform, the version of SSM Agent installed on the instance, instance status, and so on. If you specify one or more instance IDs, it returns information for those instances. If you do not specify instance IDs, it returns information for all your instances. If you specify an instance ID that is not valid or an instance that you do not own, you receive an error.  The IamRole field for this API action is the Amazon Identity and Access Management (IAM) role assigned to on-premises instances. This call does not return the IAM role for EC2 instances.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -548,6 +755,29 @@ extension SSM {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func describeInstanceInformationPaginator(
+        _ input: DescribeInstanceInformationRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<DescribeInstanceInformationRequest, DescribeInstanceInformationResult> {
+        return .init(
+            input: input,
+            command: describeInstanceInformation,
+            inputKey: \DescribeInstanceInformationRequest.nextToken,
+            outputKey: \DescribeInstanceInformationResult.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Retrieves the high-level patch state of one or more instances.
     ///
@@ -602,6 +832,29 @@ extension SSM {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func describeInstancePatchStatesPaginator(
+        _ input: DescribeInstancePatchStatesRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<DescribeInstancePatchStatesRequest, DescribeInstancePatchStatesResult> {
+        return .init(
+            input: input,
+            command: describeInstancePatchStates,
+            inputKey: \DescribeInstancePatchStatesRequest.nextToken,
+            outputKey: \DescribeInstancePatchStatesResult.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Retrieves the high-level patch state for the instances in the specified patch group.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -654,6 +907,29 @@ extension SSM {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func describeInstancePatchStatesForPatchGroupPaginator(
+        _ input: DescribeInstancePatchStatesForPatchGroupRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<DescribeInstancePatchStatesForPatchGroupRequest, DescribeInstancePatchStatesForPatchGroupResult> {
+        return .init(
+            input: input,
+            command: describeInstancePatchStatesForPatchGroup,
+            inputKey: \DescribeInstancePatchStatesForPatchGroupRequest.nextToken,
+            outputKey: \DescribeInstancePatchStatesForPatchGroupResult.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Retrieves information about the patches on the specified instance and their state relative to the patch baseline being used for the instance.
     ///
@@ -708,6 +984,29 @@ extension SSM {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func describeInstancePatchesPaginator(
+        _ input: DescribeInstancePatchesRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<DescribeInstancePatchesRequest, DescribeInstancePatchesResult> {
+        return .init(
+            input: input,
+            command: describeInstancePatches,
+            inputKey: \DescribeInstancePatchesRequest.nextToken,
+            outputKey: \DescribeInstancePatchesResult.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Describes a specific delete inventory operation.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -760,6 +1059,29 @@ extension SSM {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func describeInventoryDeletionsPaginator(
+        _ input: DescribeInventoryDeletionsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<DescribeInventoryDeletionsRequest, DescribeInventoryDeletionsResult> {
+        return .init(
+            input: input,
+            command: describeInventoryDeletions,
+            inputKey: \DescribeInventoryDeletionsRequest.nextToken,
+            outputKey: \DescribeInventoryDeletionsResult.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Retrieves the individual task executions (one per target) for a particular task run as part of a maintenance window execution.
     ///
@@ -814,6 +1136,29 @@ extension SSM {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func describeMaintenanceWindowExecutionTaskInvocationsPaginator(
+        _ input: DescribeMaintenanceWindowExecutionTaskInvocationsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<DescribeMaintenanceWindowExecutionTaskInvocationsRequest, DescribeMaintenanceWindowExecutionTaskInvocationsResult> {
+        return .init(
+            input: input,
+            command: describeMaintenanceWindowExecutionTaskInvocations,
+            inputKey: \DescribeMaintenanceWindowExecutionTaskInvocationsRequest.nextToken,
+            outputKey: \DescribeMaintenanceWindowExecutionTaskInvocationsResult.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  For a given maintenance window execution, lists the tasks that were run.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -866,6 +1211,29 @@ extension SSM {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func describeMaintenanceWindowExecutionTasksPaginator(
+        _ input: DescribeMaintenanceWindowExecutionTasksRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<DescribeMaintenanceWindowExecutionTasksRequest, DescribeMaintenanceWindowExecutionTasksResult> {
+        return .init(
+            input: input,
+            command: describeMaintenanceWindowExecutionTasks,
+            inputKey: \DescribeMaintenanceWindowExecutionTasksRequest.nextToken,
+            outputKey: \DescribeMaintenanceWindowExecutionTasksResult.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Lists the executions of a maintenance window. This includes information about when the maintenance window was scheduled to be active, and information about tasks registered and run with the maintenance window.
     ///
@@ -920,6 +1288,29 @@ extension SSM {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func describeMaintenanceWindowExecutionsPaginator(
+        _ input: DescribeMaintenanceWindowExecutionsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<DescribeMaintenanceWindowExecutionsRequest, DescribeMaintenanceWindowExecutionsResult> {
+        return .init(
+            input: input,
+            command: describeMaintenanceWindowExecutions,
+            inputKey: \DescribeMaintenanceWindowExecutionsRequest.nextToken,
+            outputKey: \DescribeMaintenanceWindowExecutionsResult.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Retrieves information about upcoming executions of a maintenance window.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -972,6 +1363,29 @@ extension SSM {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func describeMaintenanceWindowSchedulePaginator(
+        _ input: DescribeMaintenanceWindowScheduleRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<DescribeMaintenanceWindowScheduleRequest, DescribeMaintenanceWindowScheduleResult> {
+        return .init(
+            input: input,
+            command: describeMaintenanceWindowSchedule,
+            inputKey: \DescribeMaintenanceWindowScheduleRequest.nextToken,
+            outputKey: \DescribeMaintenanceWindowScheduleResult.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Lists the targets registered with the maintenance window.
     ///
@@ -1026,6 +1440,29 @@ extension SSM {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func describeMaintenanceWindowTargetsPaginator(
+        _ input: DescribeMaintenanceWindowTargetsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<DescribeMaintenanceWindowTargetsRequest, DescribeMaintenanceWindowTargetsResult> {
+        return .init(
+            input: input,
+            command: describeMaintenanceWindowTargets,
+            inputKey: \DescribeMaintenanceWindowTargetsRequest.nextToken,
+            outputKey: \DescribeMaintenanceWindowTargetsResult.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Lists the tasks in a maintenance window.  For maintenance window tasks without a specified target, you cannot supply values for --max-errors and --max-concurrency. Instead, the system inserts a placeholder value of 1, which may be reported in the response to this command. These values do not affect the running of your task and can be ignored.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -1078,6 +1515,29 @@ extension SSM {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func describeMaintenanceWindowTasksPaginator(
+        _ input: DescribeMaintenanceWindowTasksRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<DescribeMaintenanceWindowTasksRequest, DescribeMaintenanceWindowTasksResult> {
+        return .init(
+            input: input,
+            command: describeMaintenanceWindowTasks,
+            inputKey: \DescribeMaintenanceWindowTasksRequest.nextToken,
+            outputKey: \DescribeMaintenanceWindowTasksResult.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Retrieves the maintenance windows in an AWS account.
     ///
@@ -1132,6 +1592,29 @@ extension SSM {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func describeMaintenanceWindowsPaginator(
+        _ input: DescribeMaintenanceWindowsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<DescribeMaintenanceWindowsRequest, DescribeMaintenanceWindowsResult> {
+        return .init(
+            input: input,
+            command: describeMaintenanceWindows,
+            inputKey: \DescribeMaintenanceWindowsRequest.nextToken,
+            outputKey: \DescribeMaintenanceWindowsResult.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Retrieves information about the maintenance window targets or tasks that an instance is associated with.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -1184,6 +1667,29 @@ extension SSM {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func describeMaintenanceWindowsForTargetPaginator(
+        _ input: DescribeMaintenanceWindowsForTargetRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<DescribeMaintenanceWindowsForTargetRequest, DescribeMaintenanceWindowsForTargetResult> {
+        return .init(
+            input: input,
+            command: describeMaintenanceWindowsForTarget,
+            inputKey: \DescribeMaintenanceWindowsForTargetRequest.nextToken,
+            outputKey: \DescribeMaintenanceWindowsForTargetResult.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Query a set of OpsItems. You must have permission in AWS Identity and Access Management (IAM) to query a list of OpsItems. For more information, see Getting started with OpsCenter in the AWS Systems Manager User Guide. Operations engineers and IT professionals use OpsCenter to view, investigate, and remediate operational issues impacting the performance and health of their AWS resources. For more information, see AWS Systems Manager OpsCenter in the AWS Systems Manager User Guide.
     ///
@@ -1238,6 +1744,29 @@ extension SSM {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func describeOpsItemsPaginator(
+        _ input: DescribeOpsItemsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<DescribeOpsItemsRequest, DescribeOpsItemsResponse> {
+        return .init(
+            input: input,
+            command: describeOpsItems,
+            inputKey: \DescribeOpsItemsRequest.nextToken,
+            outputKey: \DescribeOpsItemsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Get information about a parameter.  Request results are returned on a best-effort basis. If you specify MaxResults in the request, the response includes information up to the limit specified. The number of items returned, however, can be between zero and the value of MaxResults. If the service reaches an internal limit while processing the results, it stops the operation and returns the matching values up to that point and a NextToken. You can specify the NextToken in a subsequent call to get the next set of results.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -1290,6 +1819,29 @@ extension SSM {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func describeParametersPaginator(
+        _ input: DescribeParametersRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<DescribeParametersRequest, DescribeParametersResult> {
+        return .init(
+            input: input,
+            command: describeParameters,
+            inputKey: \DescribeParametersRequest.nextToken,
+            outputKey: \DescribeParametersResult.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Lists the patch baselines in your AWS account.
     ///
@@ -1344,6 +1896,29 @@ extension SSM {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func describePatchBaselinesPaginator(
+        _ input: DescribePatchBaselinesRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<DescribePatchBaselinesRequest, DescribePatchBaselinesResult> {
+        return .init(
+            input: input,
+            command: describePatchBaselines,
+            inputKey: \DescribePatchBaselinesRequest.nextToken,
+            outputKey: \DescribePatchBaselinesResult.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Lists all patch groups that have been registered with patch baselines.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -1396,6 +1971,29 @@ extension SSM {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func describePatchGroupsPaginator(
+        _ input: DescribePatchGroupsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<DescribePatchGroupsRequest, DescribePatchGroupsResult> {
+        return .init(
+            input: input,
+            command: describePatchGroups,
+            inputKey: \DescribePatchGroupsRequest.nextToken,
+            outputKey: \DescribePatchGroupsResult.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Lists the properties of available patches organized by product, product family, classification, severity, and other properties of available patches. You can use the reported properties in the filters you specify in requests for actions such as CreatePatchBaseline, UpdatePatchBaseline, DescribeAvailablePatches, and DescribePatchBaselines. The following section lists the properties that can be used in filters for each major operating system type:  AMAZON_LINUX  Valid properties: PRODUCT, CLASSIFICATION, SEVERITY  AMAZON_LINUX_2  Valid properties: PRODUCT, CLASSIFICATION, SEVERITY  CENTOS  Valid properties: PRODUCT, CLASSIFICATION, SEVERITY  DEBIAN  Valid properties: PRODUCT, PRIORITY  MACOS  Valid properties: PRODUCT, CLASSIFICATION  ORACLE_LINUX  Valid properties: PRODUCT, CLASSIFICATION, SEVERITY  REDHAT_ENTERPRISE_LINUX  Valid properties: PRODUCT, CLASSIFICATION, SEVERITY  SUSE  Valid properties: PRODUCT, CLASSIFICATION, SEVERITY  UBUNTU  Valid properties: PRODUCT, PRIORITY  WINDOWS  Valid properties: PRODUCT, PRODUCT_FAMILY, CLASSIFICATION, MSRC_SEVERITY
     ///
@@ -1450,6 +2048,29 @@ extension SSM {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func describePatchPropertiesPaginator(
+        _ input: DescribePatchPropertiesRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<DescribePatchPropertiesRequest, DescribePatchPropertiesResult> {
+        return .init(
+            input: input,
+            command: describePatchProperties,
+            inputKey: \DescribePatchPropertiesRequest.nextToken,
+            outputKey: \DescribePatchPropertiesResult.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Retrieves a list of all active sessions (both connected and disconnected) or terminated sessions from the past 30 days.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -1502,6 +2123,29 @@ extension SSM {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func describeSessionsPaginator(
+        _ input: DescribeSessionsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<DescribeSessionsRequest, DescribeSessionsResponse> {
+        return .init(
+            input: input,
+            command: describeSessions,
+            inputKey: \DescribeSessionsRequest.nextToken,
+            outputKey: \DescribeSessionsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Query inventory information.
     ///
@@ -1556,6 +2200,29 @@ extension SSM {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func getInventoryPaginator(
+        _ input: GetInventoryRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<GetInventoryRequest, GetInventoryResult> {
+        return .init(
+            input: input,
+            command: getInventory,
+            inputKey: \GetInventoryRequest.nextToken,
+            outputKey: \GetInventoryResult.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Return a list of inventory type names for the account, or return a list of attribute names for a specific Inventory item type.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -1608,6 +2275,29 @@ extension SSM {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func getInventorySchemaPaginator(
+        _ input: GetInventorySchemaRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<GetInventorySchemaRequest, GetInventorySchemaResult> {
+        return .init(
+            input: input,
+            command: getInventorySchema,
+            inputKey: \GetInventorySchemaRequest.nextToken,
+            outputKey: \GetInventorySchemaResult.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  View a summary of OpsItems based on specified filters and aggregators.
     ///
@@ -1662,6 +2352,29 @@ extension SSM {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func getOpsSummaryPaginator(
+        _ input: GetOpsSummaryRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<GetOpsSummaryRequest, GetOpsSummaryResult> {
+        return .init(
+            input: input,
+            command: getOpsSummary,
+            inputKey: \GetOpsSummaryRequest.nextToken,
+            outputKey: \GetOpsSummaryResult.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Retrieves the history of all changes to a parameter.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -1714,6 +2427,29 @@ extension SSM {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func getParameterHistoryPaginator(
+        _ input: GetParameterHistoryRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<GetParameterHistoryRequest, GetParameterHistoryResult> {
+        return .init(
+            input: input,
+            command: getParameterHistory,
+            inputKey: \GetParameterHistoryRequest.nextToken,
+            outputKey: \GetParameterHistoryResult.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Retrieve information about one or more parameters in a specific hierarchy.   Request results are returned on a best-effort basis. If you specify MaxResults in the request, the response includes information up to the limit specified. The number of items returned, however, can be between zero and the value of MaxResults. If the service reaches an internal limit while processing the results, it stops the operation and returns the matching values up to that point and a NextToken. You can specify the NextToken in a subsequent call to get the next set of results.
     ///
@@ -1768,6 +2504,29 @@ extension SSM {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func getParametersByPathPaginator(
+        _ input: GetParametersByPathRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<GetParametersByPathRequest, GetParametersByPathResult> {
+        return .init(
+            input: input,
+            command: getParametersByPath,
+            inputKey: \GetParametersByPathRequest.nextToken,
+            outputKey: \GetParametersByPathResult.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Retrieves all versions of an association for a specific association ID.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -1820,6 +2579,29 @@ extension SSM {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listAssociationVersionsPaginator(
+        _ input: ListAssociationVersionsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListAssociationVersionsRequest, ListAssociationVersionsResult> {
+        return .init(
+            input: input,
+            command: listAssociationVersions,
+            inputKey: \ListAssociationVersionsRequest.nextToken,
+            outputKey: \ListAssociationVersionsResult.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Returns all State Manager associations in the current AWS account and Region. You can limit the results to a specific State Manager association document or instance by specifying a filter.
     ///
@@ -1874,6 +2656,29 @@ extension SSM {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listAssociationsPaginator(
+        _ input: ListAssociationsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListAssociationsRequest, ListAssociationsResult> {
+        return .init(
+            input: input,
+            command: listAssociations,
+            inputKey: \ListAssociationsRequest.nextToken,
+            outputKey: \ListAssociationsResult.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  An invocation is copy of a command sent to a specific instance. A command can apply to one or more instances. A command invocation applies to one instance. For example, if a user runs SendCommand against three instances, then a command invocation is created for each requested instance ID. ListCommandInvocations provide status about command execution.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -1926,6 +2731,29 @@ extension SSM {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listCommandInvocationsPaginator(
+        _ input: ListCommandInvocationsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListCommandInvocationsRequest, ListCommandInvocationsResult> {
+        return .init(
+            input: input,
+            command: listCommandInvocations,
+            inputKey: \ListCommandInvocationsRequest.nextToken,
+            outputKey: \ListCommandInvocationsResult.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Lists the commands requested by users of the AWS account.
     ///
@@ -1980,6 +2808,29 @@ extension SSM {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listCommandsPaginator(
+        _ input: ListCommandsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListCommandsRequest, ListCommandsResult> {
+        return .init(
+            input: input,
+            command: listCommands,
+            inputKey: \ListCommandsRequest.nextToken,
+            outputKey: \ListCommandsResult.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  For a specified resource ID, this API action returns a list of compliance statuses for different resource types. Currently, you can only specify one resource ID per call. List results depend on the criteria specified in the filter.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -2032,6 +2883,29 @@ extension SSM {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listComplianceItemsPaginator(
+        _ input: ListComplianceItemsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListComplianceItemsRequest, ListComplianceItemsResult> {
+        return .init(
+            input: input,
+            command: listComplianceItems,
+            inputKey: \ListComplianceItemsRequest.nextToken,
+            outputKey: \ListComplianceItemsResult.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Returns a summary count of compliant and non-compliant resources for a compliance type. For example, this call can return State Manager associations, patches, or custom compliance types according to the filter criteria that you specify.
     ///
@@ -2086,6 +2960,29 @@ extension SSM {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listComplianceSummariesPaginator(
+        _ input: ListComplianceSummariesRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListComplianceSummariesRequest, ListComplianceSummariesResult> {
+        return .init(
+            input: input,
+            command: listComplianceSummaries,
+            inputKey: \ListComplianceSummariesRequest.nextToken,
+            outputKey: \ListComplianceSummariesResult.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  List all versions for a document.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -2138,6 +3035,29 @@ extension SSM {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listDocumentVersionsPaginator(
+        _ input: ListDocumentVersionsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListDocumentVersionsRequest, ListDocumentVersionsResult> {
+        return .init(
+            input: input,
+            command: listDocumentVersions,
+            inputKey: \ListDocumentVersionsRequest.nextToken,
+            outputKey: \ListDocumentVersionsResult.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Returns all Systems Manager (SSM) documents in the current AWS account and Region. You can limit the results of this request by using a filter.
     ///
@@ -2192,6 +3112,29 @@ extension SSM {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listDocumentsPaginator(
+        _ input: ListDocumentsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListDocumentsRequest, ListDocumentsResult> {
+        return .init(
+            input: input,
+            command: listDocuments,
+            inputKey: \ListDocumentsRequest.nextToken,
+            outputKey: \ListDocumentsResult.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Returns a list of all OpsItem events in the current AWS account and Region. You can limit the results to events associated with specific OpsItems by specifying a filter.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -2244,6 +3187,29 @@ extension SSM {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listOpsItemEventsPaginator(
+        _ input: ListOpsItemEventsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListOpsItemEventsRequest, ListOpsItemEventsResponse> {
+        return .init(
+            input: input,
+            command: listOpsItemEvents,
+            inputKey: \ListOpsItemEventsRequest.nextToken,
+            outputKey: \ListOpsItemEventsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Systems Manager calls this API action when displaying all Application Manager OpsMetadata objects or blobs.
     ///
@@ -2298,6 +3264,29 @@ extension SSM {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listOpsMetadataPaginator(
+        _ input: ListOpsMetadataRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListOpsMetadataRequest, ListOpsMetadataResult> {
+        return .init(
+            input: input,
+            command: listOpsMetadata,
+            inputKey: \ListOpsMetadataRequest.nextToken,
+            outputKey: \ListOpsMetadataResult.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Returns a resource-level summary count. The summary includes information about compliant and non-compliant statuses and detailed compliance-item severity counts, according to the filter criteria you specify.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -2351,6 +3340,29 @@ extension SSM {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listResourceComplianceSummariesPaginator(
+        _ input: ListResourceComplianceSummariesRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListResourceComplianceSummariesRequest, ListResourceComplianceSummariesResult> {
+        return .init(
+            input: input,
+            command: listResourceComplianceSummaries,
+            inputKey: \ListResourceComplianceSummariesRequest.nextToken,
+            outputKey: \ListResourceComplianceSummariesResult.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Lists your resource data sync configurations. Includes information about the last time a sync attempted to start, the last sync status, and the last time a sync successfully completed. The number of sync configurations might be too large to return using a single call to ListResourceDataSync. You can limit the number of sync configurations returned by using the MaxResults parameter. To determine whether there are more sync configurations to list, check the value of NextToken in the output. If there are more sync configurations to list, you can request them by specifying the NextToken returned in the call to the parameter of a subsequent call.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -2403,6 +3415,29 @@ extension SSM {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listResourceDataSyncPaginator(
+        _ input: ListResourceDataSyncRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListResourceDataSyncRequest, ListResourceDataSyncResult> {
+        return .init(
+            input: input,
+            command: listResourceDataSync,
+            inputKey: \ListResourceDataSyncRequest.nextToken,
+            outputKey: \ListResourceDataSyncResult.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 }
 
 extension SSM.DescribeActivationsRequest: AWSPaginateToken {

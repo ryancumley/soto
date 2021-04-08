@@ -72,6 +72,29 @@ extension SageMaker {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listActionsPaginator(
+        _ input: ListActionsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListActionsRequest, ListActionsResponse> {
+        return .init(
+            input: input,
+            command: listActions,
+            inputKey: \ListActionsRequest.nextToken,
+            outputKey: \ListActionsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Lists the machine learning algorithms that have been created.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -124,6 +147,29 @@ extension SageMaker {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listAlgorithmsPaginator(
+        _ input: ListAlgorithmsInput,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListAlgorithmsInput, ListAlgorithmsOutput> {
+        return .init(
+            input: input,
+            command: listAlgorithms,
+            inputKey: \ListAlgorithmsInput.nextToken,
+            outputKey: \ListAlgorithmsOutput.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Lists the AppImageConfigs in your account and their properties. The list can be filtered by creation time or modified time, and whether the AppImageConfig name contains a specified string.
     ///
@@ -178,6 +224,29 @@ extension SageMaker {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listAppImageConfigsPaginator(
+        _ input: ListAppImageConfigsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListAppImageConfigsRequest, ListAppImageConfigsResponse> {
+        return .init(
+            input: input,
+            command: listAppImageConfigs,
+            inputKey: \ListAppImageConfigsRequest.nextToken,
+            outputKey: \ListAppImageConfigsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Lists apps.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -230,6 +299,29 @@ extension SageMaker {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listAppsPaginator(
+        _ input: ListAppsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListAppsRequest, ListAppsResponse> {
+        return .init(
+            input: input,
+            command: listApps,
+            inputKey: \ListAppsRequest.nextToken,
+            outputKey: \ListAppsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Lists the artifacts in your account and their properties.
     ///
@@ -284,6 +376,29 @@ extension SageMaker {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listArtifactsPaginator(
+        _ input: ListArtifactsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListArtifactsRequest, ListArtifactsResponse> {
+        return .init(
+            input: input,
+            command: listArtifacts,
+            inputKey: \ListArtifactsRequest.nextToken,
+            outputKey: \ListArtifactsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Lists the associations in your account and their properties.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -336,6 +451,29 @@ extension SageMaker {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listAssociationsPaginator(
+        _ input: ListAssociationsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListAssociationsRequest, ListAssociationsResponse> {
+        return .init(
+            input: input,
+            command: listAssociations,
+            inputKey: \ListAssociationsRequest.nextToken,
+            outputKey: \ListAssociationsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Request a list of jobs.
     ///
@@ -390,6 +528,29 @@ extension SageMaker {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listAutoMLJobsPaginator(
+        _ input: ListAutoMLJobsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListAutoMLJobsRequest, ListAutoMLJobsResponse> {
+        return .init(
+            input: input,
+            command: listAutoMLJobs,
+            inputKey: \ListAutoMLJobsRequest.nextToken,
+            outputKey: \ListAutoMLJobsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  List the candidates created for the job.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -442,6 +603,29 @@ extension SageMaker {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listCandidatesForAutoMLJobPaginator(
+        _ input: ListCandidatesForAutoMLJobRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListCandidatesForAutoMLJobRequest, ListCandidatesForAutoMLJobResponse> {
+        return .init(
+            input: input,
+            command: listCandidatesForAutoMLJob,
+            inputKey: \ListCandidatesForAutoMLJobRequest.nextToken,
+            outputKey: \ListCandidatesForAutoMLJobResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Gets a list of the Git repositories in your account.
     ///
@@ -496,6 +680,29 @@ extension SageMaker {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listCodeRepositoriesPaginator(
+        _ input: ListCodeRepositoriesInput,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListCodeRepositoriesInput, ListCodeRepositoriesOutput> {
+        return .init(
+            input: input,
+            command: listCodeRepositories,
+            inputKey: \ListCodeRepositoriesInput.nextToken,
+            outputKey: \ListCodeRepositoriesOutput.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Lists model compilation jobs that satisfy various filters. To create a model compilation job, use CreateCompilationJob. To get information about a particular model compilation job you have created, use DescribeCompilationJob.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -548,6 +755,29 @@ extension SageMaker {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listCompilationJobsPaginator(
+        _ input: ListCompilationJobsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListCompilationJobsRequest, ListCompilationJobsResponse> {
+        return .init(
+            input: input,
+            command: listCompilationJobs,
+            inputKey: \ListCompilationJobsRequest.nextToken,
+            outputKey: \ListCompilationJobsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Lists the contexts in your account and their properties.
     ///
@@ -602,6 +832,29 @@ extension SageMaker {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listContextsPaginator(
+        _ input: ListContextsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListContextsRequest, ListContextsResponse> {
+        return .init(
+            input: input,
+            command: listContexts,
+            inputKey: \ListContextsRequest.nextToken,
+            outputKey: \ListContextsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Lists the data quality job definitions in your account.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -654,6 +907,29 @@ extension SageMaker {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listDataQualityJobDefinitionsPaginator(
+        _ input: ListDataQualityJobDefinitionsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListDataQualityJobDefinitionsRequest, ListDataQualityJobDefinitionsResponse> {
+        return .init(
+            input: input,
+            command: listDataQualityJobDefinitions,
+            inputKey: \ListDataQualityJobDefinitionsRequest.nextToken,
+            outputKey: \ListDataQualityJobDefinitionsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Returns a list of devices in the fleet.
     ///
@@ -708,6 +984,29 @@ extension SageMaker {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listDeviceFleetsPaginator(
+        _ input: ListDeviceFleetsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListDeviceFleetsRequest, ListDeviceFleetsResponse> {
+        return .init(
+            input: input,
+            command: listDeviceFleets,
+            inputKey: \ListDeviceFleetsRequest.nextToken,
+            outputKey: \ListDeviceFleetsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  A list of devices.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -760,6 +1059,29 @@ extension SageMaker {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listDevicesPaginator(
+        _ input: ListDevicesRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListDevicesRequest, ListDevicesResponse> {
+        return .init(
+            input: input,
+            command: listDevices,
+            inputKey: \ListDevicesRequest.nextToken,
+            outputKey: \ListDevicesResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Lists the domains.
     ///
@@ -814,6 +1136,29 @@ extension SageMaker {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listDomainsPaginator(
+        _ input: ListDomainsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListDomainsRequest, ListDomainsResponse> {
+        return .init(
+            input: input,
+            command: listDomains,
+            inputKey: \ListDomainsRequest.nextToken,
+            outputKey: \ListDomainsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Returns a list of edge packaging jobs.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -866,6 +1211,29 @@ extension SageMaker {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listEdgePackagingJobsPaginator(
+        _ input: ListEdgePackagingJobsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListEdgePackagingJobsRequest, ListEdgePackagingJobsResponse> {
+        return .init(
+            input: input,
+            command: listEdgePackagingJobs,
+            inputKey: \ListEdgePackagingJobsRequest.nextToken,
+            outputKey: \ListEdgePackagingJobsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Lists endpoint configurations.
     ///
@@ -920,6 +1288,29 @@ extension SageMaker {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listEndpointConfigsPaginator(
+        _ input: ListEndpointConfigsInput,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListEndpointConfigsInput, ListEndpointConfigsOutput> {
+        return .init(
+            input: input,
+            command: listEndpointConfigs,
+            inputKey: \ListEndpointConfigsInput.nextToken,
+            outputKey: \ListEndpointConfigsOutput.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Lists endpoints.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -972,6 +1363,29 @@ extension SageMaker {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listEndpointsPaginator(
+        _ input: ListEndpointsInput,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListEndpointsInput, ListEndpointsOutput> {
+        return .init(
+            input: input,
+            command: listEndpoints,
+            inputKey: \ListEndpointsInput.nextToken,
+            outputKey: \ListEndpointsOutput.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Lists all the experiments in your account. The list can be filtered to show only experiments that were created in a specific time range. The list can be sorted by experiment name or creation time.
     ///
@@ -1026,6 +1440,29 @@ extension SageMaker {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listExperimentsPaginator(
+        _ input: ListExperimentsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListExperimentsRequest, ListExperimentsResponse> {
+        return .init(
+            input: input,
+            command: listExperiments,
+            inputKey: \ListExperimentsRequest.nextToken,
+            outputKey: \ListExperimentsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  List FeatureGroups based on given filter and order.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -1078,6 +1515,29 @@ extension SageMaker {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listFeatureGroupsPaginator(
+        _ input: ListFeatureGroupsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListFeatureGroupsRequest, ListFeatureGroupsResponse> {
+        return .init(
+            input: input,
+            command: listFeatureGroups,
+            inputKey: \ListFeatureGroupsRequest.nextToken,
+            outputKey: \ListFeatureGroupsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Returns information about the flow definitions in your account.
     ///
@@ -1132,6 +1592,29 @@ extension SageMaker {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listFlowDefinitionsPaginator(
+        _ input: ListFlowDefinitionsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListFlowDefinitionsRequest, ListFlowDefinitionsResponse> {
+        return .init(
+            input: input,
+            command: listFlowDefinitions,
+            inputKey: \ListFlowDefinitionsRequest.nextToken,
+            outputKey: \ListFlowDefinitionsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Returns information about the human task user interfaces in your account.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -1184,6 +1667,29 @@ extension SageMaker {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listHumanTaskUisPaginator(
+        _ input: ListHumanTaskUisRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListHumanTaskUisRequest, ListHumanTaskUisResponse> {
+        return .init(
+            input: input,
+            command: listHumanTaskUis,
+            inputKey: \ListHumanTaskUisRequest.nextToken,
+            outputKey: \ListHumanTaskUisResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Gets a list of HyperParameterTuningJobSummary objects that describe the hyperparameter tuning jobs launched in your account.
     ///
@@ -1238,6 +1744,29 @@ extension SageMaker {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listHyperParameterTuningJobsPaginator(
+        _ input: ListHyperParameterTuningJobsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListHyperParameterTuningJobsRequest, ListHyperParameterTuningJobsResponse> {
+        return .init(
+            input: input,
+            command: listHyperParameterTuningJobs,
+            inputKey: \ListHyperParameterTuningJobsRequest.nextToken,
+            outputKey: \ListHyperParameterTuningJobsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Lists the versions of a specified image and their properties. The list can be filtered by creation time or modified time.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -1290,6 +1819,29 @@ extension SageMaker {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listImageVersionsPaginator(
+        _ input: ListImageVersionsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListImageVersionsRequest, ListImageVersionsResponse> {
+        return .init(
+            input: input,
+            command: listImageVersions,
+            inputKey: \ListImageVersionsRequest.nextToken,
+            outputKey: \ListImageVersionsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Lists the images in your account and their properties. The list can be filtered by creation time or modified time, and whether the image name contains a specified string.
     ///
@@ -1344,6 +1896,29 @@ extension SageMaker {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listImagesPaginator(
+        _ input: ListImagesRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListImagesRequest, ListImagesResponse> {
+        return .init(
+            input: input,
+            command: listImages,
+            inputKey: \ListImagesRequest.nextToken,
+            outputKey: \ListImagesResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Gets a list of labeling jobs.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -1396,6 +1971,29 @@ extension SageMaker {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listLabelingJobsPaginator(
+        _ input: ListLabelingJobsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListLabelingJobsRequest, ListLabelingJobsResponse> {
+        return .init(
+            input: input,
+            command: listLabelingJobs,
+            inputKey: \ListLabelingJobsRequest.nextToken,
+            outputKey: \ListLabelingJobsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Gets a list of labeling jobs assigned to a specified work team.
     ///
@@ -1450,6 +2048,29 @@ extension SageMaker {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listLabelingJobsForWorkteamPaginator(
+        _ input: ListLabelingJobsForWorkteamRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListLabelingJobsForWorkteamRequest, ListLabelingJobsForWorkteamResponse> {
+        return .init(
+            input: input,
+            command: listLabelingJobsForWorkteam,
+            inputKey: \ListLabelingJobsForWorkteamRequest.nextToken,
+            outputKey: \ListLabelingJobsForWorkteamResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Lists model bias jobs definitions that satisfy various filters.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -1502,6 +2123,29 @@ extension SageMaker {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listModelBiasJobDefinitionsPaginator(
+        _ input: ListModelBiasJobDefinitionsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListModelBiasJobDefinitionsRequest, ListModelBiasJobDefinitionsResponse> {
+        return .init(
+            input: input,
+            command: listModelBiasJobDefinitions,
+            inputKey: \ListModelBiasJobDefinitionsRequest.nextToken,
+            outputKey: \ListModelBiasJobDefinitionsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Lists model explainability job definitions that satisfy various filters.
     ///
@@ -1556,6 +2200,29 @@ extension SageMaker {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listModelExplainabilityJobDefinitionsPaginator(
+        _ input: ListModelExplainabilityJobDefinitionsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListModelExplainabilityJobDefinitionsRequest, ListModelExplainabilityJobDefinitionsResponse> {
+        return .init(
+            input: input,
+            command: listModelExplainabilityJobDefinitions,
+            inputKey: \ListModelExplainabilityJobDefinitionsRequest.nextToken,
+            outputKey: \ListModelExplainabilityJobDefinitionsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Gets a list of the model groups in your AWS account.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -1608,6 +2275,29 @@ extension SageMaker {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listModelPackageGroupsPaginator(
+        _ input: ListModelPackageGroupsInput,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListModelPackageGroupsInput, ListModelPackageGroupsOutput> {
+        return .init(
+            input: input,
+            command: listModelPackageGroups,
+            inputKey: \ListModelPackageGroupsInput.nextToken,
+            outputKey: \ListModelPackageGroupsOutput.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Lists the model packages that have been created.
     ///
@@ -1662,6 +2352,29 @@ extension SageMaker {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listModelPackagesPaginator(
+        _ input: ListModelPackagesInput,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListModelPackagesInput, ListModelPackagesOutput> {
+        return .init(
+            input: input,
+            command: listModelPackages,
+            inputKey: \ListModelPackagesInput.nextToken,
+            outputKey: \ListModelPackagesOutput.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Gets a list of model quality monitoring job definitions in your account.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -1714,6 +2427,29 @@ extension SageMaker {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listModelQualityJobDefinitionsPaginator(
+        _ input: ListModelQualityJobDefinitionsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListModelQualityJobDefinitionsRequest, ListModelQualityJobDefinitionsResponse> {
+        return .init(
+            input: input,
+            command: listModelQualityJobDefinitions,
+            inputKey: \ListModelQualityJobDefinitionsRequest.nextToken,
+            outputKey: \ListModelQualityJobDefinitionsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Lists models created with the CreateModel API.
     ///
@@ -1768,6 +2504,29 @@ extension SageMaker {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listModelsPaginator(
+        _ input: ListModelsInput,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListModelsInput, ListModelsOutput> {
+        return .init(
+            input: input,
+            command: listModels,
+            inputKey: \ListModelsInput.nextToken,
+            outputKey: \ListModelsOutput.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Returns list of all monitoring job executions.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -1820,6 +2579,29 @@ extension SageMaker {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listMonitoringExecutionsPaginator(
+        _ input: ListMonitoringExecutionsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListMonitoringExecutionsRequest, ListMonitoringExecutionsResponse> {
+        return .init(
+            input: input,
+            command: listMonitoringExecutions,
+            inputKey: \ListMonitoringExecutionsRequest.nextToken,
+            outputKey: \ListMonitoringExecutionsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Returns list of all monitoring schedules.
     ///
@@ -1874,6 +2656,29 @@ extension SageMaker {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listMonitoringSchedulesPaginator(
+        _ input: ListMonitoringSchedulesRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListMonitoringSchedulesRequest, ListMonitoringSchedulesResponse> {
+        return .init(
+            input: input,
+            command: listMonitoringSchedules,
+            inputKey: \ListMonitoringSchedulesRequest.nextToken,
+            outputKey: \ListMonitoringSchedulesResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Lists notebook instance lifestyle configurations created with the CreateNotebookInstanceLifecycleConfig API.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -1926,6 +2731,29 @@ extension SageMaker {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listNotebookInstanceLifecycleConfigsPaginator(
+        _ input: ListNotebookInstanceLifecycleConfigsInput,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListNotebookInstanceLifecycleConfigsInput, ListNotebookInstanceLifecycleConfigsOutput> {
+        return .init(
+            input: input,
+            command: listNotebookInstanceLifecycleConfigs,
+            inputKey: \ListNotebookInstanceLifecycleConfigsInput.nextToken,
+            outputKey: \ListNotebookInstanceLifecycleConfigsOutput.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Returns a list of the Amazon SageMaker notebook instances in the requester's account in an AWS Region.
     ///
@@ -1980,6 +2808,29 @@ extension SageMaker {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listNotebookInstancesPaginator(
+        _ input: ListNotebookInstancesInput,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListNotebookInstancesInput, ListNotebookInstancesOutput> {
+        return .init(
+            input: input,
+            command: listNotebookInstances,
+            inputKey: \ListNotebookInstancesInput.nextToken,
+            outputKey: \ListNotebookInstancesOutput.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Gets a list of PipeLineExecutionStep objects.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -2032,6 +2883,29 @@ extension SageMaker {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listPipelineExecutionStepsPaginator(
+        _ input: ListPipelineExecutionStepsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListPipelineExecutionStepsRequest, ListPipelineExecutionStepsResponse> {
+        return .init(
+            input: input,
+            command: listPipelineExecutionSteps,
+            inputKey: \ListPipelineExecutionStepsRequest.nextToken,
+            outputKey: \ListPipelineExecutionStepsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Gets a list of the pipeline executions.
     ///
@@ -2086,6 +2960,29 @@ extension SageMaker {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listPipelineExecutionsPaginator(
+        _ input: ListPipelineExecutionsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListPipelineExecutionsRequest, ListPipelineExecutionsResponse> {
+        return .init(
+            input: input,
+            command: listPipelineExecutions,
+            inputKey: \ListPipelineExecutionsRequest.nextToken,
+            outputKey: \ListPipelineExecutionsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Gets a list of parameters for a pipeline execution.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -2138,6 +3035,29 @@ extension SageMaker {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listPipelineParametersForExecutionPaginator(
+        _ input: ListPipelineParametersForExecutionRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListPipelineParametersForExecutionRequest, ListPipelineParametersForExecutionResponse> {
+        return .init(
+            input: input,
+            command: listPipelineParametersForExecution,
+            inputKey: \ListPipelineParametersForExecutionRequest.nextToken,
+            outputKey: \ListPipelineParametersForExecutionResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Gets a list of pipelines.
     ///
@@ -2192,6 +3112,29 @@ extension SageMaker {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listPipelinesPaginator(
+        _ input: ListPipelinesRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListPipelinesRequest, ListPipelinesResponse> {
+        return .init(
+            input: input,
+            command: listPipelines,
+            inputKey: \ListPipelinesRequest.nextToken,
+            outputKey: \ListPipelinesResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Lists processing jobs that satisfy various filters.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -2244,6 +3187,29 @@ extension SageMaker {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listProcessingJobsPaginator(
+        _ input: ListProcessingJobsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListProcessingJobsRequest, ListProcessingJobsResponse> {
+        return .init(
+            input: input,
+            command: listProcessingJobs,
+            inputKey: \ListProcessingJobsRequest.nextToken,
+            outputKey: \ListProcessingJobsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Gets a list of the projects in an AWS account.
     ///
@@ -2298,6 +3264,29 @@ extension SageMaker {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listProjectsPaginator(
+        _ input: ListProjectsInput,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListProjectsInput, ListProjectsOutput> {
+        return .init(
+            input: input,
+            command: listProjects,
+            inputKey: \ListProjectsInput.nextToken,
+            outputKey: \ListProjectsOutput.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Gets a list of the work teams that you are subscribed to in the AWS Marketplace. The list may be empty if no work team satisfies the filter specified in the NameContains parameter.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -2350,6 +3339,29 @@ extension SageMaker {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listSubscribedWorkteamsPaginator(
+        _ input: ListSubscribedWorkteamsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListSubscribedWorkteamsRequest, ListSubscribedWorkteamsResponse> {
+        return .init(
+            input: input,
+            command: listSubscribedWorkteams,
+            inputKey: \ListSubscribedWorkteamsRequest.nextToken,
+            outputKey: \ListSubscribedWorkteamsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Returns the tags for the specified Amazon SageMaker resource.
     ///
@@ -2404,6 +3416,29 @@ extension SageMaker {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listTagsPaginator(
+        _ input: ListTagsInput,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListTagsInput, ListTagsOutput> {
+        return .init(
+            input: input,
+            command: listTags,
+            inputKey: \ListTagsInput.nextToken,
+            outputKey: \ListTagsOutput.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Lists training jobs.  When StatusEquals and MaxResults are set at the same time, the MaxResults number of training jobs are first retrieved ignoring the StatusEquals parameter and then they are filtered by the StatusEquals parameter, which is returned as a response. For example, if ListTrainingJobs is invoked with the following parameters:  { ... MaxResults: 100, StatusEquals: InProgress ... }  Then, 100 trainings jobs with any status including those other than InProgress are selected first (sorted according the creation time, from the latest to the oldest) and those with status InProgress are returned. You can quickly test the API using the following AWS CLI code.  aws sagemaker list-training-jobs --max-results 100 --status-equals InProgress
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -2456,6 +3491,29 @@ extension SageMaker {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listTrainingJobsPaginator(
+        _ input: ListTrainingJobsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListTrainingJobsRequest, ListTrainingJobsResponse> {
+        return .init(
+            input: input,
+            command: listTrainingJobs,
+            inputKey: \ListTrainingJobsRequest.nextToken,
+            outputKey: \ListTrainingJobsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Gets a list of TrainingJobSummary objects that describe the training jobs that a hyperparameter tuning job launched.
     ///
@@ -2510,6 +3568,29 @@ extension SageMaker {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listTrainingJobsForHyperParameterTuningJobPaginator(
+        _ input: ListTrainingJobsForHyperParameterTuningJobRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListTrainingJobsForHyperParameterTuningJobRequest, ListTrainingJobsForHyperParameterTuningJobResponse> {
+        return .init(
+            input: input,
+            command: listTrainingJobsForHyperParameterTuningJob,
+            inputKey: \ListTrainingJobsForHyperParameterTuningJobRequest.nextToken,
+            outputKey: \ListTrainingJobsForHyperParameterTuningJobResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Lists transform jobs.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -2562,6 +3643,29 @@ extension SageMaker {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listTransformJobsPaginator(
+        _ input: ListTransformJobsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListTransformJobsRequest, ListTransformJobsResponse> {
+        return .init(
+            input: input,
+            command: listTransformJobs,
+            inputKey: \ListTransformJobsRequest.nextToken,
+            outputKey: \ListTransformJobsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Lists the trial components in your account. You can sort the list by trial component name or creation time. You can filter the list to show only components that were created in a specific time range. You can also filter on one of the following:    ExperimentName     SourceArn     TrialName
     ///
@@ -2616,6 +3720,29 @@ extension SageMaker {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listTrialComponentsPaginator(
+        _ input: ListTrialComponentsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListTrialComponentsRequest, ListTrialComponentsResponse> {
+        return .init(
+            input: input,
+            command: listTrialComponents,
+            inputKey: \ListTrialComponentsRequest.nextToken,
+            outputKey: \ListTrialComponentsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Lists the trials in your account. Specify an experiment name to limit the list to the trials that are part of that experiment. Specify a trial component name to limit the list to the trials that associated with that trial component. The list can be filtered to show only trials that were created in a specific time range. The list can be sorted by trial name or creation time.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -2668,6 +3795,29 @@ extension SageMaker {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listTrialsPaginator(
+        _ input: ListTrialsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListTrialsRequest, ListTrialsResponse> {
+        return .init(
+            input: input,
+            command: listTrials,
+            inputKey: \ListTrialsRequest.nextToken,
+            outputKey: \ListTrialsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Lists user profiles.
     ///
@@ -2722,6 +3872,29 @@ extension SageMaker {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listUserProfilesPaginator(
+        _ input: ListUserProfilesRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListUserProfilesRequest, ListUserProfilesResponse> {
+        return .init(
+            input: input,
+            command: listUserProfiles,
+            inputKey: \ListUserProfilesRequest.nextToken,
+            outputKey: \ListUserProfilesResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Use this operation to list all private and vendor workforces in an AWS Region. Note that you can only have one private workforce per AWS Region.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -2774,6 +3947,29 @@ extension SageMaker {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listWorkforcesPaginator(
+        _ input: ListWorkforcesRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListWorkforcesRequest, ListWorkforcesResponse> {
+        return .init(
+            input: input,
+            command: listWorkforces,
+            inputKey: \ListWorkforcesRequest.nextToken,
+            outputKey: \ListWorkforcesResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Gets a list of private work teams that you have defined in a region. The list may be empty if no work team satisfies the filter specified in the NameContains parameter.
     ///
@@ -2828,6 +4024,29 @@ extension SageMaker {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listWorkteamsPaginator(
+        _ input: ListWorkteamsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListWorkteamsRequest, ListWorkteamsResponse> {
+        return .init(
+            input: input,
+            command: listWorkteams,
+            inputKey: \ListWorkteamsRequest.nextToken,
+            outputKey: \ListWorkteamsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Finds Amazon SageMaker resources that match a search query. Matching resources are returned as a list of SearchRecord objects in the response. You can sort the search results by any resource property in a ascending or descending order. You can query against the following value types: numeric, text, Boolean, and timestamp.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -2880,6 +4099,29 @@ extension SageMaker {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func searchPaginator(
+        _ input: SearchRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<SearchRequest, SearchResponse> {
+        return .init(
+            input: input,
+            command: search,
+            inputKey: \SearchRequest.nextToken,
+            outputKey: \SearchResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 }
 
 extension SageMaker.ListActionsRequest: AWSPaginateToken {

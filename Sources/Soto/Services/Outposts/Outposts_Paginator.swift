@@ -72,6 +72,29 @@ extension Outposts {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listOutpostsPaginator(
+        _ input: ListOutpostsInput,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListOutpostsInput, ListOutpostsOutput> {
+        return .init(
+            input: input,
+            command: listOutposts,
+            inputKey: \ListOutpostsInput.nextToken,
+            outputKey: \ListOutpostsOutput.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Lists the sites for the specified AWS account.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -124,6 +147,29 @@ extension Outposts {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listSitesPaginator(
+        _ input: ListSitesInput,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListSitesInput, ListSitesOutput> {
+        return .init(
+            input: input,
+            command: listSites,
+            inputKey: \ListSitesInput.nextToken,
+            outputKey: \ListSitesOutput.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 }
 
 extension Outposts.ListOutpostsInput: AWSPaginateToken {

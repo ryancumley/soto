@@ -72,6 +72,29 @@ extension LocationService {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func getDevicePositionHistoryPaginator(
+        _ input: GetDevicePositionHistoryRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<GetDevicePositionHistoryRequest, GetDevicePositionHistoryResponse> {
+        return .init(
+            input: input,
+            command: getDevicePositionHistory,
+            inputKey: \GetDevicePositionHistoryRequest.nextToken,
+            outputKey: \GetDevicePositionHistoryResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Lists geofence collections in your AWS account.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -124,6 +147,29 @@ extension LocationService {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listGeofenceCollectionsPaginator(
+        _ input: ListGeofenceCollectionsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListGeofenceCollectionsRequest, ListGeofenceCollectionsResponse> {
+        return .init(
+            input: input,
+            command: listGeofenceCollections,
+            inputKey: \ListGeofenceCollectionsRequest.nextToken,
+            outputKey: \ListGeofenceCollectionsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Lists geofences stored in a given geofence collection.
     ///
@@ -178,6 +224,29 @@ extension LocationService {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listGeofencesPaginator(
+        _ input: ListGeofencesRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListGeofencesRequest, ListGeofencesResponse> {
+        return .init(
+            input: input,
+            command: listGeofences,
+            inputKey: \ListGeofencesRequest.nextToken,
+            outputKey: \ListGeofencesResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Lists map resources in your AWS account.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -230,6 +299,29 @@ extension LocationService {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listMapsPaginator(
+        _ input: ListMapsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListMapsRequest, ListMapsResponse> {
+        return .init(
+            input: input,
+            command: listMaps,
+            inputKey: \ListMapsRequest.nextToken,
+            outputKey: \ListMapsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Lists Place index resources in your AWS account.
     ///
@@ -284,6 +376,29 @@ extension LocationService {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listPlaceIndexesPaginator(
+        _ input: ListPlaceIndexesRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListPlaceIndexesRequest, ListPlaceIndexesResponse> {
+        return .init(
+            input: input,
+            command: listPlaceIndexes,
+            inputKey: \ListPlaceIndexesRequest.nextToken,
+            outputKey: \ListPlaceIndexesResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Lists geofence collections currently associated to the given tracker resource.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -337,6 +452,29 @@ extension LocationService {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listTrackerConsumersPaginator(
+        _ input: ListTrackerConsumersRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListTrackerConsumersRequest, ListTrackerConsumersResponse> {
+        return .init(
+            input: input,
+            command: listTrackerConsumers,
+            inputKey: \ListTrackerConsumersRequest.nextToken,
+            outputKey: \ListTrackerConsumersResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Lists tracker resources in your AWS account.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -389,6 +527,29 @@ extension LocationService {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listTrackersPaginator(
+        _ input: ListTrackersRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListTrackersRequest, ListTrackersResponse> {
+        return .init(
+            input: input,
+            command: listTrackers,
+            inputKey: \ListTrackersRequest.nextToken,
+            outputKey: \ListTrackersResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 }
 
 extension LocationService.GetDevicePositionHistoryRequest: AWSPaginateToken {

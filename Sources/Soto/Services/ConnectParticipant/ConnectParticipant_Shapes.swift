@@ -69,7 +69,6 @@ extension ConnectParticipant {
     // MARK: Shapes
 
     public struct AttachmentItem: AWSDecodableShape {
-
         /// A unique identifier for the attachment.
         public let attachmentId: String?
         /// A case-sensitive name of the attachment being uploaded.
@@ -132,15 +131,10 @@ extension ConnectParticipant {
     }
 
     public struct CompleteAttachmentUploadResponse: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct ConnectionCredentials: AWSDecodableShape {
-
         /// The connection token.
         public let connectionToken: String?
         /// The expiration of the token. It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example, 2019-11-08T02:41:28.172Z.
@@ -184,7 +178,6 @@ extension ConnectParticipant {
     }
 
     public struct CreateParticipantConnectionResponse: AWSDecodableShape {
-
         /// Creates the participant's connection credentials. The authentication token associated with the participant's connection.
         public let connectionCredentials: ConnectionCredentials?
         /// Creates the participant's websocket connection.
@@ -228,11 +221,7 @@ extension ConnectParticipant {
     }
 
     public struct DisconnectParticipantResponse: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct GetAttachmentRequest: AWSEncodableShape {
@@ -263,7 +252,6 @@ extension ConnectParticipant {
     }
 
     public struct GetAttachmentResponse: AWSDecodableShape {
-
         /// The pre-signed URL using which file would be downloaded from Amazon S3 by the API caller.
         public let url: String?
         /// The expiration time of the URL in ISO timestamp. It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example, 2019-11-08T02:41:28.172Z.
@@ -333,7 +321,6 @@ extension ConnectParticipant {
     }
 
     public struct GetTranscriptResponse: AWSDecodableShape {
-
         /// The initial contact ID for the contact.
         public let initialContactId: String?
         /// The pagination token. Use the value returned previously in the next subsequent request to retrieve the next set of results.
@@ -355,7 +342,6 @@ extension ConnectParticipant {
     }
 
     public struct Item: AWSDecodableShape {
-
         /// The time when the message or event was sent. It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example, 2019-11-08T02:41:28.172Z.
         public let absoluteTime: String?
         /// Provides information about the attachments.
@@ -439,7 +425,6 @@ extension ConnectParticipant {
     }
 
     public struct SendEventResponse: AWSDecodableShape {
-
         /// The time when the event was sent. It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example, 2019-11-08T02:41:28.172Z.
         public let absoluteTime: String?
         /// The ID of the response.
@@ -495,7 +480,6 @@ extension ConnectParticipant {
     }
 
     public struct SendMessageResponse: AWSDecodableShape {
-
         /// The time when the message was sent. It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example, 2019-11-08T02:41:28.172Z.
         public let absoluteTime: String?
         /// The ID of the message.
@@ -557,7 +541,6 @@ extension ConnectParticipant {
     }
 
     public struct StartAttachmentUploadResponse: AWSDecodableShape {
-
         /// A unique identifier for the attachment.
         public let attachmentId: String?
         /// Fields to be used while uploading the attachment.
@@ -575,7 +558,6 @@ extension ConnectParticipant {
     }
 
     public struct StartPosition: AWSEncodableShape {
-
         /// The time in ISO format where to start. It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example, 2019-11-08T02:41:28.172Z.
         public let absoluteTime: String?
         /// The ID of the message or event where to start.
@@ -606,7 +588,6 @@ extension ConnectParticipant {
     }
 
     public struct UploadMetadata: AWSDecodableShape {
-
         /// The headers to be provided while uploading the file to the URL.
         public let headersToInclude: [String: String]?
         /// The pre-signed URL using which file would be downloaded from Amazon S3 by the API caller.
@@ -628,7 +609,6 @@ extension ConnectParticipant {
     }
 
     public struct Websocket: AWSDecodableShape {
-
         /// The URL expiration timestamp in ISO date format. It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example, 2019-11-08T02:41:28.172Z.
         public let connectionExpiry: String?
         /// The URL of the websocket.

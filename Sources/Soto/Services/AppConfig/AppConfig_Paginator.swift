@@ -72,6 +72,29 @@ extension AppConfig {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listApplicationsPaginator(
+        _ input: ListApplicationsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListApplicationsRequest, Applications> {
+        return .init(
+            input: input,
+            command: listApplications,
+            inputKey: \ListApplicationsRequest.nextToken,
+            outputKey: \Applications.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Lists the configuration profiles for an application.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -124,6 +147,29 @@ extension AppConfig {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listConfigurationProfilesPaginator(
+        _ input: ListConfigurationProfilesRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListConfigurationProfilesRequest, ConfigurationProfiles> {
+        return .init(
+            input: input,
+            command: listConfigurationProfiles,
+            inputKey: \ListConfigurationProfilesRequest.nextToken,
+            outputKey: \ConfigurationProfiles.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  List deployment strategies.
     ///
@@ -178,6 +224,29 @@ extension AppConfig {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listDeploymentStrategiesPaginator(
+        _ input: ListDeploymentStrategiesRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListDeploymentStrategiesRequest, DeploymentStrategies> {
+        return .init(
+            input: input,
+            command: listDeploymentStrategies,
+            inputKey: \ListDeploymentStrategiesRequest.nextToken,
+            outputKey: \DeploymentStrategies.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Lists the deployments for an environment.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -230,6 +299,29 @@ extension AppConfig {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listDeploymentsPaginator(
+        _ input: ListDeploymentsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListDeploymentsRequest, Deployments> {
+        return .init(
+            input: input,
+            command: listDeployments,
+            inputKey: \ListDeploymentsRequest.nextToken,
+            outputKey: \Deployments.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  List the environments for an application.
     ///
@@ -284,6 +376,29 @@ extension AppConfig {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listEnvironmentsPaginator(
+        _ input: ListEnvironmentsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListEnvironmentsRequest, Environments> {
+        return .init(
+            input: input,
+            command: listEnvironments,
+            inputKey: \ListEnvironmentsRequest.nextToken,
+            outputKey: \Environments.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  View a list of configurations stored in the AppConfig configuration store by version.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -336,6 +451,29 @@ extension AppConfig {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listHostedConfigurationVersionsPaginator(
+        _ input: ListHostedConfigurationVersionsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListHostedConfigurationVersionsRequest, HostedConfigurationVersions> {
+        return .init(
+            input: input,
+            command: listHostedConfigurationVersions,
+            inputKey: \ListHostedConfigurationVersionsRequest.nextToken,
+            outputKey: \HostedConfigurationVersions.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 }
 
 extension AppConfig.ListApplicationsRequest: AWSPaginateToken {

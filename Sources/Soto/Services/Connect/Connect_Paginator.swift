@@ -72,6 +72,29 @@ extension Connect {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func getCurrentMetricDataPaginator(
+        _ input: GetCurrentMetricDataRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<GetCurrentMetricDataRequest, GetCurrentMetricDataResponse> {
+        return .init(
+            input: input,
+            command: getCurrentMetricData,
+            inputKey: \GetCurrentMetricDataRequest.nextToken,
+            outputKey: \GetCurrentMetricDataResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Gets historical metric data from the specified Amazon Connect instance. For a description of each historical metric, see Historical Metrics Definitions in the Amazon Connect Administrator Guide.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -124,6 +147,29 @@ extension Connect {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func getMetricDataPaginator(
+        _ input: GetMetricDataRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<GetMetricDataRequest, GetMetricDataResponse> {
+        return .init(
+            input: input,
+            command: getMetricData,
+            inputKey: \GetMetricDataRequest.nextToken,
+            outputKey: \GetMetricDataResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  This API is in preview release for Amazon Connect and is subject to change. Returns a paginated list of all approved origins associated with the instance.
     ///
@@ -178,6 +224,29 @@ extension Connect {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listApprovedOriginsPaginator(
+        _ input: ListApprovedOriginsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListApprovedOriginsRequest, ListApprovedOriginsResponse> {
+        return .init(
+            input: input,
+            command: listApprovedOrigins,
+            inputKey: \ListApprovedOriginsRequest.nextToken,
+            outputKey: \ListApprovedOriginsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Provides information about the contact flows for the specified Amazon Connect instance. You can also create and update contact flows using the Amazon Connect Flow language. For more information about contact flows, see Contact Flows in the Amazon Connect Administrator Guide.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -230,6 +299,29 @@ extension Connect {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listContactFlowsPaginator(
+        _ input: ListContactFlowsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListContactFlowsRequest, ListContactFlowsResponse> {
+        return .init(
+            input: input,
+            command: listContactFlows,
+            inputKey: \ListContactFlowsRequest.nextToken,
+            outputKey: \ListContactFlowsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Provides information about the hours of operation for the specified Amazon Connect instance. For more information about hours of operation, see Set the Hours of Operation for a Queue in the Amazon Connect Administrator Guide.
     ///
@@ -284,6 +376,29 @@ extension Connect {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listHoursOfOperationsPaginator(
+        _ input: ListHoursOfOperationsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListHoursOfOperationsRequest, ListHoursOfOperationsResponse> {
+        return .init(
+            input: input,
+            command: listHoursOfOperations,
+            inputKey: \ListHoursOfOperationsRequest.nextToken,
+            outputKey: \ListHoursOfOperationsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  This API is in preview release for Amazon Connect and is subject to change. Returns a paginated list of all attribute types for the given instance.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -336,6 +451,29 @@ extension Connect {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listInstanceAttributesPaginator(
+        _ input: ListInstanceAttributesRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListInstanceAttributesRequest, ListInstanceAttributesResponse> {
+        return .init(
+            input: input,
+            command: listInstanceAttributes,
+            inputKey: \ListInstanceAttributesRequest.nextToken,
+            outputKey: \ListInstanceAttributesResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  This API is in preview release for Amazon Connect and is subject to change. Returns a paginated list of storage configs for the identified instance and resource type.
     ///
@@ -390,6 +528,29 @@ extension Connect {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listInstanceStorageConfigsPaginator(
+        _ input: ListInstanceStorageConfigsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListInstanceStorageConfigsRequest, ListInstanceStorageConfigsResponse> {
+        return .init(
+            input: input,
+            command: listInstanceStorageConfigs,
+            inputKey: \ListInstanceStorageConfigsRequest.nextToken,
+            outputKey: \ListInstanceStorageConfigsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  This API is in preview release for Amazon Connect and is subject to change. Return a list of instances which are in active state, creation-in-progress state, and failed state. Instances that aren't successfully created (they are in a failed state) are returned only for 24 hours after the CreateInstance API was invoked.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -442,6 +603,29 @@ extension Connect {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listInstancesPaginator(
+        _ input: ListInstancesRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListInstancesRequest, ListInstancesResponse> {
+        return .init(
+            input: input,
+            command: listInstances,
+            inputKey: \ListInstancesRequest.nextToken,
+            outputKey: \ListInstancesResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  This API is in preview release for Amazon Connect and is subject to change. Provides summary information about the AppIntegration associations for the specified Amazon Connect instance.
     ///
@@ -496,6 +680,29 @@ extension Connect {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listIntegrationAssociationsPaginator(
+        _ input: ListIntegrationAssociationsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListIntegrationAssociationsRequest, ListIntegrationAssociationsResponse> {
+        return .init(
+            input: input,
+            command: listIntegrationAssociations,
+            inputKey: \ListIntegrationAssociationsRequest.nextToken,
+            outputKey: \ListIntegrationAssociationsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  This API is in preview release for Amazon Connect and is subject to change. Returns a paginated list of all Lambda functions that display in the dropdown options in the relevant contact flow blocks.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -548,6 +755,29 @@ extension Connect {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listLambdaFunctionsPaginator(
+        _ input: ListLambdaFunctionsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListLambdaFunctionsRequest, ListLambdaFunctionsResponse> {
+        return .init(
+            input: input,
+            command: listLambdaFunctions,
+            inputKey: \ListLambdaFunctionsRequest.nextToken,
+            outputKey: \ListLambdaFunctionsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  This API is in preview release for Amazon Connect and is subject to change. Returns a paginated list of all the Amazon Lex bots currently associated with the instance.
     ///
@@ -602,6 +832,29 @@ extension Connect {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listLexBotsPaginator(
+        _ input: ListLexBotsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListLexBotsRequest, ListLexBotsResponse> {
+        return .init(
+            input: input,
+            command: listLexBots,
+            inputKey: \ListLexBotsRequest.nextToken,
+            outputKey: \ListLexBotsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Provides information about the phone numbers for the specified Amazon Connect instance.  For more information about phone numbers, see Set Up Phone Numbers for Your Contact Center in the Amazon Connect Administrator Guide.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -654,6 +907,29 @@ extension Connect {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listPhoneNumbersPaginator(
+        _ input: ListPhoneNumbersRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListPhoneNumbersRequest, ListPhoneNumbersResponse> {
+        return .init(
+            input: input,
+            command: listPhoneNumbers,
+            inputKey: \ListPhoneNumbersRequest.nextToken,
+            outputKey: \ListPhoneNumbersResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Provides information about the prompts for the specified Amazon Connect instance.
     ///
@@ -708,6 +984,29 @@ extension Connect {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listPromptsPaginator(
+        _ input: ListPromptsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListPromptsRequest, ListPromptsResponse> {
+        return .init(
+            input: input,
+            command: listPrompts,
+            inputKey: \ListPromptsRequest.nextToken,
+            outputKey: \ListPromptsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  This API is in preview release for Amazon Connect and is subject to change. Lists the quick connects associated with a queue.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -760,6 +1059,29 @@ extension Connect {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listQueueQuickConnectsPaginator(
+        _ input: ListQueueQuickConnectsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListQueueQuickConnectsRequest, ListQueueQuickConnectsResponse> {
+        return .init(
+            input: input,
+            command: listQueueQuickConnects,
+            inputKey: \ListQueueQuickConnectsRequest.nextToken,
+            outputKey: \ListQueueQuickConnectsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Provides information about the queues for the specified Amazon Connect instance. For more information about queues, see Queues: Standard and Agent in the Amazon Connect Administrator Guide.
     ///
@@ -814,6 +1136,29 @@ extension Connect {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listQueuesPaginator(
+        _ input: ListQueuesRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListQueuesRequest, ListQueuesResponse> {
+        return .init(
+            input: input,
+            command: listQueues,
+            inputKey: \ListQueuesRequest.nextToken,
+            outputKey: \ListQueuesResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  This API is in preview release for Amazon Connect and is subject to change. Provides information about the quick connects for the specified Amazon Connect instance.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -866,6 +1211,29 @@ extension Connect {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listQuickConnectsPaginator(
+        _ input: ListQuickConnectsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListQuickConnectsRequest, ListQuickConnectsResponse> {
+        return .init(
+            input: input,
+            command: listQuickConnects,
+            inputKey: \ListQuickConnectsRequest.nextToken,
+            outputKey: \ListQuickConnectsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Lists the queues associated with a routing profile.
     ///
@@ -920,6 +1288,29 @@ extension Connect {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listRoutingProfileQueuesPaginator(
+        _ input: ListRoutingProfileQueuesRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListRoutingProfileQueuesRequest, ListRoutingProfileQueuesResponse> {
+        return .init(
+            input: input,
+            command: listRoutingProfileQueues,
+            inputKey: \ListRoutingProfileQueuesRequest.nextToken,
+            outputKey: \ListRoutingProfileQueuesResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Provides summary information about the routing profiles for the specified Amazon Connect instance. For more information about routing profiles, see Routing Profiles and Create a Routing Profile in the Amazon Connect Administrator Guide.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -972,6 +1363,29 @@ extension Connect {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listRoutingProfilesPaginator(
+        _ input: ListRoutingProfilesRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListRoutingProfilesRequest, ListRoutingProfilesResponse> {
+        return .init(
+            input: input,
+            command: listRoutingProfiles,
+            inputKey: \ListRoutingProfilesRequest.nextToken,
+            outputKey: \ListRoutingProfilesResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  This API is in preview release for Amazon Connect and is subject to change. Returns a paginated list of all security keys associated with the instance.
     ///
@@ -1026,6 +1440,29 @@ extension Connect {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listSecurityKeysPaginator(
+        _ input: ListSecurityKeysRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListSecurityKeysRequest, ListSecurityKeysResponse> {
+        return .init(
+            input: input,
+            command: listSecurityKeys,
+            inputKey: \ListSecurityKeysRequest.nextToken,
+            outputKey: \ListSecurityKeysResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Provides summary information about the security profiles for the specified Amazon Connect instance. For more information about security profiles, see Security Profiles in the Amazon Connect Administrator Guide.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -1078,6 +1515,29 @@ extension Connect {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listSecurityProfilesPaginator(
+        _ input: ListSecurityProfilesRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListSecurityProfilesRequest, ListSecurityProfilesResponse> {
+        return .init(
+            input: input,
+            command: listSecurityProfiles,
+            inputKey: \ListSecurityProfilesRequest.nextToken,
+            outputKey: \ListSecurityProfilesResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  This API is in preview release for Amazon Connect and is subject to change. Lists the use cases.
     ///
@@ -1132,6 +1592,29 @@ extension Connect {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listUseCasesPaginator(
+        _ input: ListUseCasesRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListUseCasesRequest, ListUseCasesResponse> {
+        return .init(
+            input: input,
+            command: listUseCases,
+            inputKey: \ListUseCasesRequest.nextToken,
+            outputKey: \ListUseCasesResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Provides summary information about the hierarchy groups for the specified Amazon Connect instance. For more information about agent hierarchies, see Set Up Agent Hierarchies in the Amazon Connect Administrator Guide.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -1185,6 +1668,29 @@ extension Connect {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listUserHierarchyGroupsPaginator(
+        _ input: ListUserHierarchyGroupsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListUserHierarchyGroupsRequest, ListUserHierarchyGroupsResponse> {
+        return .init(
+            input: input,
+            command: listUserHierarchyGroups,
+            inputKey: \ListUserHierarchyGroupsRequest.nextToken,
+            outputKey: \ListUserHierarchyGroupsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Provides summary information about the users for the specified Amazon Connect instance.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -1237,6 +1743,29 @@ extension Connect {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listUsersPaginator(
+        _ input: ListUsersRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListUsersRequest, ListUsersResponse> {
+        return .init(
+            input: input,
+            command: listUsers,
+            inputKey: \ListUsersRequest.nextToken,
+            outputKey: \ListUsersResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 }
 
 extension Connect.GetCurrentMetricDataRequest: AWSPaginateToken {

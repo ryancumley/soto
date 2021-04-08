@@ -68,25 +68,55 @@ public struct IoTDataPlane: AWSService {
         return self.client.execute(operation: "DeleteThingShadow", path: "/things/{thingName}/shadow", httpMethod: .DELETE, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    public func deleteThingShadow(_ input: DeleteThingShadowRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws -> DeleteThingShadowResponse {
+        return try await self.client.execute(operation: "DeleteThingShadow", path: "/things/{thingName}/shadow", httpMethod: .DELETE, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
+    }
+    #endif
+
     /// Gets the shadow for the specified thing. For more information, see GetThingShadow in the AWS IoT Developer Guide.
     public func getThingShadow(_ input: GetThingShadowRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<GetThingShadowResponse> {
         return self.client.execute(operation: "GetThingShadow", path: "/things/{thingName}/shadow", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    public func getThingShadow(_ input: GetThingShadowRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws -> GetThingShadowResponse {
+        return try await self.client.execute(operation: "GetThingShadow", path: "/things/{thingName}/shadow", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
+    }
+    #endif
 
     /// Lists the shadows for the specified thing.
     public func listNamedShadowsForThing(_ input: ListNamedShadowsForThingRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<ListNamedShadowsForThingResponse> {
         return self.client.execute(operation: "ListNamedShadowsForThing", path: "/api/things/shadow/ListNamedShadowsForThing/{thingName}", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    public func listNamedShadowsForThing(_ input: ListNamedShadowsForThingRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws -> ListNamedShadowsForThingResponse {
+        return try await self.client.execute(operation: "ListNamedShadowsForThing", path: "/api/things/shadow/ListNamedShadowsForThing/{thingName}", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
+    }
+    #endif
+
     /// Publishes state information. For more information, see HTTP Protocol in the AWS IoT Developer Guide.
     @discardableResult public func publish(_ input: PublishRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<Void> {
         return self.client.execute(operation: "Publish", path: "/topics/{topic}", httpMethod: .POST, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    public func publish(_ input: PublishRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws {
+        return try await self.client.execute(operation: "Publish", path: "/topics/{topic}", httpMethod: .POST, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
+    }
+    #endif
+
     /// Updates the shadow for the specified thing. For more information, see UpdateThingShadow in the AWS IoT Developer Guide.
     public func updateThingShadow(_ input: UpdateThingShadowRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<UpdateThingShadowResponse> {
         return self.client.execute(operation: "UpdateThingShadow", path: "/things/{thingName}/shadow", httpMethod: .POST, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    public func updateThingShadow(_ input: UpdateThingShadowRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws -> UpdateThingShadowResponse {
+        return try await self.client.execute(operation: "UpdateThingShadow", path: "/things/{thingName}/shadow", httpMethod: .POST, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
+    }
+    #endif
 }
 
 extension IoTDataPlane {

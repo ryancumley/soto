@@ -32,7 +32,6 @@ extension PrometheusService {
     // MARK: Shapes
 
     public struct CreateWorkspaceRequest: AWSEncodableShape {
-
         /// An optional user-assigned alias for this workspace. This alias is for user reference and does not need to be unique.
         public let alias: String?
         /// Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.
@@ -52,13 +51,12 @@ extension PrometheusService {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case alias = "alias"
-            case clientToken = "clientToken"
+            case alias
+            case clientToken
         }
     }
 
     public struct CreateWorkspaceResponse: AWSDecodableShape {
-
         /// The ARN of the workspace that was just created.
         public let arn: String
         /// The status of the workspace that was just created (usually CREATING).
@@ -73,15 +71,15 @@ extension PrometheusService {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case arn = "arn"
-            case status = "status"
-            case workspaceId = "workspaceId"
+            case arn
+            case status
+            case workspaceId
         }
     }
 
     public struct DeleteWorkspaceRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "clientToken", location: .querystring(locationName: "clientToken")), 
+            AWSMemberEncoding(label: "clientToken", location: .querystring(locationName: "clientToken")),
             AWSMemberEncoding(label: "workspaceId", location: .uri(locationName: "workspaceId"))
         ]
 
@@ -129,7 +127,6 @@ extension PrometheusService {
     }
 
     public struct DescribeWorkspaceResponse: AWSDecodableShape {
-
         /// The properties of the selected workspace.
         public let workspace: WorkspaceDescription
 
@@ -138,14 +135,14 @@ extension PrometheusService {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case workspace = "workspace"
+            case workspace
         }
     }
 
     public struct ListWorkspacesRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "alias", location: .querystring(locationName: "alias")), 
-            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "maxResults")), 
+            AWSMemberEncoding(label: "alias", location: .querystring(locationName: "alias")),
+            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "maxResults")),
             AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "nextToken"))
         ]
 
@@ -173,7 +170,6 @@ extension PrometheusService {
     }
 
     public struct ListWorkspacesResponse: AWSDecodableShape {
-
         /// Pagination token to use when requesting the next page in this list.
         public let nextToken: String?
         /// The list of existing workspaces, including those undergoing creation or deletion.
@@ -185,8 +181,8 @@ extension PrometheusService {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case nextToken = "nextToken"
-            case workspaces = "workspaces"
+            case nextToken
+            case workspaces
         }
     }
 
@@ -220,13 +216,12 @@ extension PrometheusService {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case alias = "alias"
-            case clientToken = "clientToken"
+            case alias
+            case clientToken
         }
     }
 
     public struct WorkspaceDescription: AWSDecodableShape {
-
         /// Alias of this workspace.
         public let alias: String?
         /// The Amazon Resource Name (ARN) of this workspace.
@@ -250,17 +245,16 @@ extension PrometheusService {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case alias = "alias"
-            case arn = "arn"
-            case createdAt = "createdAt"
-            case prometheusEndpoint = "prometheusEndpoint"
-            case status = "status"
-            case workspaceId = "workspaceId"
+            case alias
+            case arn
+            case createdAt
+            case prometheusEndpoint
+            case status
+            case workspaceId
         }
     }
 
     public struct WorkspaceStatus: AWSDecodableShape {
-
         /// Status code of this workspace.
         public let statusCode: WorkspaceStatusCode
 
@@ -269,12 +263,11 @@ extension PrometheusService {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case statusCode = "statusCode"
+            case statusCode
         }
     }
 
     public struct WorkspaceSummary: AWSDecodableShape {
-
         /// Alias of this workspace.
         public let alias: String?
         /// The AmazonResourceName of this workspace.
@@ -295,11 +288,11 @@ extension PrometheusService {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case alias = "alias"
-            case arn = "arn"
-            case createdAt = "createdAt"
-            case status = "status"
-            case workspaceId = "workspaceId"
+            case alias
+            case arn
+            case createdAt
+            case status
+            case workspaceId
         }
     }
 }

@@ -72,6 +72,29 @@ extension CodeDeploy {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listApplicationRevisionsPaginator(
+        _ input: ListApplicationRevisionsInput,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListApplicationRevisionsInput, ListApplicationRevisionsOutput> {
+        return .init(
+            input: input,
+            command: listApplicationRevisions,
+            inputKey: \ListApplicationRevisionsInput.nextToken,
+            outputKey: \ListApplicationRevisionsOutput.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Lists the applications registered with the IAM user or AWS account.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -124,6 +147,29 @@ extension CodeDeploy {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listApplicationsPaginator(
+        _ input: ListApplicationsInput,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListApplicationsInput, ListApplicationsOutput> {
+        return .init(
+            input: input,
+            command: listApplications,
+            inputKey: \ListApplicationsInput.nextToken,
+            outputKey: \ListApplicationsOutput.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Lists the deployment configurations with the IAM user or AWS account.
     ///
@@ -178,6 +224,29 @@ extension CodeDeploy {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listDeploymentConfigsPaginator(
+        _ input: ListDeploymentConfigsInput,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListDeploymentConfigsInput, ListDeploymentConfigsOutput> {
+        return .init(
+            input: input,
+            command: listDeploymentConfigs,
+            inputKey: \ListDeploymentConfigsInput.nextToken,
+            outputKey: \ListDeploymentConfigsOutput.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Lists the deployment groups for an application registered with the IAM user or AWS account.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -231,6 +300,29 @@ extension CodeDeploy {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listDeploymentGroupsPaginator(
+        _ input: ListDeploymentGroupsInput,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListDeploymentGroupsInput, ListDeploymentGroupsOutput> {
+        return .init(
+            input: input,
+            command: listDeploymentGroups,
+            inputKey: \ListDeploymentGroupsInput.nextToken,
+            outputKey: \ListDeploymentGroupsOutput.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///    The newer BatchGetDeploymentTargets should be used instead because it works with all compute types. ListDeploymentInstances throws an exception if it is used with a compute platform other than EC2/On-premises or AWS Lambda.    Lists the instance for a deployment associated with the IAM user or AWS account.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -243,7 +335,7 @@ extension CodeDeploy {
     ///   - eventLoop: EventLoop to run this process on
     ///   - onPage: closure called with each paginated response. It combines an accumulating result with the contents of response. This combined result is then returned
     ///         along with a boolean indicating if the paginate operation should continue.
-    @available(*, deprecated, message:"This operation is deprecated, use ListDeploymentTargets instead.")
+    @available(*, deprecated, message: "This operation is deprecated, use ListDeploymentTargets instead.")
     public func listDeploymentInstancesPaginator<Result>(
         _ input: ListDeploymentInstancesInput,
         _ initialValue: Result,
@@ -269,7 +361,7 @@ extension CodeDeploy {
     ///   - logger: Logger used flot logging
     ///   - eventLoop: EventLoop to run this process on
     ///   - onPage: closure called with each block of entries. Returns boolean indicating whether we should continue.
-    @available(*, deprecated, message:"This operation is deprecated, use ListDeploymentTargets instead.")
+    @available(*, deprecated, message: "This operation is deprecated, use ListDeploymentTargets instead.")
     public func listDeploymentInstancesPaginator(
         _ input: ListDeploymentInstancesInput,
         logger: Logger = AWSClient.loggingDisabled,
@@ -285,6 +377,30 @@ extension CodeDeploy {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    @available(*, deprecated, message: "This operation is deprecated, use ListDeploymentTargets instead.")
+    public func listDeploymentInstancesPaginator(
+        _ input: ListDeploymentInstancesInput,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListDeploymentInstancesInput, ListDeploymentInstancesOutput> {
+        return .init(
+            input: input,
+            command: listDeploymentInstances,
+            inputKey: \ListDeploymentInstancesInput.nextToken,
+            outputKey: \ListDeploymentInstancesOutput.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Lists the deployments in a deployment group for an application registered with the IAM user or AWS account.
     ///
@@ -338,6 +454,29 @@ extension CodeDeploy {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listDeploymentsPaginator(
+        _ input: ListDeploymentsInput,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListDeploymentsInput, ListDeploymentsOutput> {
+        return .init(
+            input: input,
+            command: listDeployments,
+            inputKey: \ListDeploymentsInput.nextToken,
+            outputKey: \ListDeploymentsOutput.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 }
 
 extension CodeDeploy.ListApplicationRevisionsInput: AWSPaginateToken {

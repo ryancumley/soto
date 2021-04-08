@@ -67,70 +67,154 @@ public struct CodeGuruReviewer: AWSService {
         return self.client.execute(operation: "AssociateRepository", path: "/associations", httpMethod: .POST, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    public func associateRepository(_ input: AssociateRepositoryRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws -> AssociateRepositoryResponse {
+        return try await self.client.execute(operation: "AssociateRepository", path: "/associations", httpMethod: .POST, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
+    }
+    #endif
+
     ///  Use to create a code review with a  CodeReviewType  of RepositoryAnalysis. This type of code review analyzes all code under a specified branch in an associated repository. PullRequest code reviews are automatically triggered by a pull request so cannot be created using this method.
     public func createCodeReview(_ input: CreateCodeReviewRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<CreateCodeReviewResponse> {
         return self.client.execute(operation: "CreateCodeReview", path: "/codereviews", httpMethod: .POST, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    public func createCodeReview(_ input: CreateCodeReviewRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws -> CreateCodeReviewResponse {
+        return try await self.client.execute(operation: "CreateCodeReview", path: "/codereviews", httpMethod: .POST, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
+    }
+    #endif
 
     ///  Returns the metadata associated with the code review along with its status.
     public func describeCodeReview(_ input: DescribeCodeReviewRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<DescribeCodeReviewResponse> {
         return self.client.execute(operation: "DescribeCodeReview", path: "/codereviews/{CodeReviewArn}", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    public func describeCodeReview(_ input: DescribeCodeReviewRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws -> DescribeCodeReviewResponse {
+        return try await self.client.execute(operation: "DescribeCodeReview", path: "/codereviews/{CodeReviewArn}", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
+    }
+    #endif
+
     ///  Describes the customer feedback for a CodeGuru Reviewer recommendation.
     public func describeRecommendationFeedback(_ input: DescribeRecommendationFeedbackRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<DescribeRecommendationFeedbackResponse> {
         return self.client.execute(operation: "DescribeRecommendationFeedback", path: "/feedback/{CodeReviewArn}", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    public func describeRecommendationFeedback(_ input: DescribeRecommendationFeedbackRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws -> DescribeRecommendationFeedbackResponse {
+        return try await self.client.execute(operation: "DescribeRecommendationFeedback", path: "/feedback/{CodeReviewArn}", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
+    }
+    #endif
 
     ///  Returns a  RepositoryAssociation  object that contains information about the requested repository association.
     public func describeRepositoryAssociation(_ input: DescribeRepositoryAssociationRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<DescribeRepositoryAssociationResponse> {
         return self.client.execute(operation: "DescribeRepositoryAssociation", path: "/associations/{AssociationArn}", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    public func describeRepositoryAssociation(_ input: DescribeRepositoryAssociationRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws -> DescribeRepositoryAssociationResponse {
+        return try await self.client.execute(operation: "DescribeRepositoryAssociation", path: "/associations/{AssociationArn}", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
+    }
+    #endif
+
     /// Removes the association between Amazon CodeGuru Reviewer and a repository.
     public func disassociateRepository(_ input: DisassociateRepositoryRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<DisassociateRepositoryResponse> {
         return self.client.execute(operation: "DisassociateRepository", path: "/associations/{AssociationArn}", httpMethod: .DELETE, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    public func disassociateRepository(_ input: DisassociateRepositoryRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws -> DisassociateRepositoryResponse {
+        return try await self.client.execute(operation: "DisassociateRepository", path: "/associations/{AssociationArn}", httpMethod: .DELETE, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
+    }
+    #endif
 
     ///  Lists all the code reviews that the customer has created in the past 90 days.
     public func listCodeReviews(_ input: ListCodeReviewsRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<ListCodeReviewsResponse> {
         return self.client.execute(operation: "ListCodeReviews", path: "/codereviews", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    public func listCodeReviews(_ input: ListCodeReviewsRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws -> ListCodeReviewsResponse {
+        return try await self.client.execute(operation: "ListCodeReviews", path: "/codereviews", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
+    }
+    #endif
+
     ///  Returns a list of  RecommendationFeedbackSummary  objects that contain customer recommendation feedback for all CodeGuru Reviewer users.
     public func listRecommendationFeedback(_ input: ListRecommendationFeedbackRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<ListRecommendationFeedbackResponse> {
         return self.client.execute(operation: "ListRecommendationFeedback", path: "/feedback/{CodeReviewArn}/RecommendationFeedback", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    public func listRecommendationFeedback(_ input: ListRecommendationFeedbackRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws -> ListRecommendationFeedbackResponse {
+        return try await self.client.execute(operation: "ListRecommendationFeedback", path: "/feedback/{CodeReviewArn}/RecommendationFeedback", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
+    }
+    #endif
 
     ///  Returns the list of all recommendations for a completed code review.
     public func listRecommendations(_ input: ListRecommendationsRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<ListRecommendationsResponse> {
         return self.client.execute(operation: "ListRecommendations", path: "/codereviews/{CodeReviewArn}/Recommendations", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    public func listRecommendations(_ input: ListRecommendationsRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws -> ListRecommendationsResponse {
+        return try await self.client.execute(operation: "ListRecommendations", path: "/codereviews/{CodeReviewArn}/Recommendations", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
+    }
+    #endif
+
     ///  Returns a list of  RepositoryAssociationSummary  objects that contain summary information about a repository association. You can filter the returned list by  ProviderType ,  Name ,  State , and  Owner .
     public func listRepositoryAssociations(_ input: ListRepositoryAssociationsRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<ListRepositoryAssociationsResponse> {
         return self.client.execute(operation: "ListRepositoryAssociations", path: "/associations", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    public func listRepositoryAssociations(_ input: ListRepositoryAssociationsRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws -> ListRepositoryAssociationsResponse {
+        return try await self.client.execute(operation: "ListRepositoryAssociations", path: "/associations", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
+    }
+    #endif
 
     /// Returns the list of tags associated with an associated repository resource.
     public func listTagsForResource(_ input: ListTagsForResourceRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<ListTagsForResourceResponse> {
         return self.client.execute(operation: "ListTagsForResource", path: "/tags/{resourceArn}", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    public func listTagsForResource(_ input: ListTagsForResourceRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws -> ListTagsForResourceResponse {
+        return try await self.client.execute(operation: "ListTagsForResource", path: "/tags/{resourceArn}", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
+    }
+    #endif
+
     ///  Stores customer feedback for a CodeGuru Reviewer recommendation. When this API is called again with different reactions the previous feedback is overwritten.
     public func putRecommendationFeedback(_ input: PutRecommendationFeedbackRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<PutRecommendationFeedbackResponse> {
         return self.client.execute(operation: "PutRecommendationFeedback", path: "/feedback", httpMethod: .PUT, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    public func putRecommendationFeedback(_ input: PutRecommendationFeedbackRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws -> PutRecommendationFeedbackResponse {
+        return try await self.client.execute(operation: "PutRecommendationFeedback", path: "/feedback", httpMethod: .PUT, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
+    }
+    #endif
 
     /// Adds one or more tags to an associated repository.
     public func tagResource(_ input: TagResourceRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<TagResourceResponse> {
         return self.client.execute(operation: "TagResource", path: "/tags/{resourceArn}", httpMethod: .POST, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    public func tagResource(_ input: TagResourceRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws -> TagResourceResponse {
+        return try await self.client.execute(operation: "TagResource", path: "/tags/{resourceArn}", httpMethod: .POST, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
+    }
+    #endif
+
     /// Removes a tag from an associated repository.
     public func untagResource(_ input: UntagResourceRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<UntagResourceResponse> {
         return self.client.execute(operation: "UntagResource", path: "/tags/{resourceArn}", httpMethod: .DELETE, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    public func untagResource(_ input: UntagResourceRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws -> UntagResourceResponse {
+        return try await self.client.execute(operation: "UntagResource", path: "/tags/{resourceArn}", httpMethod: .DELETE, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
+    }
+    #endif
 }
 
 extension CodeGuruReviewer {

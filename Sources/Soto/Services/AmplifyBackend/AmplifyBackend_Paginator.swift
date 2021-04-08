@@ -71,6 +71,29 @@ extension AmplifyBackend {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listBackendJobsPaginator(
+        _ input: ListBackendJobsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListBackendJobsRequest, ListBackendJobsResponse> {
+        return .init(
+            input: input,
+            command: listBackendJobs,
+            inputKey: \ListBackendJobsRequest.nextToken,
+            outputKey: \ListBackendJobsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 }
 
 extension AmplifyBackend.ListBackendJobsRequest: AWSPaginateToken {

@@ -72,6 +72,29 @@ extension AccessAnalyzer {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listAccessPreviewFindingsPaginator(
+        _ input: ListAccessPreviewFindingsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListAccessPreviewFindingsRequest, ListAccessPreviewFindingsResponse> {
+        return .init(
+            input: input,
+            command: listAccessPreviewFindings,
+            inputKey: \ListAccessPreviewFindingsRequest.nextToken,
+            outputKey: \ListAccessPreviewFindingsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Retrieves a list of access previews for the specified analyzer.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -124,6 +147,29 @@ extension AccessAnalyzer {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listAccessPreviewsPaginator(
+        _ input: ListAccessPreviewsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListAccessPreviewsRequest, ListAccessPreviewsResponse> {
+        return .init(
+            input: input,
+            command: listAccessPreviews,
+            inputKey: \ListAccessPreviewsRequest.nextToken,
+            outputKey: \ListAccessPreviewsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Retrieves a list of resources of the specified type that have been analyzed by the specified analyzer..
     ///
@@ -178,6 +224,29 @@ extension AccessAnalyzer {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listAnalyzedResourcesPaginator(
+        _ input: ListAnalyzedResourcesRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListAnalyzedResourcesRequest, ListAnalyzedResourcesResponse> {
+        return .init(
+            input: input,
+            command: listAnalyzedResources,
+            inputKey: \ListAnalyzedResourcesRequest.nextToken,
+            outputKey: \ListAnalyzedResourcesResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Retrieves a list of analyzers.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -230,6 +299,29 @@ extension AccessAnalyzer {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listAnalyzersPaginator(
+        _ input: ListAnalyzersRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListAnalyzersRequest, ListAnalyzersResponse> {
+        return .init(
+            input: input,
+            command: listAnalyzers,
+            inputKey: \ListAnalyzersRequest.nextToken,
+            outputKey: \ListAnalyzersResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Retrieves a list of archive rules created for the specified analyzer.
     ///
@@ -284,6 +376,29 @@ extension AccessAnalyzer {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listArchiveRulesPaginator(
+        _ input: ListArchiveRulesRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListArchiveRulesRequest, ListArchiveRulesResponse> {
+        return .init(
+            input: input,
+            command: listArchiveRules,
+            inputKey: \ListArchiveRulesRequest.nextToken,
+            outputKey: \ListArchiveRulesResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Retrieves a list of findings generated by the specified analyzer. To learn about filter keys that you can use to retrieve a list of findings, see Access Analyzer filter keys in the IAM User Guide.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -337,6 +452,29 @@ extension AccessAnalyzer {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listFindingsPaginator(
+        _ input: ListFindingsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListFindingsRequest, ListFindingsResponse> {
+        return .init(
+            input: input,
+            command: listFindings,
+            inputKey: \ListFindingsRequest.nextToken,
+            outputKey: \ListFindingsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Requests the validation of a policy and returns a list of findings. The findings help you identify issues and provide actionable recommendations to resolve the issue and enable you to author functional policies that meet security best practices.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -389,6 +527,29 @@ extension AccessAnalyzer {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func validatePolicyPaginator(
+        _ input: ValidatePolicyRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ValidatePolicyRequest, ValidatePolicyResponse> {
+        return .init(
+            input: input,
+            command: validatePolicy,
+            inputKey: \ValidatePolicyRequest.nextToken,
+            outputKey: \ValidatePolicyResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 }
 
 extension AccessAnalyzer.ListAccessPreviewFindingsRequest: AWSPaginateToken {

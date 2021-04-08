@@ -72,6 +72,29 @@ extension Appflow {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func describeConnectorProfilesPaginator(
+        _ input: DescribeConnectorProfilesRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<DescribeConnectorProfilesRequest, DescribeConnectorProfilesResponse> {
+        return .init(
+            input: input,
+            command: describeConnectorProfiles,
+            inputKey: \DescribeConnectorProfilesRequest.nextToken,
+            outputKey: \DescribeConnectorProfilesResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///   Describes the connectors vended by Amazon AppFlow for specified connector types. If you don't specify a connector type, this operation describes all connectors vended by Amazon AppFlow. If there are more connectors than can be returned in one page, the response contains a nextToken object, which can be be passed in to the next call to the DescribeConnectors API operation to retrieve the next page.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -124,6 +147,29 @@ extension Appflow {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func describeConnectorsPaginator(
+        _ input: DescribeConnectorsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<DescribeConnectorsRequest, DescribeConnectorsResponse> {
+        return .init(
+            input: input,
+            command: describeConnectors,
+            inputKey: \DescribeConnectorsRequest.nextToken,
+            outputKey: \DescribeConnectorsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///   Fetches the execution history of the flow.
     ///
@@ -178,6 +224,29 @@ extension Appflow {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func describeFlowExecutionRecordsPaginator(
+        _ input: DescribeFlowExecutionRecordsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<DescribeFlowExecutionRecordsRequest, DescribeFlowExecutionRecordsResponse> {
+        return .init(
+            input: input,
+            command: describeFlowExecutionRecords,
+            inputKey: \DescribeFlowExecutionRecordsRequest.nextToken,
+            outputKey: \DescribeFlowExecutionRecordsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///   Lists all of the flows associated with your account.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -230,6 +299,29 @@ extension Appflow {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listFlowsPaginator(
+        _ input: ListFlowsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListFlowsRequest, ListFlowsResponse> {
+        return .init(
+            input: input,
+            command: listFlows,
+            inputKey: \ListFlowsRequest.nextToken,
+            outputKey: \ListFlowsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 }
 
 extension Appflow.DescribeConnectorProfilesRequest: AWSPaginateToken {

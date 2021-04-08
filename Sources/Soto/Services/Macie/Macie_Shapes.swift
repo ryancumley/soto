@@ -34,7 +34,6 @@ extension Macie {
     // MARK: Shapes
 
     public struct AssociateMemberAccountRequest: AWSEncodableShape {
-
         /// The ID of the AWS account that you want to associate with Amazon Macie Classic as a member account.
         public let memberAccountId: String
 
@@ -47,12 +46,11 @@ extension Macie {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case memberAccountId = "memberAccountId"
+            case memberAccountId
         }
     }
 
     public struct AssociateS3ResourcesRequest: AWSEncodableShape {
-
         /// The ID of the Amazon Macie Classic member account whose resources you want to associate with Macie Classic.
         public let memberAccountId: String?
         /// The S3 resources that you want to associate with Amazon Macie Classic for monitoring and data classification.
@@ -71,13 +69,12 @@ extension Macie {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case memberAccountId = "memberAccountId"
-            case s3Resources = "s3Resources"
+            case memberAccountId
+            case s3Resources
         }
     }
 
     public struct AssociateS3ResourcesResult: AWSDecodableShape {
-
         /// S3 resources that couldn't be associated with Amazon Macie Classic. An error code and an error message are provided for each failed item.
         public let failedS3Resources: [FailedS3Resource]?
 
@@ -86,12 +83,11 @@ extension Macie {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case failedS3Resources = "failedS3Resources"
+            case failedS3Resources
         }
     }
 
     public struct ClassificationType: AWSEncodableShape & AWSDecodableShape {
-
         /// A continuous classification of the objects that are added to a specified S3 bucket. Amazon Macie Classic begins performing continuous classification after a bucket is successfully associated with Macie Classic.
         public let continuous: S3ContinuousClassificationType
         /// A one-time classification of all of the existing objects in a specified S3 bucket.
@@ -103,13 +99,12 @@ extension Macie {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case continuous = "continuous"
-            case oneTime = "oneTime"
+            case continuous
+            case oneTime
         }
     }
 
     public struct ClassificationTypeUpdate: AWSEncodableShape {
-
         /// A continuous classification of the objects that are added to a specified S3 bucket. Amazon Macie Classic begins performing continuous classification after a bucket is successfully associated with Macie Classic.
         public let continuous: S3ContinuousClassificationType?
         /// A one-time classification of all of the existing objects in a specified S3 bucket.
@@ -121,13 +116,12 @@ extension Macie {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case continuous = "continuous"
-            case oneTime = "oneTime"
+            case continuous
+            case oneTime
         }
     }
 
     public struct DisassociateMemberAccountRequest: AWSEncodableShape {
-
         /// The ID of the member account that you want to remove from Amazon Macie Classic.
         public let memberAccountId: String
 
@@ -140,12 +134,11 @@ extension Macie {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case memberAccountId = "memberAccountId"
+            case memberAccountId
         }
     }
 
     public struct DisassociateS3ResourcesRequest: AWSEncodableShape {
-
         /// The S3 resources (buckets or prefixes) that you want to remove from being monitored and classified by Amazon Macie Classic.
         public let associatedS3Resources: [S3Resource]
         /// The ID of the Amazon Macie Classic member account whose resources you want to remove from being monitored by Macie Classic.
@@ -164,13 +157,12 @@ extension Macie {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case associatedS3Resources = "associatedS3Resources"
-            case memberAccountId = "memberAccountId"
+            case associatedS3Resources
+            case memberAccountId
         }
     }
 
     public struct DisassociateS3ResourcesResult: AWSDecodableShape {
-
         /// S3 resources that couldn't be removed from being monitored and classified by Amazon Macie Classic. An error code and an error message are provided for each failed item.
         public let failedS3Resources: [FailedS3Resource]?
 
@@ -179,12 +171,11 @@ extension Macie {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case failedS3Resources = "failedS3Resources"
+            case failedS3Resources
         }
     }
 
     public struct FailedS3Resource: AWSDecodableShape {
-
         /// The status code of a failed item.
         public let errorCode: String?
         /// The error message of a failed item.
@@ -199,14 +190,13 @@ extension Macie {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case errorCode = "errorCode"
-            case errorMessage = "errorMessage"
-            case failedItem = "failedItem"
+            case errorCode
+            case errorMessage
+            case failedItem
         }
     }
 
     public struct ListMemberAccountsRequest: AWSEncodableShape {
-
         /// Use this parameter to indicate the maximum number of items that you want in the response. The default value is 250.
         public let maxResults: Int?
         /// Use this parameter when paginating results. Set the value of this parameter to null on your first call to the ListMemberAccounts action. Subsequent calls to the action fill nextToken in the request with the value of nextToken from the previous response to continue listing data.
@@ -223,13 +213,12 @@ extension Macie {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case maxResults = "maxResults"
-            case nextToken = "nextToken"
+            case maxResults
+            case nextToken
         }
     }
 
     public struct ListMemberAccountsResult: AWSDecodableShape {
-
         /// A list of the Amazon Macie Classic member accounts returned by the action. The current Macie Classic administrator account is also included in this list.
         public let memberAccounts: [MemberAccount]?
         /// When a response is generated, if there is more data to be listed, this parameter is present in the response and contains the value to use for the nextToken parameter in a subsequent pagination request. If there is no more data to be listed, this parameter is set to null.
@@ -241,13 +230,12 @@ extension Macie {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case memberAccounts = "memberAccounts"
-            case nextToken = "nextToken"
+            case memberAccounts
+            case nextToken
         }
     }
 
     public struct ListS3ResourcesRequest: AWSEncodableShape {
-
         /// Use this parameter to indicate the maximum number of items that you want in the response. The default value is 250.
         public let maxResults: Int?
         /// The Amazon Macie Classic member account ID whose associated S3 resources you want to list.
@@ -268,14 +256,13 @@ extension Macie {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case maxResults = "maxResults"
-            case memberAccountId = "memberAccountId"
-            case nextToken = "nextToken"
+            case maxResults
+            case memberAccountId
+            case nextToken
         }
     }
 
     public struct ListS3ResourcesResult: AWSDecodableShape {
-
         /// When a response is generated, if there is more data to be listed, this parameter is present in the response and contains the value to use for the nextToken parameter in a subsequent pagination request. If there is no more data to be listed, this parameter is set to null.
         public let nextToken: String?
         /// A list of the associated S3 resources returned by the action.
@@ -287,13 +274,12 @@ extension Macie {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case nextToken = "nextToken"
-            case s3Resources = "s3Resources"
+            case nextToken
+            case s3Resources
         }
     }
 
     public struct MemberAccount: AWSDecodableShape {
-
         /// The AWS account ID of the Amazon Macie Classic member account.
         public let accountId: String?
 
@@ -302,12 +288,11 @@ extension Macie {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case accountId = "accountId"
+            case accountId
         }
     }
 
     public struct S3Resource: AWSEncodableShape & AWSDecodableShape {
-
         /// The name of the S3 bucket.
         public let bucketName: String
         /// The prefix of the S3 bucket.
@@ -324,13 +309,12 @@ extension Macie {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case bucketName = "bucketName"
-            case prefix = "prefix"
+            case bucketName
+            case prefix
         }
     }
 
     public struct S3ResourceClassification: AWSEncodableShape & AWSDecodableShape {
-
         /// The name of the S3 bucket that you want to associate with Amazon Macie Classic.
         public let bucketName: String
         /// The classification type that you want to specify for the resource associated with Amazon Macie Classic.
@@ -350,14 +334,13 @@ extension Macie {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case bucketName = "bucketName"
-            case classificationType = "classificationType"
-            case prefix = "prefix"
+            case bucketName
+            case classificationType
+            case prefix
         }
     }
 
     public struct S3ResourceClassificationUpdate: AWSEncodableShape {
-
         /// The name of the S3 bucket whose classification types you want to update.
         public let bucketName: String
         /// The classification type that you want to update for the resource associated with Amazon Macie Classic.
@@ -377,14 +360,13 @@ extension Macie {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case bucketName = "bucketName"
-            case classificationTypeUpdate = "classificationTypeUpdate"
-            case prefix = "prefix"
+            case bucketName
+            case classificationTypeUpdate
+            case prefix
         }
     }
 
     public struct UpdateS3ResourcesRequest: AWSEncodableShape {
-
         /// The AWS ID of the Amazon Macie Classic member account whose S3 resources' classification types you want to update.
         public let memberAccountId: String?
         /// The S3 resources whose classification types you want to update.
@@ -403,13 +385,12 @@ extension Macie {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case memberAccountId = "memberAccountId"
-            case s3ResourcesUpdate = "s3ResourcesUpdate"
+            case memberAccountId
+            case s3ResourcesUpdate
         }
     }
 
     public struct UpdateS3ResourcesResult: AWSDecodableShape {
-
         /// The S3 resources whose classification types can't be updated. An error code and an error message are provided for each failed item.
         public let failedS3Resources: [FailedS3Resource]?
 
@@ -418,7 +399,7 @@ extension Macie {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case failedS3Resources = "failedS3Resources"
+            case failedS3Resources
         }
     }
 }

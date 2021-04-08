@@ -65,11 +65,7 @@ extension AugmentedAIRuntime {
     }
 
     public struct DeleteHumanLoopResponse: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct DescribeHumanLoopRequest: AWSEncodableShape {
@@ -94,7 +90,6 @@ extension AugmentedAIRuntime {
     }
 
     public struct DescribeHumanLoopResponse: AWSDecodableShape {
-
         /// The creation time when Amazon Augmented AI created the human loop.
         public let creationTime: Date
         /// A failure code that identifies the type of failure.
@@ -136,7 +131,6 @@ extension AugmentedAIRuntime {
     }
 
     public struct HumanLoopDataAttributes: AWSEncodableShape {
-
         /// Declares that your content is free of personally identifiable information or adult content. Amazon SageMaker can restrict the Amazon Mechanical Turk workers who can view your task based on this information.
         public let contentClassifiers: [ContentClassifier]
 
@@ -154,7 +148,6 @@ extension AugmentedAIRuntime {
     }
 
     public struct HumanLoopInput: AWSEncodableShape {
-
         /// Serialized input from the human loop. The input must be a string representation of a file in JSON format.
         public let inputContent: String
 
@@ -163,7 +156,7 @@ extension AugmentedAIRuntime {
         }
 
         public func validate(name: String) throws {
-            try self.validate(self.inputContent, name: "inputContent", parent: name, max: 3145728)
+            try self.validate(self.inputContent, name: "inputContent", parent: name, max: 3_145_728)
         }
 
         private enum CodingKeys: String, CodingKey {
@@ -172,7 +165,6 @@ extension AugmentedAIRuntime {
     }
 
     public struct HumanLoopOutput: AWSDecodableShape {
-
         /// The location of the Amazon S3 object where Amazon Augmented AI stores your human loop output.
         public let outputS3Uri: String
 
@@ -186,7 +178,6 @@ extension AugmentedAIRuntime {
     }
 
     public struct HumanLoopSummary: AWSDecodableShape {
-
         /// When Amazon Augmented AI created the human loop.
         public let creationTime: Date?
         /// The reason why the human loop failed. A failure reason is returned when the status of the human loop is Failed.
@@ -217,11 +208,11 @@ extension AugmentedAIRuntime {
 
     public struct ListHumanLoopsRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "creationTimeAfter", location: .querystring(locationName: "CreationTimeAfter")), 
-            AWSMemberEncoding(label: "creationTimeBefore", location: .querystring(locationName: "CreationTimeBefore")), 
-            AWSMemberEncoding(label: "flowDefinitionArn", location: .querystring(locationName: "FlowDefinitionArn")), 
-            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "MaxResults")), 
-            AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "NextToken")), 
+            AWSMemberEncoding(label: "creationTimeAfter", location: .querystring(locationName: "CreationTimeAfter")),
+            AWSMemberEncoding(label: "creationTimeBefore", location: .querystring(locationName: "CreationTimeBefore")),
+            AWSMemberEncoding(label: "flowDefinitionArn", location: .querystring(locationName: "FlowDefinitionArn")),
+            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "MaxResults")),
+            AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "NextToken")),
             AWSMemberEncoding(label: "sortOrder", location: .querystring(locationName: "SortOrder"))
         ]
 
@@ -260,7 +251,6 @@ extension AugmentedAIRuntime {
     }
 
     public struct ListHumanLoopsResponse: AWSDecodableShape {
-
         /// An array of objects that contain information about the human loops.
         public let humanLoopSummaries: [HumanLoopSummary]
         /// A token to display the next page of results.
@@ -278,7 +268,6 @@ extension AugmentedAIRuntime {
     }
 
     public struct StartHumanLoopRequest: AWSEncodableShape {
-
         /// Attributes of the specified data. Use DataAttributes to specify if your data is free of personally identifiable information and/or free of adult content.
         public let dataAttributes: HumanLoopDataAttributes?
         /// The Amazon Resource Name (ARN) of the flow definition associated with this human loop.
@@ -314,7 +303,6 @@ extension AugmentedAIRuntime {
     }
 
     public struct StartHumanLoopResponse: AWSDecodableShape {
-
         /// The Amazon Resource Name (ARN) of the human loop.
         public let humanLoopArn: String?
 
@@ -328,7 +316,6 @@ extension AugmentedAIRuntime {
     }
 
     public struct StopHumanLoopRequest: AWSEncodableShape {
-
         /// The name of the human loop that you want to stop.
         public let humanLoopName: String
 
@@ -348,10 +335,6 @@ extension AugmentedAIRuntime {
     }
 
     public struct StopHumanLoopResponse: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 }

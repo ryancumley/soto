@@ -342,7 +342,6 @@ extension QuickSight {
     // MARK: Shapes
 
     public struct AccountCustomization: AWSEncodableShape & AWSDecodableShape {
-
         /// The default theme for this QuickSight subscription.
         public let defaultTheme: String?
 
@@ -356,7 +355,6 @@ extension QuickSight {
     }
 
     public struct AccountSettings: AWSDecodableShape {
-
         /// The "account name" you provided for the QuickSight subscription in your AWS account. You create this name when you sign up for QuickSight. It is unique in all of AWS and it appears only in the console when users sign in.
         public let accountName: String?
         /// The default QuickSight namespace for your AWS account.
@@ -382,7 +380,6 @@ extension QuickSight {
     }
 
     public struct ActiveIAMPolicyAssignment: AWSDecodableShape {
-
         /// A name for the IAM policy assignment.
         public let assignmentName: String?
         /// The Amazon Resource Name (ARN) of the resource.
@@ -400,7 +397,6 @@ extension QuickSight {
     }
 
     public struct AdHocFilteringOption: AWSEncodableShape {
-
         /// Availability status.
         public let availabilityStatus: DashboardBehavior?
 
@@ -414,7 +410,6 @@ extension QuickSight {
     }
 
     public struct AmazonElasticsearchParameters: AWSEncodableShape & AWSDecodableShape {
-
         /// The Amazon Elasticsearch Service domain.
         public let domain: String
 
@@ -433,7 +428,6 @@ extension QuickSight {
     }
 
     public struct Analysis: AWSDecodableShape {
-
         /// The ID of the analysis.
         public let analysisId: String?
         /// The Amazon Resource Name (ARN) of the analysis.
@@ -483,7 +477,6 @@ extension QuickSight {
     }
 
     public struct AnalysisError: AWSDecodableShape {
-
         /// The message associated with the analysis error.
         public let message: String?
         /// The type of the analysis error.
@@ -501,7 +494,6 @@ extension QuickSight {
     }
 
     public struct AnalysisSearchFilter: AWSEncodableShape {
-
         /// The name of the value that you want to use as a filter, for example "Name": "QUICKSIGHT_USER".
         public let name: AnalysisFilterAttribute?
         /// The comparison operator that you want to use as a filter, for example "Operator": "StringEquals".
@@ -523,7 +515,6 @@ extension QuickSight {
     }
 
     public struct AnalysisSourceEntity: AWSEncodableShape {
-
         /// The source template for the source entity of the analysis.
         public let sourceTemplate: AnalysisSourceTemplate?
 
@@ -541,7 +532,6 @@ extension QuickSight {
     }
 
     public struct AnalysisSourceTemplate: AWSEncodableShape {
-
         /// The Amazon Resource Name (ARN) of the source template of an analysis.
         public let arn: String
         /// The dataset references of the source template of an analysis.
@@ -566,7 +556,6 @@ extension QuickSight {
     }
 
     public struct AnalysisSummary: AWSDecodableShape {
-
         /// The ID of the analysis. This ID displays in the URL.
         public let analysisId: String?
         /// The Amazon Resource Name (ARN) for the analysis.
@@ -600,7 +589,6 @@ extension QuickSight {
     }
 
     public struct AthenaParameters: AWSEncodableShape & AWSDecodableShape {
-
         /// The workgroup that Amazon Athena uses.
         public let workGroup: String?
 
@@ -619,7 +607,6 @@ extension QuickSight {
     }
 
     public struct AuroraParameters: AWSEncodableShape & AWSDecodableShape {
-
         /// Database.
         public let database: String
         /// Host.
@@ -650,7 +637,6 @@ extension QuickSight {
     }
 
     public struct AuroraPostgreSqlParameters: AWSEncodableShape & AWSDecodableShape {
-
         /// Database.
         public let database: String
         /// Host.
@@ -681,7 +667,6 @@ extension QuickSight {
     }
 
     public struct AwsIotAnalyticsParameters: AWSEncodableShape & AWSDecodableShape {
-
         /// Dataset name.
         public let dataSetName: String
 
@@ -700,7 +685,6 @@ extension QuickSight {
     }
 
     public struct BorderStyle: AWSEncodableShape & AWSDecodableShape {
-
         /// The option to enable display of borders for visuals.
         public let show: Bool?
 
@@ -714,7 +698,6 @@ extension QuickSight {
     }
 
     public struct CalculatedColumn: AWSEncodableShape & AWSDecodableShape {
-
         /// A unique ID to identify a calculated column. During a dataset update, if the column ID of a calculated column matches that of an existing calculated column, Amazon QuickSight preserves the existing calculated column.
         public let columnId: String
         /// Column name.
@@ -746,8 +729,8 @@ extension QuickSight {
 
     public struct CancelIngestionRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
-            AWSMemberEncoding(label: "dataSetId", location: .uri(locationName: "DataSetId")), 
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
+            AWSMemberEncoding(label: "dataSetId", location: .uri(locationName: "DataSetId")),
             AWSMemberEncoding(label: "ingestionId", location: .uri(locationName: "IngestionId"))
         ]
 
@@ -806,7 +789,6 @@ extension QuickSight {
     }
 
     public struct CastColumnTypeOperation: AWSEncodableShape & AWSDecodableShape {
-
         /// Column name.
         public let columnName: String
         /// When casting a column from string to datetime type, you can supply a string in a format supported by Amazon QuickSight to denote the source data format.
@@ -834,7 +816,6 @@ extension QuickSight {
     }
 
     public struct ColumnDescription: AWSEncodableShape & AWSDecodableShape {
-
         /// The text of a description for a column.
         public let text: String?
 
@@ -853,7 +834,6 @@ extension QuickSight {
     }
 
     public struct ColumnGroup: AWSEncodableShape & AWSDecodableShape {
-
         /// Geospatial column group that denotes a hierarchy.
         public let geoSpatialColumnGroup: GeoSpatialColumnGroup?
 
@@ -871,7 +851,6 @@ extension QuickSight {
     }
 
     public struct ColumnGroupColumnSchema: AWSDecodableShape {
-
         /// The name of the column group's column schema.
         public let name: String?
 
@@ -885,7 +864,6 @@ extension QuickSight {
     }
 
     public struct ColumnGroupSchema: AWSDecodableShape {
-
         /// A structure containing the list of schemas for column group columns.
         public let columnGroupColumnSchemaList: [ColumnGroupColumnSchema]?
         /// The name of the column group schema.
@@ -903,7 +881,6 @@ extension QuickSight {
     }
 
     public struct ColumnLevelPermissionRule: AWSEncodableShape & AWSDecodableShape {
-
         /// An array of column names.
         public let columnNames: [String]?
         /// An array of Amazon Resource Names (ARNs) for QuickSight users or groups.
@@ -927,7 +904,6 @@ extension QuickSight {
     }
 
     public struct ColumnSchema: AWSDecodableShape {
-
         /// The data type of the column schema.
         public let dataType: String?
         /// The geographic role of the column schema.
@@ -949,7 +925,6 @@ extension QuickSight {
     }
 
     public struct ColumnTag: AWSEncodableShape & AWSDecodableShape {
-
         /// A description for a column.
         public let columnDescription: ColumnDescription?
         /// A geospatial role for a column.
@@ -972,7 +947,7 @@ extension QuickSight {
 
     public struct CreateAccountCustomizationRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
             AWSMemberEncoding(label: "namespace", location: .querystring(locationName: "namespace"))
         ]
 
@@ -1050,7 +1025,7 @@ extension QuickSight {
 
     public struct CreateAnalysisRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "analysisId", location: .uri(locationName: "AnalysisId")), 
+            AWSMemberEncoding(label: "analysisId", location: .uri(locationName: "AnalysisId")),
             AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId"))
         ]
 
@@ -1149,7 +1124,6 @@ extension QuickSight {
     }
 
     public struct CreateColumnsOperation: AWSEncodableShape & AWSDecodableShape {
-
         /// Calculated columns to create.
         public let columns: [CalculatedColumn]
 
@@ -1172,7 +1146,7 @@ extension QuickSight {
 
     public struct CreateDashboardRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
             AWSMemberEncoding(label: "dashboardId", location: .uri(locationName: "DashboardId"))
         ]
 
@@ -1533,9 +1507,9 @@ extension QuickSight {
 
     public struct CreateGroupMembershipRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
-            AWSMemberEncoding(label: "groupName", location: .uri(locationName: "GroupName")), 
-            AWSMemberEncoding(label: "memberName", location: .uri(locationName: "MemberName")), 
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
+            AWSMemberEncoding(label: "groupName", location: .uri(locationName: "GroupName")),
+            AWSMemberEncoding(label: "memberName", location: .uri(locationName: "MemberName")),
             AWSMemberEncoding(label: "namespace", location: .uri(locationName: "Namespace"))
         ]
 
@@ -1598,7 +1572,7 @@ extension QuickSight {
 
     public struct CreateGroupRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
             AWSMemberEncoding(label: "namespace", location: .uri(locationName: "Namespace"))
         ]
 
@@ -1663,7 +1637,7 @@ extension QuickSight {
 
     public struct CreateIAMPolicyAssignmentRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
             AWSMemberEncoding(label: "namespace", location: .uri(locationName: "Namespace"))
         ]
 
@@ -1750,8 +1724,8 @@ extension QuickSight {
 
     public struct CreateIngestionRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
-            AWSMemberEncoding(label: "dataSetId", location: .uri(locationName: "DataSetId")), 
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
+            AWSMemberEncoding(label: "dataSetId", location: .uri(locationName: "DataSetId")),
             AWSMemberEncoding(label: "ingestionId", location: .uri(locationName: "IngestionId"))
         ]
 
@@ -1897,8 +1871,8 @@ extension QuickSight {
 
     public struct CreateTemplateAliasRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "aliasName", location: .uri(locationName: "AliasName")), 
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
+            AWSMemberEncoding(label: "aliasName", location: .uri(locationName: "AliasName")),
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
             AWSMemberEncoding(label: "templateId", location: .uri(locationName: "TemplateId"))
         ]
 
@@ -1963,7 +1937,7 @@ extension QuickSight {
 
     public struct CreateTemplateRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
             AWSMemberEncoding(label: "templateId", location: .uri(locationName: "TemplateId"))
         ]
 
@@ -2064,8 +2038,8 @@ extension QuickSight {
 
     public struct CreateThemeAliasRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "aliasName", location: .uri(locationName: "AliasName")), 
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
+            AWSMemberEncoding(label: "aliasName", location: .uri(locationName: "AliasName")),
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
             AWSMemberEncoding(label: "themeId", location: .uri(locationName: "ThemeId"))
         ]
 
@@ -2130,7 +2104,7 @@ extension QuickSight {
 
     public struct CreateThemeRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
             AWSMemberEncoding(label: "themeId", location: .uri(locationName: "ThemeId"))
         ]
 
@@ -2237,7 +2211,6 @@ extension QuickSight {
     }
 
     public struct CredentialPair: AWSEncodableShape {
-
         /// A set of alternate data source parameters that you want to share for these credentials. The credentials are applied in tandem with the data source parameters when you copy a data source by using a create or update request. The API operation compares the DataSourceParameters structure that's in the request with the structures in the AlternateDataSourceParameters allow list. If the structures are an exact match, the request is allowed to use the new data source with the existing credentials. If the AlternateDataSourceParameters list is null, the DataSourceParameters originally used with these Credentials is automatically allowed.
         public let alternateDataSourceParameters: [DataSourceParameters]?
         /// Password.
@@ -2271,7 +2244,6 @@ extension QuickSight {
     }
 
     public struct CustomSql: AWSEncodableShape & AWSDecodableShape {
-
         /// The column schema from the SQL query result set.
         public let columns: [InputColumn]?
         /// The Amazon Resource Name (ARN) of the data source.
@@ -2309,7 +2281,6 @@ extension QuickSight {
     }
 
     public struct Dashboard: AWSDecodableShape {
-
         /// The Amazon Resource Name (ARN) of the resource.
         public let arn: String?
         /// The time that this dataset was created.
@@ -2347,7 +2318,6 @@ extension QuickSight {
     }
 
     public struct DashboardError: AWSDecodableShape {
-
         /// Message.
         public let message: String?
         /// Type.
@@ -2365,7 +2335,6 @@ extension QuickSight {
     }
 
     public struct DashboardPublishOptions: AWSEncodableShape {
-
         /// Ad hoc (one-time) filtering option.
         public let adHocFilteringOption: AdHocFilteringOption?
         /// Export to .csv option.
@@ -2387,7 +2356,6 @@ extension QuickSight {
     }
 
     public struct DashboardSearchFilter: AWSEncodableShape {
-
         /// The name of the value that you want to use as a filter, for example, "Name": "QUICKSIGHT_USER".
         public let name: DashboardFilterAttribute?
         /// The comparison operator that you want to use as a filter, for example, "Operator": "StringEquals".
@@ -2409,7 +2377,6 @@ extension QuickSight {
     }
 
     public struct DashboardSourceEntity: AWSEncodableShape {
-
         /// Source template.
         public let sourceTemplate: DashboardSourceTemplate?
 
@@ -2427,7 +2394,6 @@ extension QuickSight {
     }
 
     public struct DashboardSourceTemplate: AWSEncodableShape {
-
         /// The Amazon Resource Name (ARN) of the resource.
         public let arn: String
         /// Dataset references.
@@ -2452,7 +2418,6 @@ extension QuickSight {
     }
 
     public struct DashboardSummary: AWSDecodableShape {
-
         /// The Amazon Resource Name (ARN) of the resource.
         public let arn: String?
         /// The time that this dashboard was created.
@@ -2490,7 +2455,6 @@ extension QuickSight {
     }
 
     public struct DashboardVersion: AWSDecodableShape {
-
         /// The Amazon Resource Name (ARN) of the resource.
         public let arn: String?
         /// The time that this dashboard version was created.
@@ -2540,7 +2504,6 @@ extension QuickSight {
     }
 
     public struct DashboardVersionSummary: AWSDecodableShape {
-
         /// The Amazon Resource Name (ARN) of the resource.
         public let arn: String?
         /// The time that this dashboard version was created.
@@ -2574,7 +2537,6 @@ extension QuickSight {
     }
 
     public struct DataColorPalette: AWSEncodableShape & AWSDecodableShape {
-
         /// The hexadecimal codes for the colors.
         public let colors: [String]?
         /// The hexadecimal code of a color that applies to charts where a lack of data is highlighted.
@@ -2608,7 +2570,6 @@ extension QuickSight {
     }
 
     public struct DataSet: AWSDecodableShape {
-
         /// The Amazon Resource Name (ARN) of the resource.
         public let arn: String?
         /// Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported.
@@ -2674,7 +2635,6 @@ extension QuickSight {
     }
 
     public struct DataSetConfiguration: AWSDecodableShape {
-
         /// A structure containing the list of column group schemas.
         public let columnGroupSchemaList: [ColumnGroupSchema]?
         /// Dataset schema.
@@ -2696,7 +2656,6 @@ extension QuickSight {
     }
 
     public struct DataSetReference: AWSEncodableShape {
-
         /// Dataset Amazon Resource Name (ARN).
         public let dataSetArn: String
         /// Dataset placeholder.
@@ -2718,7 +2677,6 @@ extension QuickSight {
     }
 
     public struct DataSetSchema: AWSDecodableShape {
-
         /// A structure containing the list of column schemas.
         public let columnSchemaList: [ColumnSchema]?
 
@@ -2732,7 +2690,6 @@ extension QuickSight {
     }
 
     public struct DataSetSummary: AWSDecodableShape {
-
         /// The Amazon Resource Name (ARN) of the dataset.
         public let arn: String?
         /// A value that indicates if the dataset has column level permission configured.
@@ -2774,7 +2731,6 @@ extension QuickSight {
     }
 
     public struct DataSource: AWSDecodableShape {
-
         /// A set of alternate data source parameters that you want to share for the credentials stored with this data source. The credentials are applied in tandem with the data source parameters when you copy a data source by using a create or update request. The API operation compares the DataSourceParameters structure that's in the request with the structures in the AlternateDataSourceParameters allow list. If the structures are an exact match, the request is allowed to use the credentials from this existing data source. If the AlternateDataSourceParameters list is null, the Credentials originally used with this DataSourceParameters are automatically allowed.
         public let alternateDataSourceParameters: [DataSourceParameters]?
         /// The Amazon Resource Name (ARN) of the data source.
@@ -2832,7 +2788,6 @@ extension QuickSight {
     }
 
     public struct DataSourceCredentials: AWSEncodableShape {
-
         /// The Amazon Resource Name (ARN) of a data source that has the credential pair that you want to use. When CopySourceArn is not null, the credential pair from the data source in the ARN is used as the credentials for the DataSourceCredentials structure.
         public let copySourceArn: String?
         /// Credential pair. For more information, see CredentialPair.
@@ -2855,7 +2810,6 @@ extension QuickSight {
     }
 
     public struct DataSourceErrorInfo: AWSDecodableShape {
-
         /// Error message.
         public let message: String?
         /// Error type.
@@ -2873,7 +2827,6 @@ extension QuickSight {
     }
 
     public struct DataSourceParameters: AWSEncodableShape & AWSDecodableShape {
-
         /// Amazon Elasticsearch Service parameters.
         public let amazonElasticsearchParameters: AmazonElasticsearchParameters?
         /// Amazon Athena parameters.
@@ -2986,7 +2939,6 @@ extension QuickSight {
     }
 
     public struct DateTimeParameter: AWSEncodableShape {
-
         /// A display name for the date-time parameter.
         public let name: String
         /// The values for the date-time parameter.
@@ -3008,7 +2960,6 @@ extension QuickSight {
     }
 
     public struct DecimalParameter: AWSEncodableShape {
-
         /// A display name for the decimal parameter.
         public let name: String
         /// The values for the decimal parameter.
@@ -3031,7 +2982,7 @@ extension QuickSight {
 
     public struct DeleteAccountCustomizationRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
             AWSMemberEncoding(label: "namespace", location: .querystring(locationName: "namespace"))
         ]
 
@@ -3079,9 +3030,9 @@ extension QuickSight {
 
     public struct DeleteAnalysisRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "analysisId", location: .uri(locationName: "AnalysisId")), 
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
-            AWSMemberEncoding(label: "forceDeleteWithoutRecovery", location: .querystring(locationName: "force-delete-without-recovery")), 
+            AWSMemberEncoding(label: "analysisId", location: .uri(locationName: "AnalysisId")),
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
+            AWSMemberEncoding(label: "forceDeleteWithoutRecovery", location: .querystring(locationName: "force-delete-without-recovery")),
             AWSMemberEncoding(label: "recoveryWindowInDays", location: .querystring(locationName: "recovery-window-in-days"))
         ]
 
@@ -3150,8 +3101,8 @@ extension QuickSight {
 
     public struct DeleteDashboardRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
-            AWSMemberEncoding(label: "dashboardId", location: .uri(locationName: "DashboardId")), 
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
+            AWSMemberEncoding(label: "dashboardId", location: .uri(locationName: "DashboardId")),
             AWSMemberEncoding(label: "versionNumber", location: .querystring(locationName: "version-number"))
         ]
 
@@ -3212,7 +3163,7 @@ extension QuickSight {
 
     public struct DeleteDataSetRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
             AWSMemberEncoding(label: "dataSetId", location: .uri(locationName: "DataSetId"))
         ]
 
@@ -3266,7 +3217,7 @@ extension QuickSight {
 
     public struct DeleteDataSourceRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
             AWSMemberEncoding(label: "dataSourceId", location: .uri(locationName: "DataSourceId"))
         ]
 
@@ -3320,9 +3271,9 @@ extension QuickSight {
 
     public struct DeleteGroupMembershipRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
-            AWSMemberEncoding(label: "groupName", location: .uri(locationName: "GroupName")), 
-            AWSMemberEncoding(label: "memberName", location: .uri(locationName: "MemberName")), 
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
+            AWSMemberEncoding(label: "groupName", location: .uri(locationName: "GroupName")),
+            AWSMemberEncoding(label: "memberName", location: .uri(locationName: "MemberName")),
             AWSMemberEncoding(label: "namespace", location: .uri(locationName: "Namespace"))
         ]
 
@@ -3381,8 +3332,8 @@ extension QuickSight {
 
     public struct DeleteGroupRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
-            AWSMemberEncoding(label: "groupName", location: .uri(locationName: "GroupName")), 
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
+            AWSMemberEncoding(label: "groupName", location: .uri(locationName: "GroupName")),
             AWSMemberEncoding(label: "namespace", location: .uri(locationName: "Namespace"))
         ]
 
@@ -3435,8 +3386,8 @@ extension QuickSight {
 
     public struct DeleteIAMPolicyAssignmentRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "assignmentName", location: .uri(locationName: "AssignmentName")), 
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
+            AWSMemberEncoding(label: "assignmentName", location: .uri(locationName: "AssignmentName")),
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
             AWSMemberEncoding(label: "namespace", location: .uri(locationName: "Namespace"))
         ]
 
@@ -3493,7 +3444,7 @@ extension QuickSight {
 
     public struct DeleteNamespaceRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
             AWSMemberEncoding(label: "namespace", location: .uri(locationName: "Namespace"))
         ]
 
@@ -3541,8 +3492,8 @@ extension QuickSight {
 
     public struct DeleteTemplateAliasRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "aliasName", location: .uri(locationName: "AliasName")), 
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
+            AWSMemberEncoding(label: "aliasName", location: .uri(locationName: "AliasName")),
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
             AWSMemberEncoding(label: "templateId", location: .uri(locationName: "TemplateId"))
         ]
 
@@ -3609,8 +3560,8 @@ extension QuickSight {
 
     public struct DeleteTemplateRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
-            AWSMemberEncoding(label: "templateId", location: .uri(locationName: "TemplateId")), 
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
+            AWSMemberEncoding(label: "templateId", location: .uri(locationName: "TemplateId")),
             AWSMemberEncoding(label: "versionNumber", location: .querystring(locationName: "version-number"))
         ]
 
@@ -3671,8 +3622,8 @@ extension QuickSight {
 
     public struct DeleteThemeAliasRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "aliasName", location: .uri(locationName: "AliasName")), 
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
+            AWSMemberEncoding(label: "aliasName", location: .uri(locationName: "AliasName")),
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
             AWSMemberEncoding(label: "themeId", location: .uri(locationName: "ThemeId"))
         ]
 
@@ -3739,8 +3690,8 @@ extension QuickSight {
 
     public struct DeleteThemeRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
-            AWSMemberEncoding(label: "themeId", location: .uri(locationName: "ThemeId")), 
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
+            AWSMemberEncoding(label: "themeId", location: .uri(locationName: "ThemeId")),
             AWSMemberEncoding(label: "versionNumber", location: .querystring(locationName: "version-number"))
         ]
 
@@ -3801,8 +3752,8 @@ extension QuickSight {
 
     public struct DeleteUserByPrincipalIdRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
-            AWSMemberEncoding(label: "namespace", location: .uri(locationName: "Namespace")), 
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
+            AWSMemberEncoding(label: "namespace", location: .uri(locationName: "Namespace")),
             AWSMemberEncoding(label: "principalId", location: .uri(locationName: "PrincipalId"))
         ]
 
@@ -3853,8 +3804,8 @@ extension QuickSight {
 
     public struct DeleteUserRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
-            AWSMemberEncoding(label: "namespace", location: .uri(locationName: "Namespace")), 
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
+            AWSMemberEncoding(label: "namespace", location: .uri(locationName: "Namespace")),
             AWSMemberEncoding(label: "userName", location: .uri(locationName: "UserName"))
         ]
 
@@ -3907,8 +3858,8 @@ extension QuickSight {
 
     public struct DescribeAccountCustomizationRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
-            AWSMemberEncoding(label: "namespace", location: .querystring(locationName: "namespace")), 
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
+            AWSMemberEncoding(label: "namespace", location: .querystring(locationName: "namespace")),
             AWSMemberEncoding(label: "resolved", location: .querystring(locationName: "resolved"))
         ]
 
@@ -4021,7 +3972,7 @@ extension QuickSight {
 
     public struct DescribeAnalysisPermissionsRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "analysisId", location: .uri(locationName: "AnalysisId")), 
+            AWSMemberEncoding(label: "analysisId", location: .uri(locationName: "AnalysisId")),
             AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId"))
         ]
 
@@ -4082,7 +4033,7 @@ extension QuickSight {
 
     public struct DescribeAnalysisRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "analysisId", location: .uri(locationName: "AnalysisId")), 
+            AWSMemberEncoding(label: "analysisId", location: .uri(locationName: "AnalysisId")),
             AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId"))
         ]
 
@@ -4135,7 +4086,7 @@ extension QuickSight {
 
     public struct DescribeDashboardPermissionsRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
             AWSMemberEncoding(label: "dashboardId", location: .uri(locationName: "DashboardId"))
         ]
 
@@ -4196,9 +4147,9 @@ extension QuickSight {
 
     public struct DescribeDashboardRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "aliasName", location: .querystring(locationName: "alias-name")), 
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
-            AWSMemberEncoding(label: "dashboardId", location: .uri(locationName: "DashboardId")), 
+            AWSMemberEncoding(label: "aliasName", location: .querystring(locationName: "alias-name")),
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
+            AWSMemberEncoding(label: "dashboardId", location: .uri(locationName: "DashboardId")),
             AWSMemberEncoding(label: "versionNumber", location: .querystring(locationName: "version-number"))
         ]
 
@@ -4261,7 +4212,7 @@ extension QuickSight {
 
     public struct DescribeDataSetPermissionsRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
             AWSMemberEncoding(label: "dataSetId", location: .uri(locationName: "DataSetId"))
         ]
 
@@ -4319,7 +4270,7 @@ extension QuickSight {
 
     public struct DescribeDataSetRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
             AWSMemberEncoding(label: "dataSetId", location: .uri(locationName: "DataSetId"))
         ]
 
@@ -4369,7 +4320,7 @@ extension QuickSight {
 
     public struct DescribeDataSourcePermissionsRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
             AWSMemberEncoding(label: "dataSourceId", location: .uri(locationName: "DataSourceId"))
         ]
 
@@ -4427,7 +4378,7 @@ extension QuickSight {
 
     public struct DescribeDataSourceRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
             AWSMemberEncoding(label: "dataSourceId", location: .uri(locationName: "DataSourceId"))
         ]
 
@@ -4477,8 +4428,8 @@ extension QuickSight {
 
     public struct DescribeGroupRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
-            AWSMemberEncoding(label: "groupName", location: .uri(locationName: "GroupName")), 
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
+            AWSMemberEncoding(label: "groupName", location: .uri(locationName: "GroupName")),
             AWSMemberEncoding(label: "namespace", location: .uri(locationName: "Namespace"))
         ]
 
@@ -4535,8 +4486,8 @@ extension QuickSight {
 
     public struct DescribeIAMPolicyAssignmentRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "assignmentName", location: .uri(locationName: "AssignmentName")), 
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
+            AWSMemberEncoding(label: "assignmentName", location: .uri(locationName: "AssignmentName")),
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
             AWSMemberEncoding(label: "namespace", location: .uri(locationName: "Namespace"))
         ]
 
@@ -4593,8 +4544,8 @@ extension QuickSight {
 
     public struct DescribeIngestionRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
-            AWSMemberEncoding(label: "dataSetId", location: .uri(locationName: "DataSetId")), 
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
+            AWSMemberEncoding(label: "dataSetId", location: .uri(locationName: "DataSetId")),
             AWSMemberEncoding(label: "ingestionId", location: .uri(locationName: "IngestionId"))
         ]
 
@@ -4650,7 +4601,7 @@ extension QuickSight {
 
     public struct DescribeNamespaceRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
             AWSMemberEncoding(label: "namespace", location: .uri(locationName: "Namespace"))
         ]
 
@@ -4702,8 +4653,8 @@ extension QuickSight {
 
     public struct DescribeTemplateAliasRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "aliasName", location: .uri(locationName: "AliasName")), 
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
+            AWSMemberEncoding(label: "aliasName", location: .uri(locationName: "AliasName")),
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
             AWSMemberEncoding(label: "templateId", location: .uri(locationName: "TemplateId"))
         ]
 
@@ -4762,7 +4713,7 @@ extension QuickSight {
 
     public struct DescribeTemplatePermissionsRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
             AWSMemberEncoding(label: "templateId", location: .uri(locationName: "TemplateId"))
         ]
 
@@ -4823,9 +4774,9 @@ extension QuickSight {
 
     public struct DescribeTemplateRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "aliasName", location: .querystring(locationName: "alias-name")), 
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
-            AWSMemberEncoding(label: "templateId", location: .uri(locationName: "TemplateId")), 
+            AWSMemberEncoding(label: "aliasName", location: .querystring(locationName: "alias-name")),
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
+            AWSMemberEncoding(label: "templateId", location: .uri(locationName: "TemplateId")),
             AWSMemberEncoding(label: "versionNumber", location: .querystring(locationName: "version-number"))
         ]
 
@@ -4888,8 +4839,8 @@ extension QuickSight {
 
     public struct DescribeThemeAliasRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "aliasName", location: .uri(locationName: "AliasName")), 
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
+            AWSMemberEncoding(label: "aliasName", location: .uri(locationName: "AliasName")),
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
             AWSMemberEncoding(label: "themeId", location: .uri(locationName: "ThemeId"))
         ]
 
@@ -4948,7 +4899,7 @@ extension QuickSight {
 
     public struct DescribeThemePermissionsRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
             AWSMemberEncoding(label: "themeId", location: .uri(locationName: "ThemeId"))
         ]
 
@@ -5009,9 +4960,9 @@ extension QuickSight {
 
     public struct DescribeThemeRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "aliasName", location: .querystring(locationName: "alias-name")), 
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
-            AWSMemberEncoding(label: "themeId", location: .uri(locationName: "ThemeId")), 
+            AWSMemberEncoding(label: "aliasName", location: .querystring(locationName: "alias-name")),
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
+            AWSMemberEncoding(label: "themeId", location: .uri(locationName: "ThemeId")),
             AWSMemberEncoding(label: "versionNumber", location: .querystring(locationName: "version-number"))
         ]
 
@@ -5072,8 +5023,8 @@ extension QuickSight {
 
     public struct DescribeUserRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
-            AWSMemberEncoding(label: "namespace", location: .uri(locationName: "Namespace")), 
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
+            AWSMemberEncoding(label: "namespace", location: .uri(locationName: "Namespace")),
             AWSMemberEncoding(label: "userName", location: .uri(locationName: "UserName"))
         ]
 
@@ -5129,7 +5080,6 @@ extension QuickSight {
     }
 
     public struct ErrorInfo: AWSDecodableShape {
-
         /// Error message.
         public let message: String?
         /// Error type.
@@ -5147,7 +5097,6 @@ extension QuickSight {
     }
 
     public struct ExportToCSVOption: AWSEncodableShape {
-
         /// Availability status.
         public let availabilityStatus: DashboardBehavior?
 
@@ -5161,7 +5110,6 @@ extension QuickSight {
     }
 
     public struct FieldFolder: AWSEncodableShape & AWSDecodableShape {
-
         /// A folder has a list of columns. A column can only be in one folder.
         public let columns: [String]?
         /// The description for a field folder.
@@ -5178,13 +5126,12 @@ extension QuickSight {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case columns = "columns"
-            case description = "description"
+            case columns
+            case description
         }
     }
 
     public struct FilterOperation: AWSEncodableShape & AWSDecodableShape {
-
         /// An expression that must evaluate to a Boolean value. Rows for which the expression evaluates to true are kept in the dataset.
         public let conditionExpression: String
 
@@ -5203,7 +5150,6 @@ extension QuickSight {
     }
 
     public struct GeoSpatialColumnGroup: AWSEncodableShape & AWSDecodableShape {
-
         /// Columns in this hierarchy.
         public let columns: [String]
         /// Country code.
@@ -5237,15 +5183,15 @@ extension QuickSight {
 
     public struct GetDashboardEmbedUrlRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "additionalDashboardIds", location: .querystring(locationName: "additional-dashboard-ids")), 
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
-            AWSMemberEncoding(label: "dashboardId", location: .uri(locationName: "DashboardId")), 
-            AWSMemberEncoding(label: "identityType", location: .querystring(locationName: "creds-type")), 
-            AWSMemberEncoding(label: "namespace", location: .querystring(locationName: "namespace")), 
-            AWSMemberEncoding(label: "resetDisabled", location: .querystring(locationName: "reset-disabled")), 
-            AWSMemberEncoding(label: "sessionLifetimeInMinutes", location: .querystring(locationName: "session-lifetime")), 
-            AWSMemberEncoding(label: "statePersistenceEnabled", location: .querystring(locationName: "state-persistence-enabled")), 
-            AWSMemberEncoding(label: "undoRedoDisabled", location: .querystring(locationName: "undo-redo-disabled")), 
+            AWSMemberEncoding(label: "additionalDashboardIds", location: .querystring(locationName: "additional-dashboard-ids")),
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
+            AWSMemberEncoding(label: "dashboardId", location: .uri(locationName: "DashboardId")),
+            AWSMemberEncoding(label: "identityType", location: .querystring(locationName: "creds-type")),
+            AWSMemberEncoding(label: "namespace", location: .querystring(locationName: "namespace")),
+            AWSMemberEncoding(label: "resetDisabled", location: .querystring(locationName: "reset-disabled")),
+            AWSMemberEncoding(label: "sessionLifetimeInMinutes", location: .querystring(locationName: "session-lifetime")),
+            AWSMemberEncoding(label: "statePersistenceEnabled", location: .querystring(locationName: "state-persistence-enabled")),
+            AWSMemberEncoding(label: "undoRedoDisabled", location: .querystring(locationName: "undo-redo-disabled")),
             AWSMemberEncoding(label: "userArn", location: .querystring(locationName: "user-arn"))
         ]
 
@@ -5333,9 +5279,9 @@ extension QuickSight {
 
     public struct GetSessionEmbedUrlRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
-            AWSMemberEncoding(label: "entryPoint", location: .querystring(locationName: "entry-point")), 
-            AWSMemberEncoding(label: "sessionLifetimeInMinutes", location: .querystring(locationName: "session-lifetime")), 
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
+            AWSMemberEncoding(label: "entryPoint", location: .querystring(locationName: "entry-point")),
+            AWSMemberEncoding(label: "sessionLifetimeInMinutes", location: .querystring(locationName: "session-lifetime")),
             AWSMemberEncoding(label: "userArn", location: .querystring(locationName: "user-arn"))
         ]
 
@@ -5394,7 +5340,6 @@ extension QuickSight {
     }
 
     public struct Group: AWSDecodableShape {
-
         /// The Amazon Resource Name (ARN) for the group.
         public let arn: String?
         /// The group description.
@@ -5420,7 +5365,6 @@ extension QuickSight {
     }
 
     public struct GroupMember: AWSDecodableShape {
-
         /// The Amazon Resource Name (ARN) for the group member (user).
         public let arn: String?
         /// The name of the group member (user).
@@ -5438,7 +5382,6 @@ extension QuickSight {
     }
 
     public struct GutterStyle: AWSEncodableShape & AWSDecodableShape {
-
         /// This Boolean value controls whether to display a gutter space between sheet tiles.
         public let show: Bool?
 
@@ -5452,7 +5395,6 @@ extension QuickSight {
     }
 
     public struct IAMPolicyAssignment: AWSDecodableShape {
-
         /// Assignment ID.
         public let assignmentId: String?
         /// Assignment name.
@@ -5486,7 +5428,6 @@ extension QuickSight {
     }
 
     public struct IAMPolicyAssignmentSummary: AWSDecodableShape {
-
         /// Assignment name.
         public let assignmentName: String?
         /// Assignment status.
@@ -5504,7 +5445,6 @@ extension QuickSight {
     }
 
     public struct Ingestion: AWSDecodableShape {
-
         /// The Amazon Resource Name (ARN) of the resource.
         public let arn: String
         /// The time that this ingestion started.
@@ -5556,7 +5496,6 @@ extension QuickSight {
     }
 
     public struct InputColumn: AWSEncodableShape & AWSDecodableShape {
-
         /// The name of this column in the underlying data source.
         public let name: String
         /// The data type of the column.
@@ -5579,7 +5518,6 @@ extension QuickSight {
     }
 
     public struct IntegerParameter: AWSEncodableShape {
-
         /// The name of the integer parameter.
         public let name: String
         /// The values for the integer parameter.
@@ -5601,7 +5539,6 @@ extension QuickSight {
     }
 
     public struct JiraParameters: AWSEncodableShape & AWSDecodableShape {
-
         /// The base URL of the Jira site.
         public let siteBaseUrl: String
 
@@ -5620,7 +5557,6 @@ extension QuickSight {
     }
 
     public struct JoinInstruction: AWSEncodableShape & AWSDecodableShape {
-
         /// Join key properties of the left operand.
         public let leftJoinKeyProperties: JoinKeyProperties?
         /// The operand on the left side of a join.
@@ -5665,7 +5601,6 @@ extension QuickSight {
     }
 
     public struct JoinKeyProperties: AWSEncodableShape & AWSDecodableShape {
-
         /// A value that indicates that a row in a table is uniquely identified by the columns in a join key. This is used by QuickSight to optimize query performance.
         public let uniqueKey: Bool?
 
@@ -5680,8 +5615,8 @@ extension QuickSight {
 
     public struct ListAnalysesRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
-            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "max-results")), 
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
+            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "max-results")),
             AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "next-token"))
         ]
 
@@ -5740,9 +5675,9 @@ extension QuickSight {
 
     public struct ListDashboardVersionsRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
-            AWSMemberEncoding(label: "dashboardId", location: .uri(locationName: "DashboardId")), 
-            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "max-results")), 
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
+            AWSMemberEncoding(label: "dashboardId", location: .uri(locationName: "DashboardId")),
+            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "max-results")),
             AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "next-token"))
         ]
 
@@ -5807,8 +5742,8 @@ extension QuickSight {
 
     public struct ListDashboardsRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
-            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "max-results")), 
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
+            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "max-results")),
             AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "next-token"))
         ]
 
@@ -5867,8 +5802,8 @@ extension QuickSight {
 
     public struct ListDataSetsRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
-            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "max-results")), 
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
+            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "max-results")),
             AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "next-token"))
         ]
 
@@ -5927,8 +5862,8 @@ extension QuickSight {
 
     public struct ListDataSourcesRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
-            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "max-results")), 
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
+            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "max-results")),
             AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "next-token"))
         ]
 
@@ -5987,10 +5922,10 @@ extension QuickSight {
 
     public struct ListGroupMembershipsRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
-            AWSMemberEncoding(label: "groupName", location: .uri(locationName: "GroupName")), 
-            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "max-results")), 
-            AWSMemberEncoding(label: "namespace", location: .uri(locationName: "Namespace")), 
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
+            AWSMemberEncoding(label: "groupName", location: .uri(locationName: "GroupName")),
+            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "max-results")),
+            AWSMemberEncoding(label: "namespace", location: .uri(locationName: "Namespace")),
             AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "next-token"))
         ]
 
@@ -6059,9 +5994,9 @@ extension QuickSight {
 
     public struct ListGroupsRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
-            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "max-results")), 
-            AWSMemberEncoding(label: "namespace", location: .uri(locationName: "Namespace")), 
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
+            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "max-results")),
+            AWSMemberEncoding(label: "namespace", location: .uri(locationName: "Namespace")),
             AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "next-token"))
         ]
 
@@ -6125,10 +6060,10 @@ extension QuickSight {
 
     public struct ListIAMPolicyAssignmentsForUserRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
-            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "max-results")), 
-            AWSMemberEncoding(label: "namespace", location: .uri(locationName: "Namespace")), 
-            AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "next-token")), 
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
+            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "max-results")),
+            AWSMemberEncoding(label: "namespace", location: .uri(locationName: "Namespace")),
+            AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "next-token")),
             AWSMemberEncoding(label: "userName", location: .uri(locationName: "UserName"))
         ]
 
@@ -6197,9 +6132,9 @@ extension QuickSight {
 
     public struct ListIAMPolicyAssignmentsRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
-            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "max-results")), 
-            AWSMemberEncoding(label: "namespace", location: .uri(locationName: "Namespace")), 
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
+            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "max-results")),
+            AWSMemberEncoding(label: "namespace", location: .uri(locationName: "Namespace")),
             AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "next-token"))
         ]
 
@@ -6268,9 +6203,9 @@ extension QuickSight {
 
     public struct ListIngestionsRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
-            AWSMemberEncoding(label: "dataSetId", location: .uri(locationName: "DataSetId")), 
-            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "max-results")), 
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
+            AWSMemberEncoding(label: "dataSetId", location: .uri(locationName: "DataSetId")),
+            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "max-results")),
             AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "next-token"))
         ]
 
@@ -6332,8 +6267,8 @@ extension QuickSight {
 
     public struct ListNamespacesRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
-            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "max-results")), 
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
+            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "max-results")),
             AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "next-token"))
         ]
 
@@ -6432,9 +6367,9 @@ extension QuickSight {
 
     public struct ListTemplateAliasesRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
-            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "max-result")), 
-            AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "next-token")), 
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
+            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "max-result")),
+            AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "next-token")),
             AWSMemberEncoding(label: "templateId", location: .uri(locationName: "TemplateId"))
         ]
 
@@ -6499,9 +6434,9 @@ extension QuickSight {
 
     public struct ListTemplateVersionsRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
-            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "max-results")), 
-            AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "next-token")), 
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
+            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "max-results")),
+            AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "next-token")),
             AWSMemberEncoding(label: "templateId", location: .uri(locationName: "TemplateId"))
         ]
 
@@ -6566,8 +6501,8 @@ extension QuickSight {
 
     public struct ListTemplatesRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
-            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "max-result")), 
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
+            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "max-result")),
             AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "next-token"))
         ]
 
@@ -6626,9 +6561,9 @@ extension QuickSight {
 
     public struct ListThemeAliasesRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
-            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "max-result")), 
-            AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "next-token")), 
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
+            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "max-result")),
+            AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "next-token")),
             AWSMemberEncoding(label: "themeId", location: .uri(locationName: "ThemeId"))
         ]
 
@@ -6693,9 +6628,9 @@ extension QuickSight {
 
     public struct ListThemeVersionsRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
-            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "max-results")), 
-            AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "next-token")), 
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
+            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "max-results")),
+            AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "next-token")),
             AWSMemberEncoding(label: "themeId", location: .uri(locationName: "ThemeId"))
         ]
 
@@ -6760,9 +6695,9 @@ extension QuickSight {
 
     public struct ListThemesRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
-            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "max-results")), 
-            AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "next-token")), 
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
+            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "max-results")),
+            AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "next-token")),
             AWSMemberEncoding(label: "type", location: .querystring(locationName: "type"))
         ]
 
@@ -6824,10 +6759,10 @@ extension QuickSight {
 
     public struct ListUserGroupsRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
-            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "max-results")), 
-            AWSMemberEncoding(label: "namespace", location: .uri(locationName: "Namespace")), 
-            AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "next-token")), 
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
+            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "max-results")),
+            AWSMemberEncoding(label: "namespace", location: .uri(locationName: "Namespace")),
+            AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "next-token")),
             AWSMemberEncoding(label: "userName", location: .uri(locationName: "UserName"))
         ]
 
@@ -6896,9 +6831,9 @@ extension QuickSight {
 
     public struct ListUsersRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
-            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "max-results")), 
-            AWSMemberEncoding(label: "namespace", location: .uri(locationName: "Namespace")), 
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
+            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "max-results")),
+            AWSMemberEncoding(label: "namespace", location: .uri(locationName: "Namespace")),
             AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "next-token"))
         ]
 
@@ -6961,7 +6896,6 @@ extension QuickSight {
     }
 
     public struct LogicalTable: AWSEncodableShape & AWSDecodableShape {
-
         /// A display name for the logical table.
         public let alias: String
         /// Transform operations that act on this logical table.
@@ -6994,7 +6928,6 @@ extension QuickSight {
     }
 
     public struct LogicalTableSource: AWSEncodableShape & AWSDecodableShape {
-
         /// Specifies the result of a join of two logical tables.
         public let joinInstruction: JoinInstruction?
         /// Physical table ID.
@@ -7019,7 +6952,6 @@ extension QuickSight {
     }
 
     public struct ManifestFileLocation: AWSEncodableShape & AWSDecodableShape {
-
         /// Amazon S3 bucket.
         public let bucket: String
         /// Amazon S3 key that identifies an object.
@@ -7044,7 +6976,6 @@ extension QuickSight {
     }
 
     public struct MarginStyle: AWSEncodableShape & AWSDecodableShape {
-
         /// This Boolean value controls whether to display sheet margins.
         public let show: Bool?
 
@@ -7058,7 +6989,6 @@ extension QuickSight {
     }
 
     public struct MariaDbParameters: AWSEncodableShape & AWSDecodableShape {
-
         /// Database.
         public let database: String
         /// Host.
@@ -7089,7 +7019,6 @@ extension QuickSight {
     }
 
     public struct MySqlParameters: AWSEncodableShape & AWSDecodableShape {
-
         /// Database.
         public let database: String
         /// Host.
@@ -7120,7 +7049,6 @@ extension QuickSight {
     }
 
     public struct NamespaceError: AWSDecodableShape {
-
         /// The message for the error.
         public let message: String?
         /// The error type.
@@ -7138,7 +7066,6 @@ extension QuickSight {
     }
 
     public struct NamespaceInfoV2: AWSDecodableShape {
-
         /// The namespace ARN.
         public let arn: String?
         /// The namespace AWS Region.
@@ -7172,7 +7099,6 @@ extension QuickSight {
     }
 
     public struct OracleParameters: AWSEncodableShape & AWSDecodableShape {
-
         /// Database.
         public let database: String
         /// An Oracle host.
@@ -7203,7 +7129,6 @@ extension QuickSight {
     }
 
     public struct OutputColumn: AWSDecodableShape {
-
         /// A description for a column.
         public let description: String?
         /// A display name for the dataset.
@@ -7225,7 +7150,6 @@ extension QuickSight {
     }
 
     public struct Parameters: AWSEncodableShape {
-
         /// Date-time parameters.
         public let dateTimeParameters: [DateTimeParameter]?
         /// Decimal parameters.
@@ -7270,7 +7194,6 @@ extension QuickSight {
     }
 
     public struct PhysicalTable: AWSEncodableShape & AWSDecodableShape {
-
         /// A physical table type built from the results of the custom SQL query.
         public let customSql: CustomSql?
         /// A physical table type for relational data sources.
@@ -7298,7 +7221,6 @@ extension QuickSight {
     }
 
     public struct PostgreSqlParameters: AWSEncodableShape & AWSDecodableShape {
-
         /// Database.
         public let database: String
         /// Host.
@@ -7329,7 +7251,6 @@ extension QuickSight {
     }
 
     public struct PrestoParameters: AWSEncodableShape & AWSDecodableShape {
-
         /// Catalog.
         public let catalog: String
         /// Host.
@@ -7359,7 +7280,6 @@ extension QuickSight {
     }
 
     public struct ProjectOperation: AWSEncodableShape & AWSDecodableShape {
-
         /// Projected columns.
         public let projectedColumns: [String]
 
@@ -7378,7 +7298,6 @@ extension QuickSight {
     }
 
     public struct QueueInfo: AWSDecodableShape {
-
         /// The ID of the ongoing ingestion. The queued ingestion is waiting for the ongoing ingestion to complete.
         public let queuedIngestion: String
         /// The ID of the queued ingestion.
@@ -7396,7 +7315,6 @@ extension QuickSight {
     }
 
     public struct RdsParameters: AWSEncodableShape & AWSDecodableShape {
-
         /// Database.
         public let database: String
         /// Instance ID.
@@ -7421,7 +7339,6 @@ extension QuickSight {
     }
 
     public struct RedshiftParameters: AWSEncodableShape & AWSDecodableShape {
-
         /// Cluster ID. This field can be blank if the Host and Port are provided.
         public let clusterId: String?
         /// Database.
@@ -7459,7 +7376,7 @@ extension QuickSight {
 
     public struct RegisterUserRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
             AWSMemberEncoding(label: "namespace", location: .uri(locationName: "Namespace"))
         ]
 
@@ -7551,7 +7468,6 @@ extension QuickSight {
     }
 
     public struct RelationalTable: AWSEncodableShape & AWSDecodableShape {
-
         /// The catalog associated with a table.
         public let catalog: String?
         /// The Amazon Resource Name (ARN) for the data source.
@@ -7593,7 +7509,6 @@ extension QuickSight {
     }
 
     public struct RenameColumnOperation: AWSEncodableShape & AWSDecodableShape {
-
         /// The name of the column to be renamed.
         public let columnName: String
         /// The new name for the column.
@@ -7618,7 +7533,6 @@ extension QuickSight {
     }
 
     public struct ResourcePermission: AWSEncodableShape & AWSDecodableShape {
-
         /// The IAM action to grant or revoke permissions on.
         public let actions: [String]
         /// The Amazon Resource Name (ARN) of the principal. This can be one of the following:   The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)   The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)   The ARN of an AWS account root: This is an IAM ARN rather than a QuickSight ARN. Use this option only to share resources (templates) across AWS accounts. (This is less common.)
@@ -7644,7 +7558,7 @@ extension QuickSight {
 
     public struct RestoreAnalysisRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "analysisId", location: .uri(locationName: "AnalysisId")), 
+            AWSMemberEncoding(label: "analysisId", location: .uri(locationName: "AnalysisId")),
             AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId"))
         ]
 
@@ -7700,7 +7614,6 @@ extension QuickSight {
     }
 
     public struct RowInfo: AWSDecodableShape {
-
         /// The number of rows that were not ingested.
         public let rowsDropped: Int64?
         /// The number of rows that were ingested.
@@ -7718,7 +7631,6 @@ extension QuickSight {
     }
 
     public struct RowLevelPermissionDataSet: AWSEncodableShape & AWSDecodableShape {
-
         /// The Amazon Resource Name (ARN) of the dataset that contains permissions for RLS.
         public let arn: String
         /// The namespace associated with the dataset that contains permissions for RLS.
@@ -7745,7 +7657,6 @@ extension QuickSight {
     }
 
     public struct S3Parameters: AWSEncodableShape & AWSDecodableShape {
-
         /// Location of the Amazon S3 manifest file. This is NULL if the manifest file was uploaded in the console.
         public let manifestFileLocation: ManifestFileLocation
 
@@ -7763,7 +7674,6 @@ extension QuickSight {
     }
 
     public struct S3Source: AWSEncodableShape & AWSDecodableShape {
-
         /// The Amazon Resource Name (ARN) for the data source.
         public let dataSourceArn: String
         /// A physical table type for as S3 data source.
@@ -7928,7 +7838,6 @@ extension QuickSight {
     }
 
     public struct ServiceNowParameters: AWSEncodableShape & AWSDecodableShape {
-
         /// URL of the base site.
         public let siteBaseUrl: String
 
@@ -7947,7 +7856,6 @@ extension QuickSight {
     }
 
     public struct Sheet: AWSDecodableShape {
-
         /// The name of a sheet. This name is displayed on the sheet's tab in the QuickSight console.
         public let name: String?
         /// The unique identifier associated with a sheet.
@@ -7965,7 +7873,6 @@ extension QuickSight {
     }
 
     public struct SheetControlsOption: AWSEncodableShape {
-
         /// Visibility state.
         public let visibilityState: DashboardUIState?
 
@@ -7979,7 +7886,6 @@ extension QuickSight {
     }
 
     public struct SheetStyle: AWSEncodableShape & AWSDecodableShape {
-
         /// The display options for tiles.
         public let tile: TileStyle?
         /// The layout options for tiles.
@@ -7997,7 +7903,6 @@ extension QuickSight {
     }
 
     public struct SnowflakeParameters: AWSEncodableShape & AWSDecodableShape {
-
         /// Database.
         public let database: String
         /// Host.
@@ -8027,7 +7932,6 @@ extension QuickSight {
     }
 
     public struct SparkParameters: AWSEncodableShape & AWSDecodableShape {
-
         /// Host.
         public let host: String
         /// Port.
@@ -8052,7 +7956,6 @@ extension QuickSight {
     }
 
     public struct SqlServerParameters: AWSEncodableShape & AWSDecodableShape {
-
         /// Database.
         public let database: String
         /// Host.
@@ -8083,7 +7986,6 @@ extension QuickSight {
     }
 
     public struct SslProperties: AWSEncodableShape & AWSDecodableShape {
-
         /// A Boolean option to control whether SSL should be disabled.
         public let disableSsl: Bool?
 
@@ -8097,7 +7999,6 @@ extension QuickSight {
     }
 
     public struct StringParameter: AWSEncodableShape {
-
         /// A display name for a string parameter.
         public let name: String
         /// The values of a string parameter.
@@ -8119,7 +8020,6 @@ extension QuickSight {
     }
 
     public struct Tag: AWSEncodableShape & AWSDecodableShape {
-
         /// Tag key.
         public let key: String
         /// Tag value.
@@ -8144,7 +8044,6 @@ extension QuickSight {
     }
 
     public struct TagColumnOperation: AWSEncodableShape & AWSDecodableShape {
-
         /// The column that this operation acts on.
         public let columnName: String
         /// The dataset column tag, currently only used for geospatial type tagging. .  This is not tags for the AWS tagging feature. .
@@ -8221,7 +8120,6 @@ extension QuickSight {
     }
 
     public struct Template: AWSDecodableShape {
-
         /// The Amazon Resource Name (ARN) of the template.
         public let arn: String?
         /// Time when this was created.
@@ -8255,7 +8153,6 @@ extension QuickSight {
     }
 
     public struct TemplateAlias: AWSDecodableShape {
-
         /// The display name of the template alias.
         public let aliasName: String?
         /// The Amazon Resource Name (ARN) of the template alias.
@@ -8277,7 +8174,6 @@ extension QuickSight {
     }
 
     public struct TemplateError: AWSDecodableShape {
-
         /// Description of the error type.
         public let message: String?
         /// Type of error.
@@ -8295,7 +8191,6 @@ extension QuickSight {
     }
 
     public struct TemplateSourceAnalysis: AWSEncodableShape {
-
         /// The Amazon Resource Name (ARN) of the resource.
         public let arn: String
         /// A structure containing information about the dataset references used as placeholders in the template.
@@ -8320,7 +8215,6 @@ extension QuickSight {
     }
 
     public struct TemplateSourceEntity: AWSEncodableShape {
-
         /// The source analysis, if it is based on an analysis.
         public let sourceAnalysis: TemplateSourceAnalysis?
         /// The source template, if it is based on an template.
@@ -8342,7 +8236,6 @@ extension QuickSight {
     }
 
     public struct TemplateSourceTemplate: AWSEncodableShape {
-
         /// The Amazon Resource Name (ARN) of the resource.
         public let arn: String
 
@@ -8356,7 +8249,6 @@ extension QuickSight {
     }
 
     public struct TemplateSummary: AWSDecodableShape {
-
         /// A summary of a template.
         public let arn: String?
         /// The last time that this template was created.
@@ -8390,7 +8282,6 @@ extension QuickSight {
     }
 
     public struct TemplateVersion: AWSDecodableShape {
-
         /// The time that this template version was created.
         public let createdTime: Date?
         /// Schema of the dataset identified by the placeholder. Any dashboard created from this template should be bound to new datasets matching the same schema described through this API operation.
@@ -8436,7 +8327,6 @@ extension QuickSight {
     }
 
     public struct TemplateVersionSummary: AWSDecodableShape {
-
         /// The Amazon Resource Name (ARN) of the template version.
         public let arn: String?
         /// The time that this template version was created.
@@ -8466,7 +8356,6 @@ extension QuickSight {
     }
 
     public struct TeradataParameters: AWSEncodableShape & AWSDecodableShape {
-
         /// Database.
         public let database: String
         /// Host.
@@ -8497,7 +8386,6 @@ extension QuickSight {
     }
 
     public struct Theme: AWSDecodableShape {
-
         /// The Amazon Resource Name (ARN) of the theme.
         public let arn: String?
         /// The date and time that the theme was created.
@@ -8534,7 +8422,6 @@ extension QuickSight {
     }
 
     public struct ThemeAlias: AWSDecodableShape {
-
         /// The display name of the theme alias.
         public let aliasName: String?
         /// The Amazon Resource Name (ARN) of the theme alias.
@@ -8556,7 +8443,6 @@ extension QuickSight {
     }
 
     public struct ThemeConfiguration: AWSEncodableShape & AWSDecodableShape {
-
         /// Color properties that apply to chart data colors.
         public let dataColorPalette: DataColorPalette?
         /// Display options related to sheets.
@@ -8583,7 +8469,6 @@ extension QuickSight {
     }
 
     public struct ThemeError: AWSDecodableShape {
-
         /// The error message.
         public let message: String?
         /// The type of error.
@@ -8601,7 +8486,6 @@ extension QuickSight {
     }
 
     public struct ThemeSummary: AWSDecodableShape {
-
         /// The Amazon Resource Name (ARN) of the resource.
         public let arn: String?
         /// The date and time that this theme was created.
@@ -8635,7 +8519,6 @@ extension QuickSight {
     }
 
     public struct ThemeVersion: AWSDecodableShape {
-
         /// The Amazon Resource Name (ARN) of the resource.
         public let arn: String?
         /// The Amazon QuickSight-defined ID of the theme that a custom theme inherits from. All themes initially inherit from a default QuickSight theme.
@@ -8677,7 +8560,6 @@ extension QuickSight {
     }
 
     public struct ThemeVersionSummary: AWSDecodableShape {
-
         /// The Amazon Resource Name (ARN) of the theme version.
         public let arn: String?
         /// The date and time that this theme version was created.
@@ -8707,7 +8589,6 @@ extension QuickSight {
     }
 
     public struct TileLayoutStyle: AWSEncodableShape & AWSDecodableShape {
-
         /// The gutter settings that apply between tiles.
         public let gutter: GutterStyle?
         /// The margin settings that apply around the outside edge of sheets.
@@ -8725,7 +8606,6 @@ extension QuickSight {
     }
 
     public struct TileStyle: AWSEncodableShape & AWSDecodableShape {
-
         /// The border around a tile.
         public let border: BorderStyle?
 
@@ -8739,7 +8619,6 @@ extension QuickSight {
     }
 
     public struct TransformOperation: AWSEncodableShape & AWSDecodableShape {
-
         /// A transform operation that casts a column to a different type.
         public let castColumnTypeOperation: CastColumnTypeOperation?
         /// An operation that creates calculated columns. Columns created in one such operation form a lexical closure.
@@ -8782,7 +8661,6 @@ extension QuickSight {
     }
 
     public struct TwitterParameters: AWSEncodableShape & AWSDecodableShape {
-
         /// Maximum number of rows to query Twitter.
         public let maxRows: Int
         /// Twitter query string.
@@ -8806,7 +8684,6 @@ extension QuickSight {
     }
 
     public struct UIColorPalette: AWSEncodableShape & AWSDecodableShape {
-
         /// This color is that applies to selected states and buttons.
         public let accent: String?
         /// The foreground color that applies to any text or other elements that appear over the accent color.
@@ -8900,7 +8777,7 @@ extension QuickSight {
 
     public struct UntagResourceRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "resourceArn", location: .uri(locationName: "ResourceArn")), 
+            AWSMemberEncoding(label: "resourceArn", location: .uri(locationName: "ResourceArn")),
             AWSMemberEncoding(label: "tagKeys", location: .querystring(locationName: "keys"))
         ]
 
@@ -8949,7 +8826,7 @@ extension QuickSight {
 
     public struct UpdateAccountCustomizationRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
             AWSMemberEncoding(label: "namespace", location: .querystring(locationName: "namespace"))
         ]
 
@@ -9071,7 +8948,7 @@ extension QuickSight {
 
     public struct UpdateAnalysisPermissionsRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "analysisId", location: .uri(locationName: "AnalysisId")), 
+            AWSMemberEncoding(label: "analysisId", location: .uri(locationName: "AnalysisId")),
             AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId"))
         ]
 
@@ -9149,7 +9026,7 @@ extension QuickSight {
 
     public struct UpdateAnalysisRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "analysisId", location: .uri(locationName: "AnalysisId")), 
+            AWSMemberEncoding(label: "analysisId", location: .uri(locationName: "AnalysisId")),
             AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId"))
         ]
 
@@ -9231,7 +9108,7 @@ extension QuickSight {
 
     public struct UpdateDashboardPermissionsRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
             AWSMemberEncoding(label: "dashboardId", location: .uri(locationName: "DashboardId"))
         ]
 
@@ -9309,8 +9186,8 @@ extension QuickSight {
 
     public struct UpdateDashboardPublishedVersionRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
-            AWSMemberEncoding(label: "dashboardId", location: .uri(locationName: "DashboardId")), 
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
+            AWSMemberEncoding(label: "dashboardId", location: .uri(locationName: "DashboardId")),
             AWSMemberEncoding(label: "versionNumber", location: .uri(locationName: "VersionNumber"))
         ]
 
@@ -9371,7 +9248,7 @@ extension QuickSight {
 
     public struct UpdateDashboardRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
             AWSMemberEncoding(label: "dashboardId", location: .uri(locationName: "DashboardId"))
         ]
 
@@ -9429,7 +9306,6 @@ extension QuickSight {
     }
 
     public struct UpdateDashboardResponse: AWSDecodableShape {
-
         /// The Amazon Resource Name (ARN) of the resource.
         public let arn: String?
         /// The creation status of the request.
@@ -9464,7 +9340,7 @@ extension QuickSight {
 
     public struct UpdateDataSetPermissionsRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
             AWSMemberEncoding(label: "dataSetId", location: .uri(locationName: "DataSetId"))
         ]
 
@@ -9537,7 +9413,7 @@ extension QuickSight {
 
     public struct UpdateDataSetRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
             AWSMemberEncoding(label: "dataSetId", location: .uri(locationName: "DataSetId"))
         ]
 
@@ -9661,7 +9537,7 @@ extension QuickSight {
 
     public struct UpdateDataSourcePermissionsRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
             AWSMemberEncoding(label: "dataSourceId", location: .uri(locationName: "DataSourceId"))
         ]
 
@@ -9734,7 +9610,7 @@ extension QuickSight {
 
     public struct UpdateDataSourceRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
             AWSMemberEncoding(label: "dataSourceId", location: .uri(locationName: "DataSourceId"))
         ]
 
@@ -9817,8 +9693,8 @@ extension QuickSight {
 
     public struct UpdateGroupRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
-            AWSMemberEncoding(label: "groupName", location: .uri(locationName: "GroupName")), 
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
+            AWSMemberEncoding(label: "groupName", location: .uri(locationName: "GroupName")),
             AWSMemberEncoding(label: "namespace", location: .uri(locationName: "Namespace"))
         ]
 
@@ -9882,8 +9758,8 @@ extension QuickSight {
 
     public struct UpdateIAMPolicyAssignmentRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "assignmentName", location: .uri(locationName: "AssignmentName")), 
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
+            AWSMemberEncoding(label: "assignmentName", location: .uri(locationName: "AssignmentName")),
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
             AWSMemberEncoding(label: "namespace", location: .uri(locationName: "Namespace"))
         ]
 
@@ -9969,8 +9845,8 @@ extension QuickSight {
 
     public struct UpdateTemplateAliasRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "aliasName", location: .uri(locationName: "AliasName")), 
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
+            AWSMemberEncoding(label: "aliasName", location: .uri(locationName: "AliasName")),
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
             AWSMemberEncoding(label: "templateId", location: .uri(locationName: "TemplateId"))
         ]
 
@@ -10035,7 +9911,7 @@ extension QuickSight {
 
     public struct UpdateTemplatePermissionsRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
             AWSMemberEncoding(label: "templateId", location: .uri(locationName: "TemplateId"))
         ]
 
@@ -10113,7 +9989,7 @@ extension QuickSight {
 
     public struct UpdateTemplateRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
             AWSMemberEncoding(label: "templateId", location: .uri(locationName: "TemplateId"))
         ]
 
@@ -10196,8 +10072,8 @@ extension QuickSight {
 
     public struct UpdateThemeAliasRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "aliasName", location: .uri(locationName: "AliasName")), 
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
+            AWSMemberEncoding(label: "aliasName", location: .uri(locationName: "AliasName")),
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
             AWSMemberEncoding(label: "themeId", location: .uri(locationName: "ThemeId"))
         ]
 
@@ -10262,7 +10138,7 @@ extension QuickSight {
 
     public struct UpdateThemePermissionsRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
             AWSMemberEncoding(label: "themeId", location: .uri(locationName: "ThemeId"))
         ]
 
@@ -10340,7 +10216,7 @@ extension QuickSight {
 
     public struct UpdateThemeRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
             AWSMemberEncoding(label: "themeId", location: .uri(locationName: "ThemeId"))
         ]
 
@@ -10430,8 +10306,8 @@ extension QuickSight {
 
     public struct UpdateUserRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")), 
-            AWSMemberEncoding(label: "namespace", location: .uri(locationName: "Namespace")), 
+            AWSMemberEncoding(label: "awsAccountId", location: .uri(locationName: "AwsAccountId")),
+            AWSMemberEncoding(label: "namespace", location: .uri(locationName: "Namespace")),
             AWSMemberEncoding(label: "userName", location: .uri(locationName: "UserName"))
         ]
 
@@ -10507,7 +10383,6 @@ extension QuickSight {
     }
 
     public struct UploadSettings: AWSEncodableShape & AWSDecodableShape {
-
         /// Whether the file has a header row, or the files each have a header row.
         public let containsHeader: Bool?
         /// The delimiter between values in the file.
@@ -10543,7 +10418,6 @@ extension QuickSight {
     }
 
     public struct User: AWSDecodableShape {
-
         /// The active status of user. When you create an Amazon QuickSight user that’s not an IAM user or an Active Directory user, that user is inactive until they sign in and provide a password.
         public let active: Bool?
         /// The Amazon Resource Name (ARN) for the user.
@@ -10585,7 +10459,6 @@ extension QuickSight {
     }
 
     public struct VpcConnectionProperties: AWSEncodableShape & AWSDecodableShape {
-
         /// The Amazon Resource Name (ARN) for the VPC connection.
         public let vpcConnectionArn: String
 

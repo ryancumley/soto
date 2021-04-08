@@ -72,6 +72,29 @@ extension Macie {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listMemberAccountsPaginator(
+        _ input: ListMemberAccountsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListMemberAccountsRequest, ListMemberAccountsResult> {
+        return .init(
+            input: input,
+            command: listMemberAccounts,
+            inputKey: \ListMemberAccountsRequest.nextToken,
+            outputKey: \ListMemberAccountsResult.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Lists all the S3 resources associated with Amazon Macie Classic. If memberAccountId isn't specified, the action lists the S3 resources associated with Macie Classic for the current Macie Classic administrator account. If memberAccountId is specified, the action lists the S3 resources associated with Macie Classic for the specified member account.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -124,6 +147,29 @@ extension Macie {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listS3ResourcesPaginator(
+        _ input: ListS3ResourcesRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListS3ResourcesRequest, ListS3ResourcesResult> {
+        return .init(
+            input: input,
+            command: listS3Resources,
+            inputKey: \ListS3ResourcesRequest.nextToken,
+            outputKey: \ListS3ResourcesResult.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 }
 
 extension Macie.ListMemberAccountsRequest: AWSPaginateToken {

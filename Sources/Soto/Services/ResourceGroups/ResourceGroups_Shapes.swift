@@ -58,7 +58,6 @@ extension ResourceGroups {
     // MARK: Shapes
 
     public struct CreateGroupInput: AWSEncodableShape {
-
         /// A configuration associates the resource group with an AWS service and specifies how the service can interact with the resources in the group. A configuration is an array of GroupConfigurationItem elements. For details about the syntax of service configurations, see Service configurations for resource groups.  A resource group can contain either a Configuration or a ResourceQuery, but not both.
         public let configuration: [GroupConfigurationItem]?
         /// The description of the resource group. Descriptions can consist of letters, numbers, hyphens, underscores, periods, and spaces.
@@ -109,7 +108,6 @@ extension ResourceGroups {
     }
 
     public struct CreateGroupOutput: AWSDecodableShape {
-
         /// The description of the resource group.
         public let group: Group?
         /// The service configuration associated with the resource group. For details about the syntax of a service configuration, see Service configurations for resource groups.
@@ -135,7 +133,6 @@ extension ResourceGroups {
     }
 
     public struct DeleteGroupInput: AWSEncodableShape {
-
         /// The name or the ARN of the resource group to delete.
         public let group: String?
 
@@ -155,7 +152,6 @@ extension ResourceGroups {
     }
 
     public struct DeleteGroupOutput: AWSDecodableShape {
-
         /// A full description of the deleted resource group.
         public let group: Group?
 
@@ -169,7 +165,6 @@ extension ResourceGroups {
     }
 
     public struct FailedResource: AWSDecodableShape {
-
         /// The error code associated with the failure.
         public let errorCode: String?
         /// The error message text associated with the failure.
@@ -191,7 +186,6 @@ extension ResourceGroups {
     }
 
     public struct GetGroupConfigurationInput: AWSEncodableShape {
-
         /// The name or the ARN of the resource group.
         public let group: String?
 
@@ -211,7 +205,6 @@ extension ResourceGroups {
     }
 
     public struct GetGroupConfigurationOutput: AWSDecodableShape {
-
         /// The service configuration associated with the specified group. For details about the service configuration syntax, see Service configurations for resource groups.
         public let groupConfiguration: GroupConfiguration?
 
@@ -225,7 +218,6 @@ extension ResourceGroups {
     }
 
     public struct GetGroupInput: AWSEncodableShape {
-
         /// The name or the ARN of the resource group to retrieve.
         public let group: String?
 
@@ -245,7 +237,6 @@ extension ResourceGroups {
     }
 
     public struct GetGroupOutput: AWSDecodableShape {
-
         /// A full description of the resource group.
         public let group: Group?
 
@@ -259,7 +250,6 @@ extension ResourceGroups {
     }
 
     public struct GetGroupQueryInput: AWSEncodableShape {
-
         /// The name or the ARN of the resource group to query.
         public let group: String?
 
@@ -279,7 +269,6 @@ extension ResourceGroups {
     }
 
     public struct GetGroupQueryOutput: AWSDecodableShape {
-
         /// The resource query associated with the specified group. For more information about resource queries, see Create a tag-based group in Resource Groups.
         public let groupQuery: GroupQuery?
 
@@ -314,7 +303,6 @@ extension ResourceGroups {
     }
 
     public struct GetTagsOutput: AWSDecodableShape {
-
         /// The ARN of the tagged resource group.
         public let arn: String?
         /// The tags associated with the specified resource group.
@@ -332,7 +320,6 @@ extension ResourceGroups {
     }
 
     public struct Group: AWSDecodableShape {
-
         /// The description of the resource group.
         public let description: String?
         /// The ARN of the resource group.
@@ -354,7 +341,6 @@ extension ResourceGroups {
     }
 
     public struct GroupConfiguration: AWSDecodableShape {
-
         /// The configuration currently associated with the group and in effect.
         public let configuration: [GroupConfigurationItem]?
         /// If present, the reason why a request to update the group configuration failed.
@@ -380,7 +366,6 @@ extension ResourceGroups {
     }
 
     public struct GroupConfigurationItem: AWSEncodableShape & AWSDecodableShape {
-
         /// A collection of parameters for this group configuration item. For the list of parameters that you can use with each configuration item type, see Supported resource types and parameters.
         public let parameters: [GroupConfigurationParameter]?
         /// Specifies the type of group configuration item. Each item must have a unique value for type. For the list of types that you can specify for a configuration item, see Supported resource types and parameters.
@@ -406,7 +391,6 @@ extension ResourceGroups {
     }
 
     public struct GroupConfigurationParameter: AWSEncodableShape & AWSDecodableShape {
-
         /// The name of the group configuration parameter. For the list of parameters that you can use with each configuration item type, see Supported resource types and parameters.
         public let name: String
         /// The value or values to be used for the specified parameter. For the list of values you can use with each parameter, see Supported resource types and parameters.
@@ -435,7 +419,6 @@ extension ResourceGroups {
     }
 
     public struct GroupFilter: AWSEncodableShape {
-
         /// The name of the filter. Filter names are case-sensitive.
         public let name: GroupFilterName
         /// One or more filter values. Allowed filter values vary by group filter name, and are case-sensitive.
@@ -463,7 +446,6 @@ extension ResourceGroups {
     }
 
     public struct GroupIdentifier: AWSDecodableShape {
-
         /// The ARN of the resource group.
         public let groupArn: String?
         /// The name of the resource group.
@@ -481,7 +463,6 @@ extension ResourceGroups {
     }
 
     public struct GroupQuery: AWSDecodableShape {
-
         /// The name of the resource group that is associated with the specified resource query.
         public let groupName: String
         /// The resource query that determines which AWS resources are members of the associated resource group.
@@ -499,7 +480,6 @@ extension ResourceGroups {
     }
 
     public struct GroupResourcesInput: AWSEncodableShape {
-
         /// The name or the ARN of the resource group to add resources to.
         public let group: String
         /// The list of ARNs for resources to be added to the group.
@@ -528,7 +508,6 @@ extension ResourceGroups {
     }
 
     public struct GroupResourcesOutput: AWSDecodableShape {
-
         /// A list of ARNs of any resources that failed to be added to the group by this operation.
         public let failed: [FailedResource]?
         /// A list of ARNs of any resources that are still in the process of being added to the group by this operation. These pending additions continue asynchronously. You can check the status of pending additions by using the  ListGroupResources  operation, and checking the Resources array in the response and the Status field of each object in that array.
@@ -550,7 +529,6 @@ extension ResourceGroups {
     }
 
     public struct ListGroupResourcesInput: AWSEncodableShape {
-
         /// Filters, formatted as ResourceFilter objects, that you want to apply to a ListGroupResources operation. Filters the results to include only those of the specified resource types.    resource-type - Filter resources by their type. Specify up to five resource types in the format AWS::ServiceCode::ResourceType. For example, AWS::EC2::Instance, or AWS::S3::Bucket.    When you specify a resource-type filter for ListGroupResources, AWS Resource Groups validates your filter resource types against the types that are defined in the query associated with the group. For example, if a group contains only S3 buckets because its query specifies only that resource type, but your resource-type filter includes EC2 instances, AWS Resource Groups does not filter for EC2 instances. In this case, a ListGroupResources request returns a BadRequestException error with a message similar to the following:  The resource types specified as filters in the request are not valid.  The error includes a list of resource types that failed the validation because they are not part of the query associated with the group. This validation doesn't occur when the group query specifies AWS::AllSupported, because a group based on such a query can contain any of the allowed resource types for the query type (tag-based or AWS CloudFormation stack-based queries).
         public let filters: [ResourceFilter]?
         /// The name or the ARN of the resource group
@@ -590,7 +568,6 @@ extension ResourceGroups {
     }
 
     public struct ListGroupResourcesItem: AWSDecodableShape {
-
         public let identifier: ResourceIdentifier?
         /// A structure that contains the status of this resource's membership in the group.  This field is present in the response only if the group is of type AWS::EC2::HostManagement.
         public let status: ResourceStatus?
@@ -607,7 +584,6 @@ extension ResourceGroups {
     }
 
     public struct ListGroupResourcesOutput: AWSDecodableShape {
-
         /// If present, indicates that more output is available than is included in the current response. Use this value in the NextToken request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the NextToken response element comes back as null.
         public let nextToken: String?
         /// A list of QueryError objects. Each error is an object that contains ErrorCode and Message structures. Possible values for ErrorCode are CLOUDFORMATION_STACK_INACTIVE and CLOUDFORMATION_STACK_NOT_EXISTING.
@@ -630,7 +606,7 @@ extension ResourceGroups {
 
     public struct ListGroupsInput: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "maxResults")), 
+            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "maxResults")),
             AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "nextToken"))
         ]
 
@@ -664,7 +640,6 @@ extension ResourceGroups {
     }
 
     public struct ListGroupsOutput: AWSDecodableShape {
-
         /// A list of GroupIdentifier objects. Each identifier is an object that contains both the Name and the GroupArn.
         public let groupIdentifiers: [GroupIdentifier]?
         /// If present, indicates that more output is available than is included in the current response. Use this value in the NextToken request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the NextToken response element comes back as null.
@@ -682,7 +657,6 @@ extension ResourceGroups {
     }
 
     public struct PendingResource: AWSDecodableShape {
-
         /// The Amazon resource name (ARN) of the resource that's in a pending state.
         public let resourceArn: String?
 
@@ -696,7 +670,6 @@ extension ResourceGroups {
     }
 
     public struct PutGroupConfigurationInput: AWSEncodableShape {
-
         /// The new configuration to associate with the specified group. A configuration associates the resource group with an AWS service and specifies how the service can interact with the resources in the group. A configuration is an array of GroupConfigurationItem elements. For information about the syntax of a service configuration, see Service configurations for resource groups.  A resource group can contain either a Configuration or a ResourceQuery, but not both.
         public let configuration: [GroupConfigurationItem]?
         /// The name or ARN of the resource group with the configuration that you want to update.
@@ -724,15 +697,10 @@ extension ResourceGroups {
     }
 
     public struct PutGroupConfigurationOutput: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct QueryError: AWSDecodableShape {
-
         /// Possible values are CLOUDFORMATION_STACK_INACTIVE and CLOUDFORMATION_STACK_NOT_EXISTING.
         public let errorCode: QueryErrorCode?
         /// A message that explains the ErrorCode value. Messages might state that the specified CloudFormation stack does not exist (or no longer exists). For CLOUDFORMATION_STACK_INACTIVE, the message typically states that the CloudFormation stack has a status that is not (or no longer) active, such as CREATE_FAILED.
@@ -750,7 +718,6 @@ extension ResourceGroups {
     }
 
     public struct ResourceFilter: AWSEncodableShape {
-
         /// The name of the filter. Filter names are case-sensitive.
         public let name: ResourceFilterName
         /// One or more filter values. Allowed filter values vary by resource filter name, and are case-sensitive.
@@ -778,7 +745,6 @@ extension ResourceGroups {
     }
 
     public struct ResourceIdentifier: AWSDecodableShape {
-
         /// The ARN of a resource.
         public let resourceArn: String?
         /// The resource type of a resource, such as AWS::EC2::Instance.
@@ -796,7 +762,6 @@ extension ResourceGroups {
     }
 
     public struct ResourceQuery: AWSEncodableShape & AWSDecodableShape {
-
         /// The query that defines a group or a search.
         public let query: String
         /// The type of the query. You can use the following values:     CLOUDFORMATION_STACK_1_0: Specifies that the Query contains an ARN for a CloudFormation stack.     TAG_FILTERS_1_0: Specifies that the Query parameter contains a JSON string that represents a collection of simple tag filters for resource types and tags. The JSON string uses a syntax similar to the  GetResources  operation, but uses only the   ResourceTypeFilters  and  TagFilters  fields. If you specify more than one tag key, only resources that match all tag keys, and at least one value of each specified tag key, are returned in your query. If you specify more than one value for a tag key, a resource matches the filter if it has a tag key value that matches any of the specified values. For example, consider the following sample query for resources that have two tags, Stage and Version, with two values each:  [{"Stage":["Test","Deploy"]},{"Version":["1","2"]}]  The results of this query could include the following.   An EC2 instance that has the following two tags: {"Stage":"Deploy"}, and {"Version":"2"}    An S3 bucket that has the following two tags: {"Stage":"Test"}, and {"Version":"1"}    The query would not include the following items in the results, however.    An EC2 instance that has only the following tag: {"Stage":"Deploy"}. The instance does not have all of the tag keys specified in the filter, so it is excluded from the results.   An RDS database that has the following two tags: {"Stage":"Archived"} and {"Version":"4"}  The database has all of the tag keys, but none of those keys has an associated value that matches at least one of the specified values in the filter.
@@ -819,7 +784,6 @@ extension ResourceGroups {
     }
 
     public struct ResourceStatus: AWSDecodableShape {
-
         /// The current status.
         public let name: ResourceStatusValue?
 
@@ -833,7 +797,6 @@ extension ResourceGroups {
     }
 
     public struct SearchResourcesInput: AWSEncodableShape {
-
         /// The total number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the maximum you specify, the NextToken response element is present and has a value (is not null). Include that value as the NextToken request parameter in the next call to the operation to get the next part of the results. Note that the service might return fewer results than the maximum even when there are more results available. You should check NextToken after every operation to ensure that you receive all of the results.
         public let maxResults: Int?
         /// The parameter for receiving additional results if you receive a NextToken response in a previous request. A NextToken response indicates that more output is available. Set this parameter to the value provided by a previous call's NextToken response to indicate where the output should continue from.
@@ -864,7 +827,6 @@ extension ResourceGroups {
     }
 
     public struct SearchResourcesOutput: AWSDecodableShape {
-
         /// If present, indicates that more output is available than is included in the current response. Use this value in the NextToken request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the NextToken response element comes back as null.
         public let nextToken: String?
         /// A list of QueryError objects. Each error is an object that contains ErrorCode and Message structures. Possible values for ErrorCode are CLOUDFORMATION_STACK_INACTIVE and CLOUDFORMATION_STACK_NOT_EXISTING.
@@ -920,7 +882,6 @@ extension ResourceGroups {
     }
 
     public struct TagOutput: AWSDecodableShape {
-
         /// The ARN of the tagged resource.
         public let arn: String?
         /// The tags that have been added to the specified resource group.
@@ -938,7 +899,6 @@ extension ResourceGroups {
     }
 
     public struct UngroupResourcesInput: AWSEncodableShape {
-
         /// The name or the ARN of the resource group from which to remove the resources.
         public let group: String
         /// The ARNs of the resources to be removed from the group.
@@ -967,7 +927,6 @@ extension ResourceGroups {
     }
 
     public struct UngroupResourcesOutput: AWSDecodableShape {
-
         /// A list of any resources that failed to be removed from the group by this operation.
         public let failed: [FailedResource]?
         /// A list of any resources that are still in the process of being removed from the group by this operation. These pending removals continue asynchronously. You can check the status of pending removals by using the  ListGroupResources  operation. After the resource is successfully removed, it no longer appears in the response.
@@ -1020,7 +979,6 @@ extension ResourceGroups {
     }
 
     public struct UntagOutput: AWSDecodableShape {
-
         /// The ARN of the resource group from which tags have been removed.
         public let arn: String?
         /// The keys of the tags that were removed.
@@ -1038,7 +996,6 @@ extension ResourceGroups {
     }
 
     public struct UpdateGroupInput: AWSEncodableShape {
-
         /// The new description that you want to update the resource group with. Descriptions can contain letters, numbers, hyphens, underscores, periods, and spaces.
         public let description: String?
         /// The name or the ARN of the resource group to modify.
@@ -1064,7 +1021,6 @@ extension ResourceGroups {
     }
 
     public struct UpdateGroupOutput: AWSDecodableShape {
-
         /// The update description of the resource group.
         public let group: Group?
 
@@ -1078,7 +1034,6 @@ extension ResourceGroups {
     }
 
     public struct UpdateGroupQueryInput: AWSEncodableShape {
-
         /// The name or the ARN of the resource group to query.
         public let group: String?
         /// The resource query to determine which AWS resources are members of this resource group.  A resource group can contain either a Configuration or a ResourceQuery, but not both.
@@ -1103,7 +1058,6 @@ extension ResourceGroups {
     }
 
     public struct UpdateGroupQueryOutput: AWSDecodableShape {
-
         /// The updated resource query associated with the resource group after the update.
         public let groupQuery: GroupQuery?
 

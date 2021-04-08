@@ -21,8 +21,8 @@ extension TranscribeStreamingService {
     // MARK: Enums
 
     public enum ItemType: String, CustomStringConvertible, Codable {
-        case pronunciation = "pronunciation"
-        case punctuation = "punctuation"
+        case pronunciation
+        case punctuation
         public var description: String { return self.rawValue }
     }
 
@@ -43,9 +43,9 @@ extension TranscribeStreamingService {
     }
 
     public enum MediaEncoding: String, CustomStringConvertible, Codable {
-        case flac = "flac"
+        case flac
         case oggOpus = "ogg-opus"
-        case pcm = "pcm"
+        case pcm
         public var description: String { return self.rawValue }
     }
 
@@ -71,16 +71,15 @@ extension TranscribeStreamingService {
     }
 
     public enum VocabularyFilterMethod: String, CustomStringConvertible, Codable {
-        case mask = "mask"
-        case remove = "remove"
-        case tag = "tag"
+        case mask
+        case remove
+        case tag
         public var description: String { return self.rawValue }
     }
 
     // MARK: Shapes
 
     public struct Alternative: AWSDecodableShape {
-
         /// One or more alternative interpretations of the input audio.
         public let items: [Item]?
         /// The text that was transcribed from the audio.
@@ -98,7 +97,6 @@ extension TranscribeStreamingService {
     }
 
     public struct AudioEvent: AWSEncodableShape {
-
         /// An audio blob that contains the next part of the audio that you want to transcribe. The maximum audio chunk size is 32 KB.
         public let audioChunk: Data?
 
@@ -112,7 +110,6 @@ extension TranscribeStreamingService {
     }
 
     public struct AudioStream: AWSEncodableShape {
-
         /// A blob of audio from your application. You audio stream consists of one or more audio events. For information on audio encoding formats in Amazon Transcribe, see input. For information on audio encoding formats in Amazon Transcribe Medical, see input-med. For more information on stream encoding in Amazon Transcribe, see event-stream. For information on stream encoding in Amazon Transcribe Medical, see event-stream-med.
         public let audioEvent: AudioEvent?
 
@@ -126,7 +123,6 @@ extension TranscribeStreamingService {
     }
 
     public struct BadRequestException: AWSDecodableShape {
-
         public let message: String?
 
         public init(message: String? = nil) {
@@ -139,7 +135,6 @@ extension TranscribeStreamingService {
     }
 
     public struct ConflictException: AWSDecodableShape {
-
         public let message: String?
 
         public init(message: String? = nil) {
@@ -152,7 +147,6 @@ extension TranscribeStreamingService {
     }
 
     public struct InternalFailureException: AWSDecodableShape {
-
         public let message: String?
 
         public init(message: String? = nil) {
@@ -165,7 +159,6 @@ extension TranscribeStreamingService {
     }
 
     public struct Item: AWSDecodableShape {
-
         /// A value between 0 and 1 for an item that is a confidence score that Amazon Transcribe assigns to each word or phrase that it transcribes.
         public let confidence: Double?
         /// The word or punctuation that was recognized in the input audio.
@@ -203,7 +196,6 @@ extension TranscribeStreamingService {
     }
 
     public struct LimitExceededException: AWSDecodableShape {
-
         public let message: String?
 
         public init(message: String? = nil) {
@@ -216,7 +208,6 @@ extension TranscribeStreamingService {
     }
 
     public struct MedicalAlternative: AWSDecodableShape {
-
         /// Contains the medical entities identified as personal health information in the transcription output.
         public let entities: [MedicalEntity]?
         /// A list of objects that contains words and punctuation marks that represents one or more interpretations of the input audio.
@@ -238,7 +229,6 @@ extension TranscribeStreamingService {
     }
 
     public struct MedicalEntity: AWSDecodableShape {
-
         /// The type of personal health information of the medical entity.
         public let category: String?
         /// A value between zero and one that Amazon Transcribe Medical assigned to the personal health information that it identified in the source audio. Larger values indicate that Amazon Transcribe Medical has higher confidence in the personal health information that it identified.
@@ -268,7 +258,6 @@ extension TranscribeStreamingService {
     }
 
     public struct MedicalItem: AWSDecodableShape {
-
         /// A value between 0 and 1 for an item that is a confidence score that Amazon Transcribe Medical assigns to each word that it transcribes.
         public let confidence: Double?
         /// The word or punctuation mark that was recognized in the input audio.
@@ -302,7 +291,6 @@ extension TranscribeStreamingService {
     }
 
     public struct MedicalResult: AWSDecodableShape {
-
         /// A list of possible transcriptions of the audio. Each alternative typically contains one Item that contains the result of the transcription.
         public let alternatives: [MedicalAlternative]?
         /// When channel identification is enabled, Amazon Transcribe Medical transcribes the speech from each audio channel separately. You can use ChannelId to retrieve the transcription results for a single channel in your audio stream.
@@ -336,7 +324,6 @@ extension TranscribeStreamingService {
     }
 
     public struct MedicalTranscript: AWSDecodableShape {
-
         ///  MedicalResult objects that contain the results of transcribing a portion of the input audio stream. The array can be empty.
         public let results: [MedicalResult]?
 
@@ -350,7 +337,6 @@ extension TranscribeStreamingService {
     }
 
     public struct MedicalTranscriptEvent: AWSDecodableShape {
-
         /// The transcription of the audio stream. The transcription is composed of all of the items in the results list.
         public let transcript: MedicalTranscript?
 
@@ -364,7 +350,6 @@ extension TranscribeStreamingService {
     }
 
     public struct MedicalTranscriptResultStream: AWSDecodableShape {
-
         public let badRequestException: BadRequestException?
         public let conflictException: ConflictException?
         public let internalFailureException: InternalFailureException?
@@ -393,7 +378,6 @@ extension TranscribeStreamingService {
     }
 
     public struct Result: AWSDecodableShape {
-
         /// A list of possible transcriptions for the audio. Each alternative typically contains one item that contains the result of the transcription.
         public let alternatives: [Alternative]?
         /// When channel identification is enabled, Amazon Transcribe transcribes the speech from each audio channel separately. You can use ChannelId to retrieve the transcription results for a single channel in your audio stream.
@@ -427,7 +411,6 @@ extension TranscribeStreamingService {
     }
 
     public struct ServiceUnavailableException: AWSDecodableShape {
-
         public let message: String?
 
         public init(message: String? = nil) {
@@ -443,17 +426,17 @@ extension TranscribeStreamingService {
         /// The key for the payload
         public static let _payloadPath: String = "audioStream"
         public static var _encoding = [
-            AWSMemberEncoding(label: "audioStream", location: .body(locationName: "AudioStream")), 
-            AWSMemberEncoding(label: "contentIdentificationType", location: .header(locationName: "x-amzn-transcribe-content-identification-type")), 
-            AWSMemberEncoding(label: "enableChannelIdentification", location: .header(locationName: "x-amzn-transcribe-enable-channel-identification")), 
-            AWSMemberEncoding(label: "languageCode", location: .header(locationName: "x-amzn-transcribe-language-code")), 
-            AWSMemberEncoding(label: "mediaEncoding", location: .header(locationName: "x-amzn-transcribe-media-encoding")), 
-            AWSMemberEncoding(label: "mediaSampleRateHertz", location: .header(locationName: "x-amzn-transcribe-sample-rate")), 
-            AWSMemberEncoding(label: "numberOfChannels", location: .header(locationName: "x-amzn-transcribe-number-of-channels")), 
-            AWSMemberEncoding(label: "sessionId", location: .header(locationName: "x-amzn-transcribe-session-id")), 
-            AWSMemberEncoding(label: "showSpeakerLabel", location: .header(locationName: "x-amzn-transcribe-show-speaker-label")), 
-            AWSMemberEncoding(label: "specialty", location: .header(locationName: "x-amzn-transcribe-specialty")), 
-            AWSMemberEncoding(label: "type", location: .header(locationName: "x-amzn-transcribe-type")), 
+            AWSMemberEncoding(label: "audioStream", location: .body(locationName: "AudioStream")),
+            AWSMemberEncoding(label: "contentIdentificationType", location: .header(locationName: "x-amzn-transcribe-content-identification-type")),
+            AWSMemberEncoding(label: "enableChannelIdentification", location: .header(locationName: "x-amzn-transcribe-enable-channel-identification")),
+            AWSMemberEncoding(label: "languageCode", location: .header(locationName: "x-amzn-transcribe-language-code")),
+            AWSMemberEncoding(label: "mediaEncoding", location: .header(locationName: "x-amzn-transcribe-media-encoding")),
+            AWSMemberEncoding(label: "mediaSampleRateHertz", location: .header(locationName: "x-amzn-transcribe-sample-rate")),
+            AWSMemberEncoding(label: "numberOfChannels", location: .header(locationName: "x-amzn-transcribe-number-of-channels")),
+            AWSMemberEncoding(label: "sessionId", location: .header(locationName: "x-amzn-transcribe-session-id")),
+            AWSMemberEncoding(label: "showSpeakerLabel", location: .header(locationName: "x-amzn-transcribe-show-speaker-label")),
+            AWSMemberEncoding(label: "specialty", location: .header(locationName: "x-amzn-transcribe-specialty")),
+            AWSMemberEncoding(label: "type", location: .header(locationName: "x-amzn-transcribe-type")),
             AWSMemberEncoding(label: "vocabularyName", location: .header(locationName: "x-amzn-transcribe-vocabulary-name"))
         ]
 
@@ -517,18 +500,18 @@ extension TranscribeStreamingService {
         /// The key for the payload
         public static let _payloadPath: String = "transcriptResultStream"
         public static var _encoding = [
-            AWSMemberEncoding(label: "contentIdentificationType", location: .header(locationName: "x-amzn-transcribe-content-identification-type")), 
-            AWSMemberEncoding(label: "enableChannelIdentification", location: .header(locationName: "x-amzn-transcribe-enable-channel-identification")), 
-            AWSMemberEncoding(label: "languageCode", location: .header(locationName: "x-amzn-transcribe-language-code")), 
-            AWSMemberEncoding(label: "mediaEncoding", location: .header(locationName: "x-amzn-transcribe-media-encoding")), 
-            AWSMemberEncoding(label: "mediaSampleRateHertz", location: .header(locationName: "x-amzn-transcribe-sample-rate")), 
-            AWSMemberEncoding(label: "numberOfChannels", location: .header(locationName: "x-amzn-transcribe-number-of-channels")), 
-            AWSMemberEncoding(label: "requestId", location: .header(locationName: "x-amzn-request-id")), 
-            AWSMemberEncoding(label: "sessionId", location: .header(locationName: "x-amzn-transcribe-session-id")), 
-            AWSMemberEncoding(label: "showSpeakerLabel", location: .header(locationName: "x-amzn-transcribe-show-speaker-label")), 
-            AWSMemberEncoding(label: "specialty", location: .header(locationName: "x-amzn-transcribe-specialty")), 
-            AWSMemberEncoding(label: "transcriptResultStream", location: .body(locationName: "TranscriptResultStream")), 
-            AWSMemberEncoding(label: "type", location: .header(locationName: "x-amzn-transcribe-type")), 
+            AWSMemberEncoding(label: "contentIdentificationType", location: .header(locationName: "x-amzn-transcribe-content-identification-type")),
+            AWSMemberEncoding(label: "enableChannelIdentification", location: .header(locationName: "x-amzn-transcribe-enable-channel-identification")),
+            AWSMemberEncoding(label: "languageCode", location: .header(locationName: "x-amzn-transcribe-language-code")),
+            AWSMemberEncoding(label: "mediaEncoding", location: .header(locationName: "x-amzn-transcribe-media-encoding")),
+            AWSMemberEncoding(label: "mediaSampleRateHertz", location: .header(locationName: "x-amzn-transcribe-sample-rate")),
+            AWSMemberEncoding(label: "numberOfChannels", location: .header(locationName: "x-amzn-transcribe-number-of-channels")),
+            AWSMemberEncoding(label: "requestId", location: .header(locationName: "x-amzn-request-id")),
+            AWSMemberEncoding(label: "sessionId", location: .header(locationName: "x-amzn-transcribe-session-id")),
+            AWSMemberEncoding(label: "showSpeakerLabel", location: .header(locationName: "x-amzn-transcribe-show-speaker-label")),
+            AWSMemberEncoding(label: "specialty", location: .header(locationName: "x-amzn-transcribe-specialty")),
+            AWSMemberEncoding(label: "transcriptResultStream", location: .body(locationName: "TranscriptResultStream")),
+            AWSMemberEncoding(label: "type", location: .header(locationName: "x-amzn-transcribe-type")),
             AWSMemberEncoding(label: "vocabularyName", location: .header(locationName: "x-amzn-transcribe-vocabulary-name"))
         ]
 
@@ -596,16 +579,16 @@ extension TranscribeStreamingService {
         /// The key for the payload
         public static let _payloadPath: String = "audioStream"
         public static var _encoding = [
-            AWSMemberEncoding(label: "audioStream", location: .body(locationName: "AudioStream")), 
-            AWSMemberEncoding(label: "enableChannelIdentification", location: .header(locationName: "x-amzn-transcribe-enable-channel-identification")), 
-            AWSMemberEncoding(label: "languageCode", location: .header(locationName: "x-amzn-transcribe-language-code")), 
-            AWSMemberEncoding(label: "mediaEncoding", location: .header(locationName: "x-amzn-transcribe-media-encoding")), 
-            AWSMemberEncoding(label: "mediaSampleRateHertz", location: .header(locationName: "x-amzn-transcribe-sample-rate")), 
-            AWSMemberEncoding(label: "numberOfChannels", location: .header(locationName: "x-amzn-transcribe-number-of-channels")), 
-            AWSMemberEncoding(label: "sessionId", location: .header(locationName: "x-amzn-transcribe-session-id")), 
-            AWSMemberEncoding(label: "showSpeakerLabel", location: .header(locationName: "x-amzn-transcribe-show-speaker-label")), 
-            AWSMemberEncoding(label: "vocabularyFilterMethod", location: .header(locationName: "x-amzn-transcribe-vocabulary-filter-method")), 
-            AWSMemberEncoding(label: "vocabularyFilterName", location: .header(locationName: "x-amzn-transcribe-vocabulary-filter-name")), 
+            AWSMemberEncoding(label: "audioStream", location: .body(locationName: "AudioStream")),
+            AWSMemberEncoding(label: "enableChannelIdentification", location: .header(locationName: "x-amzn-transcribe-enable-channel-identification")),
+            AWSMemberEncoding(label: "languageCode", location: .header(locationName: "x-amzn-transcribe-language-code")),
+            AWSMemberEncoding(label: "mediaEncoding", location: .header(locationName: "x-amzn-transcribe-media-encoding")),
+            AWSMemberEncoding(label: "mediaSampleRateHertz", location: .header(locationName: "x-amzn-transcribe-sample-rate")),
+            AWSMemberEncoding(label: "numberOfChannels", location: .header(locationName: "x-amzn-transcribe-number-of-channels")),
+            AWSMemberEncoding(label: "sessionId", location: .header(locationName: "x-amzn-transcribe-session-id")),
+            AWSMemberEncoding(label: "showSpeakerLabel", location: .header(locationName: "x-amzn-transcribe-show-speaker-label")),
+            AWSMemberEncoding(label: "vocabularyFilterMethod", location: .header(locationName: "x-amzn-transcribe-vocabulary-filter-method")),
+            AWSMemberEncoding(label: "vocabularyFilterName", location: .header(locationName: "x-amzn-transcribe-vocabulary-filter-name")),
             AWSMemberEncoding(label: "vocabularyName", location: .header(locationName: "x-amzn-transcribe-vocabulary-name"))
         ]
 
@@ -670,17 +653,17 @@ extension TranscribeStreamingService {
         /// The key for the payload
         public static let _payloadPath: String = "transcriptResultStream"
         public static var _encoding = [
-            AWSMemberEncoding(label: "enableChannelIdentification", location: .header(locationName: "x-amzn-transcribe-enable-channel-identification")), 
-            AWSMemberEncoding(label: "languageCode", location: .header(locationName: "x-amzn-transcribe-language-code")), 
-            AWSMemberEncoding(label: "mediaEncoding", location: .header(locationName: "x-amzn-transcribe-media-encoding")), 
-            AWSMemberEncoding(label: "mediaSampleRateHertz", location: .header(locationName: "x-amzn-transcribe-sample-rate")), 
-            AWSMemberEncoding(label: "numberOfChannels", location: .header(locationName: "x-amzn-transcribe-number-of-channels")), 
-            AWSMemberEncoding(label: "requestId", location: .header(locationName: "x-amzn-request-id")), 
-            AWSMemberEncoding(label: "sessionId", location: .header(locationName: "x-amzn-transcribe-session-id")), 
-            AWSMemberEncoding(label: "showSpeakerLabel", location: .header(locationName: "x-amzn-transcribe-show-speaker-label")), 
-            AWSMemberEncoding(label: "transcriptResultStream", location: .body(locationName: "TranscriptResultStream")), 
-            AWSMemberEncoding(label: "vocabularyFilterMethod", location: .header(locationName: "x-amzn-transcribe-vocabulary-filter-method")), 
-            AWSMemberEncoding(label: "vocabularyFilterName", location: .header(locationName: "x-amzn-transcribe-vocabulary-filter-name")), 
+            AWSMemberEncoding(label: "enableChannelIdentification", location: .header(locationName: "x-amzn-transcribe-enable-channel-identification")),
+            AWSMemberEncoding(label: "languageCode", location: .header(locationName: "x-amzn-transcribe-language-code")),
+            AWSMemberEncoding(label: "mediaEncoding", location: .header(locationName: "x-amzn-transcribe-media-encoding")),
+            AWSMemberEncoding(label: "mediaSampleRateHertz", location: .header(locationName: "x-amzn-transcribe-sample-rate")),
+            AWSMemberEncoding(label: "numberOfChannels", location: .header(locationName: "x-amzn-transcribe-number-of-channels")),
+            AWSMemberEncoding(label: "requestId", location: .header(locationName: "x-amzn-request-id")),
+            AWSMemberEncoding(label: "sessionId", location: .header(locationName: "x-amzn-transcribe-session-id")),
+            AWSMemberEncoding(label: "showSpeakerLabel", location: .header(locationName: "x-amzn-transcribe-show-speaker-label")),
+            AWSMemberEncoding(label: "transcriptResultStream", location: .body(locationName: "TranscriptResultStream")),
+            AWSMemberEncoding(label: "vocabularyFilterMethod", location: .header(locationName: "x-amzn-transcribe-vocabulary-filter-method")),
+            AWSMemberEncoding(label: "vocabularyFilterName", location: .header(locationName: "x-amzn-transcribe-vocabulary-filter-name")),
             AWSMemberEncoding(label: "vocabularyName", location: .header(locationName: "x-amzn-transcribe-vocabulary-name"))
         ]
 
@@ -741,7 +724,6 @@ extension TranscribeStreamingService {
     }
 
     public struct Transcript: AWSDecodableShape {
-
         ///  Result objects that contain the results of transcribing a portion of the input audio stream. The array can be empty.
         public let results: [Result]?
 
@@ -755,7 +737,6 @@ extension TranscribeStreamingService {
     }
 
     public struct TranscriptEvent: AWSDecodableShape {
-
         /// The transcription of the audio stream. The transcription is composed of all of the items in the results list.
         public let transcript: Transcript?
 
@@ -769,7 +750,6 @@ extension TranscribeStreamingService {
     }
 
     public struct TranscriptResultStream: AWSDecodableShape {
-
         /// A client error occurred when the stream was created. Check the parameters of the request and try your request again.
         public let badRequestException: BadRequestException?
         /// A new stream started with the same session ID. The current stream has been terminated.

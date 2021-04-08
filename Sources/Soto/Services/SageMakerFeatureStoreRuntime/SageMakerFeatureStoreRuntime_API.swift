@@ -68,15 +68,33 @@ public struct SageMakerFeatureStoreRuntime: AWSService {
         return self.client.execute(operation: "DeleteRecord", path: "/FeatureGroup/{FeatureGroupName}", httpMethod: .DELETE, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    public func deleteRecord(_ input: DeleteRecordRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws {
+        return try await self.client.execute(operation: "DeleteRecord", path: "/FeatureGroup/{FeatureGroupName}", httpMethod: .DELETE, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
+    }
+    #endif
+
     /// Use for OnlineStore serving from a FeatureStore. Only the latest records stored in the OnlineStore can be retrieved. If no Record with RecordIdentifierValue is found, then an empty result is returned.
     public func getRecord(_ input: GetRecordRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<GetRecordResponse> {
         return self.client.execute(operation: "GetRecord", path: "/FeatureGroup/{FeatureGroupName}", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    public func getRecord(_ input: GetRecordRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws -> GetRecordResponse {
+        return try await self.client.execute(operation: "GetRecord", path: "/FeatureGroup/{FeatureGroupName}", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
+    }
+    #endif
+
     /// Used for data ingestion into the FeatureStore. The PutRecord API writes to both the OnlineStore and OfflineStore. If the record is the latest record for the recordIdentifier, the record is written to both the OnlineStore and OfflineStore. If the record is a historic record, it is written only to the OfflineStore.
     @discardableResult public func putRecord(_ input: PutRecordRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<Void> {
         return self.client.execute(operation: "PutRecord", path: "/FeatureGroup/{FeatureGroupName}", httpMethod: .PUT, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    public func putRecord(_ input: PutRecordRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws {
+        return try await self.client.execute(operation: "PutRecord", path: "/FeatureGroup/{FeatureGroupName}", httpMethod: .PUT, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
+    }
+    #endif
 }
 
 extension SageMakerFeatureStoreRuntime {

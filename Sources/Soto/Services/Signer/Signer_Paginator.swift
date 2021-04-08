@@ -72,6 +72,29 @@ extension Signer {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listSigningJobsPaginator(
+        _ input: ListSigningJobsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListSigningJobsRequest, ListSigningJobsResponse> {
+        return .init(
+            input: input,
+            command: listSigningJobs,
+            inputKey: \ListSigningJobsRequest.nextToken,
+            outputKey: \ListSigningJobsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Lists all signing platforms available in code signing that match the request parameters. If additional jobs remain to be listed, code signing returns a nextToken value. Use this value in subsequent calls to ListSigningJobs to fetch the remaining values. You can continue calling ListSigningJobs with your maxResults parameter and with new values that code signing returns in the nextToken parameter until all of your signing jobs have been returned.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -125,6 +148,29 @@ extension Signer {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listSigningPlatformsPaginator(
+        _ input: ListSigningPlatformsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListSigningPlatformsRequest, ListSigningPlatformsResponse> {
+        return .init(
+            input: input,
+            command: listSigningPlatforms,
+            inputKey: \ListSigningPlatformsRequest.nextToken,
+            outputKey: \ListSigningPlatformsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Lists all available signing profiles in your AWS account. Returns only profiles with an ACTIVE status unless the includeCanceled request field is set to true. If additional jobs remain to be listed, code signing returns a nextToken value. Use this value in subsequent calls to ListSigningJobs to fetch the remaining values. You can continue calling ListSigningJobs with your maxResults parameter and with new values that code signing returns in the nextToken parameter until all of your signing jobs have been returned.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -177,6 +223,29 @@ extension Signer {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listSigningProfilesPaginator(
+        _ input: ListSigningProfilesRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListSigningProfilesRequest, ListSigningProfilesResponse> {
+        return .init(
+            input: input,
+            command: listSigningProfiles,
+            inputKey: \ListSigningProfilesRequest.nextToken,
+            outputKey: \ListSigningProfilesResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 }
 
 extension Signer.ListSigningJobsRequest: AWSPaginateToken {

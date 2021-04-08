@@ -68,65 +68,143 @@ public struct IoTDeviceAdvisor: AWSService {
         return self.client.execute(operation: "CreateSuiteDefinition", path: "/suiteDefinitions", httpMethod: .POST, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    public func createSuiteDefinition(_ input: CreateSuiteDefinitionRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws -> CreateSuiteDefinitionResponse {
+        return try await self.client.execute(operation: "CreateSuiteDefinition", path: "/suiteDefinitions", httpMethod: .POST, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
+    }
+    #endif
+
     /// Deletes a Device Advisor test suite.
     public func deleteSuiteDefinition(_ input: DeleteSuiteDefinitionRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<DeleteSuiteDefinitionResponse> {
         return self.client.execute(operation: "DeleteSuiteDefinition", path: "/suiteDefinitions/{suiteDefinitionId}", httpMethod: .DELETE, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    public func deleteSuiteDefinition(_ input: DeleteSuiteDefinitionRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws -> DeleteSuiteDefinitionResponse {
+        return try await self.client.execute(operation: "DeleteSuiteDefinition", path: "/suiteDefinitions/{suiteDefinitionId}", httpMethod: .DELETE, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
+    }
+    #endif
 
     /// Gets information about a Device Advisor test suite.
     public func getSuiteDefinition(_ input: GetSuiteDefinitionRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<GetSuiteDefinitionResponse> {
         return self.client.execute(operation: "GetSuiteDefinition", path: "/suiteDefinitions/{suiteDefinitionId}", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    public func getSuiteDefinition(_ input: GetSuiteDefinitionRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws -> GetSuiteDefinitionResponse {
+        return try await self.client.execute(operation: "GetSuiteDefinition", path: "/suiteDefinitions/{suiteDefinitionId}", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
+    }
+    #endif
+
     /// Gets information about a Device Advisor test suite run.
     public func getSuiteRun(_ input: GetSuiteRunRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<GetSuiteRunResponse> {
         return self.client.execute(operation: "GetSuiteRun", path: "/suiteDefinitions/{suiteDefinitionId}/suiteRuns/{suiteRunId}", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    public func getSuiteRun(_ input: GetSuiteRunRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws -> GetSuiteRunResponse {
+        return try await self.client.execute(operation: "GetSuiteRun", path: "/suiteDefinitions/{suiteDefinitionId}/suiteRuns/{suiteRunId}", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
+    }
+    #endif
 
     /// Gets a report download link for a successful Device Advisor qualifying test suite run.
     public func getSuiteRunReport(_ input: GetSuiteRunReportRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<GetSuiteRunReportResponse> {
         return self.client.execute(operation: "GetSuiteRunReport", path: "/suiteDefinitions/{suiteDefinitionId}/suiteRuns/{suiteRunId}/report", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    public func getSuiteRunReport(_ input: GetSuiteRunReportRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws -> GetSuiteRunReportResponse {
+        return try await self.client.execute(operation: "GetSuiteRunReport", path: "/suiteDefinitions/{suiteDefinitionId}/suiteRuns/{suiteRunId}/report", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
+    }
+    #endif
+
     /// Lists the Device Advisor test suites you have created.
     public func listSuiteDefinitions(_ input: ListSuiteDefinitionsRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<ListSuiteDefinitionsResponse> {
         return self.client.execute(operation: "ListSuiteDefinitions", path: "/suiteDefinitions", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    public func listSuiteDefinitions(_ input: ListSuiteDefinitionsRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws -> ListSuiteDefinitionsResponse {
+        return try await self.client.execute(operation: "ListSuiteDefinitions", path: "/suiteDefinitions", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
+    }
+    #endif
 
     /// Lists the runs of the specified Device Advisor test suite. You can list all runs of the test suite, or the runs of a specific version of the test suite.
     public func listSuiteRuns(_ input: ListSuiteRunsRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<ListSuiteRunsResponse> {
         return self.client.execute(operation: "ListSuiteRuns", path: "/suiteRuns", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    public func listSuiteRuns(_ input: ListSuiteRunsRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws -> ListSuiteRunsResponse {
+        return try await self.client.execute(operation: "ListSuiteRuns", path: "/suiteRuns", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
+    }
+    #endif
+
     /// Lists the tags attached to an IoT Device Advisor resource.
     public func listTagsForResource(_ input: ListTagsForResourceRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<ListTagsForResourceResponse> {
         return self.client.execute(operation: "ListTagsForResource", path: "/tags/{resourceArn}", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    public func listTagsForResource(_ input: ListTagsForResourceRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws -> ListTagsForResourceResponse {
+        return try await self.client.execute(operation: "ListTagsForResource", path: "/tags/{resourceArn}", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
+    }
+    #endif
 
     /// Lists all the test cases in the test suite.
     public func listTestCases(_ input: ListTestCasesRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<ListTestCasesResponse> {
         return self.client.execute(operation: "ListTestCases", path: "/testCases", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    public func listTestCases(_ input: ListTestCasesRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws -> ListTestCasesResponse {
+        return try await self.client.execute(operation: "ListTestCases", path: "/testCases", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
+    }
+    #endif
+
     /// Starts a Device Advisor test suite run.
     public func startSuiteRun(_ input: StartSuiteRunRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<StartSuiteRunResponse> {
         return self.client.execute(operation: "StartSuiteRun", path: "/suiteDefinitions/{suiteDefinitionId}/suiteRuns", httpMethod: .POST, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    public func startSuiteRun(_ input: StartSuiteRunRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws -> StartSuiteRunResponse {
+        return try await self.client.execute(operation: "StartSuiteRun", path: "/suiteDefinitions/{suiteDefinitionId}/suiteRuns", httpMethod: .POST, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
+    }
+    #endif
 
     /// Adds to and modifies existing tags of an IoT Device Advisor resource.
     public func tagResource(_ input: TagResourceRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<TagResourceResponse> {
         return self.client.execute(operation: "TagResource", path: "/tags/{resourceArn}", httpMethod: .POST, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    public func tagResource(_ input: TagResourceRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws -> TagResourceResponse {
+        return try await self.client.execute(operation: "TagResource", path: "/tags/{resourceArn}", httpMethod: .POST, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
+    }
+    #endif
+
     /// Removes tags from an IoT Device Advisor resource.
     public func untagResource(_ input: UntagResourceRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<UntagResourceResponse> {
         return self.client.execute(operation: "UntagResource", path: "/tags/{resourceArn}", httpMethod: .DELETE, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    public func untagResource(_ input: UntagResourceRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws -> UntagResourceResponse {
+        return try await self.client.execute(operation: "UntagResource", path: "/tags/{resourceArn}", httpMethod: .DELETE, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
+    }
+    #endif
+
     /// Updates a Device Advisor test suite.
     public func updateSuiteDefinition(_ input: UpdateSuiteDefinitionRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<UpdateSuiteDefinitionResponse> {
         return self.client.execute(operation: "UpdateSuiteDefinition", path: "/suiteDefinitions/{suiteDefinitionId}", httpMethod: .PATCH, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    public func updateSuiteDefinition(_ input: UpdateSuiteDefinitionRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws -> UpdateSuiteDefinitionResponse {
+        return try await self.client.execute(operation: "UpdateSuiteDefinition", path: "/suiteDefinitions/{suiteDefinitionId}", httpMethod: .PATCH, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
+    }
+    #endif
 }
 
 extension IoTDeviceAdvisor {

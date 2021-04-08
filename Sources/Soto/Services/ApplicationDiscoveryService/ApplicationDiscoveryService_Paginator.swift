@@ -72,6 +72,29 @@ extension ApplicationDiscoveryService {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func describeContinuousExportsPaginator(
+        _ input: DescribeContinuousExportsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<DescribeContinuousExportsRequest, DescribeContinuousExportsResponse> {
+        return .init(
+            input: input,
+            command: describeContinuousExports,
+            inputKey: \DescribeContinuousExportsRequest.nextToken,
+            outputKey: \DescribeContinuousExportsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Returns an array of import tasks for your account, including status information, times, IDs, the Amazon S3 Object URL for the import file, and more.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -124,6 +147,29 @@ extension ApplicationDiscoveryService {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func describeImportTasksPaginator(
+        _ input: DescribeImportTasksRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<DescribeImportTasksRequest, DescribeImportTasksResponse> {
+        return .init(
+            input: input,
+            command: describeImportTasks,
+            inputKey: \DescribeImportTasksRequest.nextToken,
+            outputKey: \DescribeImportTasksResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 }
 
 extension ApplicationDiscoveryService.DescribeContinuousExportsRequest: AWSPaginateToken {

@@ -67,7 +67,6 @@ extension OpsWorksCM {
     // MARK: Shapes
 
     public struct AccountAttribute: AWSDecodableShape {
-
         ///  The maximum allowed value.
         public let maximum: Int?
         ///  The attribute name. The following are supported attribute names.     ServerLimit: The number of current servers/maximum number of servers allowed. By default, you can have a maximum of 10 servers.     ManualBackupLimit: The number of current manual backups/maximum number of backups allowed. By default, you can have a maximum of 50 manual backups saved.
@@ -89,7 +88,6 @@ extension OpsWorksCM {
     }
 
     public struct AssociateNodeRequest: AWSEncodableShape {
-
         /// Engine attributes used for associating the node.   Attributes accepted in a AssociateNode request for Chef     CHEF_ORGANIZATION: The Chef organization with which the node is associated. By default only one organization named default can exist.     CHEF_NODE_PUBLIC_KEY: A PEM-formatted public key. This key is required for the chef-client agent to access the Chef API.     Attributes accepted in a AssociateNode request for Puppet     PUPPET_NODE_CSR: A PEM-formatted certificate-signing request (CSR) that is created by the node.
         public let engineAttributes: [EngineAttribute]
         /// The name of the node.
@@ -122,7 +120,6 @@ extension OpsWorksCM {
     }
 
     public struct AssociateNodeResponse: AWSDecodableShape {
-
         /// Contains a token which can be passed to the DescribeNodeAssociationStatus API call to get the status of the association request.
         public let nodeAssociationStatusToken: String?
 
@@ -136,7 +133,6 @@ extension OpsWorksCM {
     }
 
     public struct Backup: AWSDecodableShape {
-
         /// The ARN of the backup.
         public let backupArn: String?
         ///  The generated ID of the backup. Example: myServerName-yyyyMMddHHmmssSSS
@@ -234,7 +230,6 @@ extension OpsWorksCM {
     }
 
     public struct CreateBackupRequest: AWSEncodableShape {
-
         ///  A user-defined description of the backup.
         public let description: String?
         /// The name of the server that you want to back up.
@@ -269,7 +264,6 @@ extension OpsWorksCM {
     }
 
     public struct CreateBackupResponse: AWSDecodableShape {
-
         /// Backup created by request.
         public let backup: Backup?
 
@@ -283,7 +277,6 @@ extension OpsWorksCM {
     }
 
     public struct CreateServerRequest: AWSEncodableShape {
-
         ///  Associate a public IP address with a server that you are launching. Valid values are true or false. The default value is true.
         public let associatePublicIpAddress: Bool?
         ///  If you specify this field, AWS OpsWorks CM creates the server by using the backup represented by BackupId.
@@ -355,7 +348,7 @@ extension OpsWorksCM {
             try self.validate(self.backupId, name: "backupId", parent: name, max: 79)
             try self.validate(self.backupId, name: "backupId", parent: name, pattern: "[a-zA-Z][a-zA-Z0-9\\-\\.\\:]*")
             try self.validate(self.backupRetentionCount, name: "backupRetentionCount", parent: name, min: 1)
-            try self.validate(self.customCertificate, name: "customCertificate", parent: name, max: 2097152)
+            try self.validate(self.customCertificate, name: "customCertificate", parent: name, max: 2_097_152)
             try self.validate(self.customCertificate, name: "customCertificate", parent: name, pattern: "(?s)\\s*-----BEGIN CERTIFICATE-----.+-----END CERTIFICATE-----\\s*")
             try self.validate(self.customDomain, name: "customDomain", parent: name, max: 253)
             try self.validate(self.customDomain, name: "customDomain", parent: name, pattern: "^(((?!-)[A-Za-z0-9-]{0,62}[A-Za-z0-9])\\.)+((?!-)[A-Za-z0-9-]{1,62}[A-Za-z0-9])$")
@@ -426,7 +419,6 @@ extension OpsWorksCM {
     }
 
     public struct CreateServerResponse: AWSDecodableShape {
-
         /// The server that is created by the request.
         public let server: Server?
 
@@ -440,7 +432,6 @@ extension OpsWorksCM {
     }
 
     public struct DeleteBackupRequest: AWSEncodableShape {
-
         /// The ID of the backup to delete. Run the DescribeBackups command to get a list of backup IDs. Backup IDs are in the format ServerName-yyyyMMddHHmmssSSS.
         public let backupId: String
 
@@ -459,15 +450,10 @@ extension OpsWorksCM {
     }
 
     public struct DeleteBackupResponse: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct DeleteServerRequest: AWSEncodableShape {
-
         /// The ID of the server to delete.
         public let serverName: String
 
@@ -487,23 +473,14 @@ extension OpsWorksCM {
     }
 
     public struct DeleteServerResponse: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct DescribeAccountAttributesRequest: AWSEncodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct DescribeAccountAttributesResponse: AWSDecodableShape {
-
         ///  The attributes that are currently set for the account.
         public let attributes: [AccountAttribute]?
 
@@ -517,7 +494,6 @@ extension OpsWorksCM {
     }
 
     public struct DescribeBackupsRequest: AWSEncodableShape {
-
         /// Describes a single backup.
         public let backupId: String?
         /// This is not currently implemented for DescribeBackups requests.
@@ -554,7 +530,6 @@ extension OpsWorksCM {
     }
 
     public struct DescribeBackupsResponse: AWSDecodableShape {
-
         /// Contains the response to a DescribeBackups request.
         public let backups: [Backup]?
         /// This is not currently implemented for DescribeBackups requests.
@@ -572,7 +547,6 @@ extension OpsWorksCM {
     }
 
     public struct DescribeEventsRequest: AWSEncodableShape {
-
         /// To receive a paginated response, use this parameter to specify the maximum number of results to be returned with a single call. If the number of available results exceeds this maximum, the response includes a NextToken value that you can assign to the NextToken request parameter to get the next set of results.
         public let maxResults: Int?
         /// NextToken is a string that is returned in some command responses. It indicates that not all entries have been returned, and that you must run at least one more request to get remaining items. To get remaining results, call DescribeEvents again, and assign the token from the previous results as the value of the nextToken parameter. If there are no more results, the response object's nextToken parameter value is null. Setting a nextToken value that was not returned in your previous results causes an InvalidNextTokenException to occur.
@@ -603,7 +577,6 @@ extension OpsWorksCM {
     }
 
     public struct DescribeEventsResponse: AWSDecodableShape {
-
         /// NextToken is a string that is returned in some command responses. It indicates that not all entries have been returned, and that you must run at least one more request to get remaining items. To get remaining results, call DescribeEvents again, and assign the token from the previous results as the value of the nextToken parameter. If there are no more results, the response object's nextToken parameter value is null. Setting a nextToken value that was not returned in your previous results causes an InvalidNextTokenException to occur.
         public let nextToken: String?
         /// Contains the response to a DescribeEvents request.
@@ -621,7 +594,6 @@ extension OpsWorksCM {
     }
 
     public struct DescribeNodeAssociationStatusRequest: AWSEncodableShape {
-
         /// The token returned in either the AssociateNodeResponse or the DisassociateNodeResponse.
         public let nodeAssociationStatusToken: String
         /// The name of the server from which to disassociate the node.
@@ -647,7 +619,6 @@ extension OpsWorksCM {
     }
 
     public struct DescribeNodeAssociationStatusResponse: AWSDecodableShape {
-
         /// Attributes specific to the node association. In Puppet, the attibute PUPPET_NODE_CERT contains the signed certificate (the result of the CSR).
         public let engineAttributes: [EngineAttribute]?
         /// The status of the association or disassociation request.   Possible values:     SUCCESS: The association or disassociation succeeded.     FAILED: The association or disassociation failed.     IN_PROGRESS: The association or disassociation is still in progress.
@@ -665,7 +636,6 @@ extension OpsWorksCM {
     }
 
     public struct DescribeServersRequest: AWSEncodableShape {
-
         /// This is not currently implemented for DescribeServers requests.
         public let maxResults: Int?
         /// This is not currently implemented for DescribeServers requests.
@@ -696,7 +666,6 @@ extension OpsWorksCM {
     }
 
     public struct DescribeServersResponse: AWSDecodableShape {
-
         /// This is not currently implemented for DescribeServers requests.
         public let nextToken: String?
         /// Contains the response to a DescribeServers request.  For Chef Automate servers: If DescribeServersResponse$Servers$EngineAttributes includes CHEF_MAJOR_UPGRADE_AVAILABLE, you can upgrade the Chef Automate server to Chef Automate 2. To be eligible for upgrade, a server running Chef Automate 1 must have had at least one successful maintenance run after November 1, 2019.  For Puppet Server: DescribeServersResponse$Servers$EngineAttributes contains PUPPET_API_CA_CERT. This is the PEM-encoded CA certificate that is used by the Puppet API over TCP port number 8140. The CA certificate is also used to sign node certificates.
@@ -714,7 +683,6 @@ extension OpsWorksCM {
     }
 
     public struct DisassociateNodeRequest: AWSEncodableShape {
-
         /// Engine attributes that are used for disassociating the node. No attributes are required for Puppet.   Attributes required in a DisassociateNode request for Chef     CHEF_ORGANIZATION: The Chef organization with which the node was associated. By default only one organization named default can exist.
         public let engineAttributes: [EngineAttribute]?
         /// The name of the client node.
@@ -747,7 +715,6 @@ extension OpsWorksCM {
     }
 
     public struct DisassociateNodeResponse: AWSDecodableShape {
-
         /// Contains a token which can be passed to the DescribeNodeAssociationStatus API call to get the status of the disassociation request.
         public let nodeAssociationStatusToken: String?
 
@@ -761,7 +728,6 @@ extension OpsWorksCM {
     }
 
     public struct EngineAttribute: AWSEncodableShape & AWSDecodableShape {
-
         /// The name of the engine attribute.
         public let name: String?
         /// The value of the engine attribute.
@@ -786,7 +752,6 @@ extension OpsWorksCM {
     }
 
     public struct ExportServerEngineAttributeRequest: AWSEncodableShape {
-
         /// The name of the export attribute. Currently, the supported export attribute is Userdata. This exports a user data script that includes parameters and values provided in the InputAttributes list.
         public let exportAttributeName: String
         /// The list of engine attributes. The list type is EngineAttribute. An EngineAttribute list item is a pair that includes an attribute name and its value. For the Userdata ExportAttributeName, the following are supported engine attribute names.    RunList In Chef, a list of roles or recipes that are run in the specified order. In Puppet, this parameter is ignored.    OrganizationName In Chef, an organization name. AWS OpsWorks for Chef Automate always creates the organization default. In Puppet, this parameter is ignored.    NodeEnvironment In Chef, a node environment (for example, development, staging, or one-box). In Puppet, this parameter is ignored.    NodeClientVersion In Chef, the version of the Chef engine (three numbers separated by dots, such as 13.8.5). If this attribute is empty, OpsWorks for Chef Automate uses the most current version. In Puppet, this parameter is ignored.
@@ -819,7 +784,6 @@ extension OpsWorksCM {
     }
 
     public struct ExportServerEngineAttributeResponse: AWSDecodableShape {
-
         /// The requested engine attribute pair with attribute name and value.
         public let engineAttribute: EngineAttribute?
         /// The server name used in the request.
@@ -837,7 +801,6 @@ extension OpsWorksCM {
     }
 
     public struct ListTagsForResourceRequest: AWSEncodableShape {
-
         /// To receive a paginated response, use this parameter to specify the maximum number of results to be returned with a single call. If the number of available results exceeds this maximum, the response includes a NextToken value that you can assign to the NextToken request parameter to get the next set of results.
         public let maxResults: Int?
         /// NextToken is a string that is returned in some command responses. It indicates that not all entries have been returned, and that you must run at least one more request to get remaining items. To get remaining results, call ListTagsForResource again, and assign the token from the previous results as the value of the nextToken parameter. If there are no more results, the response object's nextToken parameter value is null. Setting a nextToken value that was not returned in your previous results causes an InvalidNextTokenException to occur.
@@ -866,7 +829,6 @@ extension OpsWorksCM {
     }
 
     public struct ListTagsForResourceResponse: AWSDecodableShape {
-
         /// A token that you can use as the value of NextToken in subsequent calls to the API to show more results.
         public let nextToken: String?
         /// Tags that have been applied to the resource.
@@ -884,7 +846,6 @@ extension OpsWorksCM {
     }
 
     public struct RestoreServerRequest: AWSEncodableShape {
-
         ///  The ID of the backup that you want to use to restore a server.
         public let backupId: String
         ///  The type of instance to restore. Valid values must be specified in the following format: ^([cm][34]|t2).* For example, m5.large. Valid values are m5.large, r5.xlarge, and r5.2xlarge. If you do not specify this parameter, RestoreServer uses the instance type from the specified backup.
@@ -922,15 +883,10 @@ extension OpsWorksCM {
     }
 
     public struct RestoreServerResponse: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct Server: AWSDecodableShape {
-
         /// Associate a public IP address with a server that you are launching.
         public let associatePublicIpAddress: Bool?
         /// The number of automated backups to keep.
@@ -1036,7 +992,6 @@ extension OpsWorksCM {
     }
 
     public struct ServerEvent: AWSDecodableShape {
-
         /// The time when the event occurred.
         public let createdAt: Date?
         /// The Amazon S3 URL of the event's log file.
@@ -1062,7 +1017,6 @@ extension OpsWorksCM {
     }
 
     public struct StartMaintenanceRequest: AWSEncodableShape {
-
         /// Engine attributes that are specific to the server on which you want to run maintenance.  Attributes accepted in a StartMaintenance request for Chef     CHEF_MAJOR_UPGRADE: If a Chef Automate server is eligible for upgrade to Chef Automate 2, add this engine attribute to a StartMaintenance request and set the value to true to upgrade the server to Chef Automate 2. For more information, see Upgrade an AWS OpsWorks for Chef Automate Server to Chef Automate 2.
         public let engineAttributes: [EngineAttribute]?
         /// The name of the server on which to run maintenance.
@@ -1089,7 +1043,6 @@ extension OpsWorksCM {
     }
 
     public struct StartMaintenanceResponse: AWSDecodableShape {
-
         /// Contains the response to a StartMaintenance request.
         public let server: Server?
 
@@ -1103,7 +1056,6 @@ extension OpsWorksCM {
     }
 
     public struct Tag: AWSEncodableShape & AWSDecodableShape {
-
         /// A tag key, such as Stage or Name. A tag key cannot be empty. The key can be a maximum of 127 characters, and can contain only Unicode letters, numbers, or separators, or the following special characters: + - = . _ : /
         public let key: String
         /// An optional tag value, such as Production or test-owcm-server. The value can be a maximum of 255 characters, and contain only Unicode letters, numbers, or separators, or the following special characters: + - = . _ : /
@@ -1130,7 +1082,6 @@ extension OpsWorksCM {
     }
 
     public struct TagResourceRequest: AWSEncodableShape {
-
         /// The Amazon Resource Number (ARN) of a resource to which you want to apply tags. For example, arn:aws:opsworks-cm:us-west-2:123456789012:server/test-owcm-server/EXAMPLE-66b0-4196-8274-d1a2bEXAMPLE.
         public let resourceArn: String
         /// A map that contains tag keys and tag values to attach to AWS OpsWorks-CM servers or backups.   The key cannot be empty.   The key can be a maximum of 127 characters, and can contain only Unicode letters, numbers, or separators, or the following special characters: + - = . _ : /    The value can be a maximum 255 characters, and contain only Unicode letters, numbers, or separators, or the following special characters: + - = . _ : /    Leading and trailing white spaces are trimmed from both the key and value.   A maximum of 50 user-applied tags is allowed for any AWS OpsWorks-CM server or backup.
@@ -1157,15 +1108,10 @@ extension OpsWorksCM {
     }
 
     public struct TagResourceResponse: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct UntagResourceRequest: AWSEncodableShape {
-
         /// The Amazon Resource Number (ARN) of a resource from which you want to remove tags. For example, arn:aws:opsworks-cm:us-west-2:123456789012:server/test-owcm-server/EXAMPLE-66b0-4196-8274-d1a2bEXAMPLE.
         public let resourceArn: String
         /// The keys of tags that you want to remove.
@@ -1194,15 +1140,10 @@ extension OpsWorksCM {
     }
 
     public struct UntagResourceResponse: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct UpdateServerEngineAttributesRequest: AWSEncodableShape {
-
         /// The name of the engine attribute to update.
         public let attributeName: String
         /// The value to set for the attribute.
@@ -1235,7 +1176,6 @@ extension OpsWorksCM {
     }
 
     public struct UpdateServerEngineAttributesResponse: AWSDecodableShape {
-
         /// Contains the response to an UpdateServerEngineAttributes request.
         public let server: Server?
 
@@ -1249,7 +1189,6 @@ extension OpsWorksCM {
     }
 
     public struct UpdateServerRequest: AWSEncodableShape {
-
         /// Sets the number of automated backups that you want to keep.
         public let backupRetentionCount: Int?
         /// Setting DisableAutomatedBackup to true disables automated or scheduled backups. Automated backups are enabled by default.
@@ -1287,7 +1226,6 @@ extension OpsWorksCM {
     }
 
     public struct UpdateServerResponse: AWSDecodableShape {
-
         /// Contains the response to a UpdateServer request.
         public let server: Server?
 

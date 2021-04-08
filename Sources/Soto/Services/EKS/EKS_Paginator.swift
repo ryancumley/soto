@@ -72,6 +72,29 @@ extension EKS {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func describeAddonVersionsPaginator(
+        _ input: DescribeAddonVersionsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<DescribeAddonVersionsRequest, DescribeAddonVersionsResponse> {
+        return .init(
+            input: input,
+            command: describeAddonVersions,
+            inputKey: \DescribeAddonVersionsRequest.nextToken,
+            outputKey: \DescribeAddonVersionsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Lists the available add-ons.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -124,6 +147,29 @@ extension EKS {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listAddonsPaginator(
+        _ input: ListAddonsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListAddonsRequest, ListAddonsResponse> {
+        return .init(
+            input: input,
+            command: listAddons,
+            inputKey: \ListAddonsRequest.nextToken,
+            outputKey: \ListAddonsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Lists the Amazon EKS clusters in your AWS account in the specified Region.
     ///
@@ -178,6 +224,29 @@ extension EKS {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listClustersPaginator(
+        _ input: ListClustersRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListClustersRequest, ListClustersResponse> {
+        return .init(
+            input: input,
+            command: listClusters,
+            inputKey: \ListClustersRequest.nextToken,
+            outputKey: \ListClustersResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Lists the AWS Fargate profiles associated with the specified cluster in your AWS account in the specified Region.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -230,6 +299,29 @@ extension EKS {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listFargateProfilesPaginator(
+        _ input: ListFargateProfilesRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListFargateProfilesRequest, ListFargateProfilesResponse> {
+        return .init(
+            input: input,
+            command: listFargateProfiles,
+            inputKey: \ListFargateProfilesRequest.nextToken,
+            outputKey: \ListFargateProfilesResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  A list of identity provider configurations.
     ///
@@ -284,6 +376,29 @@ extension EKS {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listIdentityProviderConfigsPaginator(
+        _ input: ListIdentityProviderConfigsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListIdentityProviderConfigsRequest, ListIdentityProviderConfigsResponse> {
+        return .init(
+            input: input,
+            command: listIdentityProviderConfigs,
+            inputKey: \ListIdentityProviderConfigsRequest.nextToken,
+            outputKey: \ListIdentityProviderConfigsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Lists the Amazon EKS managed node groups associated with the specified cluster in your AWS account in the specified Region. Self-managed node groups are not listed.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -337,6 +452,29 @@ extension EKS {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listNodegroupsPaginator(
+        _ input: ListNodegroupsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListNodegroupsRequest, ListNodegroupsResponse> {
+        return .init(
+            input: input,
+            command: listNodegroups,
+            inputKey: \ListNodegroupsRequest.nextToken,
+            outputKey: \ListNodegroupsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Lists the updates associated with an Amazon EKS cluster or managed node group in your AWS account, in the specified Region.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -389,6 +527,29 @@ extension EKS {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listUpdatesPaginator(
+        _ input: ListUpdatesRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListUpdatesRequest, ListUpdatesResponse> {
+        return .init(
+            input: input,
+            command: listUpdates,
+            inputKey: \ListUpdatesRequest.nextToken,
+            outputKey: \ListUpdatesResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 }
 
 extension EKS.DescribeAddonVersionsRequest: AWSPaginateToken {

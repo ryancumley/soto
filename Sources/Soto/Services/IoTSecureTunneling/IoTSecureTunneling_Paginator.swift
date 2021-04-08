@@ -71,6 +71,29 @@ extension IoTSecureTunneling {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listTunnelsPaginator(
+        _ input: ListTunnelsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListTunnelsRequest, ListTunnelsResponse> {
+        return .init(
+            input: input,
+            command: listTunnels,
+            inputKey: \ListTunnelsRequest.nextToken,
+            outputKey: \ListTunnelsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 }
 
 extension IoTSecureTunneling.ListTunnelsRequest: AWSPaginateToken {

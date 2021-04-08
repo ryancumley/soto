@@ -67,6 +67,12 @@ public struct SageMakerRuntime: AWSService {
     public func invokeEndpoint(_ input: InvokeEndpointInput, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<InvokeEndpointOutput> {
         return self.client.execute(operation: "InvokeEndpoint", path: "/endpoints/{EndpointName}/invocations", httpMethod: .POST, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    public func invokeEndpoint(_ input: InvokeEndpointInput, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws -> InvokeEndpointOutput {
+        return try await self.client.execute(operation: "InvokeEndpoint", path: "/endpoints/{EndpointName}/invocations", httpMethod: .POST, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
+    }
+    #endif
 }
 
 extension SageMakerRuntime {

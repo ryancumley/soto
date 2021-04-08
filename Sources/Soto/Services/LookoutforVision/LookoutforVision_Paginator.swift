@@ -72,6 +72,29 @@ extension LookoutforVision {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listDatasetEntriesPaginator(
+        _ input: ListDatasetEntriesRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListDatasetEntriesRequest, ListDatasetEntriesResponse> {
+        return .init(
+            input: input,
+            command: listDatasetEntries,
+            inputKey: \ListDatasetEntriesRequest.nextToken,
+            outputKey: \ListDatasetEntriesResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Lists the versions of a model in an Amazon Lookout for Vision project. This operation requires permissions to perform the lookoutvision:ListModels operation.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -125,6 +148,29 @@ extension LookoutforVision {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listModelsPaginator(
+        _ input: ListModelsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListModelsRequest, ListModelsResponse> {
+        return .init(
+            input: input,
+            command: listModels,
+            inputKey: \ListModelsRequest.nextToken,
+            outputKey: \ListModelsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Lists the Amazon Lookout for Vision projects in your AWS account. This operation requires permissions to perform the lookoutvision:ListProjects operation.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -177,6 +223,29 @@ extension LookoutforVision {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listProjectsPaginator(
+        _ input: ListProjectsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListProjectsRequest, ListProjectsResponse> {
+        return .init(
+            input: input,
+            command: listProjects,
+            inputKey: \ListProjectsRequest.nextToken,
+            outputKey: \ListProjectsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 }
 
 extension LookoutforVision.ListDatasetEntriesRequest: AWSPaginateToken {

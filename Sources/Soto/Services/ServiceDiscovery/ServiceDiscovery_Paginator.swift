@@ -72,6 +72,29 @@ extension ServiceDiscovery {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func getInstancesHealthStatusPaginator(
+        _ input: GetInstancesHealthStatusRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<GetInstancesHealthStatusRequest, GetInstancesHealthStatusResponse> {
+        return .init(
+            input: input,
+            command: getInstancesHealthStatus,
+            inputKey: \GetInstancesHealthStatusRequest.nextToken,
+            outputKey: \GetInstancesHealthStatusResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Lists summary information about the instances that you registered by using a specified service.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -124,6 +147,29 @@ extension ServiceDiscovery {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listInstancesPaginator(
+        _ input: ListInstancesRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListInstancesRequest, ListInstancesResponse> {
+        return .init(
+            input: input,
+            command: listInstances,
+            inputKey: \ListInstancesRequest.nextToken,
+            outputKey: \ListInstancesResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Lists summary information about the namespaces that were created by the current AWS account.
     ///
@@ -178,6 +224,29 @@ extension ServiceDiscovery {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listNamespacesPaginator(
+        _ input: ListNamespacesRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListNamespacesRequest, ListNamespacesResponse> {
+        return .init(
+            input: input,
+            command: listNamespaces,
+            inputKey: \ListNamespacesRequest.nextToken,
+            outputKey: \ListNamespacesResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Lists operations that match the criteria that you specify.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -231,6 +300,29 @@ extension ServiceDiscovery {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listOperationsPaginator(
+        _ input: ListOperationsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListOperationsRequest, ListOperationsResponse> {
+        return .init(
+            input: input,
+            command: listOperations,
+            inputKey: \ListOperationsRequest.nextToken,
+            outputKey: \ListOperationsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Lists summary information for all the services that are associated with one or more specified namespaces.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -283,6 +375,29 @@ extension ServiceDiscovery {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listServicesPaginator(
+        _ input: ListServicesRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListServicesRequest, ListServicesResponse> {
+        return .init(
+            input: input,
+            command: listServices,
+            inputKey: \ListServicesRequest.nextToken,
+            outputKey: \ListServicesResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 }
 
 extension ServiceDiscovery.GetInstancesHealthStatusRequest: AWSPaginateToken {

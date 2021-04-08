@@ -23,7 +23,6 @@ extension EC2InstanceConnect {
     // MARK: Shapes
 
     public struct SendSSHPublicKeyRequest: AWSEncodableShape {
-
         /// The Availability Zone in which the EC2 instance was launched.
         public let availabilityZone: String
         /// The ID of the EC2 instance.
@@ -63,7 +62,6 @@ extension EC2InstanceConnect {
     }
 
     public struct SendSSHPublicKeyResponse: AWSDecodableShape {
-
         /// The ID of the request. Please provide this ID when contacting AWS Support for assistance.
         public let requestId: String?
         /// Is true if the request succeeds and an error otherwise.
@@ -81,7 +79,6 @@ extension EC2InstanceConnect {
     }
 
     public struct SendSerialConsoleSSHPublicKeyRequest: AWSEncodableShape {
-
         /// The ID of the EC2 instance.
         public let instanceId: String
         /// The serial port of the EC2 instance. Currently only port 0 is supported. Default: 0
@@ -113,7 +110,6 @@ extension EC2InstanceConnect {
     }
 
     public struct SendSerialConsoleSSHPublicKeyResponse: AWSDecodableShape {
-
         /// The ID of the request. Please provide this ID when contacting AWS Support for assistance.
         public let requestId: String?
         /// Is true if the request succeeds and an error otherwise.

@@ -72,6 +72,29 @@ extension RAM {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func getResourcePoliciesPaginator(
+        _ input: GetResourcePoliciesRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<GetResourcePoliciesRequest, GetResourcePoliciesResponse> {
+        return .init(
+            input: input,
+            command: getResourcePolicies,
+            inputKey: \GetResourcePoliciesRequest.nextToken,
+            outputKey: \GetResourcePoliciesResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Gets the resources or principals for the resource shares that you own.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -124,6 +147,29 @@ extension RAM {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func getResourceShareAssociationsPaginator(
+        _ input: GetResourceShareAssociationsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<GetResourceShareAssociationsRequest, GetResourceShareAssociationsResponse> {
+        return .init(
+            input: input,
+            command: getResourceShareAssociations,
+            inputKey: \GetResourceShareAssociationsRequest.nextToken,
+            outputKey: \GetResourceShareAssociationsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Gets the invitations for resource sharing that you've received.
     ///
@@ -178,6 +224,29 @@ extension RAM {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func getResourceShareInvitationsPaginator(
+        _ input: GetResourceShareInvitationsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<GetResourceShareInvitationsRequest, GetResourceShareInvitationsResponse> {
+        return .init(
+            input: input,
+            command: getResourceShareInvitations,
+            inputKey: \GetResourceShareInvitationsRequest.nextToken,
+            outputKey: \GetResourceShareInvitationsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Gets the resource shares that you own or the resource shares that are shared with you.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -230,6 +299,29 @@ extension RAM {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func getResourceSharesPaginator(
+        _ input: GetResourceSharesRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<GetResourceSharesRequest, GetResourceSharesResponse> {
+        return .init(
+            input: input,
+            command: getResourceShares,
+            inputKey: \GetResourceSharesRequest.nextToken,
+            outputKey: \GetResourceSharesResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Lists the resources in a resource share that is shared with you but that the invitation is still pending for.
     ///
@@ -284,6 +376,29 @@ extension RAM {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listPendingInvitationResourcesPaginator(
+        _ input: ListPendingInvitationResourcesRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListPendingInvitationResourcesRequest, ListPendingInvitationResourcesResponse> {
+        return .init(
+            input: input,
+            command: listPendingInvitationResources,
+            inputKey: \ListPendingInvitationResourcesRequest.nextToken,
+            outputKey: \ListPendingInvitationResourcesResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Lists the principals that you have shared resources with or that have shared resources with you.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -337,6 +452,29 @@ extension RAM {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listPrincipalsPaginator(
+        _ input: ListPrincipalsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListPrincipalsRequest, ListPrincipalsResponse> {
+        return .init(
+            input: input,
+            command: listPrincipals,
+            inputKey: \ListPrincipalsRequest.nextToken,
+            outputKey: \ListPrincipalsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Lists the resources that you added to a resource shares or the resources that are shared with you.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -389,6 +527,29 @@ extension RAM {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listResourcesPaginator(
+        _ input: ListResourcesRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListResourcesRequest, ListResourcesResponse> {
+        return .init(
+            input: input,
+            command: listResources,
+            inputKey: \ListResourcesRequest.nextToken,
+            outputKey: \ListResourcesResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 }
 
 extension RAM.GetResourcePoliciesRequest: AWSPaginateToken {

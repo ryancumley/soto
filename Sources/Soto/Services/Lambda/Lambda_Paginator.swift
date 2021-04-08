@@ -72,6 +72,29 @@ extension Lambda {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listAliasesPaginator(
+        _ input: ListAliasesRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListAliasesRequest, ListAliasesResponse> {
+        return .init(
+            input: input,
+            command: listAliases,
+            inputKey: \ListAliasesRequest.marker,
+            outputKey: \ListAliasesResponse.nextMarker,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Returns a list of code signing configurations. A request returns up to 10,000 configurations per call. You can use the MaxItems parameter to return fewer configurations per call.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -124,6 +147,29 @@ extension Lambda {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listCodeSigningConfigsPaginator(
+        _ input: ListCodeSigningConfigsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListCodeSigningConfigsRequest, ListCodeSigningConfigsResponse> {
+        return .init(
+            input: input,
+            command: listCodeSigningConfigs,
+            inputKey: \ListCodeSigningConfigsRequest.marker,
+            outputKey: \ListCodeSigningConfigsResponse.nextMarker,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Lists event source mappings. Specify an EventSourceArn to only show event source mappings for a single event source.
     ///
@@ -178,6 +224,29 @@ extension Lambda {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listEventSourceMappingsPaginator(
+        _ input: ListEventSourceMappingsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListEventSourceMappingsRequest, ListEventSourceMappingsResponse> {
+        return .init(
+            input: input,
+            command: listEventSourceMappings,
+            inputKey: \ListEventSourceMappingsRequest.marker,
+            outputKey: \ListEventSourceMappingsResponse.nextMarker,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Retrieves a list of configurations for asynchronous invocation for a function. To configure options for asynchronous invocation, use PutFunctionEventInvokeConfig.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -230,6 +299,29 @@ extension Lambda {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listFunctionEventInvokeConfigsPaginator(
+        _ input: ListFunctionEventInvokeConfigsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListFunctionEventInvokeConfigsRequest, ListFunctionEventInvokeConfigsResponse> {
+        return .init(
+            input: input,
+            command: listFunctionEventInvokeConfigs,
+            inputKey: \ListFunctionEventInvokeConfigsRequest.marker,
+            outputKey: \ListFunctionEventInvokeConfigsResponse.nextMarker,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Returns a list of Lambda functions, with the version-specific configuration of each. Lambda returns up to 50 functions per call. Set FunctionVersion to ALL to include all published versions of each function in addition to the unpublished version.   The ListFunctions action returns a subset of the FunctionConfiguration fields. To get the additional fields (State, StateReasonCode, StateReason, LastUpdateStatus, LastUpdateStatusReason, LastUpdateStatusReasonCode) for a function or version, use GetFunction.
     ///
@@ -284,6 +376,29 @@ extension Lambda {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listFunctionsPaginator(
+        _ input: ListFunctionsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListFunctionsRequest, ListFunctionsResponse> {
+        return .init(
+            input: input,
+            command: listFunctions,
+            inputKey: \ListFunctionsRequest.marker,
+            outputKey: \ListFunctionsResponse.nextMarker,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  List the functions that use the specified code signing configuration. You can use this method prior to deleting a code signing configuration, to verify that no functions are using it.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -336,6 +451,29 @@ extension Lambda {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listFunctionsByCodeSigningConfigPaginator(
+        _ input: ListFunctionsByCodeSigningConfigRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListFunctionsByCodeSigningConfigRequest, ListFunctionsByCodeSigningConfigResponse> {
+        return .init(
+            input: input,
+            command: listFunctionsByCodeSigningConfig,
+            inputKey: \ListFunctionsByCodeSigningConfigRequest.marker,
+            outputKey: \ListFunctionsByCodeSigningConfigResponse.nextMarker,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Lists the versions of an AWS Lambda layer. Versions that have been deleted aren't listed. Specify a runtime identifier to list only versions that indicate that they're compatible with that runtime.
     ///
@@ -390,6 +528,29 @@ extension Lambda {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listLayerVersionsPaginator(
+        _ input: ListLayerVersionsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListLayerVersionsRequest, ListLayerVersionsResponse> {
+        return .init(
+            input: input,
+            command: listLayerVersions,
+            inputKey: \ListLayerVersionsRequest.marker,
+            outputKey: \ListLayerVersionsResponse.nextMarker,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Lists AWS Lambda layers and shows information about the latest version of each. Specify a runtime identifier to list only layers that indicate that they're compatible with that runtime.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -442,6 +603,29 @@ extension Lambda {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listLayersPaginator(
+        _ input: ListLayersRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListLayersRequest, ListLayersResponse> {
+        return .init(
+            input: input,
+            command: listLayers,
+            inputKey: \ListLayersRequest.marker,
+            outputKey: \ListLayersResponse.nextMarker,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Retrieves a list of provisioned concurrency configurations for a function.
     ///
@@ -496,6 +680,29 @@ extension Lambda {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listProvisionedConcurrencyConfigsPaginator(
+        _ input: ListProvisionedConcurrencyConfigsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListProvisionedConcurrencyConfigsRequest, ListProvisionedConcurrencyConfigsResponse> {
+        return .init(
+            input: input,
+            command: listProvisionedConcurrencyConfigs,
+            inputKey: \ListProvisionedConcurrencyConfigsRequest.marker,
+            outputKey: \ListProvisionedConcurrencyConfigsResponse.nextMarker,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Returns a list of versions, with the version-specific configuration of each. Lambda returns up to 50 versions per call.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -548,6 +755,29 @@ extension Lambda {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listVersionsByFunctionPaginator(
+        _ input: ListVersionsByFunctionRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListVersionsByFunctionRequest, ListVersionsByFunctionResponse> {
+        return .init(
+            input: input,
+            command: listVersionsByFunction,
+            inputKey: \ListVersionsByFunctionRequest.marker,
+            outputKey: \ListVersionsByFunctionResponse.nextMarker,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 }
 
 extension Lambda.ListAliasesRequest: AWSPaginateToken {

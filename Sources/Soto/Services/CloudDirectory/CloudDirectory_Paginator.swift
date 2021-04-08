@@ -72,6 +72,29 @@ extension CloudDirectory {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listAppliedSchemaArnsPaginator(
+        _ input: ListAppliedSchemaArnsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListAppliedSchemaArnsRequest, ListAppliedSchemaArnsResponse> {
+        return .init(
+            input: input,
+            command: listAppliedSchemaArns,
+            inputKey: \ListAppliedSchemaArnsRequest.nextToken,
+            outputKey: \ListAppliedSchemaArnsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Lists indices attached to the specified object.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -124,6 +147,29 @@ extension CloudDirectory {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listAttachedIndicesPaginator(
+        _ input: ListAttachedIndicesRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListAttachedIndicesRequest, ListAttachedIndicesResponse> {
+        return .init(
+            input: input,
+            command: listAttachedIndices,
+            inputKey: \ListAttachedIndicesRequest.nextToken,
+            outputKey: \ListAttachedIndicesResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Retrieves each Amazon Resource Name (ARN) of schemas in the development state.
     ///
@@ -178,6 +224,29 @@ extension CloudDirectory {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listDevelopmentSchemaArnsPaginator(
+        _ input: ListDevelopmentSchemaArnsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListDevelopmentSchemaArnsRequest, ListDevelopmentSchemaArnsResponse> {
+        return .init(
+            input: input,
+            command: listDevelopmentSchemaArns,
+            inputKey: \ListDevelopmentSchemaArnsRequest.nextToken,
+            outputKey: \ListDevelopmentSchemaArnsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Lists directories created within an account.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -230,6 +299,29 @@ extension CloudDirectory {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listDirectoriesPaginator(
+        _ input: ListDirectoriesRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListDirectoriesRequest, ListDirectoriesResponse> {
+        return .init(
+            input: input,
+            command: listDirectories,
+            inputKey: \ListDirectoriesRequest.nextToken,
+            outputKey: \ListDirectoriesResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Retrieves attributes attached to the facet.
     ///
@@ -284,6 +376,29 @@ extension CloudDirectory {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listFacetAttributesPaginator(
+        _ input: ListFacetAttributesRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListFacetAttributesRequest, ListFacetAttributesResponse> {
+        return .init(
+            input: input,
+            command: listFacetAttributes,
+            inputKey: \ListFacetAttributesRequest.nextToken,
+            outputKey: \ListFacetAttributesResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Retrieves the names of facets that exist in a schema.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -336,6 +451,29 @@ extension CloudDirectory {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listFacetNamesPaginator(
+        _ input: ListFacetNamesRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListFacetNamesRequest, ListFacetNamesResponse> {
+        return .init(
+            input: input,
+            command: listFacetNames,
+            inputKey: \ListFacetNamesRequest.nextToken,
+            outputKey: \ListFacetNamesResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Lists objects attached to the specified index.
     ///
@@ -390,6 +528,29 @@ extension CloudDirectory {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listIndexPaginator(
+        _ input: ListIndexRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListIndexRequest, ListIndexResponse> {
+        return .init(
+            input: input,
+            command: listIndex,
+            inputKey: \ListIndexRequest.nextToken,
+            outputKey: \ListIndexResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Lists the major version families of each managed schema. If a major version ARN is provided as SchemaArn, the minor version revisions in that family are listed instead.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -442,6 +603,29 @@ extension CloudDirectory {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listManagedSchemaArnsPaginator(
+        _ input: ListManagedSchemaArnsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListManagedSchemaArnsRequest, ListManagedSchemaArnsResponse> {
+        return .init(
+            input: input,
+            command: listManagedSchemaArns,
+            inputKey: \ListManagedSchemaArnsRequest.nextToken,
+            outputKey: \ListManagedSchemaArnsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Lists all attributes that are associated with an object.
     ///
@@ -496,6 +680,29 @@ extension CloudDirectory {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listObjectAttributesPaginator(
+        _ input: ListObjectAttributesRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListObjectAttributesRequest, ListObjectAttributesResponse> {
+        return .init(
+            input: input,
+            command: listObjectAttributes,
+            inputKey: \ListObjectAttributesRequest.nextToken,
+            outputKey: \ListObjectAttributesResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Returns a paginated list of child objects that are associated with a given object.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -548,6 +755,29 @@ extension CloudDirectory {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listObjectChildrenPaginator(
+        _ input: ListObjectChildrenRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListObjectChildrenRequest, ListObjectChildrenResponse> {
+        return .init(
+            input: input,
+            command: listObjectChildren,
+            inputKey: \ListObjectChildrenRequest.nextToken,
+            outputKey: \ListObjectChildrenResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Retrieves all available parent paths for any object type such as node, leaf node, policy node, and index node objects. For more information about objects, see Directory Structure. Use this API to evaluate all parents for an object. The call returns all objects from the root of the directory up to the requested object. The API returns the number of paths based on user-defined MaxResults, in case there are multiple paths to the parent. The order of the paths and nodes returned is consistent among multiple API calls unless the objects are deleted or moved. Paths not leading to the directory root are ignored from the target object.
     ///
@@ -602,6 +832,29 @@ extension CloudDirectory {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listObjectParentPathsPaginator(
+        _ input: ListObjectParentPathsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListObjectParentPathsRequest, ListObjectParentPathsResponse> {
+        return .init(
+            input: input,
+            command: listObjectParentPaths,
+            inputKey: \ListObjectParentPathsRequest.nextToken,
+            outputKey: \ListObjectParentPathsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Lists parent objects that are associated with a given object in pagination fashion.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -654,6 +907,29 @@ extension CloudDirectory {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listObjectParentsPaginator(
+        _ input: ListObjectParentsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListObjectParentsRequest, ListObjectParentsResponse> {
+        return .init(
+            input: input,
+            command: listObjectParents,
+            inputKey: \ListObjectParentsRequest.nextToken,
+            outputKey: \ListObjectParentsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Returns policies attached to an object in pagination fashion.
     ///
@@ -708,6 +984,29 @@ extension CloudDirectory {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listObjectPoliciesPaginator(
+        _ input: ListObjectPoliciesRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListObjectPoliciesRequest, ListObjectPoliciesResponse> {
+        return .init(
+            input: input,
+            command: listObjectPolicies,
+            inputKey: \ListObjectPoliciesRequest.nextToken,
+            outputKey: \ListObjectPoliciesResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Returns all of the ObjectIdentifiers to which a given policy is attached.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -760,6 +1059,29 @@ extension CloudDirectory {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listPolicyAttachmentsPaginator(
+        _ input: ListPolicyAttachmentsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListPolicyAttachmentsRequest, ListPolicyAttachmentsResponse> {
+        return .init(
+            input: input,
+            command: listPolicyAttachments,
+            inputKey: \ListPolicyAttachmentsRequest.nextToken,
+            outputKey: \ListPolicyAttachmentsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Lists the major version families of each published schema. If a major version ARN is provided as SchemaArn, the minor version revisions in that family are listed instead.
     ///
@@ -814,6 +1136,29 @@ extension CloudDirectory {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listPublishedSchemaArnsPaginator(
+        _ input: ListPublishedSchemaArnsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListPublishedSchemaArnsRequest, ListPublishedSchemaArnsResponse> {
+        return .init(
+            input: input,
+            command: listPublishedSchemaArns,
+            inputKey: \ListPublishedSchemaArnsRequest.nextToken,
+            outputKey: \ListPublishedSchemaArnsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Returns tags for a resource. Tagging is currently supported only for directories with a limit of 50 tags per directory. All 50 tags are returned for a given directory with this API call.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -866,6 +1211,29 @@ extension CloudDirectory {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listTagsForResourcePaginator(
+        _ input: ListTagsForResourceRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListTagsForResourceRequest, ListTagsForResourceResponse> {
+        return .init(
+            input: input,
+            command: listTagsForResource,
+            inputKey: \ListTagsForResourceRequest.nextToken,
+            outputKey: \ListTagsForResourceResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Returns a paginated list of all attribute definitions for a particular TypedLinkFacet. For more information, see Typed Links.
     ///
@@ -920,6 +1288,29 @@ extension CloudDirectory {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listTypedLinkFacetAttributesPaginator(
+        _ input: ListTypedLinkFacetAttributesRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListTypedLinkFacetAttributesRequest, ListTypedLinkFacetAttributesResponse> {
+        return .init(
+            input: input,
+            command: listTypedLinkFacetAttributes,
+            inputKey: \ListTypedLinkFacetAttributesRequest.nextToken,
+            outputKey: \ListTypedLinkFacetAttributesResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Returns a paginated list of TypedLink facet names for a particular schema. For more information, see Typed Links.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -973,6 +1364,29 @@ extension CloudDirectory {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listTypedLinkFacetNamesPaginator(
+        _ input: ListTypedLinkFacetNamesRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListTypedLinkFacetNamesRequest, ListTypedLinkFacetNamesResponse> {
+        return .init(
+            input: input,
+            command: listTypedLinkFacetNames,
+            inputKey: \ListTypedLinkFacetNamesRequest.nextToken,
+            outputKey: \ListTypedLinkFacetNamesResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Lists all policies from the root of the Directory to the object specified. If there are no policies present, an empty list is returned. If policies are present, and if some objects don't have the policies attached, it returns the ObjectIdentifier for such objects. If policies are present, it returns ObjectIdentifier, policyId, and policyType. Paths that don't lead to the root from the target object are ignored. For more information, see Policies.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -1025,6 +1439,29 @@ extension CloudDirectory {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func lookupPolicyPaginator(
+        _ input: LookupPolicyRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<LookupPolicyRequest, LookupPolicyResponse> {
+        return .init(
+            input: input,
+            command: lookupPolicy,
+            inputKey: \LookupPolicyRequest.nextToken,
+            outputKey: \LookupPolicyResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 }
 
 extension CloudDirectory.ListAppliedSchemaArnsRequest: AWSPaginateToken {

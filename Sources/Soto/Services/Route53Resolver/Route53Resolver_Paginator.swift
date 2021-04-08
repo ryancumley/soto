@@ -72,6 +72,29 @@ extension Route53Resolver {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listFirewallConfigsPaginator(
+        _ input: ListFirewallConfigsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListFirewallConfigsRequest, ListFirewallConfigsResponse> {
+        return .init(
+            input: input,
+            command: listFirewallConfigs,
+            inputKey: \ListFirewallConfigsRequest.nextToken,
+            outputKey: \ListFirewallConfigsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Retrieves the firewall domain lists that you have defined. For each firewall domain list, you can retrieve the domains that are defined for a list by calling ListFirewallDomains.  A single call to this list operation might return only a partial list of the domain lists. For information, see MaxResults.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -124,6 +147,29 @@ extension Route53Resolver {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listFirewallDomainListsPaginator(
+        _ input: ListFirewallDomainListsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListFirewallDomainListsRequest, ListFirewallDomainListsResponse> {
+        return .init(
+            input: input,
+            command: listFirewallDomainLists,
+            inputKey: \ListFirewallDomainListsRequest.nextToken,
+            outputKey: \ListFirewallDomainListsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Retrieves the domains that you have defined for the specified firewall domain list.  A single call might return only a partial list of the domains. For information, see MaxResults.
     ///
@@ -178,6 +224,29 @@ extension Route53Resolver {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listFirewallDomainsPaginator(
+        _ input: ListFirewallDomainsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListFirewallDomainsRequest, ListFirewallDomainsResponse> {
+        return .init(
+            input: input,
+            command: listFirewallDomains,
+            inputKey: \ListFirewallDomainsRequest.nextToken,
+            outputKey: \ListFirewallDomainsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Retrieves the firewall rule group associations that you have defined. Each association enables DNS filtering for a VPC with one rule group.  A single call might return only a partial list of the associations. For information, see MaxResults.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -230,6 +299,29 @@ extension Route53Resolver {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listFirewallRuleGroupAssociationsPaginator(
+        _ input: ListFirewallRuleGroupAssociationsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListFirewallRuleGroupAssociationsRequest, ListFirewallRuleGroupAssociationsResponse> {
+        return .init(
+            input: input,
+            command: listFirewallRuleGroupAssociations,
+            inputKey: \ListFirewallRuleGroupAssociationsRequest.nextToken,
+            outputKey: \ListFirewallRuleGroupAssociationsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Retrieves the minimal high-level information for the rule groups that you have defined.  A single call might return only a partial list of the rule groups. For information, see MaxResults.
     ///
@@ -284,6 +376,29 @@ extension Route53Resolver {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listFirewallRuleGroupsPaginator(
+        _ input: ListFirewallRuleGroupsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListFirewallRuleGroupsRequest, ListFirewallRuleGroupsResponse> {
+        return .init(
+            input: input,
+            command: listFirewallRuleGroups,
+            inputKey: \ListFirewallRuleGroupsRequest.nextToken,
+            outputKey: \ListFirewallRuleGroupsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Retrieves the firewall rules that you have defined for the specified firewall rule group. DNS Firewall uses the rules in a rule group to filter DNS network traffic for a VPC.  A single call might return only a partial list of the rules. For information, see MaxResults.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -336,6 +451,29 @@ extension Route53Resolver {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listFirewallRulesPaginator(
+        _ input: ListFirewallRulesRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListFirewallRulesRequest, ListFirewallRulesResponse> {
+        return .init(
+            input: input,
+            command: listFirewallRules,
+            inputKey: \ListFirewallRulesRequest.nextToken,
+            outputKey: \ListFirewallRulesResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Lists the configurations for DNSSEC validation that are associated with the current AWS account.
     ///
@@ -390,6 +528,29 @@ extension Route53Resolver {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listResolverDnssecConfigsPaginator(
+        _ input: ListResolverDnssecConfigsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListResolverDnssecConfigsRequest, ListResolverDnssecConfigsResponse> {
+        return .init(
+            input: input,
+            command: listResolverDnssecConfigs,
+            inputKey: \ListResolverDnssecConfigsRequest.nextToken,
+            outputKey: \ListResolverDnssecConfigsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Gets the IP addresses for a specified Resolver endpoint.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -442,6 +603,29 @@ extension Route53Resolver {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listResolverEndpointIpAddressesPaginator(
+        _ input: ListResolverEndpointIpAddressesRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListResolverEndpointIpAddressesRequest, ListResolverEndpointIpAddressesResponse> {
+        return .init(
+            input: input,
+            command: listResolverEndpointIpAddresses,
+            inputKey: \ListResolverEndpointIpAddressesRequest.nextToken,
+            outputKey: \ListResolverEndpointIpAddressesResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Lists all the Resolver endpoints that were created using the current AWS account.
     ///
@@ -496,6 +680,29 @@ extension Route53Resolver {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listResolverEndpointsPaginator(
+        _ input: ListResolverEndpointsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListResolverEndpointsRequest, ListResolverEndpointsResponse> {
+        return .init(
+            input: input,
+            command: listResolverEndpoints,
+            inputKey: \ListResolverEndpointsRequest.nextToken,
+            outputKey: \ListResolverEndpointsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Lists information about associations between Amazon VPCs and query logging configurations.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -548,6 +755,29 @@ extension Route53Resolver {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listResolverQueryLogConfigAssociationsPaginator(
+        _ input: ListResolverQueryLogConfigAssociationsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListResolverQueryLogConfigAssociationsRequest, ListResolverQueryLogConfigAssociationsResponse> {
+        return .init(
+            input: input,
+            command: listResolverQueryLogConfigAssociations,
+            inputKey: \ListResolverQueryLogConfigAssociationsRequest.nextToken,
+            outputKey: \ListResolverQueryLogConfigAssociationsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Lists information about the specified query logging configurations. Each configuration defines where you want Resolver to save DNS query logs and specifies the VPCs that you want to log queries for.
     ///
@@ -602,6 +832,29 @@ extension Route53Resolver {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listResolverQueryLogConfigsPaginator(
+        _ input: ListResolverQueryLogConfigsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListResolverQueryLogConfigsRequest, ListResolverQueryLogConfigsResponse> {
+        return .init(
+            input: input,
+            command: listResolverQueryLogConfigs,
+            inputKey: \ListResolverQueryLogConfigsRequest.nextToken,
+            outputKey: \ListResolverQueryLogConfigsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Lists the associations that were created between Resolver rules and VPCs using the current AWS account.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -654,6 +907,29 @@ extension Route53Resolver {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listResolverRuleAssociationsPaginator(
+        _ input: ListResolverRuleAssociationsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListResolverRuleAssociationsRequest, ListResolverRuleAssociationsResponse> {
+        return .init(
+            input: input,
+            command: listResolverRuleAssociations,
+            inputKey: \ListResolverRuleAssociationsRequest.nextToken,
+            outputKey: \ListResolverRuleAssociationsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Lists the Resolver rules that were created using the current AWS account.
     ///
@@ -708,6 +984,29 @@ extension Route53Resolver {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listResolverRulesPaginator(
+        _ input: ListResolverRulesRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListResolverRulesRequest, ListResolverRulesResponse> {
+        return .init(
+            input: input,
+            command: listResolverRules,
+            inputKey: \ListResolverRulesRequest.nextToken,
+            outputKey: \ListResolverRulesResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Lists the tags that you associated with the specified resource.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -760,6 +1059,29 @@ extension Route53Resolver {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listTagsForResourcePaginator(
+        _ input: ListTagsForResourceRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListTagsForResourceRequest, ListTagsForResourceResponse> {
+        return .init(
+            input: input,
+            command: listTagsForResource,
+            inputKey: \ListTagsForResourceRequest.nextToken,
+            outputKey: \ListTagsForResourceResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 }
 
 extension Route53Resolver.ListFirewallConfigsRequest: AWSPaginateToken {

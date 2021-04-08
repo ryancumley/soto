@@ -189,7 +189,6 @@ extension LicenseManager {
     // MARK: Shapes
 
     public struct AcceptGrantRequest: AWSEncodableShape {
-
         /// Amazon Resource Name (ARN) of the grant.
         public let grantArn: String
 
@@ -208,7 +207,6 @@ extension LicenseManager {
     }
 
     public struct AcceptGrantResponse: AWSDecodableShape {
-
         /// Grant ARN.
         public let grantArn: String?
         /// Grant status.
@@ -230,7 +228,6 @@ extension LicenseManager {
     }
 
     public struct AutomatedDiscoveryInformation: AWSDecodableShape {
-
         /// Time that automated discovery last ran.
         public let lastRunTime: Date?
 
@@ -244,7 +241,6 @@ extension LicenseManager {
     }
 
     public struct BorrowConfiguration: AWSEncodableShape & AWSDecodableShape {
-
         /// Indicates whether early check-ins are allowed.
         public let allowEarlyCheckIn: Bool
         /// Maximum time for the borrow configuration, in minutes.
@@ -262,7 +258,6 @@ extension LicenseManager {
     }
 
     public struct CheckInLicenseRequest: AWSEncodableShape {
-
         /// License beneficiary.
         public let beneficiary: String?
         /// License consumption token.
@@ -280,15 +275,10 @@ extension LicenseManager {
     }
 
     public struct CheckInLicenseResponse: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct CheckoutBorrowLicenseRequest: AWSEncodableShape {
-
         /// Information about constraints.
         public let checkoutMetadata: [Metadata]?
         /// Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
@@ -329,7 +319,6 @@ extension LicenseManager {
     }
 
     public struct CheckoutBorrowLicenseResponse: AWSDecodableShape {
-
         /// Information about constraints.
         public let checkoutMetadata: [Metadata]?
         /// Allowed license entitlements.
@@ -371,7 +360,6 @@ extension LicenseManager {
     }
 
     public struct CheckoutLicenseRequest: AWSEncodableShape {
-
         /// License beneficiary.
         public let beneficiary: String?
         /// Checkout type.
@@ -414,7 +402,6 @@ extension LicenseManager {
     }
 
     public struct CheckoutLicenseResponse: AWSDecodableShape {
-
         /// Checkout type.
         public let checkoutType: CheckoutType?
         /// Allowed license entitlements.
@@ -452,7 +439,6 @@ extension LicenseManager {
     }
 
     public struct ConsumedLicenseSummary: AWSDecodableShape {
-
         /// Number of licenses consumed by the resource.
         public let consumedLicenses: Int64?
         /// Resource type of the resource consuming a license.
@@ -470,7 +456,6 @@ extension LicenseManager {
     }
 
     public struct ConsumptionConfiguration: AWSEncodableShape & AWSDecodableShape {
-
         /// Details about a borrow configuration.
         public let borrowConfiguration: BorrowConfiguration?
         /// Details about a provisional configuration.
@@ -492,7 +477,6 @@ extension LicenseManager {
     }
 
     public struct CreateGrantRequest: AWSEncodableShape {
-
         /// Allowed operations for the grant.
         public let allowedOperations: [AllowedOperation]
         /// Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
@@ -539,7 +523,6 @@ extension LicenseManager {
     }
 
     public struct CreateGrantResponse: AWSDecodableShape {
-
         /// Grant ARN.
         public let grantArn: String?
         /// Grant status.
@@ -561,7 +544,6 @@ extension LicenseManager {
     }
 
     public struct CreateGrantVersionRequest: AWSEncodableShape {
-
         /// Allowed operations for the grant.
         public let allowedOperations: [AllowedOperation]?
         /// Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
@@ -602,7 +584,6 @@ extension LicenseManager {
     }
 
     public struct CreateGrantVersionResponse: AWSDecodableShape {
-
         /// Grant ARN.
         public let grantArn: String?
         /// Grant status.
@@ -624,7 +605,6 @@ extension LicenseManager {
     }
 
     public struct CreateLicenseConfigurationRequest: AWSEncodableShape {
-
         /// Description of the license configuration.
         public let description: String?
         /// When true, disassociates a resource when software is uninstalled.
@@ -670,7 +650,6 @@ extension LicenseManager {
     }
 
     public struct CreateLicenseConfigurationResponse: AWSDecodableShape {
-
         /// Amazon Resource Name (ARN) of the license configuration.
         public let licenseConfigurationArn: String?
 
@@ -684,7 +663,6 @@ extension LicenseManager {
     }
 
     public struct CreateLicenseRequest: AWSEncodableShape {
-
         /// License beneficiary.
         public let beneficiary: String
         /// Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
@@ -742,7 +720,6 @@ extension LicenseManager {
     }
 
     public struct CreateLicenseResponse: AWSDecodableShape {
-
         /// Amazon Resource Name (ARN) of the license.
         public let licenseArn: String?
         /// License status.
@@ -764,7 +741,6 @@ extension LicenseManager {
     }
 
     public struct CreateLicenseVersionRequest: AWSEncodableShape {
-
         /// Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
         public let clientToken: String
         /// Configuration for consumption of the license. Choose a provisional configuration for workloads running with continuous connectivity. Choose a borrow configuration for workloads with offline usage.
@@ -828,7 +804,6 @@ extension LicenseManager {
     }
 
     public struct CreateLicenseVersionResponse: AWSDecodableShape {
-
         /// License ARN.
         public let licenseArn: String?
         /// License status.
@@ -850,7 +825,6 @@ extension LicenseManager {
     }
 
     public struct CreateTokenRequest: AWSEncodableShape {
-
         /// Idempotency token, valid for 10 minutes.
         public let clientToken: String
         /// Token expiration, in days, counted from token creation. The default is 365 days.
@@ -892,7 +866,6 @@ extension LicenseManager {
     }
 
     public struct CreateTokenResponse: AWSDecodableShape {
-
         /// Refresh token, encoded as a JWT token.
         public let token: String?
         /// Token ID.
@@ -914,7 +887,6 @@ extension LicenseManager {
     }
 
     public struct DatetimeRange: AWSEncodableShape & AWSDecodableShape {
-
         /// Start of the time range.
         public let begin: String
         /// End of the time range.
@@ -939,7 +911,6 @@ extension LicenseManager {
     }
 
     public struct DeleteGrantRequest: AWSEncodableShape {
-
         /// Amazon Resource Name (ARN) of the grant.
         public let grantArn: String
         /// Current version of the grant.
@@ -962,7 +933,6 @@ extension LicenseManager {
     }
 
     public struct DeleteGrantResponse: AWSDecodableShape {
-
         /// Grant ARN.
         public let grantArn: String?
         /// Grant status.
@@ -984,7 +954,6 @@ extension LicenseManager {
     }
 
     public struct DeleteLicenseConfigurationRequest: AWSEncodableShape {
-
         /// ID of the license configuration.
         public let licenseConfigurationArn: String
 
@@ -998,15 +967,10 @@ extension LicenseManager {
     }
 
     public struct DeleteLicenseConfigurationResponse: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct DeleteLicenseRequest: AWSEncodableShape {
-
         /// Amazon Resource Name (ARN) of the license.
         public let licenseArn: String
         /// Current version of the license.
@@ -1029,7 +993,6 @@ extension LicenseManager {
     }
 
     public struct DeleteLicenseResponse: AWSDecodableShape {
-
         /// Date on which the license is deleted.
         public let deletionDate: String?
         /// License status.
@@ -1047,7 +1010,6 @@ extension LicenseManager {
     }
 
     public struct DeleteTokenRequest: AWSEncodableShape {
-
         /// Token ID.
         public let tokenId: String
 
@@ -1061,15 +1023,10 @@ extension LicenseManager {
     }
 
     public struct DeleteTokenResponse: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct Entitlement: AWSEncodableShape & AWSDecodableShape {
-
         /// Indicates whether check-ins are allowed.
         public let allowCheckIn: Bool?
         /// Maximum entitlement count. Use if the unit is not None.
@@ -1103,7 +1060,6 @@ extension LicenseManager {
     }
 
     public struct EntitlementData: AWSEncodableShape & AWSDecodableShape {
-
         /// Entitlement data name.
         public let name: String
         /// Entitlement data unit.
@@ -1125,7 +1081,6 @@ extension LicenseManager {
     }
 
     public struct EntitlementUsage: AWSDecodableShape {
-
         /// Resource usage consumed.
         public let consumedValue: String
         /// Maximum entitlement usage count.
@@ -1151,7 +1106,6 @@ extension LicenseManager {
     }
 
     public struct ExtendLicenseConsumptionRequest: AWSEncodableShape {
-
         /// Checks whether you have the required permissions for the action, without actually making the request. Provides an error response if you do not have the required permissions.
         public let dryRun: Bool?
         /// License consumption token.
@@ -1169,7 +1123,6 @@ extension LicenseManager {
     }
 
     public struct ExtendLicenseConsumptionResponse: AWSDecodableShape {
-
         /// Date and time at which the license consumption expires.
         public let expiration: String?
         /// License consumption token.
@@ -1187,7 +1140,6 @@ extension LicenseManager {
     }
 
     public struct Filter: AWSEncodableShape {
-
         /// Name of the filter. Filter names are case-sensitive.
         public let name: String?
         /// Filter values. Filter values are case-sensitive.
@@ -1205,7 +1157,6 @@ extension LicenseManager {
     }
 
     public struct GetAccessTokenRequest: AWSEncodableShape {
-
         /// Refresh token, encoded as a JWT token.
         public let token: String
         /// Token properties to validate against those present in the JWT token.
@@ -1229,7 +1180,6 @@ extension LicenseManager {
     }
 
     public struct GetAccessTokenResponse: AWSDecodableShape {
-
         /// Temporary access token.
         public let accessToken: String?
 
@@ -1243,7 +1193,6 @@ extension LicenseManager {
     }
 
     public struct GetGrantRequest: AWSEncodableShape {
-
         /// Amazon Resource Name (ARN) of the grant.
         public let grantArn: String
         /// Grant version.
@@ -1266,7 +1215,6 @@ extension LicenseManager {
     }
 
     public struct GetGrantResponse: AWSDecodableShape {
-
         /// Grant details.
         public let grant: Grant?
 
@@ -1280,7 +1228,6 @@ extension LicenseManager {
     }
 
     public struct GetLicenseConfigurationRequest: AWSEncodableShape {
-
         /// Amazon Resource Name (ARN) of the license configuration.
         public let licenseConfigurationArn: String
 
@@ -1294,7 +1241,6 @@ extension LicenseManager {
     }
 
     public struct GetLicenseConfigurationResponse: AWSDecodableShape {
-
         /// Automated discovery information.
         public let automatedDiscoveryInformation: AutomatedDiscoveryInformation?
         /// Number of licenses assigned to resources.
@@ -1372,7 +1318,6 @@ extension LicenseManager {
     }
 
     public struct GetLicenseRequest: AWSEncodableShape {
-
         /// Amazon Resource Name (ARN) of the license.
         public let licenseArn: String
         /// License version.
@@ -1395,7 +1340,6 @@ extension LicenseManager {
     }
 
     public struct GetLicenseResponse: AWSDecodableShape {
-
         /// License details.
         public let license: License?
 
@@ -1409,7 +1353,6 @@ extension LicenseManager {
     }
 
     public struct GetLicenseUsageRequest: AWSEncodableShape {
-
         /// Amazon Resource Name (ARN) of the license.
         public let licenseArn: String
 
@@ -1428,7 +1371,6 @@ extension LicenseManager {
     }
 
     public struct GetLicenseUsageResponse: AWSDecodableShape {
-
         /// License usage details.
         public let licenseUsage: LicenseUsage?
 
@@ -1442,15 +1384,10 @@ extension LicenseManager {
     }
 
     public struct GetServiceSettingsRequest: AWSEncodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct GetServiceSettingsResponse: AWSDecodableShape {
-
         /// Indicates whether cross-account discovery is enabled.
         public let enableCrossAccountsDiscovery: Bool?
         /// Amazon Resource Name (ARN) of the AWS resource share. The License Manager master account will provide member accounts with access to this share.
@@ -1480,7 +1417,6 @@ extension LicenseManager {
     }
 
     public struct Grant: AWSDecodableShape {
-
         /// Amazon Resource Name (ARN) of the grant.
         public let grantArn: String
         /// Granted operations.
@@ -1530,7 +1466,6 @@ extension LicenseManager {
     }
 
     public struct GrantedLicense: AWSDecodableShape {
-
         /// Granted license beneficiary.
         public let beneficiary: String?
         /// Configuration for consumption of the license.
@@ -1600,7 +1535,6 @@ extension LicenseManager {
     }
 
     public struct InventoryFilter: AWSEncodableShape {
-
         /// Condition of the filter.
         public let condition: InventoryFilterCondition
         /// Name of the filter.
@@ -1622,7 +1556,6 @@ extension LicenseManager {
     }
 
     public struct Issuer: AWSEncodableShape {
-
         /// Issuer name.
         public let name: String
         /// Asymmetric CMK from AWS Key Management Service. The CMK must have a key usage of sign and verify, and support the RSASSA-PSS SHA-256 signing algorithm.
@@ -1640,7 +1573,6 @@ extension LicenseManager {
     }
 
     public struct IssuerDetails: AWSDecodableShape {
-
         /// Issuer key fingerprint.
         public let keyFingerprint: String?
         /// Issuer name.
@@ -1662,7 +1594,6 @@ extension LicenseManager {
     }
 
     public struct License: AWSDecodableShape {
-
         /// License beneficiary.
         public let beneficiary: String?
         /// Configuration for consumption of the license.
@@ -1728,7 +1659,6 @@ extension LicenseManager {
     }
 
     public struct LicenseConfiguration: AWSDecodableShape {
-
         /// Automated discovery information.
         public let automatedDiscoveryInformation: AutomatedDiscoveryInformation?
         /// Number of licenses consumed.
@@ -1802,7 +1732,6 @@ extension LicenseManager {
     }
 
     public struct LicenseConfigurationAssociation: AWSDecodableShape {
-
         /// Scope of AMI associations. The possible value is cross-account.
         public let amiAssociationScope: String?
         /// Time when the license configuration was associated with the resource.
@@ -1832,7 +1761,6 @@ extension LicenseManager {
     }
 
     public struct LicenseConfigurationUsage: AWSDecodableShape {
-
         /// Time when the license configuration was initially associated with the resource.
         public let associationTime: Date?
         /// Number of licenses consumed by the resource.
@@ -1866,7 +1794,6 @@ extension LicenseManager {
     }
 
     public struct LicenseOperationFailure: AWSDecodableShape {
-
         /// Error message.
         public let errorMessage: String?
         /// Failure time.
@@ -1908,7 +1835,6 @@ extension LicenseManager {
     }
 
     public struct LicenseSpecification: AWSEncodableShape & AWSDecodableShape {
-
         /// Scope of AMI associations. The possible value is cross-account.
         public let amiAssociationScope: String?
         /// Amazon Resource Name (ARN) of the license configuration.
@@ -1926,7 +1852,6 @@ extension LicenseManager {
     }
 
     public struct LicenseUsage: AWSDecodableShape {
-
         /// License entitlement usages.
         public let entitlementUsages: [EntitlementUsage]?
 
@@ -1940,7 +1865,6 @@ extension LicenseManager {
     }
 
     public struct ListAssociationsForLicenseConfigurationRequest: AWSEncodableShape {
-
         /// Amazon Resource Name (ARN) of a license configuration.
         public let licenseConfigurationArn: String
         /// Maximum number of results to return in a single call.
@@ -1962,7 +1886,6 @@ extension LicenseManager {
     }
 
     public struct ListAssociationsForLicenseConfigurationResponse: AWSDecodableShape {
-
         /// Information about the associations for the license configuration.
         public let licenseConfigurationAssociations: [LicenseConfigurationAssociation]?
         /// Token for the next set of results.
@@ -1980,7 +1903,6 @@ extension LicenseManager {
     }
 
     public struct ListDistributedGrantsRequest: AWSEncodableShape {
-
         /// Filters to scope the results. The following filters are supported:    LicenseARN     Status     PrincipalARN     ParentARN
         public let filters: [Filter]?
         /// Amazon Resource Names (ARNs) of the grants.
@@ -2015,7 +1937,6 @@ extension LicenseManager {
     }
 
     public struct ListDistributedGrantsResponse: AWSDecodableShape {
-
         /// Distributed grant details.
         public let grants: [Grant]?
         /// Token for the next set of results.
@@ -2033,7 +1954,6 @@ extension LicenseManager {
     }
 
     public struct ListFailuresForLicenseConfigurationOperationsRequest: AWSEncodableShape {
-
         /// Amazon Resource Name of the license configuration.
         public let licenseConfigurationArn: String
         /// Maximum number of results to return in a single call.
@@ -2055,7 +1975,6 @@ extension LicenseManager {
     }
 
     public struct ListFailuresForLicenseConfigurationOperationsResponse: AWSDecodableShape {
-
         /// License configuration operations that failed.
         public let licenseOperationFailureList: [LicenseOperationFailure]?
         /// Token for the next set of results.
@@ -2073,7 +1992,6 @@ extension LicenseManager {
     }
 
     public struct ListLicenseConfigurationsRequest: AWSEncodableShape {
-
         /// Filters to scope the results. The following filters and logical operators are supported:    licenseCountingType - The dimension on which licenses are counted. Possible values are vCPU | Instance | Core | Socket. Logical operators are EQUALS | NOT_EQUALS.    enforceLicenseCount - A Boolean value that indicates whether hard license enforcement is used. Logical operators are EQUALS | NOT_EQUALS.    usagelimitExceeded - A Boolean value that indicates whether the available licenses have been exceeded. Logical operators are EQUALS | NOT_EQUALS.
         public let filters: [Filter]?
         /// Amazon Resource Names (ARN) of the license configurations.
@@ -2099,7 +2017,6 @@ extension LicenseManager {
     }
 
     public struct ListLicenseConfigurationsResponse: AWSDecodableShape {
-
         /// Information about the license configurations.
         public let licenseConfigurations: [LicenseConfiguration]?
         /// Token for the next set of results.
@@ -2117,7 +2034,6 @@ extension LicenseManager {
     }
 
     public struct ListLicenseSpecificationsForResourceRequest: AWSEncodableShape {
-
         /// Maximum number of results to return in a single call.
         public let maxResults: Int?
         /// Token for the next set of results.
@@ -2139,7 +2055,6 @@ extension LicenseManager {
     }
 
     public struct ListLicenseSpecificationsForResourceResponse: AWSDecodableShape {
-
         /// License configurations associated with a resource.
         public let licenseSpecifications: [LicenseSpecification]?
         /// Token for the next set of results.
@@ -2157,7 +2072,6 @@ extension LicenseManager {
     }
 
     public struct ListLicenseVersionsRequest: AWSEncodableShape {
-
         /// Amazon Resource Name (ARN) of the license.
         public let licenseArn: String
         /// Maximum number of results to return in a single call.
@@ -2186,7 +2100,6 @@ extension LicenseManager {
     }
 
     public struct ListLicenseVersionsResponse: AWSDecodableShape {
-
         /// License details.
         public let licenses: [License]?
         /// Token for the next set of results.
@@ -2204,7 +2117,6 @@ extension LicenseManager {
     }
 
     public struct ListLicensesRequest: AWSEncodableShape {
-
         /// Filters to scope the results. The following filters are supported:    Beneficiary     ProductSKU     KeyFingerprint     Status
         public let filters: [Filter]?
         /// Amazon Resource Names (ARNs) of the licenses.
@@ -2239,7 +2151,6 @@ extension LicenseManager {
     }
 
     public struct ListLicensesResponse: AWSDecodableShape {
-
         /// License details.
         public let licenses: [License]?
         /// Token for the next set of results.
@@ -2257,7 +2168,6 @@ extension LicenseManager {
     }
 
     public struct ListReceivedGrantsRequest: AWSEncodableShape {
-
         /// Filters to scope the results. The following filters are supported:    LicenseARN     Status
         public let filters: [Filter]?
         /// Amazon Resource Names (ARNs) of the grants.
@@ -2292,7 +2202,6 @@ extension LicenseManager {
     }
 
     public struct ListReceivedGrantsResponse: AWSDecodableShape {
-
         /// Received grant details.
         public let grants: [Grant]?
         /// Token for the next set of results.
@@ -2310,7 +2219,6 @@ extension LicenseManager {
     }
 
     public struct ListReceivedLicensesRequest: AWSEncodableShape {
-
         /// Filters to scope the results. The following filters are supported:    ProductSKU     Status     KeyFingerprint     Issuer
         public let filters: [Filter]?
         /// Amazon Resource Names (ARNs) of the licenses.
@@ -2345,7 +2253,6 @@ extension LicenseManager {
     }
 
     public struct ListReceivedLicensesResponse: AWSDecodableShape {
-
         /// Received license details.
         public let licenses: [GrantedLicense]?
         /// Token for the next set of results.
@@ -2363,7 +2270,6 @@ extension LicenseManager {
     }
 
     public struct ListResourceInventoryRequest: AWSEncodableShape {
-
         /// Filters to scope the results. The following filters and logical operators are supported:    account_id - The ID of the AWS account that owns the resource. Logical operators are EQUALS | NOT_EQUALS.    application_name - The name of the application. Logical operators are EQUALS | BEGINS_WITH.    license_included - The type of license included. Logical operators are EQUALS | NOT_EQUALS. Possible values are sql-server-enterprise | sql-server-standard | sql-server-web | windows-server-datacenter.    platform - The platform of the resource. Logical operators are EQUALS | BEGINS_WITH.    resource_id - The ID of the resource. Logical operators are EQUALS | NOT_EQUALS.    tag:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Logical operators are EQUALS (single account) or EQUALS | NOT_EQUALS (cross account).
         public let filters: [InventoryFilter]?
         /// Maximum number of results to return in a single call.
@@ -2385,7 +2291,6 @@ extension LicenseManager {
     }
 
     public struct ListResourceInventoryResponse: AWSDecodableShape {
-
         /// Token for the next set of results.
         public let nextToken: String?
         /// Information about the resources.
@@ -2403,7 +2308,6 @@ extension LicenseManager {
     }
 
     public struct ListTagsForResourceRequest: AWSEncodableShape {
-
         /// Amazon Resource Name (ARN) of the license configuration.
         public let resourceArn: String
 
@@ -2417,7 +2321,6 @@ extension LicenseManager {
     }
 
     public struct ListTagsForResourceResponse: AWSDecodableShape {
-
         /// Information about the tags.
         public let tags: [Tag]?
 
@@ -2431,7 +2334,6 @@ extension LicenseManager {
     }
 
     public struct ListTokensRequest: AWSEncodableShape {
-
         /// Filters to scope the results. The following filter is supported:    licenseArns
         public let filters: [Filter]?
         /// Maximum number of results to return in a single call.
@@ -2462,7 +2364,6 @@ extension LicenseManager {
     }
 
     public struct ListTokensResponse: AWSDecodableShape {
-
         /// Token for the next set of results.
         public let nextToken: String?
         /// Received token details.
@@ -2480,7 +2381,6 @@ extension LicenseManager {
     }
 
     public struct ListUsageForLicenseConfigurationRequest: AWSEncodableShape {
-
         /// Filters to scope the results. The following filters and logical operators are supported:    resourceArn - The ARN of the license configuration resource. Logical operators are EQUALS | NOT_EQUALS.    resourceType - The resource type (EC2_INSTANCE | EC2_HOST | EC2_AMI | SYSTEMS_MANAGER_MANAGED_INSTANCE). Logical operators are EQUALS | NOT_EQUALS.    resourceAccount - The ID of the account that owns the resource. Logical operators are EQUALS | NOT_EQUALS.
         public let filters: [Filter]?
         /// Amazon Resource Name (ARN) of the license configuration.
@@ -2506,7 +2406,6 @@ extension LicenseManager {
     }
 
     public struct ListUsageForLicenseConfigurationResponse: AWSDecodableShape {
-
         /// Information about the license configurations.
         public let licenseConfigurationUsageList: [LicenseConfigurationUsage]?
         /// Token for the next set of results.
@@ -2524,7 +2423,6 @@ extension LicenseManager {
     }
 
     public struct ManagedResourceSummary: AWSDecodableShape {
-
         /// Number of resources associated with licenses.
         public let associationCount: Int64?
         /// Type of resource associated with a license.
@@ -2542,7 +2440,6 @@ extension LicenseManager {
     }
 
     public struct Metadata: AWSEncodableShape & AWSDecodableShape {
-
         /// The key name.
         public let name: String?
         /// The value.
@@ -2560,7 +2457,6 @@ extension LicenseManager {
     }
 
     public struct OrganizationConfiguration: AWSEncodableShape & AWSDecodableShape {
-
         /// Enables AWS Organization integration.
         public let enableIntegration: Bool
 
@@ -2574,7 +2470,6 @@ extension LicenseManager {
     }
 
     public struct ProductInformation: AWSEncodableShape & AWSDecodableShape {
-
         /// Product information filters. The following filters and logical operators are supported when the resource type is SSM_MANAGED:    Application Name - The name of the application. Logical operator is EQUALS.    Application Publisher - The publisher of the application. Logical operator is EQUALS.    Application Version - The version of the application. Logical operator is EQUALS.    Platform Name - The name of the platform. Logical operator is EQUALS.    Platform Type - The platform type. Logical operator is EQUALS.    License Included - The type of license included. Logical operators are EQUALS and NOT_EQUALS. Possible values are: sql-server-enterprise | sql-server-standard | sql-server-web | windows-server-datacenter.   The following filters and logical operators are supported when the resource type is RDS:    Engine Edition - The edition of the database engine. Logical operator is EQUALS. Possible values are: oracle-ee | oracle-se | oracle-se1 | oracle-se2.    License Pack - The license pack. Logical operator is EQUALS. Possible values are: data guard | diagnostic pack sqlt | tuning pack sqlt | ols | olap.
         public let productInformationFilterList: [ProductInformationFilter]
         /// Resource type. The possible values are SSM_MANAGED | RDS.
@@ -2592,7 +2487,6 @@ extension LicenseManager {
     }
 
     public struct ProductInformationFilter: AWSEncodableShape & AWSDecodableShape {
-
         /// Logical operator.
         public let productInformationFilterComparator: String
         /// Filter name.
@@ -2614,7 +2508,6 @@ extension LicenseManager {
     }
 
     public struct ProvisionalConfiguration: AWSEncodableShape & AWSDecodableShape {
-
         /// Maximum time for the provisional configuration, in minutes.
         public let maxTimeToLiveInMinutes: Int
 
@@ -2628,7 +2521,6 @@ extension LicenseManager {
     }
 
     public struct ReceivedMetadata: AWSDecodableShape {
-
         /// Allowed operations.
         public let allowedOperations: [AllowedOperation]?
         /// Received status.
@@ -2646,7 +2538,6 @@ extension LicenseManager {
     }
 
     public struct RejectGrantRequest: AWSEncodableShape {
-
         /// Amazon Resource Name (ARN) of the grant.
         public let grantArn: String
 
@@ -2665,7 +2556,6 @@ extension LicenseManager {
     }
 
     public struct RejectGrantResponse: AWSDecodableShape {
-
         /// Grant ARN.
         public let grantArn: String?
         /// Grant status.
@@ -2687,7 +2577,6 @@ extension LicenseManager {
     }
 
     public struct ResourceInventory: AWSDecodableShape {
-
         /// Platform of the resource.
         public let platform: String?
         /// Platform version of the resource in the inventory.
@@ -2721,7 +2610,6 @@ extension LicenseManager {
     }
 
     public struct Tag: AWSEncodableShape & AWSDecodableShape {
-
         /// Tag key.
         public let key: String?
         /// Tag value.
@@ -2739,7 +2627,6 @@ extension LicenseManager {
     }
 
     public struct TagResourceRequest: AWSEncodableShape {
-
         /// Amazon Resource Name (ARN) of the license configuration.
         public let resourceArn: String
         /// One or more tags.
@@ -2757,15 +2644,10 @@ extension LicenseManager {
     }
 
     public struct TagResourceResponse: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct TokenData: AWSDecodableShape {
-
         /// Token expiration time, in ISO8601-UTC format.
         public let expirationTime: String?
         /// Amazon Resource Name (ARN) of the license.
@@ -2803,7 +2685,6 @@ extension LicenseManager {
     }
 
     public struct UntagResourceRequest: AWSEncodableShape {
-
         /// Amazon Resource Name (ARN) of the license configuration.
         public let resourceArn: String
         /// Keys identifying the tags to remove.
@@ -2821,15 +2702,10 @@ extension LicenseManager {
     }
 
     public struct UntagResourceResponse: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct UpdateLicenseConfigurationRequest: AWSEncodableShape {
-
         /// New description of the license configuration.
         public let description: String?
         /// When true, disassociates a resource when software is uninstalled.
@@ -2875,15 +2751,10 @@ extension LicenseManager {
     }
 
     public struct UpdateLicenseConfigurationResponse: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct UpdateLicenseSpecificationsForResourceRequest: AWSEncodableShape {
-
         /// ARNs of the license configurations to add.
         public let addLicenseSpecifications: [LicenseSpecification]?
         /// ARNs of the license configurations to remove.
@@ -2905,15 +2776,10 @@ extension LicenseManager {
     }
 
     public struct UpdateLicenseSpecificationsForResourceResponse: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct UpdateServiceSettingsRequest: AWSEncodableShape {
-
         /// Activates cross-account discovery.
         public let enableCrossAccountsDiscovery: Bool?
         /// Enables integration with AWS Organizations for cross-account discovery.
@@ -2939,10 +2805,6 @@ extension LicenseManager {
     }
 
     public struct UpdateServiceSettingsResponse: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 }

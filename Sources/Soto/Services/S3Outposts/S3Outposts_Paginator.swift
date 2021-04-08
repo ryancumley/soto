@@ -71,6 +71,29 @@ extension S3Outposts {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listEndpointsPaginator(
+        _ input: ListEndpointsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListEndpointsRequest, ListEndpointsResult> {
+        return .init(
+            input: input,
+            command: listEndpoints,
+            inputKey: \ListEndpointsRequest.nextToken,
+            outputKey: \ListEndpointsResult.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 }
 
 extension S3Outposts.ListEndpointsRequest: AWSPaginateToken {

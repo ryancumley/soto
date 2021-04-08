@@ -72,6 +72,29 @@ extension ApplicationInsights {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listApplicationsPaginator(
+        _ input: ListApplicationsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListApplicationsRequest, ListApplicationsResponse> {
+        return .init(
+            input: input,
+            command: listApplications,
+            inputKey: \ListApplicationsRequest.nextToken,
+            outputKey: \ListApplicationsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Lists the auto-grouped, standalone, and custom components of the application.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -124,6 +147,29 @@ extension ApplicationInsights {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listComponentsPaginator(
+        _ input: ListComponentsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListComponentsRequest, ListComponentsResponse> {
+        return .init(
+            input: input,
+            command: listComponents,
+            inputKey: \ListComponentsRequest.nextToken,
+            outputKey: \ListComponentsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///   Lists the INFO, WARN, and ERROR events for periodic configuration updates performed by Application Insights. Examples of events represented are:    INFO: creating a new alarm or updating an alarm threshold.   WARN: alarm not created due to insufficient data points used to predict thresholds.   ERROR: alarm not created due to permission errors or exceeding quotas.
     ///
@@ -178,6 +224,29 @@ extension ApplicationInsights {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listConfigurationHistoryPaginator(
+        _ input: ListConfigurationHistoryRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListConfigurationHistoryRequest, ListConfigurationHistoryResponse> {
+        return .init(
+            input: input,
+            command: listConfigurationHistory,
+            inputKey: \ListConfigurationHistoryRequest.nextToken,
+            outputKey: \ListConfigurationHistoryResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Lists the log pattern sets in the specific application.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -230,6 +299,29 @@ extension ApplicationInsights {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listLogPatternSetsPaginator(
+        _ input: ListLogPatternSetsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListLogPatternSetsRequest, ListLogPatternSetsResponse> {
+        return .init(
+            input: input,
+            command: listLogPatternSets,
+            inputKey: \ListLogPatternSetsRequest.nextToken,
+            outputKey: \ListLogPatternSetsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Lists the log patterns in the specific log LogPatternSet.
     ///
@@ -284,6 +376,29 @@ extension ApplicationInsights {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listLogPatternsPaginator(
+        _ input: ListLogPatternsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListLogPatternsRequest, ListLogPatternsResponse> {
+        return .init(
+            input: input,
+            command: listLogPatterns,
+            inputKey: \ListLogPatternsRequest.nextToken,
+            outputKey: \ListLogPatternsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Lists the problems with your application.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -336,6 +451,29 @@ extension ApplicationInsights {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listProblemsPaginator(
+        _ input: ListProblemsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListProblemsRequest, ListProblemsResponse> {
+        return .init(
+            input: input,
+            command: listProblems,
+            inputKey: \ListProblemsRequest.nextToken,
+            outputKey: \ListProblemsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 }
 
 extension ApplicationInsights.ListApplicationsRequest: AWSPaginateToken {

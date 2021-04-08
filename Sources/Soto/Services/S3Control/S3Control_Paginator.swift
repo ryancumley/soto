@@ -72,6 +72,29 @@ extension S3Control {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listAccessPointsPaginator(
+        _ input: ListAccessPointsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListAccessPointsRequest, ListAccessPointsResult> {
+        return .init(
+            input: input,
+            command: listAccessPoints,
+            inputKey: \ListAccessPointsRequest.nextToken,
+            outputKey: \ListAccessPointsResult.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Returns a list of the access points associated with the Object Lambda Access Point. You can retrieve up to 1000 access points per call. If there are more than 1,000 access points (or the number specified in maxResults, whichever is less), the response will include a continuation token that you can use to list the additional access points. The following actions are related to ListAccessPointsForObjectLambda:    CreateAccessPointForObjectLambda     DeleteAccessPointForObjectLambda     GetAccessPointForObjectLambda
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -124,6 +147,29 @@ extension S3Control {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listAccessPointsForObjectLambdaPaginator(
+        _ input: ListAccessPointsForObjectLambdaRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListAccessPointsForObjectLambdaRequest, ListAccessPointsForObjectLambdaResult> {
+        return .init(
+            input: input,
+            command: listAccessPointsForObjectLambda,
+            inputKey: \ListAccessPointsForObjectLambdaRequest.nextToken,
+            outputKey: \ListAccessPointsForObjectLambdaResult.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Lists current S3 Batch Operations jobs and jobs that have ended within the last 30 days for the AWS account making the request. For more information, see S3 Batch Operations in the Amazon Simple Storage Service User Guide. Related actions include:     CreateJob     DescribeJob     UpdateJobPriority     UpdateJobStatus
     ///
@@ -178,6 +224,29 @@ extension S3Control {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listJobsPaginator(
+        _ input: ListJobsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListJobsRequest, ListJobsResult> {
+        return .init(
+            input: input,
+            command: listJobs,
+            inputKey: \ListJobsRequest.nextToken,
+            outputKey: \ListJobsResult.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Returns a list of all Outposts buckets in an Outpost that are owned by the authenticated sender of the request. For more information, see Using Amazon S3 on Outposts in the Amazon Simple Storage Service User Guide. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and x-amz-outpost-id in your request, see the Examples section.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -231,6 +300,29 @@ extension S3Control {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listRegionalBucketsPaginator(
+        _ input: ListRegionalBucketsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListRegionalBucketsRequest, ListRegionalBucketsResult> {
+        return .init(
+            input: input,
+            command: listRegionalBuckets,
+            inputKey: \ListRegionalBucketsRequest.nextToken,
+            outputKey: \ListRegionalBucketsResult.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Gets a list of Amazon S3 Storage Lens configurations. For more information about S3 Storage Lens, see Assessing your storage activity and usage with Amazon S3 Storage Lens  in the Amazon Simple Storage Service User Guide.  To use this action, you must have permission to perform the s3:ListStorageLensConfigurations action. For more information, see Setting permissions to use Amazon S3 Storage Lens in the Amazon Simple Storage Service User Guide.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -283,6 +375,29 @@ extension S3Control {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listStorageLensConfigurationsPaginator(
+        _ input: ListStorageLensConfigurationsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListStorageLensConfigurationsRequest, ListStorageLensConfigurationsResult> {
+        return .init(
+            input: input,
+            command: listStorageLensConfigurations,
+            inputKey: \ListStorageLensConfigurationsRequest.nextToken,
+            outputKey: \ListStorageLensConfigurationsResult.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 }
 
 extension S3Control.ListAccessPointsRequest: AWSPaginateToken {

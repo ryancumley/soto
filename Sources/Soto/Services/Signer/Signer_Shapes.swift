@@ -104,16 +104,15 @@ extension Signer {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case action = "action"
-            case principal = "principal"
-            case profileVersion = "profileVersion"
-            case revisionId = "revisionId"
-            case statementId = "statementId"
+            case action
+            case principal
+            case profileVersion
+            case revisionId
+            case statementId
         }
     }
 
     public struct AddProfilePermissionResponse: AWSDecodableShape {
-
         /// A unique identifier for the current profile revision.
         public let revisionId: String?
 
@@ -122,7 +121,7 @@ extension Signer {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case revisionId = "revisionId"
+            case revisionId
         }
     }
 
@@ -163,7 +162,6 @@ extension Signer {
     }
 
     public struct DescribeSigningJobResponse: AWSDecodableShape {
-
         /// Date and time that the signing job was completed.
         public let completedAt: Date?
         /// Date and time that the signing job was created.
@@ -226,30 +224,29 @@ extension Signer {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case completedAt = "completedAt"
-            case createdAt = "createdAt"
-            case jobId = "jobId"
-            case jobInvoker = "jobInvoker"
-            case jobOwner = "jobOwner"
-            case overrides = "overrides"
-            case platformDisplayName = "platformDisplayName"
-            case platformId = "platformId"
-            case profileName = "profileName"
-            case profileVersion = "profileVersion"
-            case requestedBy = "requestedBy"
-            case revocationRecord = "revocationRecord"
-            case signatureExpiresAt = "signatureExpiresAt"
-            case signedObject = "signedObject"
-            case signingMaterial = "signingMaterial"
-            case signingParameters = "signingParameters"
-            case source = "source"
-            case status = "status"
-            case statusReason = "statusReason"
+            case completedAt
+            case createdAt
+            case jobId
+            case jobInvoker
+            case jobOwner
+            case overrides
+            case platformDisplayName
+            case platformId
+            case profileName
+            case profileVersion
+            case requestedBy
+            case revocationRecord
+            case signatureExpiresAt
+            case signedObject
+            case signingMaterial
+            case signingParameters
+            case source
+            case status
+            case statusReason
         }
     }
 
     public struct Destination: AWSEncodableShape {
-
         /// The S3Destination object.
         public let s3: S3Destination?
 
@@ -258,12 +255,11 @@ extension Signer {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case s3 = "s3"
+            case s3
         }
     }
 
     public struct EncryptionAlgorithmOptions: AWSDecodableShape {
-
         /// The set of accepted encryption algorithms that are allowed in a code signing job.
         public let allowedValues: [EncryptionAlgorithm]
         /// The default encryption algorithm that is used by a code signing job.
@@ -275,8 +271,8 @@ extension Signer {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case allowedValues = "allowedValues"
-            case defaultValue = "defaultValue"
+            case allowedValues
+            case defaultValue
         }
     }
 
@@ -296,7 +292,6 @@ extension Signer {
     }
 
     public struct GetSigningPlatformResponse: AWSDecodableShape {
-
         /// The category type of the target signing platform.
         public let category: Category?
         /// The display name of the target signing platform.
@@ -329,21 +324,21 @@ extension Signer {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case category = "category"
-            case displayName = "displayName"
-            case maxSizeInMB = "maxSizeInMB"
-            case partner = "partner"
-            case platformId = "platformId"
-            case revocationSupported = "revocationSupported"
-            case signingConfiguration = "signingConfiguration"
-            case signingImageFormat = "signingImageFormat"
-            case target = "target"
+            case category
+            case displayName
+            case maxSizeInMB
+            case partner
+            case platformId
+            case revocationSupported
+            case signingConfiguration
+            case signingImageFormat
+            case target
         }
     }
 
     public struct GetSigningProfileRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "profileName", location: .uri(locationName: "profileName")), 
+            AWSMemberEncoding(label: "profileName", location: .uri(locationName: "profileName")),
             AWSMemberEncoding(label: "profileOwner", location: .querystring(locationName: "profileOwner"))
         ]
 
@@ -370,7 +365,6 @@ extension Signer {
     }
 
     public struct GetSigningProfileResponse: AWSDecodableShape {
-
         /// The Amazon Resource Name (ARN) for the signing profile.
         public let arn: String?
         /// A list of overrides applied by the target signing profile for signing operations.
@@ -416,25 +410,24 @@ extension Signer {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case arn = "arn"
-            case overrides = "overrides"
-            case platformDisplayName = "platformDisplayName"
-            case platformId = "platformId"
-            case profileName = "profileName"
-            case profileVersion = "profileVersion"
-            case profileVersionArn = "profileVersionArn"
-            case revocationRecord = "revocationRecord"
-            case signatureValidityPeriod = "signatureValidityPeriod"
-            case signingMaterial = "signingMaterial"
-            case signingParameters = "signingParameters"
-            case status = "status"
-            case statusReason = "statusReason"
-            case tags = "tags"
+            case arn
+            case overrides
+            case platformDisplayName
+            case platformId
+            case profileName
+            case profileVersion
+            case profileVersionArn
+            case revocationRecord
+            case signatureValidityPeriod
+            case signingMaterial
+            case signingParameters
+            case status
+            case statusReason
+            case tags
         }
     }
 
     public struct HashAlgorithmOptions: AWSDecodableShape {
-
         /// The set of accepted hash algorithms allowed in a code signing job.
         public let allowedValues: [HashAlgorithm]
         /// The default hash algorithm that is used in a code signing job.
@@ -446,14 +439,14 @@ extension Signer {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case allowedValues = "allowedValues"
-            case defaultValue = "defaultValue"
+            case allowedValues
+            case defaultValue
         }
     }
 
     public struct ListProfilePermissionsRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "nextToken")), 
+            AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "nextToken")),
             AWSMemberEncoding(label: "profileName", location: .uri(locationName: "profileName"))
         ]
 
@@ -477,7 +470,6 @@ extension Signer {
     }
 
     public struct ListProfilePermissionsResponse: AWSDecodableShape {
-
         /// String for specifying the next set of paginated results.
         public let nextToken: String?
         /// List of permissions associated with the Signing Profile.
@@ -495,23 +487,23 @@ extension Signer {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case nextToken = "nextToken"
-            case permissions = "permissions"
-            case policySizeBytes = "policySizeBytes"
-            case revisionId = "revisionId"
+            case nextToken
+            case permissions
+            case policySizeBytes
+            case revisionId
         }
     }
 
     public struct ListSigningJobsRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "isRevoked", location: .querystring(locationName: "isRevoked")), 
-            AWSMemberEncoding(label: "jobInvoker", location: .querystring(locationName: "jobInvoker")), 
-            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "maxResults")), 
-            AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "nextToken")), 
-            AWSMemberEncoding(label: "platformId", location: .querystring(locationName: "platformId")), 
-            AWSMemberEncoding(label: "requestedBy", location: .querystring(locationName: "requestedBy")), 
-            AWSMemberEncoding(label: "signatureExpiresAfter", location: .querystring(locationName: "signatureExpiresAfter")), 
-            AWSMemberEncoding(label: "signatureExpiresBefore", location: .querystring(locationName: "signatureExpiresBefore")), 
+            AWSMemberEncoding(label: "isRevoked", location: .querystring(locationName: "isRevoked")),
+            AWSMemberEncoding(label: "jobInvoker", location: .querystring(locationName: "jobInvoker")),
+            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "maxResults")),
+            AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "nextToken")),
+            AWSMemberEncoding(label: "platformId", location: .querystring(locationName: "platformId")),
+            AWSMemberEncoding(label: "requestedBy", location: .querystring(locationName: "requestedBy")),
+            AWSMemberEncoding(label: "signatureExpiresAfter", location: .querystring(locationName: "signatureExpiresAfter")),
+            AWSMemberEncoding(label: "signatureExpiresBefore", location: .querystring(locationName: "signatureExpiresBefore")),
             AWSMemberEncoding(label: "status", location: .querystring(locationName: "status"))
         ]
 
@@ -558,7 +550,6 @@ extension Signer {
     }
 
     public struct ListSigningJobsResponse: AWSDecodableShape {
-
         /// A list of your signing jobs.
         public let jobs: [SigningJob]?
         /// String for specifying the next set of paginated results.
@@ -570,17 +561,17 @@ extension Signer {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case jobs = "jobs"
-            case nextToken = "nextToken"
+            case jobs
+            case nextToken
         }
     }
 
     public struct ListSigningPlatformsRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "category", location: .querystring(locationName: "category")), 
-            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "maxResults")), 
-            AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "nextToken")), 
-            AWSMemberEncoding(label: "partner", location: .querystring(locationName: "partner")), 
+            AWSMemberEncoding(label: "category", location: .querystring(locationName: "category")),
+            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "maxResults")),
+            AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "nextToken")),
+            AWSMemberEncoding(label: "partner", location: .querystring(locationName: "partner")),
             AWSMemberEncoding(label: "target", location: .querystring(locationName: "target"))
         ]
 
@@ -612,7 +603,6 @@ extension Signer {
     }
 
     public struct ListSigningPlatformsResponse: AWSDecodableShape {
-
         /// Value for specifying the next set of paginated results to return.
         public let nextToken: String?
         /// A list of all platforms that match the request parameters.
@@ -624,17 +614,17 @@ extension Signer {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case nextToken = "nextToken"
-            case platforms = "platforms"
+            case nextToken
+            case platforms
         }
     }
 
     public struct ListSigningProfilesRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "includeCanceled", location: .querystring(locationName: "includeCanceled")), 
-            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "maxResults")), 
-            AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "nextToken")), 
-            AWSMemberEncoding(label: "platformId", location: .querystring(locationName: "platformId")), 
+            AWSMemberEncoding(label: "includeCanceled", location: .querystring(locationName: "includeCanceled")),
+            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "maxResults")),
+            AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "nextToken")),
+            AWSMemberEncoding(label: "platformId", location: .querystring(locationName: "platformId")),
             AWSMemberEncoding(label: "statuses", location: .querystring(locationName: "statuses"))
         ]
 
@@ -666,7 +656,6 @@ extension Signer {
     }
 
     public struct ListSigningProfilesResponse: AWSDecodableShape {
-
         /// Value for specifying the next set of paginated results to return.
         public let nextToken: String?
         /// A list of profiles that are available in the AWS account. This includes profiles with the status of CANCELED if the includeCanceled parameter is set to true.
@@ -678,8 +667,8 @@ extension Signer {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case nextToken = "nextToken"
-            case profiles = "profiles"
+            case nextToken
+            case profiles
         }
     }
 
@@ -699,7 +688,6 @@ extension Signer {
     }
 
     public struct ListTagsForResourceResponse: AWSDecodableShape {
-
         /// A list of tags associated with the signing profile.
         public let tags: [String: String]?
 
@@ -708,12 +696,11 @@ extension Signer {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case tags = "tags"
+            case tags
         }
     }
 
     public struct Permission: AWSDecodableShape {
-
         /// An AWS Signer action permitted as part of cross-account permissions.
         public let action: String?
         /// The AWS principal that has been granted a cross-account permission.
@@ -731,10 +718,10 @@ extension Signer {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case action = "action"
-            case principal = "principal"
-            case profileVersion = "profileVersion"
-            case statementId = "statementId"
+            case action
+            case principal
+            case profileVersion
+            case statementId
         }
     }
 
@@ -781,17 +768,16 @@ extension Signer {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case overrides = "overrides"
-            case platformId = "platformId"
-            case signatureValidityPeriod = "signatureValidityPeriod"
-            case signingMaterial = "signingMaterial"
-            case signingParameters = "signingParameters"
-            case tags = "tags"
+            case overrides
+            case platformId
+            case signatureValidityPeriod
+            case signingMaterial
+            case signingParameters
+            case tags
         }
     }
 
     public struct PutSigningProfileResponse: AWSDecodableShape {
-
         /// The Amazon Resource Name (ARN) of the signing profile created.
         public let arn: String?
         /// The version of the signing profile being created.
@@ -806,16 +792,16 @@ extension Signer {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case arn = "arn"
-            case profileVersion = "profileVersion"
-            case profileVersionArn = "profileVersionArn"
+            case arn
+            case profileVersion
+            case profileVersionArn
         }
     }
 
     public struct RemoveProfilePermissionRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "profileName", location: .uri(locationName: "profileName")), 
-            AWSMemberEncoding(label: "revisionId", location: .querystring(locationName: "revisionId")), 
+            AWSMemberEncoding(label: "profileName", location: .uri(locationName: "profileName")),
+            AWSMemberEncoding(label: "revisionId", location: .querystring(locationName: "revisionId")),
             AWSMemberEncoding(label: "statementId", location: .uri(locationName: "statementId"))
         ]
 
@@ -842,7 +828,6 @@ extension Signer {
     }
 
     public struct RemoveProfilePermissionResponse: AWSDecodableShape {
-
         /// An identifier for the current revision of the profile permissions.
         public let revisionId: String?
 
@@ -851,7 +836,7 @@ extension Signer {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case revisionId = "revisionId"
+            case revisionId
         }
     }
 
@@ -882,8 +867,8 @@ extension Signer {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case jobOwner = "jobOwner"
-            case reason = "reason"
+            case jobOwner
+            case reason
         }
     }
 
@@ -920,14 +905,13 @@ extension Signer {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case effectiveTime = "effectiveTime"
-            case profileVersion = "profileVersion"
-            case reason = "reason"
+            case effectiveTime
+            case profileVersion
+            case reason
         }
     }
 
     public struct S3Destination: AWSEncodableShape {
-
         /// Name of the S3 bucket.
         public let bucketName: String?
         /// An Amazon S3 prefix that you can use to limit responses to those that begin with the specified prefix.
@@ -939,13 +923,12 @@ extension Signer {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case bucketName = "bucketName"
-            case prefix = "prefix"
+            case bucketName
+            case prefix
         }
     }
 
     public struct S3SignedObject: AWSDecodableShape {
-
         /// Name of the S3 bucket.
         public let bucketName: String?
         /// Key name that uniquely identifies a signed code image in your bucket.
@@ -957,13 +940,12 @@ extension Signer {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case bucketName = "bucketName"
-            case key = "key"
+            case bucketName
+            case key
         }
     }
 
     public struct S3Source: AWSEncodableShape & AWSDecodableShape {
-
         /// Name of the S3 bucket.
         public let bucketName: String
         /// Key name of the bucket object that contains your unsigned code.
@@ -978,14 +960,13 @@ extension Signer {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case bucketName = "bucketName"
-            case key = "key"
-            case version = "version"
+            case bucketName
+            case key
+            case version
         }
     }
 
     public struct SignatureValidityPeriod: AWSEncodableShape & AWSDecodableShape {
-
         /// The time unit for signature validity.
         public let type: ValidityType?
         /// The numerical value of the time unit for signature validity.
@@ -997,13 +978,12 @@ extension Signer {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case type = "type"
-            case value = "value"
+            case type
+            case value
         }
     }
 
     public struct SignedObject: AWSDecodableShape {
-
         /// The S3SignedObject.
         public let s3: S3SignedObject?
 
@@ -1012,12 +992,11 @@ extension Signer {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case s3 = "s3"
+            case s3
         }
     }
 
     public struct SigningConfiguration: AWSDecodableShape {
-
         /// The encryption algorithm options that are available for a code signing job.
         public let encryptionAlgorithmOptions: EncryptionAlgorithmOptions
         /// The hash algorithm options that are available for a code signing job.
@@ -1029,13 +1008,12 @@ extension Signer {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case encryptionAlgorithmOptions = "encryptionAlgorithmOptions"
-            case hashAlgorithmOptions = "hashAlgorithmOptions"
+            case encryptionAlgorithmOptions
+            case hashAlgorithmOptions
         }
     }
 
     public struct SigningConfigurationOverrides: AWSEncodableShape & AWSDecodableShape {
-
         /// A specified override of the default encryption algorithm that is used in a code signing job.
         public let encryptionAlgorithm: EncryptionAlgorithm?
         /// A specified override of the default hash algorithm that is used in a code signing job.
@@ -1047,13 +1025,12 @@ extension Signer {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case encryptionAlgorithm = "encryptionAlgorithm"
-            case hashAlgorithm = "hashAlgorithm"
+            case encryptionAlgorithm
+            case hashAlgorithm
         }
     }
 
     public struct SigningImageFormat: AWSDecodableShape {
-
         /// The default format of a code signing image.
         public let defaultFormat: ImageFormat
         /// The supported formats of a code signing image.
@@ -1065,13 +1042,12 @@ extension Signer {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case defaultFormat = "defaultFormat"
-            case supportedFormats = "supportedFormats"
+            case defaultFormat
+            case supportedFormats
         }
     }
 
     public struct SigningJob: AWSDecodableShape {
-
         /// The date and time that the signing job was created.
         public let createdAt: Date?
         /// Indicates whether the signing job is revoked.
@@ -1119,25 +1095,24 @@ extension Signer {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case createdAt = "createdAt"
-            case isRevoked = "isRevoked"
-            case jobId = "jobId"
-            case jobInvoker = "jobInvoker"
-            case jobOwner = "jobOwner"
-            case platformDisplayName = "platformDisplayName"
-            case platformId = "platformId"
-            case profileName = "profileName"
-            case profileVersion = "profileVersion"
-            case signatureExpiresAt = "signatureExpiresAt"
-            case signedObject = "signedObject"
-            case signingMaterial = "signingMaterial"
-            case source = "source"
-            case status = "status"
+            case createdAt
+            case isRevoked
+            case jobId
+            case jobInvoker
+            case jobOwner
+            case platformDisplayName
+            case platformId
+            case profileName
+            case profileVersion
+            case signatureExpiresAt
+            case signedObject
+            case signingMaterial
+            case source
+            case status
         }
     }
 
     public struct SigningJobRevocationRecord: AWSDecodableShape {
-
         /// A caller-supplied reason for revocation.
         public let reason: String?
         /// The time of revocation.
@@ -1152,14 +1127,13 @@ extension Signer {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case reason = "reason"
-            case revokedAt = "revokedAt"
-            case revokedBy = "revokedBy"
+            case reason
+            case revokedAt
+            case revokedBy
         }
     }
 
     public struct SigningMaterial: AWSEncodableShape & AWSDecodableShape {
-
         /// The Amazon Resource Name (ARN) of the certificates that is used to sign your code.
         public let certificateArn: String
 
@@ -1168,12 +1142,11 @@ extension Signer {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case certificateArn = "certificateArn"
+            case certificateArn
         }
     }
 
     public struct SigningPlatform: AWSDecodableShape {
-
         /// The category of a code signing platform.
         public let category: Category?
         /// The display name of a code signing platform.
@@ -1205,20 +1178,19 @@ extension Signer {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case category = "category"
-            case displayName = "displayName"
-            case maxSizeInMB = "maxSizeInMB"
-            case partner = "partner"
-            case platformId = "platformId"
-            case revocationSupported = "revocationSupported"
-            case signingConfiguration = "signingConfiguration"
-            case signingImageFormat = "signingImageFormat"
-            case target = "target"
+            case category
+            case displayName
+            case maxSizeInMB
+            case partner
+            case platformId
+            case revocationSupported
+            case signingConfiguration
+            case signingImageFormat
+            case target
         }
     }
 
     public struct SigningPlatformOverrides: AWSEncodableShape & AWSDecodableShape {
-
         /// A signing configuration that overrides the default encryption or hash algorithm of a signing job.
         public let signingConfiguration: SigningConfigurationOverrides?
         /// A signed image is a JSON object. When overriding the default signing platform configuration, a customer can select either of two signing formats, JSONEmbedded or JSONDetached. (A third format value, JSON, is reserved for future use.) With JSONEmbedded, the signing image has the payload embedded in it. With JSONDetached, the payload is not be embedded in the signing image.
@@ -1230,13 +1202,12 @@ extension Signer {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case signingConfiguration = "signingConfiguration"
-            case signingImageFormat = "signingImageFormat"
+            case signingConfiguration
+            case signingImageFormat
         }
     }
 
     public struct SigningProfile: AWSDecodableShape {
-
         /// The Amazon Resource Name (ARN) for the signing profile.
         public let arn: String?
         /// The name of the signing platform.
@@ -1275,22 +1246,21 @@ extension Signer {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case arn = "arn"
-            case platformDisplayName = "platformDisplayName"
-            case platformId = "platformId"
-            case profileName = "profileName"
-            case profileVersion = "profileVersion"
-            case profileVersionArn = "profileVersionArn"
-            case signatureValidityPeriod = "signatureValidityPeriod"
-            case signingMaterial = "signingMaterial"
-            case signingParameters = "signingParameters"
-            case status = "status"
-            case tags = "tags"
+            case arn
+            case platformDisplayName
+            case platformId
+            case profileName
+            case profileVersion
+            case profileVersionArn
+            case signatureValidityPeriod
+            case signingMaterial
+            case signingParameters
+            case status
+            case tags
         }
     }
 
     public struct SigningProfileRevocationRecord: AWSDecodableShape {
-
         /// The time when revocation becomes effective.
         public let revocationEffectiveFrom: Date?
         /// The time when the signing profile was revoked.
@@ -1305,14 +1275,13 @@ extension Signer {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case revocationEffectiveFrom = "revocationEffectiveFrom"
-            case revokedAt = "revokedAt"
-            case revokedBy = "revokedBy"
+            case revocationEffectiveFrom
+            case revokedAt
+            case revokedBy
         }
     }
 
     public struct Source: AWSEncodableShape & AWSDecodableShape {
-
         /// The S3Source object.
         public let s3: S3Source?
 
@@ -1321,12 +1290,11 @@ extension Signer {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case s3 = "s3"
+            case s3
         }
     }
 
     public struct StartSigningJobRequest: AWSEncodableShape {
-
         /// String that identifies the signing request. All calls after the first that use this token return the same response as the first call.
         public let clientRequestToken: String
         /// The S3 bucket in which to save your signed object. The destination contains the name of your bucket and an optional prefix.
@@ -1356,16 +1324,15 @@ extension Signer {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case clientRequestToken = "clientRequestToken"
-            case destination = "destination"
-            case profileName = "profileName"
-            case profileOwner = "profileOwner"
-            case source = "source"
+            case clientRequestToken
+            case destination
+            case profileName
+            case profileOwner
+            case source
         }
     }
 
     public struct StartSigningJobResponse: AWSDecodableShape {
-
         /// The ID of your signing job.
         public let jobId: String?
         /// The AWS account ID of the signing job owner.
@@ -1377,8 +1344,8 @@ extension Signer {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case jobId = "jobId"
-            case jobOwner = "jobOwner"
+            case jobId
+            case jobOwner
         }
     }
 
@@ -1407,21 +1374,17 @@ extension Signer {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case tags = "tags"
+            case tags
         }
     }
 
     public struct TagResourceResponse: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct UntagResourceRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "resourceArn", location: .uri(locationName: "resourceArn")), 
+            AWSMemberEncoding(label: "resourceArn", location: .uri(locationName: "resourceArn")),
             AWSMemberEncoding(label: "tagKeys", location: .querystring(locationName: "tagKeys"))
         ]
 
@@ -1449,10 +1412,6 @@ extension Signer {
     }
 
     public struct UntagResourceResponse: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 }

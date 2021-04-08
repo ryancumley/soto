@@ -72,6 +72,29 @@ extension WorkDocs {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func describeDocumentVersionsPaginator(
+        _ input: DescribeDocumentVersionsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<DescribeDocumentVersionsRequest, DescribeDocumentVersionsResponse> {
+        return .init(
+            input: input,
+            command: describeDocumentVersions,
+            inputKey: \DescribeDocumentVersionsRequest.marker,
+            outputKey: \DescribeDocumentVersionsResponse.marker,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Describes the contents of the specified folder, including its documents and subfolders. By default, Amazon WorkDocs returns the first 100 active document and folder metadata items. If there are more results, the response includes a marker that you can use to request the next set of results. You can also request initialized documents.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -125,6 +148,29 @@ extension WorkDocs {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func describeFolderContentsPaginator(
+        _ input: DescribeFolderContentsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<DescribeFolderContentsRequest, DescribeFolderContentsResponse> {
+        return .init(
+            input: input,
+            command: describeFolderContents,
+            inputKey: \DescribeFolderContentsRequest.marker,
+            outputKey: \DescribeFolderContentsResponse.marker,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Describes the specified users. You can describe all users or filter the results (for example, by status or organization). By default, Amazon WorkDocs returns the first 24 active or pending users. If there are more results, the response includes a marker that you can use to request the next set of results.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -177,6 +223,29 @@ extension WorkDocs {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func describeUsersPaginator(
+        _ input: DescribeUsersRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<DescribeUsersRequest, DescribeUsersResponse> {
+        return .init(
+            input: input,
+            command: describeUsers,
+            inputKey: \DescribeUsersRequest.marker,
+            outputKey: \DescribeUsersResponse.marker,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 }
 
 extension WorkDocs.DescribeDocumentVersionsRequest: AWSPaginateToken {

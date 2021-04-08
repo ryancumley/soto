@@ -68,6 +68,12 @@ public struct ForecastQueryService: AWSService {
     public func queryForecast(_ input: QueryForecastRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<QueryForecastResponse> {
         return self.client.execute(operation: "QueryForecast", path: "/", httpMethod: .POST, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    public func queryForecast(_ input: QueryForecastRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws -> QueryForecastResponse {
+        return try await self.client.execute(operation: "QueryForecast", path: "/", httpMethod: .POST, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
+    }
+    #endif
 }
 
 extension ForecastQueryService {

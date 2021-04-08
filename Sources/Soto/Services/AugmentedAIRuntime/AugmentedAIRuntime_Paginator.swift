@@ -71,6 +71,29 @@ extension AugmentedAIRuntime {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listHumanLoopsPaginator(
+        _ input: ListHumanLoopsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListHumanLoopsRequest, ListHumanLoopsResponse> {
+        return .init(
+            input: input,
+            command: listHumanLoops,
+            inputKey: \ListHumanLoopsRequest.nextToken,
+            outputKey: \ListHumanLoopsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 }
 
 extension AugmentedAIRuntime.ListHumanLoopsRequest: AWSPaginateToken {

@@ -40,10 +40,10 @@ extension CodeArtifact {
     }
 
     public enum PackageFormat: String, CustomStringConvertible, Codable {
-        case maven = "maven"
-        case npm = "npm"
-        case nuget = "nuget"
-        case pypi = "pypi"
+        case maven
+        case npm
+        case nuget
+        case pypi
         public var description: String { return self.rawValue }
     }
 
@@ -75,7 +75,6 @@ extension CodeArtifact {
     // MARK: Shapes
 
     public struct AssetSummary: AWSDecodableShape {
-
         ///  The hashes of the asset.
         public let hashes: [HashAlgorithm: String]?
         ///  The name of the asset.
@@ -90,17 +89,17 @@ extension CodeArtifact {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case hashes = "hashes"
-            case name = "name"
-            case size = "size"
+            case hashes
+            case name
+            case size
         }
     }
 
     public struct AssociateExternalConnectionRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "domain", location: .querystring(locationName: "domain")), 
-            AWSMemberEncoding(label: "domainOwner", location: .querystring(locationName: "domain-owner")), 
-            AWSMemberEncoding(label: "externalConnection", location: .querystring(locationName: "external-connection")), 
+            AWSMemberEncoding(label: "domain", location: .querystring(locationName: "domain")),
+            AWSMemberEncoding(label: "domainOwner", location: .querystring(locationName: "domain-owner")),
+            AWSMemberEncoding(label: "externalConnection", location: .querystring(locationName: "external-connection")),
             AWSMemberEncoding(label: "repository", location: .querystring(locationName: "repository"))
         ]
 
@@ -137,7 +136,6 @@ extension CodeArtifact {
     }
 
     public struct AssociateExternalConnectionResult: AWSDecodableShape {
-
         ///  Information about the connected repository after processing the request.
         public let repository: RepositoryDescription?
 
@@ -146,18 +144,18 @@ extension CodeArtifact {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case repository = "repository"
+            case repository
         }
     }
 
     public struct CopyPackageVersionsRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "destinationRepository", location: .querystring(locationName: "destination-repository")), 
-            AWSMemberEncoding(label: "domain", location: .querystring(locationName: "domain")), 
-            AWSMemberEncoding(label: "domainOwner", location: .querystring(locationName: "domain-owner")), 
-            AWSMemberEncoding(label: "format", location: .querystring(locationName: "format")), 
-            AWSMemberEncoding(label: "namespace", location: .querystring(locationName: "namespace")), 
-            AWSMemberEncoding(label: "package", location: .querystring(locationName: "package")), 
+            AWSMemberEncoding(label: "destinationRepository", location: .querystring(locationName: "destination-repository")),
+            AWSMemberEncoding(label: "domain", location: .querystring(locationName: "domain")),
+            AWSMemberEncoding(label: "domainOwner", location: .querystring(locationName: "domain-owner")),
+            AWSMemberEncoding(label: "format", location: .querystring(locationName: "format")),
+            AWSMemberEncoding(label: "namespace", location: .querystring(locationName: "namespace")),
+            AWSMemberEncoding(label: "package", location: .querystring(locationName: "package")),
             AWSMemberEncoding(label: "sourceRepository", location: .querystring(locationName: "source-repository"))
         ]
 
@@ -234,15 +232,14 @@ extension CodeArtifact {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case allowOverwrite = "allowOverwrite"
-            case includeFromUpstream = "includeFromUpstream"
-            case versionRevisions = "versionRevisions"
-            case versions = "versions"
+            case allowOverwrite
+            case includeFromUpstream
+            case versionRevisions
+            case versions
         }
     }
 
     public struct CopyPackageVersionsResult: AWSDecodableShape {
-
         ///  A map of package versions that failed to copy and their error codes. The possible error codes are in the PackageVersionError data type. They are:     ALREADY_EXISTS     MISMATCHED_REVISION     MISMATCHED_STATUS     NOT_ALLOWED     NOT_FOUND     SKIPPED
         public let failedVersions: [String: PackageVersionError]?
         ///  A list of the package versions that were successfully copied to your repository.
@@ -254,8 +251,8 @@ extension CodeArtifact {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case failedVersions = "failedVersions"
-            case successfulVersions = "successfulVersions"
+            case failedVersions
+            case successfulVersions
         }
     }
 
@@ -292,13 +289,12 @@ extension CodeArtifact {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case encryptionKey = "encryptionKey"
-            case tags = "tags"
+            case encryptionKey
+            case tags
         }
     }
 
     public struct CreateDomainResult: AWSDecodableShape {
-
         ///  Contains information about the created domain after processing the request.
         public let domain: DomainDescription?
 
@@ -307,14 +303,14 @@ extension CodeArtifact {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case domain = "domain"
+            case domain
         }
     }
 
     public struct CreateRepositoryRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "domain", location: .querystring(locationName: "domain")), 
-            AWSMemberEncoding(label: "domainOwner", location: .querystring(locationName: "domain-owner")), 
+            AWSMemberEncoding(label: "domain", location: .querystring(locationName: "domain")),
+            AWSMemberEncoding(label: "domainOwner", location: .querystring(locationName: "domain-owner")),
             AWSMemberEncoding(label: "repository", location: .querystring(locationName: "repository"))
         ]
 
@@ -363,14 +359,13 @@ extension CodeArtifact {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case description = "description"
-            case tags = "tags"
-            case upstreams = "upstreams"
+            case description
+            case tags
+            case upstreams
         }
     }
 
     public struct CreateRepositoryResult: AWSDecodableShape {
-
         ///  Information about the created repository after processing the request.
         public let repository: RepositoryDescription?
 
@@ -379,14 +374,14 @@ extension CodeArtifact {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case repository = "repository"
+            case repository
         }
     }
 
     public struct DeleteDomainPermissionsPolicyRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "domain", location: .querystring(locationName: "domain")), 
-            AWSMemberEncoding(label: "domainOwner", location: .querystring(locationName: "domain-owner")), 
+            AWSMemberEncoding(label: "domain", location: .querystring(locationName: "domain")),
+            AWSMemberEncoding(label: "domainOwner", location: .querystring(locationName: "domain-owner")),
             AWSMemberEncoding(label: "policyRevision", location: .querystring(locationName: "policy-revision"))
         ]
 
@@ -419,7 +414,6 @@ extension CodeArtifact {
     }
 
     public struct DeleteDomainPermissionsPolicyResult: AWSDecodableShape {
-
         ///  Information about the deleted resource policy after processing the request.
         public let policy: ResourcePolicy?
 
@@ -428,13 +422,13 @@ extension CodeArtifact {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case policy = "policy"
+            case policy
         }
     }
 
     public struct DeleteDomainRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "domain", location: .querystring(locationName: "domain")), 
+            AWSMemberEncoding(label: "domain", location: .querystring(locationName: "domain")),
             AWSMemberEncoding(label: "domainOwner", location: .querystring(locationName: "domain-owner"))
         ]
 
@@ -461,7 +455,6 @@ extension CodeArtifact {
     }
 
     public struct DeleteDomainResult: AWSDecodableShape {
-
         ///  Contains information about the deleted domain after processing the request.
         public let domain: DomainDescription?
 
@@ -470,17 +463,17 @@ extension CodeArtifact {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case domain = "domain"
+            case domain
         }
     }
 
     public struct DeletePackageVersionsRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "domain", location: .querystring(locationName: "domain")), 
-            AWSMemberEncoding(label: "domainOwner", location: .querystring(locationName: "domain-owner")), 
-            AWSMemberEncoding(label: "format", location: .querystring(locationName: "format")), 
-            AWSMemberEncoding(label: "namespace", location: .querystring(locationName: "namespace")), 
-            AWSMemberEncoding(label: "package", location: .querystring(locationName: "package")), 
+            AWSMemberEncoding(label: "domain", location: .querystring(locationName: "domain")),
+            AWSMemberEncoding(label: "domainOwner", location: .querystring(locationName: "domain-owner")),
+            AWSMemberEncoding(label: "format", location: .querystring(locationName: "format")),
+            AWSMemberEncoding(label: "namespace", location: .querystring(locationName: "namespace")),
+            AWSMemberEncoding(label: "package", location: .querystring(locationName: "package")),
             AWSMemberEncoding(label: "repository", location: .querystring(locationName: "repository"))
         ]
 
@@ -537,13 +530,12 @@ extension CodeArtifact {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case expectedStatus = "expectedStatus"
-            case versions = "versions"
+            case expectedStatus
+            case versions
         }
     }
 
     public struct DeletePackageVersionsResult: AWSDecodableShape {
-
         ///  A PackageVersionError object that contains a map of errors codes for the deleted package that failed. The possible error codes are:     ALREADY_EXISTS     MISMATCHED_REVISION     MISMATCHED_STATUS     NOT_ALLOWED     NOT_FOUND     SKIPPED
         public let failedVersions: [String: PackageVersionError]?
         ///  A list of the package versions that were successfully deleted.
@@ -555,16 +547,16 @@ extension CodeArtifact {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case failedVersions = "failedVersions"
-            case successfulVersions = "successfulVersions"
+            case failedVersions
+            case successfulVersions
         }
     }
 
     public struct DeleteRepositoryPermissionsPolicyRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "domain", location: .querystring(locationName: "domain")), 
-            AWSMemberEncoding(label: "domainOwner", location: .querystring(locationName: "domain-owner")), 
-            AWSMemberEncoding(label: "policyRevision", location: .querystring(locationName: "policy-revision")), 
+            AWSMemberEncoding(label: "domain", location: .querystring(locationName: "domain")),
+            AWSMemberEncoding(label: "domainOwner", location: .querystring(locationName: "domain-owner")),
+            AWSMemberEncoding(label: "policyRevision", location: .querystring(locationName: "policy-revision")),
             AWSMemberEncoding(label: "repository", location: .querystring(locationName: "repository"))
         ]
 
@@ -603,7 +595,6 @@ extension CodeArtifact {
     }
 
     public struct DeleteRepositoryPermissionsPolicyResult: AWSDecodableShape {
-
         ///  Information about the deleted policy after processing the request.
         public let policy: ResourcePolicy?
 
@@ -612,14 +603,14 @@ extension CodeArtifact {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case policy = "policy"
+            case policy
         }
     }
 
     public struct DeleteRepositoryRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "domain", location: .querystring(locationName: "domain")), 
-            AWSMemberEncoding(label: "domainOwner", location: .querystring(locationName: "domain-owner")), 
+            AWSMemberEncoding(label: "domain", location: .querystring(locationName: "domain")),
+            AWSMemberEncoding(label: "domainOwner", location: .querystring(locationName: "domain-owner")),
             AWSMemberEncoding(label: "repository", location: .querystring(locationName: "repository"))
         ]
 
@@ -652,7 +643,6 @@ extension CodeArtifact {
     }
 
     public struct DeleteRepositoryResult: AWSDecodableShape {
-
         ///  Information about the deleted repository after processing the request.
         public let repository: RepositoryDescription?
 
@@ -661,13 +651,13 @@ extension CodeArtifact {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case repository = "repository"
+            case repository
         }
     }
 
     public struct DescribeDomainRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "domain", location: .querystring(locationName: "domain")), 
+            AWSMemberEncoding(label: "domain", location: .querystring(locationName: "domain")),
             AWSMemberEncoding(label: "domainOwner", location: .querystring(locationName: "domain-owner"))
         ]
 
@@ -694,7 +684,6 @@ extension CodeArtifact {
     }
 
     public struct DescribeDomainResult: AWSDecodableShape {
-
         public let domain: DomainDescription?
 
         public init(domain: DomainDescription? = nil) {
@@ -702,18 +691,18 @@ extension CodeArtifact {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case domain = "domain"
+            case domain
         }
     }
 
     public struct DescribePackageVersionRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "domain", location: .querystring(locationName: "domain")), 
-            AWSMemberEncoding(label: "domainOwner", location: .querystring(locationName: "domain-owner")), 
-            AWSMemberEncoding(label: "format", location: .querystring(locationName: "format")), 
-            AWSMemberEncoding(label: "namespace", location: .querystring(locationName: "namespace")), 
-            AWSMemberEncoding(label: "package", location: .querystring(locationName: "package")), 
-            AWSMemberEncoding(label: "packageVersion", location: .querystring(locationName: "version")), 
+            AWSMemberEncoding(label: "domain", location: .querystring(locationName: "domain")),
+            AWSMemberEncoding(label: "domainOwner", location: .querystring(locationName: "domain-owner")),
+            AWSMemberEncoding(label: "format", location: .querystring(locationName: "format")),
+            AWSMemberEncoding(label: "namespace", location: .querystring(locationName: "namespace")),
+            AWSMemberEncoding(label: "package", location: .querystring(locationName: "package")),
+            AWSMemberEncoding(label: "packageVersion", location: .querystring(locationName: "version")),
             AWSMemberEncoding(label: "repository", location: .querystring(locationName: "repository"))
         ]
 
@@ -767,7 +756,6 @@ extension CodeArtifact {
     }
 
     public struct DescribePackageVersionResult: AWSDecodableShape {
-
         ///  A PackageVersionDescription object that contains information about the requested package version.
         public let packageVersion: PackageVersionDescription
 
@@ -776,14 +764,14 @@ extension CodeArtifact {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case packageVersion = "packageVersion"
+            case packageVersion
         }
     }
 
     public struct DescribeRepositoryRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "domain", location: .querystring(locationName: "domain")), 
-            AWSMemberEncoding(label: "domainOwner", location: .querystring(locationName: "domain-owner")), 
+            AWSMemberEncoding(label: "domain", location: .querystring(locationName: "domain")),
+            AWSMemberEncoding(label: "domainOwner", location: .querystring(locationName: "domain-owner")),
             AWSMemberEncoding(label: "repository", location: .querystring(locationName: "repository"))
         ]
 
@@ -816,7 +804,6 @@ extension CodeArtifact {
     }
 
     public struct DescribeRepositoryResult: AWSDecodableShape {
-
         ///  A RepositoryDescription object that contains the requested repository information.
         public let repository: RepositoryDescription?
 
@@ -825,15 +812,15 @@ extension CodeArtifact {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case repository = "repository"
+            case repository
         }
     }
 
     public struct DisassociateExternalConnectionRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "domain", location: .querystring(locationName: "domain")), 
-            AWSMemberEncoding(label: "domainOwner", location: .querystring(locationName: "domain-owner")), 
-            AWSMemberEncoding(label: "externalConnection", location: .querystring(locationName: "external-connection")), 
+            AWSMemberEncoding(label: "domain", location: .querystring(locationName: "domain")),
+            AWSMemberEncoding(label: "domainOwner", location: .querystring(locationName: "domain-owner")),
+            AWSMemberEncoding(label: "externalConnection", location: .querystring(locationName: "external-connection")),
             AWSMemberEncoding(label: "repository", location: .querystring(locationName: "repository"))
         ]
 
@@ -870,7 +857,6 @@ extension CodeArtifact {
     }
 
     public struct DisassociateExternalConnectionResult: AWSDecodableShape {
-
         ///  The repository associated with the removed external connection.
         public let repository: RepositoryDescription?
 
@@ -879,17 +865,17 @@ extension CodeArtifact {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case repository = "repository"
+            case repository
         }
     }
 
     public struct DisposePackageVersionsRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "domain", location: .querystring(locationName: "domain")), 
-            AWSMemberEncoding(label: "domainOwner", location: .querystring(locationName: "domain-owner")), 
-            AWSMemberEncoding(label: "format", location: .querystring(locationName: "format")), 
-            AWSMemberEncoding(label: "namespace", location: .querystring(locationName: "namespace")), 
-            AWSMemberEncoding(label: "package", location: .querystring(locationName: "package")), 
+            AWSMemberEncoding(label: "domain", location: .querystring(locationName: "domain")),
+            AWSMemberEncoding(label: "domainOwner", location: .querystring(locationName: "domain-owner")),
+            AWSMemberEncoding(label: "format", location: .querystring(locationName: "format")),
+            AWSMemberEncoding(label: "namespace", location: .querystring(locationName: "namespace")),
+            AWSMemberEncoding(label: "package", location: .querystring(locationName: "package")),
             AWSMemberEncoding(label: "repository", location: .querystring(locationName: "repository"))
         ]
 
@@ -957,14 +943,13 @@ extension CodeArtifact {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case expectedStatus = "expectedStatus"
-            case versionRevisions = "versionRevisions"
-            case versions = "versions"
+            case expectedStatus
+            case versionRevisions
+            case versions
         }
     }
 
     public struct DisposePackageVersionsResult: AWSDecodableShape {
-
         ///  A PackageVersionError object that contains a map of errors codes for the disposed package versions that failed. The possible error codes are:     ALREADY_EXISTS     MISMATCHED_REVISION     MISMATCHED_STATUS     NOT_ALLOWED     NOT_FOUND     SKIPPED
         public let failedVersions: [String: PackageVersionError]?
         ///  A list of the package versions that were successfully disposed.
@@ -976,13 +961,12 @@ extension CodeArtifact {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case failedVersions = "failedVersions"
-            case successfulVersions = "successfulVersions"
+            case failedVersions
+            case successfulVersions
         }
     }
 
     public struct DomainDescription: AWSDecodableShape {
-
         ///  The Amazon Resource Name (ARN) of the domain.
         public let arn: String?
         ///  The total size of all assets in the domain.
@@ -1015,20 +999,19 @@ extension CodeArtifact {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case arn = "arn"
-            case assetSizeBytes = "assetSizeBytes"
-            case createdTime = "createdTime"
-            case encryptionKey = "encryptionKey"
-            case name = "name"
-            case owner = "owner"
-            case repositoryCount = "repositoryCount"
-            case s3BucketArn = "s3BucketArn"
-            case status = "status"
+            case arn
+            case assetSizeBytes
+            case createdTime
+            case encryptionKey
+            case name
+            case owner
+            case repositoryCount
+            case s3BucketArn
+            case status
         }
     }
 
     public struct DomainSummary: AWSDecodableShape {
-
         ///  The ARN of the domain.
         public let arn: String?
         ///  A timestamp that contains the date and time the domain was created.
@@ -1052,19 +1035,19 @@ extension CodeArtifact {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case arn = "arn"
-            case createdTime = "createdTime"
-            case encryptionKey = "encryptionKey"
-            case name = "name"
-            case owner = "owner"
-            case status = "status"
+            case arn
+            case createdTime
+            case encryptionKey
+            case name
+            case owner
+            case status
         }
     }
 
     public struct GetAuthorizationTokenRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "domain", location: .querystring(locationName: "domain")), 
-            AWSMemberEncoding(label: "domainOwner", location: .querystring(locationName: "domain-owner")), 
+            AWSMemberEncoding(label: "domain", location: .querystring(locationName: "domain")),
+            AWSMemberEncoding(label: "domainOwner", location: .querystring(locationName: "domain-owner")),
             AWSMemberEncoding(label: "durationSeconds", location: .querystring(locationName: "duration"))
         ]
 
@@ -1096,7 +1079,6 @@ extension CodeArtifact {
     }
 
     public struct GetAuthorizationTokenResult: AWSDecodableShape {
-
         ///  The returned authentication token.
         public let authorizationToken: String?
         ///  A timestamp that specifies the date and time the authorization token expires.
@@ -1108,14 +1090,14 @@ extension CodeArtifact {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case authorizationToken = "authorizationToken"
-            case expiration = "expiration"
+            case authorizationToken
+            case expiration
         }
     }
 
     public struct GetDomainPermissionsPolicyRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "domain", location: .querystring(locationName: "domain")), 
+            AWSMemberEncoding(label: "domain", location: .querystring(locationName: "domain")),
             AWSMemberEncoding(label: "domainOwner", location: .querystring(locationName: "domain-owner"))
         ]
 
@@ -1142,7 +1124,6 @@ extension CodeArtifact {
     }
 
     public struct GetDomainPermissionsPolicyResult: AWSDecodableShape {
-
         ///  The returned resource policy.
         public let policy: ResourcePolicy?
 
@@ -1151,20 +1132,20 @@ extension CodeArtifact {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case policy = "policy"
+            case policy
         }
     }
 
     public struct GetPackageVersionAssetRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "asset", location: .querystring(locationName: "asset")), 
-            AWSMemberEncoding(label: "domain", location: .querystring(locationName: "domain")), 
-            AWSMemberEncoding(label: "domainOwner", location: .querystring(locationName: "domain-owner")), 
-            AWSMemberEncoding(label: "format", location: .querystring(locationName: "format")), 
-            AWSMemberEncoding(label: "namespace", location: .querystring(locationName: "namespace")), 
-            AWSMemberEncoding(label: "package", location: .querystring(locationName: "package")), 
-            AWSMemberEncoding(label: "packageVersion", location: .querystring(locationName: "version")), 
-            AWSMemberEncoding(label: "packageVersionRevision", location: .querystring(locationName: "revision")), 
+            AWSMemberEncoding(label: "asset", location: .querystring(locationName: "asset")),
+            AWSMemberEncoding(label: "domain", location: .querystring(locationName: "domain")),
+            AWSMemberEncoding(label: "domainOwner", location: .querystring(locationName: "domain-owner")),
+            AWSMemberEncoding(label: "format", location: .querystring(locationName: "format")),
+            AWSMemberEncoding(label: "namespace", location: .querystring(locationName: "namespace")),
+            AWSMemberEncoding(label: "package", location: .querystring(locationName: "package")),
+            AWSMemberEncoding(label: "packageVersion", location: .querystring(locationName: "version")),
+            AWSMemberEncoding(label: "packageVersionRevision", location: .querystring(locationName: "revision")),
             AWSMemberEncoding(label: "repository", location: .querystring(locationName: "repository"))
         ]
 
@@ -1234,8 +1215,8 @@ extension CodeArtifact {
         public static let _payloadPath: String = "asset"
         public static let _payloadOptions: AWSShapePayloadOptions = [.raw, .allowStreaming]
         public static var _encoding = [
-            AWSMemberEncoding(label: "assetName", location: .header(locationName: "X-AssetName")), 
-            AWSMemberEncoding(label: "packageVersion", location: .header(locationName: "X-PackageVersion")), 
+            AWSMemberEncoding(label: "assetName", location: .header(locationName: "X-AssetName")),
+            AWSMemberEncoding(label: "packageVersion", location: .header(locationName: "X-PackageVersion")),
             AWSMemberEncoding(label: "packageVersionRevision", location: .header(locationName: "X-PackageVersionRevision"))
         ]
 
@@ -1256,7 +1237,7 @@ extension CodeArtifact {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case asset = "asset"
+            case asset
             case assetName = "X-AssetName"
             case packageVersion = "X-PackageVersion"
             case packageVersionRevision = "X-PackageVersionRevision"
@@ -1265,12 +1246,12 @@ extension CodeArtifact {
 
     public struct GetPackageVersionReadmeRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "domain", location: .querystring(locationName: "domain")), 
-            AWSMemberEncoding(label: "domainOwner", location: .querystring(locationName: "domain-owner")), 
-            AWSMemberEncoding(label: "format", location: .querystring(locationName: "format")), 
-            AWSMemberEncoding(label: "namespace", location: .querystring(locationName: "namespace")), 
-            AWSMemberEncoding(label: "package", location: .querystring(locationName: "package")), 
-            AWSMemberEncoding(label: "packageVersion", location: .querystring(locationName: "version")), 
+            AWSMemberEncoding(label: "domain", location: .querystring(locationName: "domain")),
+            AWSMemberEncoding(label: "domainOwner", location: .querystring(locationName: "domain-owner")),
+            AWSMemberEncoding(label: "format", location: .querystring(locationName: "format")),
+            AWSMemberEncoding(label: "namespace", location: .querystring(locationName: "namespace")),
+            AWSMemberEncoding(label: "package", location: .querystring(locationName: "package")),
+            AWSMemberEncoding(label: "packageVersion", location: .querystring(locationName: "version")),
             AWSMemberEncoding(label: "repository", location: .querystring(locationName: "repository"))
         ]
 
@@ -1324,7 +1305,6 @@ extension CodeArtifact {
     }
 
     public struct GetPackageVersionReadmeResult: AWSDecodableShape {
-
         ///  The format of the package with the requested readme file. Valid format types are:     npm     pypi     maven
         public let format: PackageFormat?
         ///  The namespace of the package. The package component that specifies its namespace depends on its type. For example:     The namespace of a Maven package is its groupId.     The namespace of an npm package is its scope.     A Python package does not contain a corresponding component, so Python packages do not have a namespace.
@@ -1348,20 +1328,20 @@ extension CodeArtifact {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case format = "format"
-            case namespace = "namespace"
-            case package = "package"
-            case readme = "readme"
-            case version = "version"
-            case versionRevision = "versionRevision"
+            case format
+            case namespace
+            case package
+            case readme
+            case version
+            case versionRevision
         }
     }
 
     public struct GetRepositoryEndpointRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "domain", location: .querystring(locationName: "domain")), 
-            AWSMemberEncoding(label: "domainOwner", location: .querystring(locationName: "domain-owner")), 
-            AWSMemberEncoding(label: "format", location: .querystring(locationName: "format")), 
+            AWSMemberEncoding(label: "domain", location: .querystring(locationName: "domain")),
+            AWSMemberEncoding(label: "domainOwner", location: .querystring(locationName: "domain-owner")),
+            AWSMemberEncoding(label: "format", location: .querystring(locationName: "format")),
             AWSMemberEncoding(label: "repository", location: .querystring(locationName: "repository"))
         ]
 
@@ -1397,7 +1377,6 @@ extension CodeArtifact {
     }
 
     public struct GetRepositoryEndpointResult: AWSDecodableShape {
-
         ///  A string that specifies the URL of the returned endpoint.
         public let repositoryEndpoint: String?
 
@@ -1406,14 +1385,14 @@ extension CodeArtifact {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case repositoryEndpoint = "repositoryEndpoint"
+            case repositoryEndpoint
         }
     }
 
     public struct GetRepositoryPermissionsPolicyRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "domain", location: .querystring(locationName: "domain")), 
-            AWSMemberEncoding(label: "domainOwner", location: .querystring(locationName: "domain-owner")), 
+            AWSMemberEncoding(label: "domain", location: .querystring(locationName: "domain")),
+            AWSMemberEncoding(label: "domainOwner", location: .querystring(locationName: "domain-owner")),
             AWSMemberEncoding(label: "repository", location: .querystring(locationName: "repository"))
         ]
 
@@ -1446,7 +1425,6 @@ extension CodeArtifact {
     }
 
     public struct GetRepositoryPermissionsPolicyResult: AWSDecodableShape {
-
         ///  The returned resource policy.
         public let policy: ResourcePolicy?
 
@@ -1455,12 +1433,11 @@ extension CodeArtifact {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case policy = "policy"
+            case policy
         }
     }
 
     public struct LicenseInfo: AWSDecodableShape {
-
         ///  Name of the license.
         public let name: String?
         ///  The URL for license data.
@@ -1472,13 +1449,12 @@ extension CodeArtifact {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case name = "name"
-            case url = "url"
+            case name
+            case url
         }
     }
 
     public struct ListDomainsRequest: AWSEncodableShape {
-
         ///  The maximum number of results to return per page.
         public let maxResults: Int?
         ///  The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
@@ -1498,13 +1474,12 @@ extension CodeArtifact {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case maxResults = "maxResults"
-            case nextToken = "nextToken"
+            case maxResults
+            case nextToken
         }
     }
 
     public struct ListDomainsResult: AWSDecodableShape {
-
         ///  The returned list of DomainSummary objects.
         public let domains: [DomainSummary]?
         ///  The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
@@ -1516,21 +1491,21 @@ extension CodeArtifact {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case domains = "domains"
-            case nextToken = "nextToken"
+            case domains
+            case nextToken
         }
     }
 
     public struct ListPackageVersionAssetsRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "domain", location: .querystring(locationName: "domain")), 
-            AWSMemberEncoding(label: "domainOwner", location: .querystring(locationName: "domain-owner")), 
-            AWSMemberEncoding(label: "format", location: .querystring(locationName: "format")), 
-            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "max-results")), 
-            AWSMemberEncoding(label: "namespace", location: .querystring(locationName: "namespace")), 
-            AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "next-token")), 
-            AWSMemberEncoding(label: "package", location: .querystring(locationName: "package")), 
-            AWSMemberEncoding(label: "packageVersion", location: .querystring(locationName: "version")), 
+            AWSMemberEncoding(label: "domain", location: .querystring(locationName: "domain")),
+            AWSMemberEncoding(label: "domainOwner", location: .querystring(locationName: "domain-owner")),
+            AWSMemberEncoding(label: "format", location: .querystring(locationName: "format")),
+            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "max-results")),
+            AWSMemberEncoding(label: "namespace", location: .querystring(locationName: "namespace")),
+            AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "next-token")),
+            AWSMemberEncoding(label: "package", location: .querystring(locationName: "package")),
+            AWSMemberEncoding(label: "packageVersion", location: .querystring(locationName: "version")),
             AWSMemberEncoding(label: "repository", location: .querystring(locationName: "repository"))
         ]
 
@@ -1595,7 +1570,6 @@ extension CodeArtifact {
     }
 
     public struct ListPackageVersionAssetsResult: AWSDecodableShape {
-
         ///  The returned list of  AssetSummary  objects.
         public let assets: [AssetSummary]?
         ///  The format of the package that contains the returned package version assets.
@@ -1622,25 +1596,25 @@ extension CodeArtifact {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case assets = "assets"
-            case format = "format"
-            case namespace = "namespace"
-            case nextToken = "nextToken"
-            case package = "package"
-            case version = "version"
-            case versionRevision = "versionRevision"
+            case assets
+            case format
+            case namespace
+            case nextToken
+            case package
+            case version
+            case versionRevision
         }
     }
 
     public struct ListPackageVersionDependenciesRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "domain", location: .querystring(locationName: "domain")), 
-            AWSMemberEncoding(label: "domainOwner", location: .querystring(locationName: "domain-owner")), 
-            AWSMemberEncoding(label: "format", location: .querystring(locationName: "format")), 
-            AWSMemberEncoding(label: "namespace", location: .querystring(locationName: "namespace")), 
-            AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "next-token")), 
-            AWSMemberEncoding(label: "package", location: .querystring(locationName: "package")), 
-            AWSMemberEncoding(label: "packageVersion", location: .querystring(locationName: "version")), 
+            AWSMemberEncoding(label: "domain", location: .querystring(locationName: "domain")),
+            AWSMemberEncoding(label: "domainOwner", location: .querystring(locationName: "domain-owner")),
+            AWSMemberEncoding(label: "format", location: .querystring(locationName: "format")),
+            AWSMemberEncoding(label: "namespace", location: .querystring(locationName: "namespace")),
+            AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "next-token")),
+            AWSMemberEncoding(label: "package", location: .querystring(locationName: "package")),
+            AWSMemberEncoding(label: "packageVersion", location: .querystring(locationName: "version")),
             AWSMemberEncoding(label: "repository", location: .querystring(locationName: "repository"))
         ]
 
@@ -1700,7 +1674,6 @@ extension CodeArtifact {
     }
 
     public struct ListPackageVersionDependenciesResult: AWSDecodableShape {
-
         ///  The returned list of  PackageDependency  objects.
         public let dependencies: [PackageDependency]?
         ///  A format that specifies the type of the package that contains the returned dependencies. The valid values are:     npm     pypi     maven
@@ -1727,27 +1700,27 @@ extension CodeArtifact {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case dependencies = "dependencies"
-            case format = "format"
-            case namespace = "namespace"
-            case nextToken = "nextToken"
-            case package = "package"
-            case version = "version"
-            case versionRevision = "versionRevision"
+            case dependencies
+            case format
+            case namespace
+            case nextToken
+            case package
+            case version
+            case versionRevision
         }
     }
 
     public struct ListPackageVersionsRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "domain", location: .querystring(locationName: "domain")), 
-            AWSMemberEncoding(label: "domainOwner", location: .querystring(locationName: "domain-owner")), 
-            AWSMemberEncoding(label: "format", location: .querystring(locationName: "format")), 
-            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "max-results")), 
-            AWSMemberEncoding(label: "namespace", location: .querystring(locationName: "namespace")), 
-            AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "next-token")), 
-            AWSMemberEncoding(label: "package", location: .querystring(locationName: "package")), 
-            AWSMemberEncoding(label: "repository", location: .querystring(locationName: "repository")), 
-            AWSMemberEncoding(label: "sortBy", location: .querystring(locationName: "sortBy")), 
+            AWSMemberEncoding(label: "domain", location: .querystring(locationName: "domain")),
+            AWSMemberEncoding(label: "domainOwner", location: .querystring(locationName: "domain-owner")),
+            AWSMemberEncoding(label: "format", location: .querystring(locationName: "format")),
+            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "max-results")),
+            AWSMemberEncoding(label: "namespace", location: .querystring(locationName: "namespace")),
+            AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "next-token")),
+            AWSMemberEncoding(label: "package", location: .querystring(locationName: "package")),
+            AWSMemberEncoding(label: "repository", location: .querystring(locationName: "repository")),
+            AWSMemberEncoding(label: "sortBy", location: .querystring(locationName: "sortBy")),
             AWSMemberEncoding(label: "status", location: .querystring(locationName: "status"))
         ]
 
@@ -1812,7 +1785,6 @@ extension CodeArtifact {
     }
 
     public struct ListPackageVersionsResult: AWSDecodableShape {
-
         ///  The default package version to display. This depends on the package format:     For Maven and PyPI packages, it's the most recently published package version.     For npm packages, it's the version referenced by the latest tag. If the latest tag is not set, it's the most recently published package version.
         public let defaultDisplayVersion: String?
         ///  A format of the package. Valid package format values are:     npm     pypi     maven
@@ -1836,24 +1808,24 @@ extension CodeArtifact {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case defaultDisplayVersion = "defaultDisplayVersion"
-            case format = "format"
-            case namespace = "namespace"
-            case nextToken = "nextToken"
-            case package = "package"
-            case versions = "versions"
+            case defaultDisplayVersion
+            case format
+            case namespace
+            case nextToken
+            case package
+            case versions
         }
     }
 
     public struct ListPackagesRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "domain", location: .querystring(locationName: "domain")), 
-            AWSMemberEncoding(label: "domainOwner", location: .querystring(locationName: "domain-owner")), 
-            AWSMemberEncoding(label: "format", location: .querystring(locationName: "format")), 
-            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "max-results")), 
-            AWSMemberEncoding(label: "namespace", location: .querystring(locationName: "namespace")), 
-            AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "next-token")), 
-            AWSMemberEncoding(label: "packagePrefix", location: .querystring(locationName: "package-prefix")), 
+            AWSMemberEncoding(label: "domain", location: .querystring(locationName: "domain")),
+            AWSMemberEncoding(label: "domainOwner", location: .querystring(locationName: "domain-owner")),
+            AWSMemberEncoding(label: "format", location: .querystring(locationName: "format")),
+            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "max-results")),
+            AWSMemberEncoding(label: "namespace", location: .querystring(locationName: "namespace")),
+            AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "next-token")),
+            AWSMemberEncoding(label: "packagePrefix", location: .querystring(locationName: "package-prefix")),
             AWSMemberEncoding(label: "repository", location: .querystring(locationName: "repository"))
         ]
 
@@ -1912,7 +1884,6 @@ extension CodeArtifact {
     }
 
     public struct ListPackagesResult: AWSDecodableShape {
-
         ///  If there are additional results, this is the token for the next set of results.
         public let nextToken: String?
         ///  The list of returned  PackageSummary  objects.
@@ -1924,18 +1895,18 @@ extension CodeArtifact {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case nextToken = "nextToken"
-            case packages = "packages"
+            case nextToken
+            case packages
         }
     }
 
     public struct ListRepositoriesInDomainRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "administratorAccount", location: .querystring(locationName: "administrator-account")), 
-            AWSMemberEncoding(label: "domain", location: .querystring(locationName: "domain")), 
-            AWSMemberEncoding(label: "domainOwner", location: .querystring(locationName: "domain-owner")), 
-            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "max-results")), 
-            AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "next-token")), 
+            AWSMemberEncoding(label: "administratorAccount", location: .querystring(locationName: "administrator-account")),
+            AWSMemberEncoding(label: "domain", location: .querystring(locationName: "domain")),
+            AWSMemberEncoding(label: "domainOwner", location: .querystring(locationName: "domain-owner")),
+            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "max-results")),
+            AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "next-token")),
             AWSMemberEncoding(label: "repositoryPrefix", location: .querystring(locationName: "repository-prefix"))
         ]
 
@@ -1985,7 +1956,6 @@ extension CodeArtifact {
     }
 
     public struct ListRepositoriesInDomainResult: AWSDecodableShape {
-
         ///  If there are additional results, this is the token for the next set of results.
         public let nextToken: String?
         ///  The returned list of repositories.
@@ -1997,15 +1967,15 @@ extension CodeArtifact {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case nextToken = "nextToken"
-            case repositories = "repositories"
+            case nextToken
+            case repositories
         }
     }
 
     public struct ListRepositoriesRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "max-results")), 
-            AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "next-token")), 
+            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "max-results")),
+            AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "next-token")),
             AWSMemberEncoding(label: "repositoryPrefix", location: .querystring(locationName: "repository-prefix"))
         ]
 
@@ -2037,7 +2007,6 @@ extension CodeArtifact {
     }
 
     public struct ListRepositoriesResult: AWSDecodableShape {
-
         ///  If there are additional results, this is the token for the next set of results.
         public let nextToken: String?
         ///  The returned list of  RepositorySummary  objects.
@@ -2049,8 +2018,8 @@ extension CodeArtifact {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case nextToken = "nextToken"
-            case repositories = "repositories"
+            case nextToken
+            case repositories
         }
     }
 
@@ -2076,7 +2045,6 @@ extension CodeArtifact {
     }
 
     public struct ListTagsForResourceResult: AWSDecodableShape {
-
         /// A list of tag key and value pairs associated with the specified resource.
         public let tags: [Tag]?
 
@@ -2085,12 +2053,11 @@ extension CodeArtifact {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case tags = "tags"
+            case tags
         }
     }
 
     public struct PackageDependency: AWSDecodableShape {
-
         ///  The type of a package dependency. The possible values depend on the package type. Example types are compile, runtime, and test for Maven packages, and dev, prod, and optional for npm packages.
         public let dependencyType: String?
         ///  The namespace of the package. The package component that specifies its namespace depends on its type. For example:     The namespace of a Maven package is its groupId.     The namespace of an npm package is its scope.     A Python package does not contain a corresponding component, so Python packages do not have a namespace.
@@ -2108,15 +2075,14 @@ extension CodeArtifact {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case dependencyType = "dependencyType"
-            case namespace = "namespace"
-            case package = "package"
-            case versionRequirement = "versionRequirement"
+            case dependencyType
+            case namespace
+            case package
+            case versionRequirement
         }
     }
 
     public struct PackageSummary: AWSDecodableShape {
-
         ///  The format of the package. Valid values are:     npm     pypi     maven
         public let format: PackageFormat?
         ///  The namespace of the package. The package component that specifies its namespace depends on its type. For example:     The namespace of a Maven package is its groupId.     The namespace of an npm package is its scope.     A Python package does not contain a corresponding component, so Python packages do not have a namespace.
@@ -2131,14 +2097,13 @@ extension CodeArtifact {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case format = "format"
-            case namespace = "namespace"
-            case package = "package"
+            case format
+            case namespace
+            case package
         }
     }
 
     public struct PackageVersionDescription: AWSDecodableShape {
-
         ///  The name of the package that is displayed. The displayName varies depending on the package version's format. For example, if an npm package is named ui, is in the namespace vue, and has the format npm, then the displayName is @vue/ui.
         public let displayName: String?
         ///  The format of the package version. The valid package formats are:     npm: A Node Package Manager (npm) package.     pypi: A Python Package Index (PyPI) package.     maven: A Maven package that contains compiled code in a distributable format, such as a JAR file.
@@ -2180,23 +2145,22 @@ extension CodeArtifact {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case displayName = "displayName"
-            case format = "format"
-            case homePage = "homePage"
-            case licenses = "licenses"
-            case namespace = "namespace"
-            case packageName = "packageName"
-            case publishedTime = "publishedTime"
-            case revision = "revision"
-            case sourceCodeRepository = "sourceCodeRepository"
-            case status = "status"
-            case summary = "summary"
-            case version = "version"
+            case displayName
+            case format
+            case homePage
+            case licenses
+            case namespace
+            case packageName
+            case publishedTime
+            case revision
+            case sourceCodeRepository
+            case status
+            case summary
+            case version
         }
     }
 
     public struct PackageVersionError: AWSDecodableShape {
-
         ///  The error code associated with the error. Valid error codes are:     ALREADY_EXISTS     MISMATCHED_REVISION     MISMATCHED_STATUS     NOT_ALLOWED     NOT_FOUND     SKIPPED
         public let errorCode: PackageVersionErrorCode?
         ///  The error message associated with the error.
@@ -2208,13 +2172,12 @@ extension CodeArtifact {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case errorCode = "errorCode"
-            case errorMessage = "errorMessage"
+            case errorCode
+            case errorMessage
         }
     }
 
     public struct PackageVersionSummary: AWSDecodableShape {
-
         ///  The revision associated with a package version.
         public let revision: String?
         ///  A string that contains the status of the package version. It can be one of the following:     Published     Unfinished     Unlisted     Archived     Disposed
@@ -2229,14 +2192,13 @@ extension CodeArtifact {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case revision = "revision"
-            case status = "status"
-            case version = "version"
+            case revision
+            case status
+            case version
         }
     }
 
     public struct PutDomainPermissionsPolicyRequest: AWSEncodableShape {
-
         ///  The name of the domain on which to set the resource policy.
         public let domain: String
         ///  The 12-digit account number of the AWS account that owns the domain. It does not include dashes or spaces.
@@ -2268,15 +2230,14 @@ extension CodeArtifact {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case domain = "domain"
-            case domainOwner = "domainOwner"
-            case policyDocument = "policyDocument"
-            case policyRevision = "policyRevision"
+            case domain
+            case domainOwner
+            case policyDocument
+            case policyRevision
         }
     }
 
     public struct PutDomainPermissionsPolicyResult: AWSDecodableShape {
-
         ///  The resource policy that was set after processing the request.
         public let policy: ResourcePolicy?
 
@@ -2285,14 +2246,14 @@ extension CodeArtifact {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case policy = "policy"
+            case policy
         }
     }
 
     public struct PutRepositoryPermissionsPolicyRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "domain", location: .querystring(locationName: "domain")), 
-            AWSMemberEncoding(label: "domainOwner", location: .querystring(locationName: "domain-owner")), 
+            AWSMemberEncoding(label: "domain", location: .querystring(locationName: "domain")),
+            AWSMemberEncoding(label: "domainOwner", location: .querystring(locationName: "domain-owner")),
             AWSMemberEncoding(label: "repository", location: .querystring(locationName: "repository"))
         ]
 
@@ -2333,13 +2294,12 @@ extension CodeArtifact {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case policyDocument = "policyDocument"
-            case policyRevision = "policyRevision"
+            case policyDocument
+            case policyRevision
         }
     }
 
     public struct PutRepositoryPermissionsPolicyResult: AWSDecodableShape {
-
         ///  The resource policy that was set after processing the request.
         public let policy: ResourcePolicy?
 
@@ -2348,12 +2308,11 @@ extension CodeArtifact {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case policy = "policy"
+            case policy
         }
     }
 
     public struct RepositoryDescription: AWSDecodableShape {
-
         ///  The 12-digit account number of the AWS account that manages the repository.
         public let administratorAccount: String?
         ///  The Amazon Resource Name (ARN) of the repository.
@@ -2383,19 +2342,18 @@ extension CodeArtifact {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case administratorAccount = "administratorAccount"
-            case arn = "arn"
-            case description = "description"
-            case domainName = "domainName"
-            case domainOwner = "domainOwner"
-            case externalConnections = "externalConnections"
-            case name = "name"
-            case upstreams = "upstreams"
+            case administratorAccount
+            case arn
+            case description
+            case domainName
+            case domainOwner
+            case externalConnections
+            case name
+            case upstreams
         }
     }
 
     public struct RepositoryExternalConnectionInfo: AWSDecodableShape {
-
         ///  The name of the external connection associated with a repository.
         public let externalConnectionName: String?
         ///  The package format associated with a repository's external connection. The valid package formats are:     npm: A Node Package Manager (npm) package.     pypi: A Python Package Index (PyPI) package.     maven: A Maven package that contains compiled code in a distributable format, such as a JAR file.
@@ -2410,14 +2368,13 @@ extension CodeArtifact {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case externalConnectionName = "externalConnectionName"
-            case packageFormat = "packageFormat"
-            case status = "status"
+            case externalConnectionName
+            case packageFormat
+            case status
         }
     }
 
     public struct RepositorySummary: AWSDecodableShape {
-
         ///  The AWS account ID that manages the repository.
         public let administratorAccount: String?
         ///  The ARN of the repository.
@@ -2441,17 +2398,16 @@ extension CodeArtifact {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case administratorAccount = "administratorAccount"
-            case arn = "arn"
-            case description = "description"
-            case domainName = "domainName"
-            case domainOwner = "domainOwner"
-            case name = "name"
+            case administratorAccount
+            case arn
+            case description
+            case domainName
+            case domainOwner
+            case name
         }
     }
 
     public struct ResourcePolicy: AWSDecodableShape {
-
         ///  The resource policy formatted in JSON.
         public let document: String?
         ///  The ARN of the resource associated with the resource policy
@@ -2466,14 +2422,13 @@ extension CodeArtifact {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case document = "document"
-            case resourceArn = "resourceArn"
-            case revision = "revision"
+            case document
+            case resourceArn
+            case revision
         }
     }
 
     public struct SuccessfulPackageVersionInfo: AWSDecodableShape {
-
         ///  The revision of a package version.
         public let revision: String?
         ///  The status of a package version. Valid statuses are:     Published     Unfinished     Unlisted     Archived     Disposed
@@ -2485,13 +2440,12 @@ extension CodeArtifact {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case revision = "revision"
-            case status = "status"
+            case revision
+            case status
         }
     }
 
     public struct Tag: AWSEncodableShape & AWSDecodableShape {
-
         /// The tag key.
         public let key: String
         /// The tag value.
@@ -2510,8 +2464,8 @@ extension CodeArtifact {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case key = "key"
-            case value = "value"
+            case key
+            case value
         }
     }
 
@@ -2542,16 +2496,12 @@ extension CodeArtifact {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case tags = "tags"
+            case tags
         }
     }
 
     public struct TagResourceResult: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct UntagResourceRequest: AWSEncodableShape {
@@ -2582,25 +2532,21 @@ extension CodeArtifact {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case tagKeys = "tagKeys"
+            case tagKeys
         }
     }
 
     public struct UntagResourceResult: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct UpdatePackageVersionsStatusRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "domain", location: .querystring(locationName: "domain")), 
-            AWSMemberEncoding(label: "domainOwner", location: .querystring(locationName: "domain-owner")), 
-            AWSMemberEncoding(label: "format", location: .querystring(locationName: "format")), 
-            AWSMemberEncoding(label: "namespace", location: .querystring(locationName: "namespace")), 
-            AWSMemberEncoding(label: "package", location: .querystring(locationName: "package")), 
+            AWSMemberEncoding(label: "domain", location: .querystring(locationName: "domain")),
+            AWSMemberEncoding(label: "domainOwner", location: .querystring(locationName: "domain-owner")),
+            AWSMemberEncoding(label: "format", location: .querystring(locationName: "format")),
+            AWSMemberEncoding(label: "namespace", location: .querystring(locationName: "namespace")),
+            AWSMemberEncoding(label: "package", location: .querystring(locationName: "package")),
             AWSMemberEncoding(label: "repository", location: .querystring(locationName: "repository"))
         ]
 
@@ -2671,15 +2617,14 @@ extension CodeArtifact {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case expectedStatus = "expectedStatus"
-            case targetStatus = "targetStatus"
-            case versionRevisions = "versionRevisions"
-            case versions = "versions"
+            case expectedStatus
+            case targetStatus
+            case versionRevisions
+            case versions
         }
     }
 
     public struct UpdatePackageVersionsStatusResult: AWSDecodableShape {
-
         ///  A list of SuccessfulPackageVersionInfo objects, one for each package version with a status that successfully updated.
         public let failedVersions: [String: PackageVersionError]?
         ///  A list of PackageVersionError objects, one for each package version with a status that failed to update.
@@ -2691,15 +2636,15 @@ extension CodeArtifact {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case failedVersions = "failedVersions"
-            case successfulVersions = "successfulVersions"
+            case failedVersions
+            case successfulVersions
         }
     }
 
     public struct UpdateRepositoryRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "domain", location: .querystring(locationName: "domain")), 
-            AWSMemberEncoding(label: "domainOwner", location: .querystring(locationName: "domain-owner")), 
+            AWSMemberEncoding(label: "domain", location: .querystring(locationName: "domain")),
+            AWSMemberEncoding(label: "domainOwner", location: .querystring(locationName: "domain-owner")),
             AWSMemberEncoding(label: "repository", location: .querystring(locationName: "repository"))
         ]
 
@@ -2740,13 +2685,12 @@ extension CodeArtifact {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case description = "description"
-            case upstreams = "upstreams"
+            case description
+            case upstreams
         }
     }
 
     public struct UpdateRepositoryResult: AWSDecodableShape {
-
         ///  The updated repository.
         public let repository: RepositoryDescription?
 
@@ -2755,12 +2699,11 @@ extension CodeArtifact {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case repository = "repository"
+            case repository
         }
     }
 
     public struct UpstreamRepository: AWSEncodableShape {
-
         ///  The name of an upstream repository.
         public let repositoryName: String
 
@@ -2775,12 +2718,11 @@ extension CodeArtifact {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case repositoryName = "repositoryName"
+            case repositoryName
         }
     }
 
     public struct UpstreamRepositoryInfo: AWSDecodableShape {
-
         ///  The name of an upstream repository.
         public let repositoryName: String?
 
@@ -2789,7 +2731,7 @@ extension CodeArtifact {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case repositoryName = "repositoryName"
+            case repositoryName
         }
     }
 }

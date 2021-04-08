@@ -82,7 +82,6 @@ extension LookoutMetrics {
     // MARK: Shapes
 
     public struct Action: AWSEncodableShape & AWSDecodableShape {
-
         /// A configuration for an AWS Lambda channel.
         public let lambdaConfiguration: LambdaConfiguration?
         /// A configuration for an Amazon SNS channel.
@@ -105,7 +104,6 @@ extension LookoutMetrics {
     }
 
     public struct ActivateAnomalyDetectorRequest: AWSEncodableShape {
-
         /// The ARN of the anomaly detector.
         public let anomalyDetectorArn: String
 
@@ -124,15 +122,10 @@ extension LookoutMetrics {
     }
 
     public struct ActivateAnomalyDetectorResponse: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct Alert: AWSDecodableShape {
-
         /// Action that will be triggered when there is an alert.
         public let action: Action?
         /// The ARN of the alert.
@@ -182,7 +175,6 @@ extension LookoutMetrics {
     }
 
     public struct AlertSummary: AWSDecodableShape {
-
         /// The ARN of the alert.
         public let alertArn: String?
         /// The name of the alert.
@@ -228,7 +220,6 @@ extension LookoutMetrics {
     }
 
     public struct AnomalyDetectorConfig: AWSEncodableShape {
-
         /// The frequency at which the detector analyzes its source data.
         public let anomalyDetectorFrequency: Frequency?
 
@@ -242,7 +233,6 @@ extension LookoutMetrics {
     }
 
     public struct AnomalyDetectorConfigSummary: AWSDecodableShape {
-
         /// The interval at which the detector analyzes its source data.
         public let anomalyDetectorFrequency: Frequency?
 
@@ -256,7 +246,6 @@ extension LookoutMetrics {
     }
 
     public struct AnomalyDetectorSummary: AWSDecodableShape {
-
         /// The ARN of the detector.
         public let anomalyDetectorArn: String?
         /// A description of the detector.
@@ -294,7 +283,6 @@ extension LookoutMetrics {
     }
 
     public struct AnomalyGroup: AWSDecodableShape {
-
         /// The ID of the anomaly group.
         public let anomalyGroupId: String?
         /// The severity score of the group.
@@ -328,7 +316,6 @@ extension LookoutMetrics {
     }
 
     public struct AnomalyGroupStatistics: AWSDecodableShape {
-
         /// The start of the time range that was searched.
         public let evaluationStartDate: String?
         /// Statistics for individual metrics within the group.
@@ -350,7 +337,6 @@ extension LookoutMetrics {
     }
 
     public struct AnomalyGroupSummary: AWSDecodableShape {
-
         /// The ID of the anomaly group.
         public let anomalyGroupId: String?
         /// The severity score of the group.
@@ -380,7 +366,6 @@ extension LookoutMetrics {
     }
 
     public struct AnomalyGroupTimeSeries: AWSEncodableShape {
-
         /// The ID of the anomaly group.
         public let anomalyGroupId: String
         /// The ID of the metric.
@@ -405,7 +390,6 @@ extension LookoutMetrics {
     }
 
     public struct AnomalyGroupTimeSeriesFeedback: AWSEncodableShape {
-
         /// The ID of the anomaly group.
         public let anomalyGroupId: String
         /// Feedback on whether the metric is a legitimate anomaly.
@@ -434,7 +418,6 @@ extension LookoutMetrics {
     }
 
     public struct AppFlowConfig: AWSEncodableShape & AWSDecodableShape {
-
         /// The name of the flow.
         public let flowName: String
         /// An IAM role that gives Amazon Lookout for Metrics permission to access the flow.
@@ -459,7 +442,6 @@ extension LookoutMetrics {
     }
 
     public struct BackTestAnomalyDetectorRequest: AWSEncodableShape {
-
         /// The Amazon Resource Name (ARN) of the anomaly detector.
         public let anomalyDetectorArn: String
 
@@ -478,15 +460,10 @@ extension LookoutMetrics {
     }
 
     public struct BackTestAnomalyDetectorResponse: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct CloudWatchConfig: AWSEncodableShape & AWSDecodableShape {
-
         /// An IAM role that gives Amazon Lookout for Metrics permission to access data in Amazon CloudWatch.
         public let roleArn: String
 
@@ -505,7 +482,6 @@ extension LookoutMetrics {
     }
 
     public struct ContributionMatrix: AWSDecodableShape {
-
         /// A list of contributing dimensions.
         public let dimensionContributionList: [DimensionContribution]?
 
@@ -519,7 +495,6 @@ extension LookoutMetrics {
     }
 
     public struct CreateAlertRequest: AWSEncodableShape {
-
         /// Action that will be triggered when there is an alert.
         public let action: Action
         /// A description of the alert.
@@ -571,7 +546,6 @@ extension LookoutMetrics {
     }
 
     public struct CreateAlertResponse: AWSDecodableShape {
-
         /// The ARN of the alert.
         public let alertArn: String?
 
@@ -585,7 +559,6 @@ extension LookoutMetrics {
     }
 
     public struct CreateAnomalyDetectorRequest: AWSEncodableShape {
-
         /// Contains information about the configuration of the anomaly detector.
         public let anomalyDetectorConfig: AnomalyDetectorConfig
         /// A description of the detector.
@@ -632,7 +605,6 @@ extension LookoutMetrics {
     }
 
     public struct CreateAnomalyDetectorResponse: AWSDecodableShape {
-
         /// The ARN of the detector.
         public let anomalyDetectorArn: String?
 
@@ -646,7 +618,6 @@ extension LookoutMetrics {
     }
 
     public struct CreateMetricSetRequest: AWSEncodableShape {
-
         /// The ARN of the anomaly detector that will use the dataset.
         public let anomalyDetectorArn: String
         /// A list of the fields you want to treat as dimensions.
@@ -704,7 +675,7 @@ extension LookoutMetrics {
             try self.validate(self.metricSetName, name: "metricSetName", parent: name, min: 1)
             try self.validate(self.metricSetName, name: "metricSetName", parent: name, pattern: "^[a-zA-Z0-9][a-zA-Z0-9\\-_]*")
             try self.metricSource.validate(name: "\(name).metricSource")
-            try self.validate(self.offset, name: "offset", parent: name, max: 432000)
+            try self.validate(self.offset, name: "offset", parent: name, max: 432_000)
             try self.validate(self.offset, name: "offset", parent: name, min: 0)
             try self.tags?.forEach {
                 try validate($0.key, name: "tags.key", parent: name, max: 128)
@@ -732,7 +703,6 @@ extension LookoutMetrics {
     }
 
     public struct CreateMetricSetResponse: AWSDecodableShape {
-
         /// The ARN of the dataset.
         public let metricSetArn: String?
 
@@ -746,7 +716,6 @@ extension LookoutMetrics {
     }
 
     public struct CsvFormatDescriptor: AWSEncodableShape & AWSDecodableShape {
-
         /// The character set in which the source CSV file is written.
         public let charset: String?
         /// Whether or not the source CSV file contains a header.
@@ -794,7 +763,6 @@ extension LookoutMetrics {
     }
 
     public struct DeleteAlertRequest: AWSEncodableShape {
-
         /// The ARN of the alert to delete.
         public let alertArn: String
 
@@ -813,15 +781,10 @@ extension LookoutMetrics {
     }
 
     public struct DeleteAlertResponse: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct DeleteAnomalyDetectorRequest: AWSEncodableShape {
-
         /// The ARN of the detector to delete.
         public let anomalyDetectorArn: String
 
@@ -840,15 +803,10 @@ extension LookoutMetrics {
     }
 
     public struct DeleteAnomalyDetectorResponse: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct DescribeAlertRequest: AWSEncodableShape {
-
         /// The ARN of the alert to describe.
         public let alertArn: String
 
@@ -867,7 +825,6 @@ extension LookoutMetrics {
     }
 
     public struct DescribeAlertResponse: AWSDecodableShape {
-
         /// Contains information about an alert.
         public let alert: Alert?
 
@@ -881,7 +838,6 @@ extension LookoutMetrics {
     }
 
     public struct DescribeAnomalyDetectionExecutionsRequest: AWSEncodableShape {
-
         /// The Amazon Resource Name (ARN) of the anomaly detector.
         public let anomalyDetectorArn: String
         /// The number of items to return in the response.
@@ -919,7 +875,6 @@ extension LookoutMetrics {
     }
 
     public struct DescribeAnomalyDetectionExecutionsResponse: AWSDecodableShape {
-
         /// A list of detection jobs.
         public let executionList: [ExecutionStatus]?
         /// The pagination token that's included if more results are available.
@@ -937,7 +892,6 @@ extension LookoutMetrics {
     }
 
     public struct DescribeAnomalyDetectorRequest: AWSEncodableShape {
-
         /// The ARN of the detector to describe.
         public let anomalyDetectorArn: String
 
@@ -956,7 +910,6 @@ extension LookoutMetrics {
     }
 
     public struct DescribeAnomalyDetectorResponse: AWSDecodableShape {
-
         /// The ARN of the detector.
         public let anomalyDetectorArn: String?
         /// Contains information about the detector's configuration.
@@ -1002,7 +955,6 @@ extension LookoutMetrics {
     }
 
     public struct DescribeMetricSetRequest: AWSEncodableShape {
-
         /// The ARN of the dataset.
         public let metricSetArn: String
 
@@ -1021,7 +973,6 @@ extension LookoutMetrics {
     }
 
     public struct DescribeMetricSetResponse: AWSDecodableShape {
-
         /// The ARN of the detector that contains the dataset.
         public let anomalyDetectorArn: String?
         /// The time at which the dataset was created.
@@ -1083,7 +1034,6 @@ extension LookoutMetrics {
     }
 
     public struct DimensionContribution: AWSDecodableShape {
-
         /// The name of the dimension.
         public let dimensionName: String?
         /// A list of dimension values that contributed to the anomaly.
@@ -1101,7 +1051,6 @@ extension LookoutMetrics {
     }
 
     public struct DimensionNameValue: AWSDecodableShape {
-
         /// The name of the dimension.
         public let dimensionName: String
         /// The value of the dimension.
@@ -1119,7 +1068,6 @@ extension LookoutMetrics {
     }
 
     public struct DimensionValueContribution: AWSDecodableShape {
-
         /// The severity score of the value.
         public let contributionScore: Double?
         /// The value of the dimension.
@@ -1137,7 +1085,6 @@ extension LookoutMetrics {
     }
 
     public struct ExecutionStatus: AWSDecodableShape {
-
         /// The reason that the run failed, if applicable.
         public let failureReason: String?
         /// The run's status.
@@ -1159,7 +1106,6 @@ extension LookoutMetrics {
     }
 
     public struct FileFormatDescriptor: AWSEncodableShape & AWSDecodableShape {
-
         /// Contains information about how a source CSV data file should be analyzed.
         public let csvFormatDescriptor: CsvFormatDescriptor?
         /// Contains information about how a source JSON data file should be analyzed.
@@ -1182,7 +1128,6 @@ extension LookoutMetrics {
     }
 
     public struct GetAnomalyGroupRequest: AWSEncodableShape {
-
         /// The Amazon Resource Name (ARN) of the anomaly detector.
         public let anomalyDetectorArn: String
         /// The ID of the anomaly group.
@@ -1207,7 +1152,6 @@ extension LookoutMetrics {
     }
 
     public struct GetAnomalyGroupResponse: AWSDecodableShape {
-
         /// Details about the anomaly group.
         public let anomalyGroup: AnomalyGroup?
 
@@ -1221,7 +1165,6 @@ extension LookoutMetrics {
     }
 
     public struct GetFeedbackRequest: AWSEncodableShape {
-
         /// The Amazon Resource Name (ARN) of the anomaly detector.
         public let anomalyDetectorArn: String
         /// The anomalous metric and group ID.
@@ -1258,7 +1201,6 @@ extension LookoutMetrics {
     }
 
     public struct GetFeedbackResponse: AWSDecodableShape {
-
         /// Feedback for an anomalous metric.
         public let anomalyGroupTimeSeriesFeedback: [TimeSeriesFeedback]?
         /// The pagination token that's included if more results are available.
@@ -1276,7 +1218,6 @@ extension LookoutMetrics {
     }
 
     public struct GetSampleDataRequest: AWSEncodableShape {
-
         /// A datasource bucket in Amazon S3.
         public let s3SourceConfig: SampleDataS3SourceConfig?
 
@@ -1294,7 +1235,6 @@ extension LookoutMetrics {
     }
 
     public struct GetSampleDataResponse: AWSDecodableShape {
-
         /// A list of header labels for the records.
         public let headerValues: [String]?
         /// A list of records.
@@ -1312,7 +1252,6 @@ extension LookoutMetrics {
     }
 
     public struct ItemizedMetricStats: AWSDecodableShape {
-
         /// The name of the measure.
         public let metricName: String?
         /// The number of times that the measure appears.
@@ -1330,7 +1269,6 @@ extension LookoutMetrics {
     }
 
     public struct JsonFormatDescriptor: AWSEncodableShape & AWSDecodableShape {
-
         /// The character set in which the source JSON file is written.
         public let charset: String?
         /// The level of compression of the source CSV file.
@@ -1353,7 +1291,6 @@ extension LookoutMetrics {
     }
 
     public struct LambdaConfiguration: AWSEncodableShape & AWSDecodableShape {
-
         /// The ARN of the Lambda function.
         public let lambdaArn: String
         /// The ARN of an IAM role that has permission to invoke the Lambda function.
@@ -1378,7 +1315,6 @@ extension LookoutMetrics {
     }
 
     public struct ListAlertsRequest: AWSEncodableShape {
-
         /// The ARN of the alert's detector.
         public let anomalyDetectorArn: String?
         /// The maximum number of results that will be displayed by the request.
@@ -1410,7 +1346,6 @@ extension LookoutMetrics {
     }
 
     public struct ListAlertsResponse: AWSDecodableShape {
-
         /// Contains information about an alert.
         public let alertSummaryList: [AlertSummary]?
         /// If the response is truncated, the service returns this token. To retrieve the next set of results, use this token in the next request.
@@ -1428,7 +1363,6 @@ extension LookoutMetrics {
     }
 
     public struct ListAnomalyDetectorsRequest: AWSEncodableShape {
-
         /// The maximum number of results to return.
         public let maxResults: Int?
         /// If the result of the previous request was truncated, the response includes a NextToken. To retrieve the next set of results, use the token in the next request. Tokens expire after 24 hours.
@@ -1454,7 +1388,6 @@ extension LookoutMetrics {
     }
 
     public struct ListAnomalyDetectorsResponse: AWSDecodableShape {
-
         /// A list of anomaly detectors in the account in the current region.
         public let anomalyDetectorSummaryList: [AnomalyDetectorSummary]?
         /// If the response is truncated, the service returns this token. To retrieve the next set of results, use the token in the next request.
@@ -1472,7 +1405,6 @@ extension LookoutMetrics {
     }
 
     public struct ListAnomalyGroupSummariesRequest: AWSEncodableShape {
-
         /// The Amazon Resource Name (ARN) of the anomaly detector.
         public let anomalyDetectorArn: String
         /// The maximum number of results to return.
@@ -1510,7 +1442,6 @@ extension LookoutMetrics {
     }
 
     public struct ListAnomalyGroupSummariesResponse: AWSDecodableShape {
-
         /// Aggregated details about the anomaly groups.
         public let anomalyGroupStatistics: AnomalyGroupStatistics?
         /// A list of anomaly group summaries.
@@ -1532,7 +1463,6 @@ extension LookoutMetrics {
     }
 
     public struct ListAnomalyGroupTimeSeriesRequest: AWSEncodableShape {
-
         /// The Amazon Resource Name (ARN) of the anomaly detector.
         public let anomalyDetectorArn: String
         /// The ID of the anomaly group.
@@ -1576,7 +1506,6 @@ extension LookoutMetrics {
     }
 
     public struct ListAnomalyGroupTimeSeriesResponse: AWSDecodableShape {
-
         /// The ID of the anomaly group.
         public let anomalyGroupId: String?
         /// The name of the measure field.
@@ -1606,7 +1535,6 @@ extension LookoutMetrics {
     }
 
     public struct ListMetricSetsRequest: AWSEncodableShape {
-
         /// The ARN of the anomaly detector containing the metrics sets to list.
         public let anomalyDetectorArn: String?
         /// The maximum number of results to return.
@@ -1638,7 +1566,6 @@ extension LookoutMetrics {
     }
 
     public struct ListMetricSetsResponse: AWSDecodableShape {
-
         /// A list of the datasets in the AWS Region, with configuration details for each.
         public let metricSetSummaryList: [MetricSetSummary]?
         /// If the response is truncated, the list call returns this token. To retrieve the next set of results, use the token in the next list request.
@@ -1676,7 +1603,6 @@ extension LookoutMetrics {
     }
 
     public struct ListTagsForResourceResponse: AWSDecodableShape {
-
         /// The resource's tags.
         public let tags: [String: String]?
 
@@ -1690,7 +1616,6 @@ extension LookoutMetrics {
     }
 
     public struct Metric: AWSEncodableShape & AWSDecodableShape {
-
         /// The function with which the metric is calculated.
         public let aggregationFunction: AggregationFunction
         /// The name of the metric.
@@ -1721,7 +1646,6 @@ extension LookoutMetrics {
     }
 
     public struct MetricLevelImpact: AWSDecodableShape {
-
         /// Details about the dimensions that contributed to the anomaly.
         public let contributionMatrix: ContributionMatrix?
         /// The name of the measure.
@@ -1743,7 +1667,6 @@ extension LookoutMetrics {
     }
 
     public struct MetricSetSummary: AWSDecodableShape {
-
         /// The ARN of the detector to which the dataset belongs.
         public let anomalyDetectorArn: String?
         /// The time at which the dataset was created.
@@ -1781,7 +1704,6 @@ extension LookoutMetrics {
     }
 
     public struct MetricSource: AWSEncodableShape & AWSDecodableShape {
-
         /// An object containing information about the AppFlow configuration.
         public let appFlowConfig: AppFlowConfig?
         /// An object containing information about the Amazon CloudWatch monitoring configuration.
@@ -1818,7 +1740,6 @@ extension LookoutMetrics {
     }
 
     public struct PutFeedbackRequest: AWSEncodableShape {
-
         /// The Amazon Resource Name (ARN) of the anomaly detector.
         public let anomalyDetectorArn: String
         /// Feedback for an anomalous metric.
@@ -1842,15 +1763,10 @@ extension LookoutMetrics {
     }
 
     public struct PutFeedbackResponse: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct RDSSourceConfig: AWSEncodableShape & AWSDecodableShape {
-
         /// The host name of the database.
         public let databaseHost: String
         /// The name of the RDS database.
@@ -1914,7 +1830,6 @@ extension LookoutMetrics {
     }
 
     public struct RedshiftSourceConfig: AWSEncodableShape & AWSDecodableShape {
-
         /// A string identifying the Redshift cluster.
         public let clusterIdentifier: String
         /// The name of the database host.
@@ -1978,7 +1893,6 @@ extension LookoutMetrics {
     }
 
     public struct S3SourceConfig: AWSEncodableShape & AWSDecodableShape {
-
         /// Contains information about a source file's formatting.
         public let fileFormatDescriptor: FileFormatDescriptor?
         /// A list of paths to the historical data files.
@@ -2022,7 +1936,6 @@ extension LookoutMetrics {
     }
 
     public struct SNSConfiguration: AWSEncodableShape & AWSDecodableShape {
-
         /// THe ARN of the IAM role that has access to the target SNS topic.
         public let roleArn: String
         /// The ARN of the target SNS topic.
@@ -2047,7 +1960,6 @@ extension LookoutMetrics {
     }
 
     public struct SampleDataS3SourceConfig: AWSEncodableShape {
-
         public let fileFormatDescriptor: FileFormatDescriptor
         /// An array of strings containing the historical set of data paths.
         public let historicalDataPathList: [String]?
@@ -2115,20 +2027,15 @@ extension LookoutMetrics {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case tags = "tags"
+            case tags
         }
     }
 
     public struct TagResourceResponse: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct TimeSeries: AWSDecodableShape {
-
         /// The dimensions of the metric.
         public let dimensionList: [DimensionNameValue]
         /// The values for the metric.
@@ -2150,7 +2057,6 @@ extension LookoutMetrics {
     }
 
     public struct TimeSeriesFeedback: AWSDecodableShape {
-
         /// Feedback on whether the metric is a legitimate anomaly.
         public let isAnomaly: Bool?
         /// The ID of the metric.
@@ -2168,7 +2074,6 @@ extension LookoutMetrics {
     }
 
     public struct TimestampColumn: AWSEncodableShape & AWSDecodableShape {
-
         /// The format of the timestamp column.
         public let columnFormat: String?
         /// The name of the timestamp column.
@@ -2195,7 +2100,7 @@ extension LookoutMetrics {
 
     public struct UntagResourceRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "resourceArn", location: .uri(locationName: "resourceArn")), 
+            AWSMemberEncoding(label: "resourceArn", location: .uri(locationName: "resourceArn")),
             AWSMemberEncoding(label: "tagKeys", location: .querystring(locationName: "tagKeys"))
         ]
 
@@ -2224,15 +2129,10 @@ extension LookoutMetrics {
     }
 
     public struct UntagResourceResponse: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct UpdateAnomalyDetectorRequest: AWSEncodableShape {
-
         /// The ARN of the detector to update.
         public let anomalyDetectorArn: String
         /// Contains information about the configuration to which the detector will be updated.
@@ -2269,7 +2169,6 @@ extension LookoutMetrics {
     }
 
     public struct UpdateAnomalyDetectorResponse: AWSDecodableShape {
-
         /// The ARN of the updated detector.
         public let anomalyDetectorArn: String?
 
@@ -2283,7 +2182,6 @@ extension LookoutMetrics {
     }
 
     public struct UpdateMetricSetRequest: AWSEncodableShape {
-
         /// The dimension list.
         public let dimensionList: [String]?
         /// The metric list.
@@ -2328,7 +2226,7 @@ extension LookoutMetrics {
             try self.validate(self.metricSetDescription, name: "metricSetDescription", parent: name, min: 1)
             try self.validate(self.metricSetDescription, name: "metricSetDescription", parent: name, pattern: ".*\\S.*")
             try self.metricSource?.validate(name: "\(name).metricSource")
-            try self.validate(self.offset, name: "offset", parent: name, max: 432000)
+            try self.validate(self.offset, name: "offset", parent: name, max: 432_000)
             try self.validate(self.offset, name: "offset", parent: name, min: 0)
             try self.timestampColumn?.validate(name: "\(name).timestampColumn")
         }
@@ -2346,7 +2244,6 @@ extension LookoutMetrics {
     }
 
     public struct UpdateMetricSetResponse: AWSDecodableShape {
-
         /// The ARN of the dataset.
         public let metricSetArn: String?
 
@@ -2360,7 +2257,6 @@ extension LookoutMetrics {
     }
 
     public struct VpcConfiguration: AWSEncodableShape & AWSDecodableShape {
-
         /// An array of strings containing the list of security groups.
         public let securityGroupIdList: [String]
         /// An array of strings containing the Amazon VPC subnet IDs (e.g., subnet-0bb1c79de3EXAMPLE.

@@ -31,16 +31,15 @@ extension EBS {
     }
 
     public enum Status: String, CustomStringConvertible, Codable {
-        case completed = "completed"
-        case error = "error"
-        case pending = "pending"
+        case completed
+        case error
+        case pending
         public var description: String { return self.rawValue }
     }
 
     // MARK: Shapes
 
     public struct Block: AWSDecodableShape {
-
         /// The block index.
         public let blockIndex: Int?
         /// The block token for the block index.
@@ -58,7 +57,6 @@ extension EBS {
     }
 
     public struct ChangedBlock: AWSDecodableShape {
-
         /// The block index.
         public let blockIndex: Int?
         /// The block token for the block index of the FirstSnapshotId specified in the ListChangedBlocks operation. This value is absent if the first snapshot does not have the changed block that is on the second snapshot.
@@ -81,10 +79,10 @@ extension EBS {
 
     public struct CompleteSnapshotRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "changedBlocksCount", location: .header(locationName: "x-amz-ChangedBlocksCount")), 
-            AWSMemberEncoding(label: "checksum", location: .header(locationName: "x-amz-Checksum")), 
-            AWSMemberEncoding(label: "checksumAggregationMethod", location: .header(locationName: "x-amz-Checksum-Aggregation-Method")), 
-            AWSMemberEncoding(label: "checksumAlgorithm", location: .header(locationName: "x-amz-Checksum-Algorithm")), 
+            AWSMemberEncoding(label: "changedBlocksCount", location: .header(locationName: "x-amz-ChangedBlocksCount")),
+            AWSMemberEncoding(label: "checksum", location: .header(locationName: "x-amz-Checksum")),
+            AWSMemberEncoding(label: "checksumAggregationMethod", location: .header(locationName: "x-amz-Checksum-Aggregation-Method")),
+            AWSMemberEncoding(label: "checksumAlgorithm", location: .header(locationName: "x-amz-Checksum-Algorithm")),
             AWSMemberEncoding(label: "snapshotId", location: .uri(locationName: "snapshotId"))
         ]
 
@@ -120,7 +118,6 @@ extension EBS {
     }
 
     public struct CompleteSnapshotResponse: AWSDecodableShape {
-
         /// The status of the snapshot.
         public let status: Status?
 
@@ -135,8 +132,8 @@ extension EBS {
 
     public struct GetSnapshotBlockRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "blockIndex", location: .uri(locationName: "blockIndex")), 
-            AWSMemberEncoding(label: "blockToken", location: .querystring(locationName: "blockToken")), 
+            AWSMemberEncoding(label: "blockIndex", location: .uri(locationName: "blockIndex")),
+            AWSMemberEncoding(label: "blockToken", location: .querystring(locationName: "blockToken")),
             AWSMemberEncoding(label: "snapshotId", location: .uri(locationName: "snapshotId"))
         ]
 
@@ -170,9 +167,9 @@ extension EBS {
         public static let _payloadPath: String = "blockData"
         public static let _payloadOptions: AWSShapePayloadOptions = [.raw, .allowStreaming]
         public static var _encoding = [
-            AWSMemberEncoding(label: "blockData", location: .body(locationName: "BlockData")), 
-            AWSMemberEncoding(label: "checksum", location: .header(locationName: "x-amz-Checksum")), 
-            AWSMemberEncoding(label: "checksumAlgorithm", location: .header(locationName: "x-amz-Checksum-Algorithm")), 
+            AWSMemberEncoding(label: "blockData", location: .body(locationName: "BlockData")),
+            AWSMemberEncoding(label: "checksum", location: .header(locationName: "x-amz-Checksum")),
+            AWSMemberEncoding(label: "checksumAlgorithm", location: .header(locationName: "x-amz-Checksum-Algorithm")),
             AWSMemberEncoding(label: "dataLength", location: .header(locationName: "x-amz-Data-Length"))
         ]
 
@@ -202,10 +199,10 @@ extension EBS {
 
     public struct ListChangedBlocksRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "firstSnapshotId", location: .querystring(locationName: "firstSnapshotId")), 
-            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "maxResults")), 
-            AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "pageToken")), 
-            AWSMemberEncoding(label: "secondSnapshotId", location: .uri(locationName: "secondSnapshotId")), 
+            AWSMemberEncoding(label: "firstSnapshotId", location: .querystring(locationName: "firstSnapshotId")),
+            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "maxResults")),
+            AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "pageToken")),
+            AWSMemberEncoding(label: "secondSnapshotId", location: .uri(locationName: "secondSnapshotId")),
             AWSMemberEncoding(label: "startingBlockIndex", location: .querystring(locationName: "startingBlockIndex"))
         ]
 
@@ -246,7 +243,6 @@ extension EBS {
     }
 
     public struct ListChangedBlocksResponse: AWSDecodableShape {
-
         /// The size of the block.
         public let blockSize: Int?
         /// An array of objects containing information about the changed blocks.
@@ -277,9 +273,9 @@ extension EBS {
 
     public struct ListSnapshotBlocksRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "maxResults")), 
-            AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "pageToken")), 
-            AWSMemberEncoding(label: "snapshotId", location: .uri(locationName: "snapshotId")), 
+            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "maxResults")),
+            AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "pageToken")),
+            AWSMemberEncoding(label: "snapshotId", location: .uri(locationName: "snapshotId")),
             AWSMemberEncoding(label: "startingBlockIndex", location: .querystring(locationName: "startingBlockIndex"))
         ]
 
@@ -314,7 +310,6 @@ extension EBS {
     }
 
     public struct ListSnapshotBlocksResponse: AWSDecodableShape {
-
         /// An array of objects containing information about the blocks.
         public let blocks: [Block]?
         /// The size of the block.
@@ -348,12 +343,12 @@ extension EBS {
         public static let _payloadPath: String = "blockData"
         public static let _payloadOptions: AWSShapePayloadOptions = [.raw, .allowStreaming, .allowChunkedStreaming]
         public static var _encoding = [
-            AWSMemberEncoding(label: "blockData", location: .body(locationName: "BlockData")), 
-            AWSMemberEncoding(label: "blockIndex", location: .uri(locationName: "blockIndex")), 
-            AWSMemberEncoding(label: "checksum", location: .header(locationName: "x-amz-Checksum")), 
-            AWSMemberEncoding(label: "checksumAlgorithm", location: .header(locationName: "x-amz-Checksum-Algorithm")), 
-            AWSMemberEncoding(label: "dataLength", location: .header(locationName: "x-amz-Data-Length")), 
-            AWSMemberEncoding(label: "progress", location: .header(locationName: "x-amz-Progress")), 
+            AWSMemberEncoding(label: "blockData", location: .body(locationName: "BlockData")),
+            AWSMemberEncoding(label: "blockIndex", location: .uri(locationName: "blockIndex")),
+            AWSMemberEncoding(label: "checksum", location: .header(locationName: "x-amz-Checksum")),
+            AWSMemberEncoding(label: "checksumAlgorithm", location: .header(locationName: "x-amz-Checksum-Algorithm")),
+            AWSMemberEncoding(label: "dataLength", location: .header(locationName: "x-amz-Data-Length")),
+            AWSMemberEncoding(label: "progress", location: .header(locationName: "x-amz-Progress")),
             AWSMemberEncoding(label: "snapshotId", location: .uri(locationName: "snapshotId"))
         ]
 
@@ -398,7 +393,7 @@ extension EBS {
 
     public struct PutSnapshotBlockResponse: AWSDecodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "checksum", location: .header(locationName: "x-amz-Checksum")), 
+            AWSMemberEncoding(label: "checksum", location: .header(locationName: "x-amz-Checksum")),
             AWSMemberEncoding(label: "checksumAlgorithm", location: .header(locationName: "x-amz-Checksum-Algorithm"))
         ]
 
@@ -419,7 +414,6 @@ extension EBS {
     }
 
     public struct StartSnapshotRequest: AWSEncodableShape {
-
         /// A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully. The subsequent retries with the same client token return the result from the original successful request and they have no additional effect. If you do not specify a client token, one is automatically generated by the AWS SDK. For more information, see  Idempotency for StartSnapshot API in the Amazon Elastic Compute Cloud User Guide.
         public let clientToken: String?
         /// A description for the snapshot.
@@ -480,7 +474,6 @@ extension EBS {
     }
 
     public struct StartSnapshotResponse: AWSDecodableShape {
-
         /// The size of the blocks in the snapshot, in bytes.
         public let blockSize: Int?
         /// The description of the snapshot.
@@ -530,7 +523,6 @@ extension EBS {
     }
 
     public struct Tag: AWSEncodableShape & AWSDecodableShape {
-
         /// The key of the tag.
         public let key: String?
         /// The value of the tag.

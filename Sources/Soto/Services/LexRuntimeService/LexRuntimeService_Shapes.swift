@@ -69,7 +69,6 @@ extension LexRuntimeService {
     // MARK: Shapes
 
     public struct ActiveContext: AWSEncodableShape & AWSDecodableShape {
-
         /// The name of the context.
         public let name: String
         /// State variables for the current context. You can use these values as default values for slots in subsequent events.
@@ -97,14 +96,13 @@ extension LexRuntimeService {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case name = "name"
-            case parameters = "parameters"
-            case timeToLive = "timeToLive"
+            case name
+            case parameters
+            case timeToLive
         }
     }
 
     public struct ActiveContextTimeToLive: AWSEncodableShape & AWSDecodableShape {
-
         /// The number of seconds that the context should be active after it is first sent in a PostContent or PostText response. You can set the value between 5 and 86,400 seconds (24 hours).
         public let timeToLiveInSeconds: Int?
         /// The number of conversation turns that the context should be active. A conversation turn is one PostContent or PostText request and the corresponding response from Amazon Lex.
@@ -123,13 +121,12 @@ extension LexRuntimeService {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case timeToLiveInSeconds = "timeToLiveInSeconds"
-            case turnsToLive = "turnsToLive"
+            case timeToLiveInSeconds
+            case turnsToLive
         }
     }
 
     public struct Button: AWSDecodableShape {
-
         /// Text that is visible to the user on the button.
         public let text: String
         /// The value sent to Amazon Lex when a user chooses the button. For example, consider button text "NYC." When the user chooses the button, the value sent can be "New York City."
@@ -141,15 +138,15 @@ extension LexRuntimeService {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case text = "text"
-            case value = "value"
+            case text
+            case value
         }
     }
 
     public struct DeleteSessionRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "botAlias", location: .uri(locationName: "botAlias")), 
-            AWSMemberEncoding(label: "botName", location: .uri(locationName: "botName")), 
+            AWSMemberEncoding(label: "botAlias", location: .uri(locationName: "botAlias")),
+            AWSMemberEncoding(label: "botName", location: .uri(locationName: "botName")),
             AWSMemberEncoding(label: "userId", location: .uri(locationName: "userId"))
         ]
 
@@ -176,7 +173,6 @@ extension LexRuntimeService {
     }
 
     public struct DeleteSessionResponse: AWSDecodableShape {
-
         /// The alias in use for the bot associated with the session data.
         public let botAlias: String?
         /// The name of the bot associated with the session data.
@@ -194,15 +190,14 @@ extension LexRuntimeService {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case botAlias = "botAlias"
-            case botName = "botName"
-            case sessionId = "sessionId"
-            case userId = "userId"
+            case botAlias
+            case botName
+            case sessionId
+            case userId
         }
     }
 
     public struct DialogAction: AWSEncodableShape & AWSDecodableShape {
-
         /// The fulfillment state of the intent. The possible values are:    Failed - The Lambda function associated with the intent failed to fulfill the intent.    Fulfilled - The intent has fulfilled by the Lambda function associated with the intent.     ReadyForFulfillment - All of the information necessary for the intent is present and the intent ready to be fulfilled by the client application.
         public let fulfillmentState: FulfillmentState?
         /// The name of the intent.
@@ -234,18 +229,17 @@ extension LexRuntimeService {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case fulfillmentState = "fulfillmentState"
-            case intentName = "intentName"
-            case message = "message"
-            case messageFormat = "messageFormat"
-            case slots = "slots"
-            case slotToElicit = "slotToElicit"
-            case type = "type"
+            case fulfillmentState
+            case intentName
+            case message
+            case messageFormat
+            case slots
+            case slotToElicit
+            case type
         }
     }
 
     public struct GenericAttachment: AWSDecodableShape {
-
         /// The URL of an attachment to the response card.
         public let attachmentLinkUrl: String?
         /// The list of options to show to the user.
@@ -266,19 +260,19 @@ extension LexRuntimeService {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case attachmentLinkUrl = "attachmentLinkUrl"
-            case buttons = "buttons"
-            case imageUrl = "imageUrl"
-            case subTitle = "subTitle"
-            case title = "title"
+            case attachmentLinkUrl
+            case buttons
+            case imageUrl
+            case subTitle
+            case title
         }
     }
 
     public struct GetSessionRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "botAlias", location: .uri(locationName: "botAlias")), 
-            AWSMemberEncoding(label: "botName", location: .uri(locationName: "botName")), 
-            AWSMemberEncoding(label: "checkpointLabelFilter", location: .querystring(locationName: "checkpointLabelFilter")), 
+            AWSMemberEncoding(label: "botAlias", location: .uri(locationName: "botAlias")),
+            AWSMemberEncoding(label: "botName", location: .uri(locationName: "botName")),
+            AWSMemberEncoding(label: "checkpointLabelFilter", location: .querystring(locationName: "checkpointLabelFilter")),
             AWSMemberEncoding(label: "userId", location: .uri(locationName: "userId"))
         ]
 
@@ -311,7 +305,6 @@ extension LexRuntimeService {
     }
 
     public struct GetSessionResponse: AWSDecodableShape {
-
         /// A list of active contexts for the session. A context can be set when an intent is fulfilled or by calling the PostContent, PostText, or PutSession operation. You can use a context to control the intents that can follow up an intent, or to modify the operation of your application.
         public let activeContexts: [ActiveContext]?
         /// Describes the current state of the bot.
@@ -332,16 +325,15 @@ extension LexRuntimeService {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case activeContexts = "activeContexts"
-            case dialogAction = "dialogAction"
-            case recentIntentSummaryView = "recentIntentSummaryView"
-            case sessionAttributes = "sessionAttributes"
-            case sessionId = "sessionId"
+            case activeContexts
+            case dialogAction
+            case recentIntentSummaryView
+            case sessionAttributes
+            case sessionId
         }
     }
 
     public struct IntentConfidence: AWSDecodableShape {
-
         /// A score that indicates how confident Amazon Lex is that an intent satisfies the user's intent. Ranges between 0.00 and 1.00. Higher scores indicate higher confidence.
         public let score: Double?
 
@@ -350,12 +342,11 @@ extension LexRuntimeService {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case score = "score"
+            case score
         }
     }
 
     public struct IntentSummary: AWSEncodableShape & AWSDecodableShape {
-
         /// A user-defined label that identifies a particular intent. You can use this label to return to a previous intent.  Use the checkpointLabelFilter parameter of the GetSessionRequest operation to filter the intents returned by the operation to those with only the specified label.
         public let checkpointLabel: String?
         /// The status of the intent after the user responds to the confirmation prompt. If the user confirms the intent, Amazon Lex sets this field to Confirmed. If the user denies the intent, Amazon Lex sets this value to Denied. The possible values are:    Confirmed - The user has responded "Yes" to the confirmation prompt, confirming that the intent is complete and that it is ready to be fulfilled.    Denied - The user has responded "No" to the confirmation prompt.    None - The user has never been prompted for confirmation; or, the user was prompted but did not confirm or deny the prompt.
@@ -388,13 +379,13 @@ extension LexRuntimeService {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case checkpointLabel = "checkpointLabel"
-            case confirmationStatus = "confirmationStatus"
-            case dialogActionType = "dialogActionType"
-            case fulfillmentState = "fulfillmentState"
-            case intentName = "intentName"
-            case slots = "slots"
-            case slotToElicit = "slotToElicit"
+            case checkpointLabel
+            case confirmationStatus
+            case dialogActionType
+            case fulfillmentState
+            case intentName
+            case slots
+            case slotToElicit
         }
     }
 
@@ -403,13 +394,13 @@ extension LexRuntimeService {
         public static let _payloadPath: String = "inputStream"
         public static let _payloadOptions: AWSShapePayloadOptions = [.raw, .allowStreaming, .allowChunkedStreaming]
         public static var _encoding = [
-            AWSMemberEncoding(label: "accept", location: .header(locationName: "Accept")), 
-            AWSMemberEncoding(label: "activeContexts", location: .header(locationName: "x-amz-lex-active-contexts")), 
-            AWSMemberEncoding(label: "botAlias", location: .uri(locationName: "botAlias")), 
-            AWSMemberEncoding(label: "botName", location: .uri(locationName: "botName")), 
-            AWSMemberEncoding(label: "contentType", location: .header(locationName: "Content-Type")), 
-            AWSMemberEncoding(label: "requestAttributes", location: .header(locationName: "x-amz-lex-request-attributes")), 
-            AWSMemberEncoding(label: "sessionAttributes", location: .header(locationName: "x-amz-lex-session-attributes")), 
+            AWSMemberEncoding(label: "accept", location: .header(locationName: "Accept")),
+            AWSMemberEncoding(label: "activeContexts", location: .header(locationName: "x-amz-lex-active-contexts")),
+            AWSMemberEncoding(label: "botAlias", location: .uri(locationName: "botAlias")),
+            AWSMemberEncoding(label: "botName", location: .uri(locationName: "botName")),
+            AWSMemberEncoding(label: "contentType", location: .header(locationName: "Content-Type")),
+            AWSMemberEncoding(label: "requestAttributes", location: .header(locationName: "x-amz-lex-request-attributes")),
+            AWSMemberEncoding(label: "sessionAttributes", location: .header(locationName: "x-amz-lex-session-attributes")),
             AWSMemberEncoding(label: "userId", location: .uri(locationName: "userId"))
         ]
 
@@ -458,20 +449,20 @@ extension LexRuntimeService {
         public static let _payloadPath: String = "audioStream"
         public static let _payloadOptions: AWSShapePayloadOptions = [.raw, .allowStreaming]
         public static var _encoding = [
-            AWSMemberEncoding(label: "activeContexts", location: .header(locationName: "x-amz-lex-active-contexts")), 
-            AWSMemberEncoding(label: "alternativeIntents", location: .header(locationName: "x-amz-lex-alternative-intents")), 
-            AWSMemberEncoding(label: "botVersion", location: .header(locationName: "x-amz-lex-bot-version")), 
-            AWSMemberEncoding(label: "contentType", location: .header(locationName: "Content-Type")), 
-            AWSMemberEncoding(label: "dialogState", location: .header(locationName: "x-amz-lex-dialog-state")), 
-            AWSMemberEncoding(label: "encodedInputTranscript", location: .header(locationName: "x-amz-lex-encoded-input-transcript")), 
-            AWSMemberEncoding(label: "encodedMessage", location: .header(locationName: "x-amz-lex-encoded-message")), 
-            AWSMemberEncoding(label: "intentName", location: .header(locationName: "x-amz-lex-intent-name")), 
-            AWSMemberEncoding(label: "messageFormat", location: .header(locationName: "x-amz-lex-message-format")), 
-            AWSMemberEncoding(label: "nluIntentConfidence", location: .header(locationName: "x-amz-lex-nlu-intent-confidence")), 
-            AWSMemberEncoding(label: "sentimentResponse", location: .header(locationName: "x-amz-lex-sentiment")), 
-            AWSMemberEncoding(label: "sessionAttributes", location: .header(locationName: "x-amz-lex-session-attributes")), 
-            AWSMemberEncoding(label: "sessionId", location: .header(locationName: "x-amz-lex-session-id")), 
-            AWSMemberEncoding(label: "slots", location: .header(locationName: "x-amz-lex-slots")), 
+            AWSMemberEncoding(label: "activeContexts", location: .header(locationName: "x-amz-lex-active-contexts")),
+            AWSMemberEncoding(label: "alternativeIntents", location: .header(locationName: "x-amz-lex-alternative-intents")),
+            AWSMemberEncoding(label: "botVersion", location: .header(locationName: "x-amz-lex-bot-version")),
+            AWSMemberEncoding(label: "contentType", location: .header(locationName: "Content-Type")),
+            AWSMemberEncoding(label: "dialogState", location: .header(locationName: "x-amz-lex-dialog-state")),
+            AWSMemberEncoding(label: "encodedInputTranscript", location: .header(locationName: "x-amz-lex-encoded-input-transcript")),
+            AWSMemberEncoding(label: "encodedMessage", location: .header(locationName: "x-amz-lex-encoded-message")),
+            AWSMemberEncoding(label: "intentName", location: .header(locationName: "x-amz-lex-intent-name")),
+            AWSMemberEncoding(label: "messageFormat", location: .header(locationName: "x-amz-lex-message-format")),
+            AWSMemberEncoding(label: "nluIntentConfidence", location: .header(locationName: "x-amz-lex-nlu-intent-confidence")),
+            AWSMemberEncoding(label: "sentimentResponse", location: .header(locationName: "x-amz-lex-sentiment")),
+            AWSMemberEncoding(label: "sessionAttributes", location: .header(locationName: "x-amz-lex-session-attributes")),
+            AWSMemberEncoding(label: "sessionId", location: .header(locationName: "x-amz-lex-session-id")),
+            AWSMemberEncoding(label: "slots", location: .header(locationName: "x-amz-lex-slots")),
             AWSMemberEncoding(label: "slotToElicit", location: .header(locationName: "x-amz-lex-slot-to-elicit"))
         ]
 
@@ -530,7 +521,7 @@ extension LexRuntimeService {
         private enum CodingKeys: String, CodingKey {
             case activeContexts = "x-amz-lex-active-contexts"
             case alternativeIntents = "x-amz-lex-alternative-intents"
-            case audioStream = "audioStream"
+            case audioStream
             case botVersion = "x-amz-lex-bot-version"
             case contentType = "Content-Type"
             case dialogState = "x-amz-lex-dialog-state"
@@ -549,8 +540,8 @@ extension LexRuntimeService {
 
     public struct PostTextRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "botAlias", location: .uri(locationName: "botAlias")), 
-            AWSMemberEncoding(label: "botName", location: .uri(locationName: "botName")), 
+            AWSMemberEncoding(label: "botAlias", location: .uri(locationName: "botAlias")),
+            AWSMemberEncoding(label: "botName", location: .uri(locationName: "botName")),
             AWSMemberEncoding(label: "userId", location: .uri(locationName: "userId"))
         ]
 
@@ -593,15 +584,14 @@ extension LexRuntimeService {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case activeContexts = "activeContexts"
-            case inputText = "inputText"
-            case requestAttributes = "requestAttributes"
-            case sessionAttributes = "sessionAttributes"
+            case activeContexts
+            case inputText
+            case requestAttributes
+            case sessionAttributes
         }
     }
 
     public struct PostTextResponse: AWSDecodableShape {
-
         /// A list of active contexts for the session. A context can be set when an intent is fulfilled or by calling the PostContent, PostText, or PutSession operation. You can use a context to control the intents that can follow up an intent, or to modify the operation of your application.
         public let activeContexts: [ActiveContext]?
         /// One to four alternative intents that may be applicable to the user's intent. Each alternative includes a score that indicates how confident Amazon Lex is that the intent matches the user's intent. The intents are sorted by the confidence score.
@@ -649,25 +639,24 @@ extension LexRuntimeService {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case activeContexts = "activeContexts"
-            case alternativeIntents = "alternativeIntents"
-            case botVersion = "botVersion"
-            case dialogState = "dialogState"
-            case intentName = "intentName"
-            case message = "message"
-            case messageFormat = "messageFormat"
-            case nluIntentConfidence = "nluIntentConfidence"
-            case responseCard = "responseCard"
-            case sentimentResponse = "sentimentResponse"
-            case sessionAttributes = "sessionAttributes"
-            case sessionId = "sessionId"
-            case slots = "slots"
-            case slotToElicit = "slotToElicit"
+            case activeContexts
+            case alternativeIntents
+            case botVersion
+            case dialogState
+            case intentName
+            case message
+            case messageFormat
+            case nluIntentConfidence
+            case responseCard
+            case sentimentResponse
+            case sessionAttributes
+            case sessionId
+            case slots
+            case slotToElicit
         }
     }
 
     public struct PredictedIntent: AWSDecodableShape {
-
         /// The name of the intent that Amazon Lex suggests satisfies the user's intent.
         public let intentName: String?
         /// Indicates how confident Amazon Lex is that an intent satisfies the user's intent.
@@ -682,17 +671,17 @@ extension LexRuntimeService {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case intentName = "intentName"
-            case nluIntentConfidence = "nluIntentConfidence"
-            case slots = "slots"
+            case intentName
+            case nluIntentConfidence
+            case slots
         }
     }
 
     public struct PutSessionRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "accept", location: .header(locationName: "Accept")), 
-            AWSMemberEncoding(label: "botAlias", location: .uri(locationName: "botAlias")), 
-            AWSMemberEncoding(label: "botName", location: .uri(locationName: "botName")), 
+            AWSMemberEncoding(label: "accept", location: .header(locationName: "Accept")),
+            AWSMemberEncoding(label: "botAlias", location: .uri(locationName: "botAlias")),
+            AWSMemberEncoding(label: "botName", location: .uri(locationName: "botName")),
             AWSMemberEncoding(label: "userId", location: .uri(locationName: "userId"))
         ]
 
@@ -742,10 +731,10 @@ extension LexRuntimeService {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case activeContexts = "activeContexts"
-            case dialogAction = "dialogAction"
-            case recentIntentSummaryView = "recentIntentSummaryView"
-            case sessionAttributes = "sessionAttributes"
+            case activeContexts
+            case dialogAction
+            case recentIntentSummaryView
+            case sessionAttributes
         }
     }
 
@@ -754,15 +743,15 @@ extension LexRuntimeService {
         public static let _payloadPath: String = "audioStream"
         public static let _payloadOptions: AWSShapePayloadOptions = [.raw, .allowStreaming]
         public static var _encoding = [
-            AWSMemberEncoding(label: "activeContexts", location: .header(locationName: "x-amz-lex-active-contexts")), 
-            AWSMemberEncoding(label: "contentType", location: .header(locationName: "Content-Type")), 
-            AWSMemberEncoding(label: "dialogState", location: .header(locationName: "x-amz-lex-dialog-state")), 
-            AWSMemberEncoding(label: "encodedMessage", location: .header(locationName: "x-amz-lex-encoded-message")), 
-            AWSMemberEncoding(label: "intentName", location: .header(locationName: "x-amz-lex-intent-name")), 
-            AWSMemberEncoding(label: "messageFormat", location: .header(locationName: "x-amz-lex-message-format")), 
-            AWSMemberEncoding(label: "sessionAttributes", location: .header(locationName: "x-amz-lex-session-attributes")), 
-            AWSMemberEncoding(label: "sessionId", location: .header(locationName: "x-amz-lex-session-id")), 
-            AWSMemberEncoding(label: "slots", location: .header(locationName: "x-amz-lex-slots")), 
+            AWSMemberEncoding(label: "activeContexts", location: .header(locationName: "x-amz-lex-active-contexts")),
+            AWSMemberEncoding(label: "contentType", location: .header(locationName: "Content-Type")),
+            AWSMemberEncoding(label: "dialogState", location: .header(locationName: "x-amz-lex-dialog-state")),
+            AWSMemberEncoding(label: "encodedMessage", location: .header(locationName: "x-amz-lex-encoded-message")),
+            AWSMemberEncoding(label: "intentName", location: .header(locationName: "x-amz-lex-intent-name")),
+            AWSMemberEncoding(label: "messageFormat", location: .header(locationName: "x-amz-lex-message-format")),
+            AWSMemberEncoding(label: "sessionAttributes", location: .header(locationName: "x-amz-lex-session-attributes")),
+            AWSMemberEncoding(label: "sessionId", location: .header(locationName: "x-amz-lex-session-id")),
+            AWSMemberEncoding(label: "slots", location: .header(locationName: "x-amz-lex-slots")),
             AWSMemberEncoding(label: "slotToElicit", location: .header(locationName: "x-amz-lex-slot-to-elicit"))
         ]
 
@@ -805,7 +794,7 @@ extension LexRuntimeService {
 
         private enum CodingKeys: String, CodingKey {
             case activeContexts = "x-amz-lex-active-contexts"
-            case audioStream = "audioStream"
+            case audioStream
             case contentType = "Content-Type"
             case dialogState = "x-amz-lex-dialog-state"
             case encodedMessage = "x-amz-lex-encoded-message"
@@ -819,7 +808,6 @@ extension LexRuntimeService {
     }
 
     public struct ResponseCard: AWSDecodableShape {
-
         /// The content type of the response.
         public let contentType: ContentType?
         /// An array of attachment objects representing options.
@@ -834,14 +822,13 @@ extension LexRuntimeService {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case contentType = "contentType"
-            case genericAttachments = "genericAttachments"
-            case version = "version"
+            case contentType
+            case genericAttachments
+            case version
         }
     }
 
     public struct SentimentResponse: AWSDecodableShape {
-
         /// The inferred sentiment that Amazon Comprehend has the highest confidence in.
         public let sentimentLabel: String?
         /// The likelihood that the sentiment was correctly inferred.
@@ -853,8 +840,8 @@ extension LexRuntimeService {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case sentimentLabel = "sentimentLabel"
-            case sentimentScore = "sentimentScore"
+            case sentimentLabel
+            case sentimentScore
         }
     }
 }

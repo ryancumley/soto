@@ -68,6 +68,12 @@ public struct MarketplaceEntitlementService: AWSService {
     public func getEntitlements(_ input: GetEntitlementsRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<GetEntitlementsResult> {
         return self.client.execute(operation: "GetEntitlements", path: "/", httpMethod: .POST, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    public func getEntitlements(_ input: GetEntitlementsRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws -> GetEntitlementsResult {
+        return try await self.client.execute(operation: "GetEntitlements", path: "/", httpMethod: .POST, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
+    }
+    #endif
 }
 
 extension MarketplaceEntitlementService {

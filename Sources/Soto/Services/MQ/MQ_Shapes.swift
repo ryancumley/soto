@@ -82,7 +82,6 @@ extension MQ {
     // MARK: Shapes
 
     public struct AvailabilityZone: AWSDecodableShape {
-
         /// Id for the availability zone.
         public let name: String?
 
@@ -91,12 +90,11 @@ extension MQ {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case name = "name"
+            case name
         }
     }
 
     public struct BrokerEngineType: AWSDecodableShape {
-
         /// The type of broker engine.
         public let engineType: EngineType?
         /// The list of engine versions.
@@ -108,13 +106,12 @@ extension MQ {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case engineType = "engineType"
-            case engineVersions = "engineVersions"
+            case engineType
+            case engineVersions
         }
     }
 
     public struct BrokerInstance: AWSDecodableShape {
-
         /// The URL of the broker's Web Console.
         public let consoleURL: String?
         /// The broker's wire-level protocol endpoints.
@@ -129,14 +126,13 @@ extension MQ {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case consoleURL = "consoleURL"
-            case endpoints = "endpoints"
-            case ipAddress = "ipAddress"
+            case consoleURL
+            case endpoints
+            case ipAddress
         }
     }
 
     public struct BrokerInstanceOption: AWSDecodableShape {
-
         /// The list of available az.
         public let availabilityZones: [AvailabilityZone]?
         /// The type of broker engine.
@@ -160,17 +156,16 @@ extension MQ {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case availabilityZones = "availabilityZones"
-            case engineType = "engineType"
-            case hostInstanceType = "hostInstanceType"
-            case storageType = "storageType"
-            case supportedDeploymentModes = "supportedDeploymentModes"
-            case supportedEngineVersions = "supportedEngineVersions"
+            case availabilityZones
+            case engineType
+            case hostInstanceType
+            case storageType
+            case supportedDeploymentModes
+            case supportedEngineVersions
         }
     }
 
     public struct BrokerSummary: AWSDecodableShape {
-
         /// The Amazon Resource Name (ARN) of the broker.
         public let brokerArn: String?
         /// The unique ID that Amazon MQ generates for the broker.
@@ -201,19 +196,18 @@ extension MQ {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case brokerArn = "brokerArn"
-            case brokerId = "brokerId"
-            case brokerName = "brokerName"
-            case brokerState = "brokerState"
-            case created = "created"
-            case deploymentMode = "deploymentMode"
-            case engineType = "engineType"
-            case hostInstanceType = "hostInstanceType"
+            case brokerArn
+            case brokerId
+            case brokerName
+            case brokerState
+            case created
+            case deploymentMode
+            case engineType
+            case hostInstanceType
         }
     }
 
     public struct Configuration: AWSDecodableShape {
-
         /// Required. The ARN of the configuration.
         public let arn: String?
         /// The authentication strategy associated with the configuration.
@@ -250,21 +244,20 @@ extension MQ {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case arn = "arn"
-            case authenticationStrategy = "authenticationStrategy"
-            case created = "created"
-            case description = "description"
-            case engineType = "engineType"
-            case engineVersion = "engineVersion"
-            case id = "id"
-            case latestRevision = "latestRevision"
-            case name = "name"
-            case tags = "tags"
+            case arn
+            case authenticationStrategy
+            case created
+            case description
+            case engineType
+            case engineVersion
+            case id
+            case latestRevision
+            case name
+            case tags
         }
     }
 
     public struct ConfigurationId: AWSEncodableShape & AWSDecodableShape {
-
         /// Required. The unique ID that Amazon MQ generates for the configuration.
         public let id: String?
         /// The revision number of the configuration.
@@ -276,13 +269,12 @@ extension MQ {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case id = "id"
-            case revision = "revision"
+            case id
+            case revision
         }
     }
 
     public struct ConfigurationRevision: AWSDecodableShape {
-
         /// Required. The date and time of the configuration revision.
         @OptionalCustomCoding<ISO8601DateCoder>
         public var created: Date?
@@ -298,14 +290,13 @@ extension MQ {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case created = "created"
-            case description = "description"
-            case revision = "revision"
+            case created
+            case description
+            case revision
         }
     }
 
     public struct Configurations: AWSDecodableShape {
-
         /// The current configuration of the broker.
         public let current: ConfigurationId?
         /// The history of configurations applied to the broker.
@@ -320,14 +311,13 @@ extension MQ {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case current = "current"
-            case history = "history"
-            case pending = "pending"
+            case current
+            case history
+            case pending
         }
     }
 
     public struct CreateBrokerRequest: AWSEncodableShape {
-
         public let authenticationStrategy: AuthenticationStrategy?
         public let autoMinorVersionUpgrade: Bool?
         public let brokerName: String?
@@ -371,30 +361,29 @@ extension MQ {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case authenticationStrategy = "authenticationStrategy"
-            case autoMinorVersionUpgrade = "autoMinorVersionUpgrade"
-            case brokerName = "brokerName"
-            case configuration = "configuration"
-            case creatorRequestId = "creatorRequestId"
-            case deploymentMode = "deploymentMode"
-            case encryptionOptions = "encryptionOptions"
-            case engineType = "engineType"
-            case engineVersion = "engineVersion"
-            case hostInstanceType = "hostInstanceType"
-            case ldapServerMetadata = "ldapServerMetadata"
-            case logs = "logs"
-            case maintenanceWindowStartTime = "maintenanceWindowStartTime"
-            case publiclyAccessible = "publiclyAccessible"
-            case securityGroups = "securityGroups"
-            case storageType = "storageType"
-            case subnetIds = "subnetIds"
-            case tags = "tags"
-            case users = "users"
+            case authenticationStrategy
+            case autoMinorVersionUpgrade
+            case brokerName
+            case configuration
+            case creatorRequestId
+            case deploymentMode
+            case encryptionOptions
+            case engineType
+            case engineVersion
+            case hostInstanceType
+            case ldapServerMetadata
+            case logs
+            case maintenanceWindowStartTime
+            case publiclyAccessible
+            case securityGroups
+            case storageType
+            case subnetIds
+            case tags
+            case users
         }
     }
 
     public struct CreateBrokerResponse: AWSDecodableShape {
-
         public let brokerArn: String?
         public let brokerId: String?
 
@@ -404,13 +393,12 @@ extension MQ {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case brokerArn = "brokerArn"
-            case brokerId = "brokerId"
+            case brokerArn
+            case brokerId
         }
     }
 
     public struct CreateConfigurationRequest: AWSEncodableShape {
-
         public let authenticationStrategy: AuthenticationStrategy?
         public let engineType: EngineType?
         public let engineVersion: String?
@@ -426,16 +414,15 @@ extension MQ {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case authenticationStrategy = "authenticationStrategy"
-            case engineType = "engineType"
-            case engineVersion = "engineVersion"
-            case name = "name"
-            case tags = "tags"
+            case authenticationStrategy
+            case engineType
+            case engineVersion
+            case name
+            case tags
         }
     }
 
     public struct CreateConfigurationResponse: AWSDecodableShape {
-
         public let arn: String?
         public let authenticationStrategy: AuthenticationStrategy?
         @OptionalCustomCoding<ISO8601DateCoder>
@@ -454,12 +441,12 @@ extension MQ {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case arn = "arn"
-            case authenticationStrategy = "authenticationStrategy"
-            case created = "created"
-            case id = "id"
-            case latestRevision = "latestRevision"
-            case name = "name"
+            case arn
+            case authenticationStrategy
+            case created
+            case id
+            case latestRevision
+            case name
         }
     }
 
@@ -477,13 +464,13 @@ extension MQ {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case tags = "tags"
+            case tags
         }
     }
 
     public struct CreateUserRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "brokerId", location: .uri(locationName: "broker-id")), 
+            AWSMemberEncoding(label: "brokerId", location: .uri(locationName: "broker-id")),
             AWSMemberEncoding(label: "username", location: .uri(locationName: "username"))
         ]
 
@@ -502,18 +489,14 @@ extension MQ {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case consoleAccess = "consoleAccess"
-            case groups = "groups"
-            case password = "password"
+            case consoleAccess
+            case groups
+            case password
         }
     }
 
     public struct CreateUserResponse: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct DeleteBrokerRequest: AWSEncodableShape {
@@ -531,7 +514,6 @@ extension MQ {
     }
 
     public struct DeleteBrokerResponse: AWSDecodableShape {
-
         public let brokerId: String?
 
         public init(brokerId: String? = nil) {
@@ -539,13 +521,13 @@ extension MQ {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case brokerId = "brokerId"
+            case brokerId
         }
     }
 
     public struct DeleteTagsRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "resourceArn", location: .uri(locationName: "resource-arn")), 
+            AWSMemberEncoding(label: "resourceArn", location: .uri(locationName: "resource-arn")),
             AWSMemberEncoding(label: "tagKeys", location: .querystring(locationName: "tagKeys"))
         ]
 
@@ -562,7 +544,7 @@ extension MQ {
 
     public struct DeleteUserRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "brokerId", location: .uri(locationName: "broker-id")), 
+            AWSMemberEncoding(label: "brokerId", location: .uri(locationName: "broker-id")),
             AWSMemberEncoding(label: "username", location: .uri(locationName: "username"))
         ]
 
@@ -578,17 +560,13 @@ extension MQ {
     }
 
     public struct DeleteUserResponse: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct DescribeBrokerEngineTypesRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "engineType", location: .querystring(locationName: "engineType")), 
-            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "maxResults")), 
+            AWSMemberEncoding(label: "engineType", location: .querystring(locationName: "engineType")),
+            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "maxResults")),
             AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "nextToken"))
         ]
 
@@ -611,7 +589,6 @@ extension MQ {
     }
 
     public struct DescribeBrokerEngineTypesResponse: AWSDecodableShape {
-
         public let brokerEngineTypes: [BrokerEngineType]?
         public let maxResults: Int?
         public let nextToken: String?
@@ -623,18 +600,18 @@ extension MQ {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case brokerEngineTypes = "brokerEngineTypes"
-            case maxResults = "maxResults"
-            case nextToken = "nextToken"
+            case brokerEngineTypes
+            case maxResults
+            case nextToken
         }
     }
 
     public struct DescribeBrokerInstanceOptionsRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "engineType", location: .querystring(locationName: "engineType")), 
-            AWSMemberEncoding(label: "hostInstanceType", location: .querystring(locationName: "hostInstanceType")), 
-            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "maxResults")), 
-            AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "nextToken")), 
+            AWSMemberEncoding(label: "engineType", location: .querystring(locationName: "engineType")),
+            AWSMemberEncoding(label: "hostInstanceType", location: .querystring(locationName: "hostInstanceType")),
+            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "maxResults")),
+            AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "nextToken")),
             AWSMemberEncoding(label: "storageType", location: .querystring(locationName: "storageType"))
         ]
 
@@ -661,7 +638,6 @@ extension MQ {
     }
 
     public struct DescribeBrokerInstanceOptionsResponse: AWSDecodableShape {
-
         public let brokerInstanceOptions: [BrokerInstanceOption]?
         public let maxResults: Int?
         public let nextToken: String?
@@ -673,9 +649,9 @@ extension MQ {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case brokerInstanceOptions = "brokerInstanceOptions"
-            case maxResults = "maxResults"
-            case nextToken = "nextToken"
+            case brokerInstanceOptions
+            case maxResults
+            case nextToken
         }
     }
 
@@ -694,7 +670,6 @@ extension MQ {
     }
 
     public struct DescribeBrokerResponse: AWSDecodableShape {
-
         public let authenticationStrategy: AuthenticationStrategy?
         public let autoMinorVersionUpgrade: Bool?
         public let brokerArn: String?
@@ -757,34 +732,34 @@ extension MQ {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case authenticationStrategy = "authenticationStrategy"
-            case autoMinorVersionUpgrade = "autoMinorVersionUpgrade"
-            case brokerArn = "brokerArn"
-            case brokerId = "brokerId"
-            case brokerInstances = "brokerInstances"
-            case brokerName = "brokerName"
-            case brokerState = "brokerState"
-            case configurations = "configurations"
-            case created = "created"
-            case deploymentMode = "deploymentMode"
-            case encryptionOptions = "encryptionOptions"
-            case engineType = "engineType"
-            case engineVersion = "engineVersion"
-            case hostInstanceType = "hostInstanceType"
-            case ldapServerMetadata = "ldapServerMetadata"
-            case logs = "logs"
-            case maintenanceWindowStartTime = "maintenanceWindowStartTime"
-            case pendingAuthenticationStrategy = "pendingAuthenticationStrategy"
-            case pendingEngineVersion = "pendingEngineVersion"
-            case pendingHostInstanceType = "pendingHostInstanceType"
-            case pendingLdapServerMetadata = "pendingLdapServerMetadata"
-            case pendingSecurityGroups = "pendingSecurityGroups"
-            case publiclyAccessible = "publiclyAccessible"
-            case securityGroups = "securityGroups"
-            case storageType = "storageType"
-            case subnetIds = "subnetIds"
-            case tags = "tags"
-            case users = "users"
+            case authenticationStrategy
+            case autoMinorVersionUpgrade
+            case brokerArn
+            case brokerId
+            case brokerInstances
+            case brokerName
+            case brokerState
+            case configurations
+            case created
+            case deploymentMode
+            case encryptionOptions
+            case engineType
+            case engineVersion
+            case hostInstanceType
+            case ldapServerMetadata
+            case logs
+            case maintenanceWindowStartTime
+            case pendingAuthenticationStrategy
+            case pendingEngineVersion
+            case pendingHostInstanceType
+            case pendingLdapServerMetadata
+            case pendingSecurityGroups
+            case publiclyAccessible
+            case securityGroups
+            case storageType
+            case subnetIds
+            case tags
+            case users
         }
     }
 
@@ -803,7 +778,6 @@ extension MQ {
     }
 
     public struct DescribeConfigurationResponse: AWSDecodableShape {
-
         public let arn: String?
         public let authenticationStrategy: AuthenticationStrategy?
         @OptionalCustomCoding<ISO8601DateCoder>
@@ -830,22 +804,22 @@ extension MQ {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case arn = "arn"
-            case authenticationStrategy = "authenticationStrategy"
-            case created = "created"
-            case description = "description"
-            case engineType = "engineType"
-            case engineVersion = "engineVersion"
-            case id = "id"
-            case latestRevision = "latestRevision"
-            case name = "name"
-            case tags = "tags"
+            case arn
+            case authenticationStrategy
+            case created
+            case description
+            case engineType
+            case engineVersion
+            case id
+            case latestRevision
+            case name
+            case tags
         }
     }
 
     public struct DescribeConfigurationRevisionRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "configurationId", location: .uri(locationName: "configuration-id")), 
+            AWSMemberEncoding(label: "configurationId", location: .uri(locationName: "configuration-id")),
             AWSMemberEncoding(label: "configurationRevision", location: .uri(locationName: "configuration-revision"))
         ]
 
@@ -861,7 +835,6 @@ extension MQ {
     }
 
     public struct DescribeConfigurationRevisionResponse: AWSDecodableShape {
-
         public let configurationId: String?
         @OptionalCustomCoding<ISO8601DateCoder>
         public var created: Date?
@@ -876,16 +849,16 @@ extension MQ {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case configurationId = "configurationId"
-            case created = "created"
-            case data = "data"
-            case description = "description"
+            case configurationId
+            case created
+            case data
+            case description
         }
     }
 
     public struct DescribeUserRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "brokerId", location: .uri(locationName: "broker-id")), 
+            AWSMemberEncoding(label: "brokerId", location: .uri(locationName: "broker-id")),
             AWSMemberEncoding(label: "username", location: .uri(locationName: "username"))
         ]
 
@@ -901,7 +874,6 @@ extension MQ {
     }
 
     public struct DescribeUserResponse: AWSDecodableShape {
-
         public let brokerId: String?
         public let consoleAccess: Bool?
         public let groups: [String]?
@@ -917,16 +889,15 @@ extension MQ {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case brokerId = "brokerId"
-            case consoleAccess = "consoleAccess"
-            case groups = "groups"
-            case pending = "pending"
-            case username = "username"
+            case brokerId
+            case consoleAccess
+            case groups
+            case pending
+            case username
         }
     }
 
     public struct EncryptionOptions: AWSEncodableShape & AWSDecodableShape {
-
         /// The symmetric customer master key (CMK) to use for the AWS Key Management Service (KMS). This key is used to encrypt your data at rest. If not provided, Amazon MQ will use a default CMK to encrypt your data.
         public let kmsKeyId: String?
         /// Enables the use of an AWS owned CMK using AWS Key Management Service (KMS).
@@ -938,13 +909,12 @@ extension MQ {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case kmsKeyId = "kmsKeyId"
-            case useAwsOwnedKey = "useAwsOwnedKey"
+            case kmsKeyId
+            case useAwsOwnedKey
         }
     }
 
     public struct EngineVersion: AWSDecodableShape {
-
         /// Id for the version.
         public let name: String?
 
@@ -953,12 +923,11 @@ extension MQ {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case name = "name"
+            case name
         }
     }
 
     public struct LdapServerMetadataInput: AWSEncodableShape {
-
         /// Fully qualified domain name of the LDAP server. Optional failover server.
         public let hosts: [String]?
         /// Fully qualified name of the directory to search for a user’s groups.
@@ -997,22 +966,21 @@ extension MQ {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case hosts = "hosts"
-            case roleBase = "roleBase"
-            case roleName = "roleName"
-            case roleSearchMatching = "roleSearchMatching"
-            case roleSearchSubtree = "roleSearchSubtree"
-            case serviceAccountPassword = "serviceAccountPassword"
-            case serviceAccountUsername = "serviceAccountUsername"
-            case userBase = "userBase"
-            case userRoleName = "userRoleName"
-            case userSearchMatching = "userSearchMatching"
-            case userSearchSubtree = "userSearchSubtree"
+            case hosts
+            case roleBase
+            case roleName
+            case roleSearchMatching
+            case roleSearchSubtree
+            case serviceAccountPassword
+            case serviceAccountUsername
+            case userBase
+            case userRoleName
+            case userSearchMatching
+            case userSearchSubtree
         }
     }
 
     public struct LdapServerMetadataOutput: AWSDecodableShape {
-
         /// Fully qualified domain name of the LDAP server. Optional failover server.
         public let hosts: [String]?
         /// Fully qualified name of the directory to search for a user’s groups.
@@ -1048,22 +1016,22 @@ extension MQ {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case hosts = "hosts"
-            case roleBase = "roleBase"
-            case roleName = "roleName"
-            case roleSearchMatching = "roleSearchMatching"
-            case roleSearchSubtree = "roleSearchSubtree"
-            case serviceAccountUsername = "serviceAccountUsername"
-            case userBase = "userBase"
-            case userRoleName = "userRoleName"
-            case userSearchMatching = "userSearchMatching"
-            case userSearchSubtree = "userSearchSubtree"
+            case hosts
+            case roleBase
+            case roleName
+            case roleSearchMatching
+            case roleSearchSubtree
+            case serviceAccountUsername
+            case userBase
+            case userRoleName
+            case userSearchMatching
+            case userSearchSubtree
         }
     }
 
     public struct ListBrokersRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "maxResults")), 
+            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "maxResults")),
             AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "nextToken"))
         ]
 
@@ -1084,7 +1052,6 @@ extension MQ {
     }
 
     public struct ListBrokersResponse: AWSDecodableShape {
-
         public let brokerSummaries: [BrokerSummary]?
         public let nextToken: String?
 
@@ -1094,15 +1061,15 @@ extension MQ {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case brokerSummaries = "brokerSummaries"
-            case nextToken = "nextToken"
+            case brokerSummaries
+            case nextToken
         }
     }
 
     public struct ListConfigurationRevisionsRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "configurationId", location: .uri(locationName: "configuration-id")), 
-            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "maxResults")), 
+            AWSMemberEncoding(label: "configurationId", location: .uri(locationName: "configuration-id")),
+            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "maxResults")),
             AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "nextToken"))
         ]
 
@@ -1125,7 +1092,6 @@ extension MQ {
     }
 
     public struct ListConfigurationRevisionsResponse: AWSDecodableShape {
-
         public let configurationId: String?
         public let maxResults: Int?
         public let nextToken: String?
@@ -1139,16 +1105,16 @@ extension MQ {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case configurationId = "configurationId"
-            case maxResults = "maxResults"
-            case nextToken = "nextToken"
-            case revisions = "revisions"
+            case configurationId
+            case maxResults
+            case nextToken
+            case revisions
         }
     }
 
     public struct ListConfigurationsRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "maxResults")), 
+            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "maxResults")),
             AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "nextToken"))
         ]
 
@@ -1169,7 +1135,6 @@ extension MQ {
     }
 
     public struct ListConfigurationsResponse: AWSDecodableShape {
-
         public let configurations: [Configuration]?
         public let maxResults: Int?
         public let nextToken: String?
@@ -1181,9 +1146,9 @@ extension MQ {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case configurations = "configurations"
-            case maxResults = "maxResults"
-            case nextToken = "nextToken"
+            case configurations
+            case maxResults
+            case nextToken
         }
     }
 
@@ -1202,7 +1167,6 @@ extension MQ {
     }
 
     public struct ListTagsResponse: AWSDecodableShape {
-
         public let tags: [String: String]?
 
         public init(tags: [String: String]? = nil) {
@@ -1210,14 +1174,14 @@ extension MQ {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case tags = "tags"
+            case tags
         }
     }
 
     public struct ListUsersRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "brokerId", location: .uri(locationName: "broker-id")), 
-            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "maxResults")), 
+            AWSMemberEncoding(label: "brokerId", location: .uri(locationName: "broker-id")),
+            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "maxResults")),
             AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "nextToken"))
         ]
 
@@ -1240,7 +1204,6 @@ extension MQ {
     }
 
     public struct ListUsersResponse: AWSDecodableShape {
-
         public let brokerId: String?
         public let maxResults: Int?
         public let nextToken: String?
@@ -1254,15 +1217,14 @@ extension MQ {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case brokerId = "brokerId"
-            case maxResults = "maxResults"
-            case nextToken = "nextToken"
-            case users = "users"
+            case brokerId
+            case maxResults
+            case nextToken
+            case users
         }
     }
 
     public struct Logs: AWSEncodableShape & AWSDecodableShape {
-
         /// Enables audit logging. Every user management action made using JMX or the ActiveMQ Web Console is logged. Does not apply to RabbitMQ brokers.
         public let audit: Bool?
         /// Enables general logging.
@@ -1274,13 +1236,12 @@ extension MQ {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case audit = "audit"
-            case general = "general"
+            case audit
+            case general
         }
     }
 
     public struct LogsSummary: AWSDecodableShape {
-
         /// Enables audit logging. Every user management action made using JMX or the ActiveMQ Web Console is logged.
         public let audit: Bool?
         /// The location of the CloudWatch Logs log group where audit logs are sent.
@@ -1301,16 +1262,15 @@ extension MQ {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case audit = "audit"
-            case auditLogGroup = "auditLogGroup"
-            case general = "general"
-            case generalLogGroup = "generalLogGroup"
-            case pending = "pending"
+            case audit
+            case auditLogGroup
+            case general
+            case generalLogGroup
+            case pending
         }
     }
 
     public struct PendingLogs: AWSDecodableShape {
-
         /// Enables audit logging. Every user management action made using JMX or the ActiveMQ Web Console is logged.
         public let audit: Bool?
         /// Enables general logging.
@@ -1322,8 +1282,8 @@ extension MQ {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case audit = "audit"
-            case general = "general"
+            case audit
+            case general
         }
     }
 
@@ -1342,15 +1302,10 @@ extension MQ {
     }
 
     public struct RebootBrokerResponse: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct SanitizationWarning: AWSDecodableShape {
-
         /// The name of the XML attribute that has been sanitized.
         public let attributeName: String?
         /// The name of the XML element that has been sanitized.
@@ -1365,9 +1320,9 @@ extension MQ {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case attributeName = "attributeName"
-            case elementName = "elementName"
-            case reason = "reason"
+            case attributeName
+            case elementName
+            case reason
         }
     }
 
@@ -1399,19 +1354,18 @@ extension MQ {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case authenticationStrategy = "authenticationStrategy"
-            case autoMinorVersionUpgrade = "autoMinorVersionUpgrade"
-            case configuration = "configuration"
-            case engineVersion = "engineVersion"
-            case hostInstanceType = "hostInstanceType"
-            case ldapServerMetadata = "ldapServerMetadata"
-            case logs = "logs"
-            case securityGroups = "securityGroups"
+            case authenticationStrategy
+            case autoMinorVersionUpgrade
+            case configuration
+            case engineVersion
+            case hostInstanceType
+            case ldapServerMetadata
+            case logs
+            case securityGroups
         }
     }
 
     public struct UpdateBrokerResponse: AWSDecodableShape {
-
         public let authenticationStrategy: AuthenticationStrategy?
         public let autoMinorVersionUpgrade: Bool?
         public let brokerId: String?
@@ -1435,15 +1389,15 @@ extension MQ {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case authenticationStrategy = "authenticationStrategy"
-            case autoMinorVersionUpgrade = "autoMinorVersionUpgrade"
-            case brokerId = "brokerId"
-            case configuration = "configuration"
-            case engineVersion = "engineVersion"
-            case hostInstanceType = "hostInstanceType"
-            case ldapServerMetadata = "ldapServerMetadata"
-            case logs = "logs"
-            case securityGroups = "securityGroups"
+            case authenticationStrategy
+            case autoMinorVersionUpgrade
+            case brokerId
+            case configuration
+            case engineVersion
+            case hostInstanceType
+            case ldapServerMetadata
+            case logs
+            case securityGroups
         }
     }
 
@@ -1463,13 +1417,12 @@ extension MQ {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case data = "data"
-            case description = "description"
+            case data
+            case description
         }
     }
 
     public struct UpdateConfigurationResponse: AWSDecodableShape {
-
         public let arn: String?
         @OptionalCustomCoding<ISO8601DateCoder>
         public var created: Date?
@@ -1488,18 +1441,18 @@ extension MQ {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case arn = "arn"
-            case created = "created"
-            case id = "id"
-            case latestRevision = "latestRevision"
-            case name = "name"
-            case warnings = "warnings"
+            case arn
+            case created
+            case id
+            case latestRevision
+            case name
+            case warnings
         }
     }
 
     public struct UpdateUserRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "brokerId", location: .uri(locationName: "broker-id")), 
+            AWSMemberEncoding(label: "brokerId", location: .uri(locationName: "broker-id")),
             AWSMemberEncoding(label: "username", location: .uri(locationName: "username"))
         ]
 
@@ -1518,22 +1471,17 @@ extension MQ {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case consoleAccess = "consoleAccess"
-            case groups = "groups"
-            case password = "password"
+            case consoleAccess
+            case groups
+            case password
         }
     }
 
     public struct UpdateUserResponse: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct User: AWSEncodableShape {
-
         /// Enables access to the ActiveMQ Web Console for the ActiveMQ user (Does not apply to RabbitMQ brokers).
         public let consoleAccess: Bool?
         /// The list of groups (20 maximum) to which the ActiveMQ user belongs. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
@@ -1551,15 +1499,14 @@ extension MQ {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case consoleAccess = "consoleAccess"
-            case groups = "groups"
-            case password = "password"
-            case username = "username"
+            case consoleAccess
+            case groups
+            case password
+            case username
         }
     }
 
     public struct UserPendingChanges: AWSDecodableShape {
-
         /// Enables access to the the ActiveMQ Web Console for the ActiveMQ user.
         public let consoleAccess: Bool?
         /// The list of groups (20 maximum) to which the ActiveMQ user belongs. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
@@ -1574,14 +1521,13 @@ extension MQ {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case consoleAccess = "consoleAccess"
-            case groups = "groups"
-            case pendingChange = "pendingChange"
+            case consoleAccess
+            case groups
+            case pendingChange
         }
     }
 
     public struct UserSummary: AWSDecodableShape {
-
         /// The type of change pending for the broker user.
         public let pendingChange: ChangeType?
         /// Required. The username of the broker user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
@@ -1593,13 +1539,12 @@ extension MQ {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case pendingChange = "pendingChange"
-            case username = "username"
+            case pendingChange
+            case username
         }
     }
 
     public struct WeeklyStartTime: AWSEncodableShape & AWSDecodableShape {
-
         /// Required. The day of the week.
         public let dayOfWeek: DayOfWeek?
         /// Required. The time, in 24-hour format.
@@ -1614,9 +1559,9 @@ extension MQ {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case dayOfWeek = "dayOfWeek"
-            case timeOfDay = "timeOfDay"
-            case timeZone = "timeZone"
+            case dayOfWeek
+            case timeOfDay
+            case timeZone
         }
     }
 }

@@ -72,6 +72,29 @@ extension MediaPackageVod {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listAssetsPaginator(
+        _ input: ListAssetsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListAssetsRequest, ListAssetsResponse> {
+        return .init(
+            input: input,
+            command: listAssets,
+            inputKey: \ListAssetsRequest.nextToken,
+            outputKey: \ListAssetsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Returns a collection of MediaPackage VOD PackagingConfiguration resources.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -125,6 +148,29 @@ extension MediaPackageVod {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listPackagingConfigurationsPaginator(
+        _ input: ListPackagingConfigurationsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListPackagingConfigurationsRequest, ListPackagingConfigurationsResponse> {
+        return .init(
+            input: input,
+            command: listPackagingConfigurations,
+            inputKey: \ListPackagingConfigurationsRequest.nextToken,
+            outputKey: \ListPackagingConfigurationsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Returns a collection of MediaPackage VOD PackagingGroup resources.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -177,6 +223,29 @@ extension MediaPackageVod {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listPackagingGroupsPaginator(
+        _ input: ListPackagingGroupsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListPackagingGroupsRequest, ListPackagingGroupsResponse> {
+        return .init(
+            input: input,
+            command: listPackagingGroups,
+            inputKey: \ListPackagingGroupsRequest.nextToken,
+            outputKey: \ListPackagingGroupsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 }
 
 extension MediaPackageVod.ListAssetsRequest: AWSPaginateToken {

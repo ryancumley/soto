@@ -23,7 +23,6 @@ extension SagemakerEdgeManager {
     // MARK: Shapes
 
     public struct EdgeMetric: AWSEncodableShape {
-
         /// The dimension of metrics published.
         public let dimension: String?
         /// Returns the name of the metric.
@@ -58,7 +57,6 @@ extension SagemakerEdgeManager {
     }
 
     public struct GetDeviceRegistrationRequest: AWSEncodableShape {
-
         /// The name of the fleet that the device belongs to.
         public let deviceFleetName: String
         /// The unique name of the device you want to get the registration status from.
@@ -85,7 +83,6 @@ extension SagemakerEdgeManager {
     }
 
     public struct GetDeviceRegistrationResult: AWSDecodableShape {
-
         /// The amount of time, in seconds, that the registration status is stored on the device’s cache before it is refreshed.
         public let cacheTTL: String?
         /// Describes if the device is currently registered with SageMaker Edge Manager.
@@ -103,7 +100,6 @@ extension SagemakerEdgeManager {
     }
 
     public struct Model: AWSEncodableShape {
-
         /// The timestamp of the last inference that was made.
         public let latestInference: Date?
         /// The timestamp of the last data sample taken.
@@ -145,7 +141,6 @@ extension SagemakerEdgeManager {
     }
 
     public struct SendHeartbeatRequest: AWSEncodableShape {
-
         /// For internal use. Returns a list of SageMaker Edge Manager agent operating metrics.
         public let agentMetrics: [EdgeMetric]?
         /// Returns the version of the agent.

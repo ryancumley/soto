@@ -1690,7 +1690,6 @@ extension MediaLive {
     // MARK: Shapes
 
     public struct AacSettings: AWSEncodableShape & AWSDecodableShape {
-
         /// Average bitrate in bits/second. Valid values depend on rate control mode and profile.
         public let bitrate: Double?
         /// Mono, Stereo, or 5.1 channel layout. Valid values depend on rate control mode and profile. The adReceiverMix setting receives a stereo description plus control track and emits a mono AAC encode of the description track, with control data emitted in the PES header as per ETSI TS 101 154 Annex E.
@@ -1724,20 +1723,19 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case bitrate = "bitrate"
-            case codingMode = "codingMode"
-            case inputType = "inputType"
-            case profile = "profile"
-            case rateControlMode = "rateControlMode"
-            case rawFormat = "rawFormat"
-            case sampleRate = "sampleRate"
-            case spec = "spec"
-            case vbrQuality = "vbrQuality"
+            case bitrate
+            case codingMode
+            case inputType
+            case profile
+            case rateControlMode
+            case rawFormat
+            case sampleRate
+            case spec
+            case vbrQuality
         }
     }
 
     public struct Ac3Settings: AWSEncodableShape & AWSDecodableShape {
-
         /// Average bitrate in bits/second. Valid bitrates depend on the coding mode.
         public let bitrate: Double?
         /// Specifies the bitstream mode (bsmod) for the emitted AC-3 stream. See ATSC A/52-2012 for background on these values.
@@ -1769,13 +1767,13 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case bitrate = "bitrate"
-            case bitstreamMode = "bitstreamMode"
-            case codingMode = "codingMode"
-            case dialnorm = "dialnorm"
-            case drcProfile = "drcProfile"
-            case lfeFilter = "lfeFilter"
-            case metadataControl = "metadataControl"
+            case bitrate
+            case bitstreamMode
+            case codingMode
+            case dialnorm
+            case drcProfile
+            case lfeFilter
+            case metadataControl
         }
     }
 
@@ -1794,15 +1792,10 @@ extension MediaLive {
     }
 
     public struct AcceptInputDeviceTransferResponse: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct AncillarySourceSettings: AWSEncodableShape & AWSDecodableShape {
-
         /// Specifies the number (1 to 4) of the captions channel you want to extract from the ancillary captions. If you plan to convert the ancillary captions to another format, complete this field. If you plan to choose Embedded as the captions destination in the output (to pass through all the channels in the ancillary captions), leave this field blank because MediaLive ignores the field.
         public let sourceAncillaryChannelNumber: Int?
 
@@ -1816,12 +1809,11 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case sourceAncillaryChannelNumber = "sourceAncillaryChannelNumber"
+            case sourceAncillaryChannelNumber
         }
     }
 
     public struct ArchiveCdnSettings: AWSEncodableShape & AWSDecodableShape {
-
         public let archiveS3Settings: ArchiveS3Settings?
 
         public init(archiveS3Settings: ArchiveS3Settings? = nil) {
@@ -1829,12 +1821,11 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case archiveS3Settings = "archiveS3Settings"
+            case archiveS3Settings
         }
     }
 
     public struct ArchiveContainerSettings: AWSEncodableShape & AWSDecodableShape {
-
         public let m2tsSettings: M2tsSettings?
         public let rawSettings: RawSettings?
 
@@ -1848,13 +1839,12 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case m2tsSettings = "m2tsSettings"
-            case rawSettings = "rawSettings"
+            case m2tsSettings
+            case rawSettings
         }
     }
 
     public struct ArchiveGroupSettings: AWSEncodableShape & AWSDecodableShape {
-
         /// Parameters that control interactions with the CDN.
         public let archiveCdnSettings: ArchiveCdnSettings?
         /// A directory and base filename where archive files should be written.
@@ -1873,14 +1863,13 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case archiveCdnSettings = "archiveCdnSettings"
-            case destination = "destination"
-            case rolloverInterval = "rolloverInterval"
+            case archiveCdnSettings
+            case destination
+            case rolloverInterval
         }
     }
 
     public struct ArchiveOutputSettings: AWSEncodableShape & AWSDecodableShape {
-
         /// Settings specific to the container type of the file.
         public let containerSettings: ArchiveContainerSettings
         /// Output file extension. If excluded, this will be auto-selected from the container type.
@@ -1899,14 +1888,13 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case containerSettings = "containerSettings"
-            case `extension` = "extension"
-            case nameModifier = "nameModifier"
+            case containerSettings
+            case `extension`
+            case nameModifier
         }
     }
 
     public struct ArchiveS3Settings: AWSEncodableShape & AWSDecodableShape {
-
         /// Specify the canned ACL to apply to each S3 request. Defaults to none.
         public let cannedAcl: S3CannedAcl?
 
@@ -1915,28 +1903,19 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case cannedAcl = "cannedAcl"
+            case cannedAcl
         }
     }
 
     public struct AribDestinationSettings: AWSEncodableShape & AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct AribSourceSettings: AWSEncodableShape & AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct AudioChannelMapping: AWSEncodableShape & AWSDecodableShape {
-
         /// Indices and gain values for each input channel that should be remixed into this output channel.
         public let inputChannelLevels: [InputChannelLevel]
         /// The index of the output channel being produced.
@@ -1956,13 +1935,12 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case inputChannelLevels = "inputChannelLevels"
-            case outputChannel = "outputChannel"
+            case inputChannelLevels
+            case outputChannel
         }
     }
 
     public struct AudioCodecSettings: AWSEncodableShape & AWSDecodableShape {
-
         public let aacSettings: AacSettings?
         public let ac3Settings: Ac3Settings?
         public let eac3Settings: Eac3Settings?
@@ -1985,17 +1963,16 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case aacSettings = "aacSettings"
-            case ac3Settings = "ac3Settings"
-            case eac3Settings = "eac3Settings"
-            case mp2Settings = "mp2Settings"
-            case passThroughSettings = "passThroughSettings"
-            case wavSettings = "wavSettings"
+            case aacSettings
+            case ac3Settings
+            case eac3Settings
+            case mp2Settings
+            case passThroughSettings
+            case wavSettings
         }
     }
 
     public struct AudioDescription: AWSEncodableShape & AWSDecodableShape {
-
         /// Advanced audio normalization settings.
         public let audioNormalizationSettings: AudioNormalizationSettings?
         /// The name of the AudioSelector used as the source for this AudioDescription.
@@ -2041,21 +2018,20 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case audioNormalizationSettings = "audioNormalizationSettings"
-            case audioSelectorName = "audioSelectorName"
-            case audioType = "audioType"
-            case audioTypeControl = "audioTypeControl"
-            case codecSettings = "codecSettings"
-            case languageCode = "languageCode"
-            case languageCodeControl = "languageCodeControl"
-            case name = "name"
-            case remixSettings = "remixSettings"
-            case streamName = "streamName"
+            case audioNormalizationSettings
+            case audioSelectorName
+            case audioType
+            case audioTypeControl
+            case codecSettings
+            case languageCode
+            case languageCodeControl
+            case name
+            case remixSettings
+            case streamName
         }
     }
 
     public struct AudioLanguageSelection: AWSEncodableShape & AWSDecodableShape {
-
         /// Selects a specific three-letter language code from within an audio source.
         public let languageCode: String
         /// When set to "strict", the transport stream demux strictly identifies audio streams by their language descriptor. If a PMT update occurs such that an audio stream matching the initially selected language is no longer present then mute will be encoded until the language returns. If "loose", then on a PMT update the demux will choose another audio stream in the program with the same stream type if it can't find one with the same language.
@@ -2067,13 +2043,12 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case languageCode = "languageCode"
-            case languageSelectionPolicy = "languageSelectionPolicy"
+            case languageCode
+            case languageSelectionPolicy
         }
     }
 
     public struct AudioNormalizationSettings: AWSEncodableShape & AWSDecodableShape {
-
         /// Audio normalization algorithm to use. itu17701 conforms to the CALM Act specification, itu17702 conforms to the EBU R-128 specification.
         public let algorithm: AudioNormalizationAlgorithm?
         /// When set to correctAudio the output audio is corrected using the chosen algorithm. If set to measureOnly, the audio will be measured but not adjusted.
@@ -2088,14 +2063,13 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case algorithm = "algorithm"
-            case algorithmControl = "algorithmControl"
-            case targetLkfs = "targetLkfs"
+            case algorithm
+            case algorithmControl
+            case targetLkfs
         }
     }
 
     public struct AudioOnlyHlsSettings: AWSEncodableShape & AWSDecodableShape {
-
         /// Specifies the group to which the audio Rendition belongs.
         public let audioGroupId: String?
         /// Optional. Specifies the .jpg or .png image to use as the cover art for an audio-only output. We recommend a low bit-size file because the image increases the output audio bandwidth.
@@ -2122,15 +2096,14 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case audioGroupId = "audioGroupId"
-            case audioOnlyImage = "audioOnlyImage"
-            case audioTrackType = "audioTrackType"
-            case segmentType = "segmentType"
+            case audioGroupId
+            case audioOnlyImage
+            case audioTrackType
+            case segmentType
         }
     }
 
     public struct AudioPidSelection: AWSEncodableShape & AWSDecodableShape {
-
         /// Selects a specific PID from within a source.
         public let pid: Int
 
@@ -2144,12 +2117,11 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case pid = "pid"
+            case pid
         }
     }
 
     public struct AudioSelector: AWSEncodableShape & AWSDecodableShape {
-
         /// The name of this AudioSelector. AudioDescriptions will use this name to uniquely identify this Selector.  Selector names should be unique per input.
         public let name: String
         /// The audio selector settings.
@@ -2166,13 +2138,12 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case name = "name"
-            case selectorSettings = "selectorSettings"
+            case name
+            case selectorSettings
         }
     }
 
     public struct AudioSelectorSettings: AWSEncodableShape & AWSDecodableShape {
-
         public let audioLanguageSelection: AudioLanguageSelection?
         public let audioPidSelection: AudioPidSelection?
         public let audioTrackSelection: AudioTrackSelection?
@@ -2189,14 +2160,13 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case audioLanguageSelection = "audioLanguageSelection"
-            case audioPidSelection = "audioPidSelection"
-            case audioTrackSelection = "audioTrackSelection"
+            case audioLanguageSelection
+            case audioPidSelection
+            case audioTrackSelection
         }
     }
 
     public struct AudioSilenceFailoverSettings: AWSEncodableShape & AWSDecodableShape {
-
         /// The name of the audio selector in the input that MediaLive should monitor to detect silence. Select your most important rendition. If you didn't create an audio selector in this input, leave blank.
         public let audioSelectorName: String
         /// The amount of time (in milliseconds) that the active input must be silent before automatic input failover occurs. Silence is defined as audio loss or audio quieter than -50 dBFS.
@@ -2212,13 +2182,12 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case audioSelectorName = "audioSelectorName"
-            case audioSilenceThresholdMsec = "audioSilenceThresholdMsec"
+            case audioSelectorName
+            case audioSilenceThresholdMsec
         }
     }
 
     public struct AudioTrack: AWSEncodableShape & AWSDecodableShape {
-
         /// 1-based integer value that maps to a specific audio track
         public let track: Int
 
@@ -2231,12 +2200,11 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case track = "track"
+            case track
         }
     }
 
     public struct AudioTrackSelection: AWSEncodableShape & AWSDecodableShape {
-
         /// Selects one or more unique audio tracks from within a source.
         public let tracks: [AudioTrack]
 
@@ -2251,12 +2219,11 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case tracks = "tracks"
+            case tracks
         }
     }
 
     public struct AutomaticInputFailoverSettings: AWSEncodableShape & AWSDecodableShape {
-
         /// This clear time defines the requirement a recovered input must meet to be considered healthy. The input must have no failover conditions for this length of time. Enter a time in milliseconds. This value is particularly important if the input_preference for the failover pair is set to PRIMARY_INPUT_PREFERRED, because after this time, MediaLive will switch back to the primary input.
         public let errorClearTimeMsec: Int?
         /// A list of failover conditions. If any of these conditions occur, MediaLive will perform a failover to the other input.
@@ -2281,15 +2248,14 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case errorClearTimeMsec = "errorClearTimeMsec"
-            case failoverConditions = "failoverConditions"
-            case inputPreference = "inputPreference"
-            case secondaryInputId = "secondaryInputId"
+            case errorClearTimeMsec
+            case failoverConditions
+            case inputPreference
+            case secondaryInputId
         }
     }
 
     public struct AvailBlanking: AWSEncodableShape & AWSDecodableShape {
-
         /// Blanking image to be used. Leave empty for solid black. Only bmp and png images are supported.
         public let availBlankingImage: InputLocation?
         /// When set to enabled, causes video, audio and captions to be blanked when insertion metadata is added.
@@ -2301,13 +2267,12 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case availBlankingImage = "availBlankingImage"
-            case state = "state"
+            case availBlankingImage
+            case state
         }
     }
 
     public struct AvailConfiguration: AWSEncodableShape & AWSDecodableShape {
-
         /// Ad avail settings.
         public let availSettings: AvailSettings?
 
@@ -2320,12 +2285,11 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case availSettings = "availSettings"
+            case availSettings
         }
     }
 
     public struct AvailSettings: AWSEncodableShape & AWSDecodableShape {
-
         public let scte35SpliceInsert: Scte35SpliceInsert?
         public let scte35TimeSignalApos: Scte35TimeSignalApos?
 
@@ -2340,13 +2304,12 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case scte35SpliceInsert = "scte35SpliceInsert"
-            case scte35TimeSignalApos = "scte35TimeSignalApos"
+            case scte35SpliceInsert
+            case scte35TimeSignalApos
         }
     }
 
     public struct BatchDeleteRequest: AWSEncodableShape {
-
         public let channelIds: [String]?
         public let inputIds: [String]?
         public let inputSecurityGroupIds: [String]?
@@ -2360,15 +2323,14 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case channelIds = "channelIds"
-            case inputIds = "inputIds"
-            case inputSecurityGroupIds = "inputSecurityGroupIds"
-            case multiplexIds = "multiplexIds"
+            case channelIds
+            case inputIds
+            case inputSecurityGroupIds
+            case multiplexIds
         }
     }
 
     public struct BatchDeleteResponse: AWSDecodableShape {
-
         public let failed: [BatchFailedResultModel]?
         public let successful: [BatchSuccessfulResultModel]?
 
@@ -2378,13 +2340,12 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case failed = "failed"
-            case successful = "successful"
+            case failed
+            case successful
         }
     }
 
     public struct BatchFailedResultModel: AWSDecodableShape {
-
         /// ARN of the resource
         public let arn: String?
         /// Error code for the failed operation
@@ -2402,15 +2363,14 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case arn = "arn"
-            case code = "code"
-            case id = "id"
-            case message = "message"
+            case arn
+            case code
+            case id
+            case message
         }
     }
 
     public struct BatchScheduleActionCreateRequest: AWSEncodableShape {
-
         /// A list of schedule actions to create.
         public let scheduleActions: [ScheduleAction]
 
@@ -2425,12 +2385,11 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case scheduleActions = "scheduleActions"
+            case scheduleActions
         }
     }
 
     public struct BatchScheduleActionCreateResult: AWSDecodableShape {
-
         /// List of actions that have been created in the schedule.
         public let scheduleActions: [ScheduleAction]
 
@@ -2439,12 +2398,11 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case scheduleActions = "scheduleActions"
+            case scheduleActions
         }
     }
 
     public struct BatchScheduleActionDeleteRequest: AWSEncodableShape {
-
         /// A list of schedule actions to delete.
         public let actionNames: [String]
 
@@ -2453,12 +2411,11 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case actionNames = "actionNames"
+            case actionNames
         }
     }
 
     public struct BatchScheduleActionDeleteResult: AWSDecodableShape {
-
         /// List of actions that have been deleted from the schedule.
         public let scheduleActions: [ScheduleAction]
 
@@ -2467,12 +2424,11 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case scheduleActions = "scheduleActions"
+            case scheduleActions
         }
     }
 
     public struct BatchStartRequest: AWSEncodableShape {
-
         public let channelIds: [String]?
         public let multiplexIds: [String]?
 
@@ -2482,13 +2438,12 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case channelIds = "channelIds"
-            case multiplexIds = "multiplexIds"
+            case channelIds
+            case multiplexIds
         }
     }
 
     public struct BatchStartResponse: AWSDecodableShape {
-
         public let failed: [BatchFailedResultModel]?
         public let successful: [BatchSuccessfulResultModel]?
 
@@ -2498,13 +2453,12 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case failed = "failed"
-            case successful = "successful"
+            case failed
+            case successful
         }
     }
 
     public struct BatchStopRequest: AWSEncodableShape {
-
         public let channelIds: [String]?
         public let multiplexIds: [String]?
 
@@ -2514,13 +2468,12 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case channelIds = "channelIds"
-            case multiplexIds = "multiplexIds"
+            case channelIds
+            case multiplexIds
         }
     }
 
     public struct BatchStopResponse: AWSDecodableShape {
-
         public let failed: [BatchFailedResultModel]?
         public let successful: [BatchSuccessfulResultModel]?
 
@@ -2530,13 +2483,12 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case failed = "failed"
-            case successful = "successful"
+            case failed
+            case successful
         }
     }
 
     public struct BatchSuccessfulResultModel: AWSDecodableShape {
-
         /// ARN of the resource
         public let arn: String?
         /// ID of the resource
@@ -2551,9 +2503,9 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case arn = "arn"
-            case id = "id"
-            case state = "state"
+            case arn
+            case id
+            case state
         }
     }
 
@@ -2579,13 +2531,12 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case creates = "creates"
-            case deletes = "deletes"
+            case creates
+            case deletes
         }
     }
 
     public struct BatchUpdateScheduleResponse: AWSDecodableShape {
-
         public let creates: BatchScheduleActionCreateResult?
         public let deletes: BatchScheduleActionDeleteResult?
 
@@ -2595,13 +2546,12 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case creates = "creates"
-            case deletes = "deletes"
+            case creates
+            case deletes
         }
     }
 
     public struct BlackoutSlate: AWSEncodableShape & AWSDecodableShape {
-
         /// Blackout slate image to be used. Leave empty for solid black. Only bmp and png images are supported.
         public let blackoutSlateImage: InputLocation?
         /// Setting to enabled causes the encoder to blackout the video, audio, and captions, and raise the "Network Blackout Image" slate when an SCTE104/35 Network End Segmentation Descriptor is encountered. The blackout will be lifted when the Network Start Segmentation Descriptor is encountered. The Network End and Network Start descriptors must contain a network ID that matches the value entered in "Network ID".
@@ -2627,16 +2577,15 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case blackoutSlateImage = "blackoutSlateImage"
-            case networkEndBlackout = "networkEndBlackout"
-            case networkEndBlackoutImage = "networkEndBlackoutImage"
-            case networkId = "networkId"
-            case state = "state"
+            case blackoutSlateImage
+            case networkEndBlackout
+            case networkEndBlackoutImage
+            case networkId
+            case state
         }
     }
 
     public struct BurnInDestinationSettings: AWSEncodableShape & AWSDecodableShape {
-
         /// If no explicit xPosition or yPosition is provided, setting alignment to centered will place the captions at the bottom center of the output. Similarly, setting a left alignment will align captions to the bottom left of the output. If x and y positions are given in conjunction with the alignment parameter, the font will be justified (either left or centered) relative to those coordinates. Selecting "smart" justification will left-justify live subtitles and center-justify pre-recorded subtitles.  All burn-in and DVB-Sub font settings must match.
         public let alignment: BurnInAlignment?
         /// Specifies the color of the rectangle behind the captions.  All burn-in and DVB-Sub font settings must match.
@@ -2708,23 +2657,23 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case alignment = "alignment"
-            case backgroundColor = "backgroundColor"
-            case backgroundOpacity = "backgroundOpacity"
-            case font = "font"
-            case fontColor = "fontColor"
-            case fontOpacity = "fontOpacity"
-            case fontResolution = "fontResolution"
-            case fontSize = "fontSize"
-            case outlineColor = "outlineColor"
-            case outlineSize = "outlineSize"
-            case shadowColor = "shadowColor"
-            case shadowOpacity = "shadowOpacity"
-            case shadowXOffset = "shadowXOffset"
-            case shadowYOffset = "shadowYOffset"
-            case teletextGridControl = "teletextGridControl"
-            case xPosition = "xPosition"
-            case yPosition = "yPosition"
+            case alignment
+            case backgroundColor
+            case backgroundOpacity
+            case font
+            case fontColor
+            case fontOpacity
+            case fontResolution
+            case fontSize
+            case outlineColor
+            case outlineSize
+            case shadowColor
+            case shadowOpacity
+            case shadowXOffset
+            case shadowYOffset
+            case teletextGridControl
+            case xPosition
+            case yPosition
         }
     }
 
@@ -2743,15 +2692,10 @@ extension MediaLive {
     }
 
     public struct CancelInputDeviceTransferResponse: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct CaptionDescription: AWSEncodableShape & AWSDecodableShape {
-
         /// Specifies which input caption selector to use as a caption source when generating output captions. This field should match a captionSelector name.
         public let captionSelectorName: String
         /// Additional settings for captions destination that depend on the destination type.
@@ -2776,16 +2720,15 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case captionSelectorName = "captionSelectorName"
-            case destinationSettings = "destinationSettings"
-            case languageCode = "languageCode"
-            case languageDescription = "languageDescription"
-            case name = "name"
+            case captionSelectorName
+            case destinationSettings
+            case languageCode
+            case languageDescription
+            case name
         }
     }
 
     public struct CaptionDestinationSettings: AWSEncodableShape & AWSDecodableShape {
-
         public let aribDestinationSettings: AribDestinationSettings?
         public let burnInDestinationSettings: BurnInDestinationSettings?
         public let dvbSubDestinationSettings: DvbSubDestinationSettings?
@@ -2823,24 +2766,23 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case aribDestinationSettings = "aribDestinationSettings"
-            case burnInDestinationSettings = "burnInDestinationSettings"
-            case dvbSubDestinationSettings = "dvbSubDestinationSettings"
-            case ebuTtDDestinationSettings = "ebuTtDDestinationSettings"
-            case embeddedDestinationSettings = "embeddedDestinationSettings"
-            case embeddedPlusScte20DestinationSettings = "embeddedPlusScte20DestinationSettings"
-            case rtmpCaptionInfoDestinationSettings = "rtmpCaptionInfoDestinationSettings"
-            case scte20PlusEmbeddedDestinationSettings = "scte20PlusEmbeddedDestinationSettings"
-            case scte27DestinationSettings = "scte27DestinationSettings"
-            case smpteTtDestinationSettings = "smpteTtDestinationSettings"
-            case teletextDestinationSettings = "teletextDestinationSettings"
-            case ttmlDestinationSettings = "ttmlDestinationSettings"
-            case webvttDestinationSettings = "webvttDestinationSettings"
+            case aribDestinationSettings
+            case burnInDestinationSettings
+            case dvbSubDestinationSettings
+            case ebuTtDDestinationSettings
+            case embeddedDestinationSettings
+            case embeddedPlusScte20DestinationSettings
+            case rtmpCaptionInfoDestinationSettings
+            case scte20PlusEmbeddedDestinationSettings
+            case scte27DestinationSettings
+            case smpteTtDestinationSettings
+            case teletextDestinationSettings
+            case ttmlDestinationSettings
+            case webvttDestinationSettings
         }
     }
 
     public struct CaptionLanguageMapping: AWSEncodableShape & AWSDecodableShape {
-
         /// The closed caption channel being described by this CaptionLanguageMapping.  Each channel mapping must have a unique channel number (maximum of 4)
         public let captionChannel: Int
         /// Three character ISO 639-2 language code (see http://www.loc.gov/standards/iso639-2)
@@ -2863,14 +2805,13 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case captionChannel = "captionChannel"
-            case languageCode = "languageCode"
-            case languageDescription = "languageDescription"
+            case captionChannel
+            case languageCode
+            case languageDescription
         }
     }
 
     public struct CaptionRectangle: AWSEncodableShape & AWSDecodableShape {
-
         /// See the description in leftOffset.
         /// For height, specify the entire height of the rectangle as a percentage of the underlying frame height. For example, \"80\" means the rectangle height is 80% of the underlying frame height. The topOffset and rectangleHeight must add up to 100% or less.
         /// This field corresponds to tts:extent - Y in the TTML standard.
@@ -2897,15 +2838,14 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case height = "height"
-            case leftOffset = "leftOffset"
-            case topOffset = "topOffset"
-            case width = "width"
+            case height
+            case leftOffset
+            case topOffset
+            case width
         }
     }
 
     public struct CaptionSelector: AWSEncodableShape & AWSDecodableShape {
-
         /// When specified this field indicates the three letter language code of the caption track to extract from the source.
         public let languageCode: String?
         /// Name identifier for a caption selector.  This name is used to associate this caption selector with one or more caption descriptions.  Names must be unique within an event.
@@ -2925,14 +2865,13 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case languageCode = "languageCode"
-            case name = "name"
-            case selectorSettings = "selectorSettings"
+            case languageCode
+            case name
+            case selectorSettings
         }
     }
 
     public struct CaptionSelectorSettings: AWSEncodableShape & AWSDecodableShape {
-
         public let ancillarySourceSettings: AncillarySourceSettings?
         public let aribSourceSettings: AribSourceSettings?
         public let dvbSubSourceSettings: DvbSubSourceSettings?
@@ -2960,18 +2899,17 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case ancillarySourceSettings = "ancillarySourceSettings"
-            case aribSourceSettings = "aribSourceSettings"
-            case dvbSubSourceSettings = "dvbSubSourceSettings"
-            case embeddedSourceSettings = "embeddedSourceSettings"
-            case scte20SourceSettings = "scte20SourceSettings"
-            case scte27SourceSettings = "scte27SourceSettings"
-            case teletextSourceSettings = "teletextSourceSettings"
+            case ancillarySourceSettings
+            case aribSourceSettings
+            case dvbSubSourceSettings
+            case embeddedSourceSettings
+            case scte20SourceSettings
+            case scte27SourceSettings
+            case teletextSourceSettings
         }
     }
 
     public struct CdiInputSpecification: AWSEncodableShape & AWSDecodableShape {
-
         /// Maximum CDI input resolution
         public let resolution: CdiInputResolution?
 
@@ -2980,12 +2918,11 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case resolution = "resolution"
+            case resolution
         }
     }
 
     public struct Channel: AWSDecodableShape {
-
         /// The unique arn of the channel.
         public let arn: String?
         /// Specification of CDI inputs for this channel
@@ -3042,28 +2979,27 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case arn = "arn"
-            case cdiInputSpecification = "cdiInputSpecification"
-            case channelClass = "channelClass"
-            case destinations = "destinations"
-            case egressEndpoints = "egressEndpoints"
-            case encoderSettings = "encoderSettings"
-            case id = "id"
-            case inputAttachments = "inputAttachments"
-            case inputSpecification = "inputSpecification"
-            case logLevel = "logLevel"
-            case name = "name"
-            case pipelineDetails = "pipelineDetails"
-            case pipelinesRunningCount = "pipelinesRunningCount"
-            case roleArn = "roleArn"
-            case state = "state"
-            case tags = "tags"
-            case vpc = "vpc"
+            case arn
+            case cdiInputSpecification
+            case channelClass
+            case destinations
+            case egressEndpoints
+            case encoderSettings
+            case id
+            case inputAttachments
+            case inputSpecification
+            case logLevel
+            case name
+            case pipelineDetails
+            case pipelinesRunningCount
+            case roleArn
+            case state
+            case tags
+            case vpc
         }
     }
 
     public struct ChannelEgressEndpoint: AWSDecodableShape {
-
         /// Public IP of where a channel's output comes from
         public let sourceIp: String?
 
@@ -3072,12 +3008,11 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case sourceIp = "sourceIp"
+            case sourceIp
         }
     }
 
     public struct ChannelSummary: AWSDecodableShape {
-
         /// The unique arn of the channel.
         public let arn: String?
         /// Specification of CDI inputs for this channel
@@ -3129,34 +3064,29 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case arn = "arn"
-            case cdiInputSpecification = "cdiInputSpecification"
-            case channelClass = "channelClass"
-            case destinations = "destinations"
-            case egressEndpoints = "egressEndpoints"
-            case id = "id"
-            case inputAttachments = "inputAttachments"
-            case inputSpecification = "inputSpecification"
-            case logLevel = "logLevel"
-            case name = "name"
-            case pipelinesRunningCount = "pipelinesRunningCount"
-            case roleArn = "roleArn"
-            case state = "state"
-            case tags = "tags"
-            case vpc = "vpc"
+            case arn
+            case cdiInputSpecification
+            case channelClass
+            case destinations
+            case egressEndpoints
+            case id
+            case inputAttachments
+            case inputSpecification
+            case logLevel
+            case name
+            case pipelinesRunningCount
+            case roleArn
+            case state
+            case tags
+            case vpc
         }
     }
 
     public struct ColorSpacePassthroughSettings: AWSEncodableShape & AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct CreateChannelRequest: AWSEncodableShape {
-
         public let cdiInputSpecification: CdiInputSpecification?
         public let channelClass: ChannelClass?
         public let destinations: [OutputDestination]?
@@ -3196,23 +3126,22 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case cdiInputSpecification = "cdiInputSpecification"
-            case channelClass = "channelClass"
-            case destinations = "destinations"
-            case encoderSettings = "encoderSettings"
-            case inputAttachments = "inputAttachments"
-            case inputSpecification = "inputSpecification"
-            case logLevel = "logLevel"
-            case name = "name"
-            case requestId = "requestId"
-            case roleArn = "roleArn"
-            case tags = "tags"
-            case vpc = "vpc"
+            case cdiInputSpecification
+            case channelClass
+            case destinations
+            case encoderSettings
+            case inputAttachments
+            case inputSpecification
+            case logLevel
+            case name
+            case requestId
+            case roleArn
+            case tags
+            case vpc
         }
     }
 
     public struct CreateChannelResponse: AWSDecodableShape {
-
         public let channel: Channel?
 
         public init(channel: Channel? = nil) {
@@ -3220,12 +3149,11 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case channel = "channel"
+            case channel
         }
     }
 
     public struct CreateInputRequest: AWSEncodableShape {
-
         public let destinations: [InputDestinationRequest]?
         public let inputDevices: [InputDeviceSettings]?
         public let inputSecurityGroups: [String]?
@@ -3253,22 +3181,21 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case destinations = "destinations"
-            case inputDevices = "inputDevices"
-            case inputSecurityGroups = "inputSecurityGroups"
-            case mediaConnectFlows = "mediaConnectFlows"
-            case name = "name"
-            case requestId = "requestId"
-            case roleArn = "roleArn"
-            case sources = "sources"
-            case tags = "tags"
-            case type = "type"
-            case vpc = "vpc"
+            case destinations
+            case inputDevices
+            case inputSecurityGroups
+            case mediaConnectFlows
+            case name
+            case requestId
+            case roleArn
+            case sources
+            case tags
+            case type
+            case vpc
         }
     }
 
     public struct CreateInputResponse: AWSDecodableShape {
-
         public let input: Input?
 
         public init(input: Input? = nil) {
@@ -3276,12 +3203,11 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case input = "input"
+            case input
         }
     }
 
     public struct CreateInputSecurityGroupRequest: AWSEncodableShape {
-
         public let tags: [String: String]?
         public let whitelistRules: [InputWhitelistRuleCidr]?
 
@@ -3291,13 +3217,12 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case tags = "tags"
-            case whitelistRules = "whitelistRules"
+            case tags
+            case whitelistRules
         }
     }
 
     public struct CreateInputSecurityGroupResponse: AWSDecodableShape {
-
         public let securityGroup: InputSecurityGroup?
 
         public init(securityGroup: InputSecurityGroup? = nil) {
@@ -3305,7 +3230,7 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case securityGroup = "securityGroup"
+            case securityGroup
         }
     }
 
@@ -3331,14 +3256,13 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case multiplexProgramSettings = "multiplexProgramSettings"
-            case programName = "programName"
-            case requestId = "requestId"
+            case multiplexProgramSettings
+            case programName
+            case requestId
         }
     }
 
     public struct CreateMultiplexProgramResponse: AWSDecodableShape {
-
         public let multiplexProgram: MultiplexProgram?
 
         public init(multiplexProgram: MultiplexProgram? = nil) {
@@ -3346,12 +3270,11 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case multiplexProgram = "multiplexProgram"
+            case multiplexProgram
         }
     }
 
     public struct CreateMultiplexRequest: AWSEncodableShape {
-
         public let availabilityZones: [String]
         public let multiplexSettings: MultiplexSettings
         public let name: String
@@ -3371,16 +3294,15 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case availabilityZones = "availabilityZones"
-            case multiplexSettings = "multiplexSettings"
-            case name = "name"
-            case requestId = "requestId"
-            case tags = "tags"
+            case availabilityZones
+            case multiplexSettings
+            case name
+            case requestId
+            case tags
         }
     }
 
     public struct CreateMultiplexResponse: AWSDecodableShape {
-
         public let multiplex: Multiplex?
 
         public init(multiplex: Multiplex? = nil) {
@@ -3388,7 +3310,7 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case multiplex = "multiplex"
+            case multiplex
         }
     }
 
@@ -3408,13 +3330,12 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case requestId = "requestId"
-            case tags = "tags"
+            case requestId
+            case tags
         }
     }
 
     public struct CreatePartnerInputResponse: AWSDecodableShape {
-
         public let input: Input?
 
         public init(input: Input? = nil) {
@@ -3422,7 +3343,7 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case input = "input"
+            case input
         }
     }
 
@@ -3440,7 +3361,7 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case tags = "tags"
+            case tags
         }
     }
 
@@ -3459,7 +3380,6 @@ extension MediaLive {
     }
 
     public struct DeleteChannelResponse: AWSDecodableShape {
-
         public let arn: String?
         public let cdiInputSpecification: CdiInputSpecification?
         public let channelClass: ChannelClass?
@@ -3499,23 +3419,23 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case arn = "arn"
-            case cdiInputSpecification = "cdiInputSpecification"
-            case channelClass = "channelClass"
-            case destinations = "destinations"
-            case egressEndpoints = "egressEndpoints"
-            case encoderSettings = "encoderSettings"
-            case id = "id"
-            case inputAttachments = "inputAttachments"
-            case inputSpecification = "inputSpecification"
-            case logLevel = "logLevel"
-            case name = "name"
-            case pipelineDetails = "pipelineDetails"
-            case pipelinesRunningCount = "pipelinesRunningCount"
-            case roleArn = "roleArn"
-            case state = "state"
-            case tags = "tags"
-            case vpc = "vpc"
+            case arn
+            case cdiInputSpecification
+            case channelClass
+            case destinations
+            case egressEndpoints
+            case encoderSettings
+            case id
+            case inputAttachments
+            case inputSpecification
+            case logLevel
+            case name
+            case pipelineDetails
+            case pipelinesRunningCount
+            case roleArn
+            case state
+            case tags
+            case vpc
         }
     }
 
@@ -3534,11 +3454,7 @@ extension MediaLive {
     }
 
     public struct DeleteInputResponse: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct DeleteInputSecurityGroupRequest: AWSEncodableShape {
@@ -3556,16 +3472,12 @@ extension MediaLive {
     }
 
     public struct DeleteInputSecurityGroupResponse: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct DeleteMultiplexProgramRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "multiplexId", location: .uri(locationName: "multiplexId")), 
+            AWSMemberEncoding(label: "multiplexId", location: .uri(locationName: "multiplexId")),
             AWSMemberEncoding(label: "programName", location: .uri(locationName: "programName"))
         ]
 
@@ -3581,7 +3493,6 @@ extension MediaLive {
     }
 
     public struct DeleteMultiplexProgramResponse: AWSDecodableShape {
-
         public let channelId: String?
         public let multiplexProgramSettings: MultiplexProgramSettings?
         public let packetIdentifiersMap: MultiplexProgramPacketIdentifiersMap?
@@ -3597,11 +3508,11 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case channelId = "channelId"
-            case multiplexProgramSettings = "multiplexProgramSettings"
-            case packetIdentifiersMap = "packetIdentifiersMap"
-            case pipelineDetails = "pipelineDetails"
-            case programName = "programName"
+            case channelId
+            case multiplexProgramSettings
+            case packetIdentifiersMap
+            case pipelineDetails
+            case programName
         }
     }
 
@@ -3620,7 +3531,6 @@ extension MediaLive {
     }
 
     public struct DeleteMultiplexResponse: AWSDecodableShape {
-
         public let arn: String?
         public let availabilityZones: [String]?
         public let destinations: [MultiplexOutputDestination]?
@@ -3646,16 +3556,16 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case arn = "arn"
-            case availabilityZones = "availabilityZones"
-            case destinations = "destinations"
-            case id = "id"
-            case multiplexSettings = "multiplexSettings"
-            case name = "name"
-            case pipelinesRunningCount = "pipelinesRunningCount"
-            case programCount = "programCount"
-            case state = "state"
-            case tags = "tags"
+            case arn
+            case availabilityZones
+            case destinations
+            case id
+            case multiplexSettings
+            case name
+            case pipelinesRunningCount
+            case programCount
+            case state
+            case tags
         }
     }
 
@@ -3674,7 +3584,6 @@ extension MediaLive {
     }
 
     public struct DeleteReservationResponse: AWSDecodableShape {
-
         public let arn: String?
         public let count: Int?
         public let currencyCode: String?
@@ -3716,24 +3625,24 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case arn = "arn"
-            case count = "count"
-            case currencyCode = "currencyCode"
-            case duration = "duration"
-            case durationUnits = "durationUnits"
-            case end = "end"
-            case fixedPrice = "fixedPrice"
-            case name = "name"
-            case offeringDescription = "offeringDescription"
-            case offeringId = "offeringId"
-            case offeringType = "offeringType"
-            case region = "region"
-            case reservationId = "reservationId"
-            case resourceSpecification = "resourceSpecification"
-            case start = "start"
-            case state = "state"
-            case tags = "tags"
-            case usagePrice = "usagePrice"
+            case arn
+            case count
+            case currencyCode
+            case duration
+            case durationUnits
+            case end
+            case fixedPrice
+            case name
+            case offeringDescription
+            case offeringId
+            case offeringType
+            case region
+            case reservationId
+            case resourceSpecification
+            case start
+            case state
+            case tags
+            case usagePrice
         }
     }
 
@@ -3752,16 +3661,12 @@ extension MediaLive {
     }
 
     public struct DeleteScheduleResponse: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct DeleteTagsRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "resourceArn", location: .uri(locationName: "resource-arn")), 
+            AWSMemberEncoding(label: "resourceArn", location: .uri(locationName: "resource-arn")),
             AWSMemberEncoding(label: "tagKeys", location: .querystring(locationName: "tagKeys"))
         ]
 
@@ -3791,7 +3696,6 @@ extension MediaLive {
     }
 
     public struct DescribeChannelResponse: AWSDecodableShape {
-
         public let arn: String?
         public let cdiInputSpecification: CdiInputSpecification?
         public let channelClass: ChannelClass?
@@ -3831,23 +3735,23 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case arn = "arn"
-            case cdiInputSpecification = "cdiInputSpecification"
-            case channelClass = "channelClass"
-            case destinations = "destinations"
-            case egressEndpoints = "egressEndpoints"
-            case encoderSettings = "encoderSettings"
-            case id = "id"
-            case inputAttachments = "inputAttachments"
-            case inputSpecification = "inputSpecification"
-            case logLevel = "logLevel"
-            case name = "name"
-            case pipelineDetails = "pipelineDetails"
-            case pipelinesRunningCount = "pipelinesRunningCount"
-            case roleArn = "roleArn"
-            case state = "state"
-            case tags = "tags"
-            case vpc = "vpc"
+            case arn
+            case cdiInputSpecification
+            case channelClass
+            case destinations
+            case egressEndpoints
+            case encoderSettings
+            case id
+            case inputAttachments
+            case inputSpecification
+            case logLevel
+            case name
+            case pipelineDetails
+            case pipelinesRunningCount
+            case roleArn
+            case state
+            case tags
+            case vpc
         }
     }
 
@@ -3866,7 +3770,6 @@ extension MediaLive {
     }
 
     public struct DescribeInputDeviceResponse: AWSDecodableShape {
-
         public let arn: String?
         public let connectionState: InputDeviceConnectionState?
         public let deviceSettingsSyncState: DeviceSettingsSyncState?
@@ -3896,24 +3799,24 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case arn = "arn"
-            case connectionState = "connectionState"
-            case deviceSettingsSyncState = "deviceSettingsSyncState"
-            case deviceUpdateStatus = "deviceUpdateStatus"
-            case hdDeviceSettings = "hdDeviceSettings"
-            case id = "id"
-            case macAddress = "macAddress"
-            case name = "name"
-            case networkSettings = "networkSettings"
-            case serialNumber = "serialNumber"
-            case type = "type"
-            case uhdDeviceSettings = "uhdDeviceSettings"
+            case arn
+            case connectionState
+            case deviceSettingsSyncState
+            case deviceUpdateStatus
+            case hdDeviceSettings
+            case id
+            case macAddress
+            case name
+            case networkSettings
+            case serialNumber
+            case type
+            case uhdDeviceSettings
         }
     }
 
     public struct DescribeInputDeviceThumbnailRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "accept", location: .header(locationName: "accept")), 
+            AWSMemberEncoding(label: "accept", location: .header(locationName: "accept")),
             AWSMemberEncoding(label: "inputDeviceId", location: .uri(locationName: "inputDeviceId"))
         ]
 
@@ -3933,9 +3836,9 @@ extension MediaLive {
         public static let _payloadPath: String = "body"
         public static let _payloadOptions: AWSShapePayloadOptions = [.raw, .allowStreaming]
         public static var _encoding = [
-            AWSMemberEncoding(label: "contentLength", location: .header(locationName: "Content-Length")), 
-            AWSMemberEncoding(label: "contentType", location: .header(locationName: "Content-Type")), 
-            AWSMemberEncoding(label: "eTag", location: .header(locationName: "ETag")), 
+            AWSMemberEncoding(label: "contentLength", location: .header(locationName: "Content-Length")),
+            AWSMemberEncoding(label: "contentType", location: .header(locationName: "Content-Type")),
+            AWSMemberEncoding(label: "eTag", location: .header(locationName: "ETag")),
             AWSMemberEncoding(label: "lastModified", location: .header(locationName: "Last-Modified"))
         ]
 
@@ -3955,7 +3858,7 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case body = "body"
+            case body
             case contentLength = "Content-Length"
             case contentType = "Content-Type"
             case eTag = "ETag"
@@ -3978,7 +3881,6 @@ extension MediaLive {
     }
 
     public struct DescribeInputResponse: AWSDecodableShape {
-
         public let arn: String?
         public let attachedChannels: [String]?
         public let destinations: [InputDestination]?
@@ -4016,22 +3918,22 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case arn = "arn"
-            case attachedChannels = "attachedChannels"
-            case destinations = "destinations"
-            case id = "id"
-            case inputClass = "inputClass"
-            case inputDevices = "inputDevices"
-            case inputPartnerIds = "inputPartnerIds"
-            case inputSourceType = "inputSourceType"
-            case mediaConnectFlows = "mediaConnectFlows"
-            case name = "name"
-            case roleArn = "roleArn"
-            case securityGroups = "securityGroups"
-            case sources = "sources"
-            case state = "state"
-            case tags = "tags"
-            case type = "type"
+            case arn
+            case attachedChannels
+            case destinations
+            case id
+            case inputClass
+            case inputDevices
+            case inputPartnerIds
+            case inputSourceType
+            case mediaConnectFlows
+            case name
+            case roleArn
+            case securityGroups
+            case sources
+            case state
+            case tags
+            case type
         }
     }
 
@@ -4050,7 +3952,6 @@ extension MediaLive {
     }
 
     public struct DescribeInputSecurityGroupResponse: AWSDecodableShape {
-
         public let arn: String?
         public let id: String?
         public let inputs: [String]?
@@ -4068,18 +3969,18 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case arn = "arn"
-            case id = "id"
-            case inputs = "inputs"
-            case state = "state"
-            case tags = "tags"
-            case whitelistRules = "whitelistRules"
+            case arn
+            case id
+            case inputs
+            case state
+            case tags
+            case whitelistRules
         }
     }
 
     public struct DescribeMultiplexProgramRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "multiplexId", location: .uri(locationName: "multiplexId")), 
+            AWSMemberEncoding(label: "multiplexId", location: .uri(locationName: "multiplexId")),
             AWSMemberEncoding(label: "programName", location: .uri(locationName: "programName"))
         ]
 
@@ -4095,7 +3996,6 @@ extension MediaLive {
     }
 
     public struct DescribeMultiplexProgramResponse: AWSDecodableShape {
-
         public let channelId: String?
         public let multiplexProgramSettings: MultiplexProgramSettings?
         public let packetIdentifiersMap: MultiplexProgramPacketIdentifiersMap?
@@ -4111,11 +4011,11 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case channelId = "channelId"
-            case multiplexProgramSettings = "multiplexProgramSettings"
-            case packetIdentifiersMap = "packetIdentifiersMap"
-            case pipelineDetails = "pipelineDetails"
-            case programName = "programName"
+            case channelId
+            case multiplexProgramSettings
+            case packetIdentifiersMap
+            case pipelineDetails
+            case programName
         }
     }
 
@@ -4134,7 +4034,6 @@ extension MediaLive {
     }
 
     public struct DescribeMultiplexResponse: AWSDecodableShape {
-
         public let arn: String?
         public let availabilityZones: [String]?
         public let destinations: [MultiplexOutputDestination]?
@@ -4160,16 +4059,16 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case arn = "arn"
-            case availabilityZones = "availabilityZones"
-            case destinations = "destinations"
-            case id = "id"
-            case multiplexSettings = "multiplexSettings"
-            case name = "name"
-            case pipelinesRunningCount = "pipelinesRunningCount"
-            case programCount = "programCount"
-            case state = "state"
-            case tags = "tags"
+            case arn
+            case availabilityZones
+            case destinations
+            case id
+            case multiplexSettings
+            case name
+            case pipelinesRunningCount
+            case programCount
+            case state
+            case tags
         }
     }
 
@@ -4188,7 +4087,6 @@ extension MediaLive {
     }
 
     public struct DescribeOfferingResponse: AWSDecodableShape {
-
         public let arn: String?
         public let currencyCode: String?
         public let duration: Int?
@@ -4216,17 +4114,17 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case arn = "arn"
-            case currencyCode = "currencyCode"
-            case duration = "duration"
-            case durationUnits = "durationUnits"
-            case fixedPrice = "fixedPrice"
-            case offeringDescription = "offeringDescription"
-            case offeringId = "offeringId"
-            case offeringType = "offeringType"
-            case region = "region"
-            case resourceSpecification = "resourceSpecification"
-            case usagePrice = "usagePrice"
+            case arn
+            case currencyCode
+            case duration
+            case durationUnits
+            case fixedPrice
+            case offeringDescription
+            case offeringId
+            case offeringType
+            case region
+            case resourceSpecification
+            case usagePrice
         }
     }
 
@@ -4245,7 +4143,6 @@ extension MediaLive {
     }
 
     public struct DescribeReservationResponse: AWSDecodableShape {
-
         public let arn: String?
         public let count: Int?
         public let currencyCode: String?
@@ -4287,31 +4184,31 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case arn = "arn"
-            case count = "count"
-            case currencyCode = "currencyCode"
-            case duration = "duration"
-            case durationUnits = "durationUnits"
-            case end = "end"
-            case fixedPrice = "fixedPrice"
-            case name = "name"
-            case offeringDescription = "offeringDescription"
-            case offeringId = "offeringId"
-            case offeringType = "offeringType"
-            case region = "region"
-            case reservationId = "reservationId"
-            case resourceSpecification = "resourceSpecification"
-            case start = "start"
-            case state = "state"
-            case tags = "tags"
-            case usagePrice = "usagePrice"
+            case arn
+            case count
+            case currencyCode
+            case duration
+            case durationUnits
+            case end
+            case fixedPrice
+            case name
+            case offeringDescription
+            case offeringId
+            case offeringType
+            case region
+            case reservationId
+            case resourceSpecification
+            case start
+            case state
+            case tags
+            case usagePrice
         }
     }
 
     public struct DescribeScheduleRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "channelId", location: .uri(locationName: "channelId")), 
-            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "maxResults")), 
+            AWSMemberEncoding(label: "channelId", location: .uri(locationName: "channelId")),
+            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "maxResults")),
             AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "nextToken"))
         ]
 
@@ -4334,7 +4231,6 @@ extension MediaLive {
     }
 
     public struct DescribeScheduleResponse: AWSDecodableShape {
-
         public let nextToken: String?
         public let scheduleActions: [ScheduleAction]?
 
@@ -4344,13 +4240,12 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case nextToken = "nextToken"
-            case scheduleActions = "scheduleActions"
+            case nextToken
+            case scheduleActions
         }
     }
 
     public struct DvbNitSettings: AWSEncodableShape & AWSDecodableShape {
-
         /// The numeric value placed in the Network Information Table (NIT).
         public let networkId: Int
         /// The network name text placed in the networkNameDescriptor inside the Network Information Table. Maximum length is 256 characters.
@@ -4374,14 +4269,13 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case networkId = "networkId"
-            case networkName = "networkName"
-            case repInterval = "repInterval"
+            case networkId
+            case networkName
+            case repInterval
         }
     }
 
     public struct DvbSdtSettings: AWSEncodableShape & AWSDecodableShape {
-
         /// Selects method of inserting SDT information into output stream. The sdtFollow setting copies SDT information from input stream to output stream. The sdtFollowIfPresent setting copies SDT information from input stream to output stream if SDT information is present in the input, otherwise it will fall back on the user-defined values. The sdtManual setting means user will enter the SDT information. The sdtNone setting means output stream will not contain SDT information.
         public let outputSdt: DvbSdtOutputSdt?
         /// The number of milliseconds between instances of this table in the output transport stream.
@@ -4408,15 +4302,14 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case outputSdt = "outputSdt"
-            case repInterval = "repInterval"
-            case serviceName = "serviceName"
-            case serviceProviderName = "serviceProviderName"
+            case outputSdt
+            case repInterval
+            case serviceName
+            case serviceProviderName
         }
     }
 
     public struct DvbSubDestinationSettings: AWSEncodableShape & AWSDecodableShape {
-
         /// If no explicit xPosition or yPosition is provided, setting alignment to centered will place the captions at the bottom center of the output. Similarly, setting a left alignment will align captions to the bottom left of the output. If x and y positions are given in conjunction with the alignment parameter, the font will be justified (either left or centered) relative to those coordinates. Selecting "smart" justification will left-justify live subtitles and center-justify pre-recorded subtitles.  This option is not valid for source captions that are STL or 608/embedded.  These source settings are already pre-defined by the caption stream.  All burn-in and DVB-Sub font settings must match.
         public let alignment: DvbSubDestinationAlignment?
         /// Specifies the color of the rectangle behind the captions.  All burn-in and DVB-Sub font settings must match.
@@ -4488,28 +4381,27 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case alignment = "alignment"
-            case backgroundColor = "backgroundColor"
-            case backgroundOpacity = "backgroundOpacity"
-            case font = "font"
-            case fontColor = "fontColor"
-            case fontOpacity = "fontOpacity"
-            case fontResolution = "fontResolution"
-            case fontSize = "fontSize"
-            case outlineColor = "outlineColor"
-            case outlineSize = "outlineSize"
-            case shadowColor = "shadowColor"
-            case shadowOpacity = "shadowOpacity"
-            case shadowXOffset = "shadowXOffset"
-            case shadowYOffset = "shadowYOffset"
-            case teletextGridControl = "teletextGridControl"
-            case xPosition = "xPosition"
-            case yPosition = "yPosition"
+            case alignment
+            case backgroundColor
+            case backgroundOpacity
+            case font
+            case fontColor
+            case fontOpacity
+            case fontResolution
+            case fontSize
+            case outlineColor
+            case outlineSize
+            case shadowColor
+            case shadowOpacity
+            case shadowXOffset
+            case shadowYOffset
+            case teletextGridControl
+            case xPosition
+            case yPosition
         }
     }
 
     public struct DvbSubSourceSettings: AWSEncodableShape & AWSDecodableShape {
-
         /// When using DVB-Sub with Burn-In or SMPTE-TT, use this PID for the source content. Unused for DVB-Sub passthrough. All DVB-Sub content is passed through, regardless of selectors.
         public let pid: Int?
 
@@ -4522,12 +4414,11 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case pid = "pid"
+            case pid
         }
     }
 
     public struct DvbTdtSettings: AWSEncodableShape & AWSDecodableShape {
-
         /// The number of milliseconds between instances of this table in the output transport stream.
         public let repInterval: Int?
 
@@ -4541,12 +4432,11 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case repInterval = "repInterval"
+            case repInterval
         }
     }
 
     public struct Eac3Settings: AWSEncodableShape & AWSDecodableShape {
-
         /// When set to attenuate3Db, applies a 3 dB attenuation to the surround channels. Only used for 3/2 coding mode.
         public let attenuationControl: Eac3AttenuationControl?
         /// Average bitrate in bits/second. Valid bitrates depend on the coding mode.
@@ -4617,31 +4507,30 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case attenuationControl = "attenuationControl"
-            case bitrate = "bitrate"
-            case bitstreamMode = "bitstreamMode"
-            case codingMode = "codingMode"
-            case dcFilter = "dcFilter"
-            case dialnorm = "dialnorm"
-            case drcLine = "drcLine"
-            case drcRf = "drcRf"
-            case lfeControl = "lfeControl"
-            case lfeFilter = "lfeFilter"
-            case loRoCenterMixLevel = "loRoCenterMixLevel"
-            case loRoSurroundMixLevel = "loRoSurroundMixLevel"
-            case ltRtCenterMixLevel = "ltRtCenterMixLevel"
-            case ltRtSurroundMixLevel = "ltRtSurroundMixLevel"
-            case metadataControl = "metadataControl"
-            case passthroughControl = "passthroughControl"
-            case phaseControl = "phaseControl"
-            case stereoDownmix = "stereoDownmix"
-            case surroundExMode = "surroundExMode"
-            case surroundMode = "surroundMode"
+            case attenuationControl
+            case bitrate
+            case bitstreamMode
+            case codingMode
+            case dcFilter
+            case dialnorm
+            case drcLine
+            case drcRf
+            case lfeControl
+            case lfeFilter
+            case loRoCenterMixLevel
+            case loRoSurroundMixLevel
+            case ltRtCenterMixLevel
+            case ltRtSurroundMixLevel
+            case metadataControl
+            case passthroughControl
+            case phaseControl
+            case stereoDownmix
+            case surroundExMode
+            case surroundMode
         }
     }
 
     public struct EbuTtDDestinationSettings: AWSEncodableShape & AWSDecodableShape {
-
         /// Applies only if you plan to convert these source captions to EBU-TT-D or TTML in an output. Complete this field if you want to include the name of the copyright holder in the copyright metadata tag in the TTML
         public let copyrightHolder: String?
         /// Specifies how to handle the gap between the lines (in multi-line captions).
@@ -4670,31 +4559,22 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case copyrightHolder = "copyrightHolder"
-            case fillLineGap = "fillLineGap"
-            case fontFamily = "fontFamily"
-            case styleControl = "styleControl"
+            case copyrightHolder
+            case fillLineGap
+            case fontFamily
+            case styleControl
         }
     }
 
     public struct EmbeddedDestinationSettings: AWSEncodableShape & AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct EmbeddedPlusScte20DestinationSettings: AWSEncodableShape & AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct EmbeddedSourceSettings: AWSEncodableShape & AWSDecodableShape {
-
         /// If upconvert, 608 data is both passed through via the "608 compatibility bytes" fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded.
         public let convert608To708: EmbeddedConvert608To708?
         /// Set to "auto" to handle streams with intermittent and/or non-aligned SCTE-20 and Embedded captions.
@@ -4719,15 +4599,14 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case convert608To708 = "convert608To708"
-            case scte20Detection = "scte20Detection"
-            case source608ChannelNumber = "source608ChannelNumber"
-            case source608TrackNumber = "source608TrackNumber"
+            case convert608To708
+            case scte20Detection
+            case source608ChannelNumber
+            case source608TrackNumber
         }
     }
 
     public struct EncoderSettings: AWSEncodableShape & AWSDecodableShape {
-
         public let audioDescriptions: [AudioDescription]
         /// Settings for ad avail blanking.
         public let availBlanking: AvailBlanking?
@@ -4782,22 +4661,21 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case audioDescriptions = "audioDescriptions"
-            case availBlanking = "availBlanking"
-            case availConfiguration = "availConfiguration"
-            case blackoutSlate = "blackoutSlate"
-            case captionDescriptions = "captionDescriptions"
-            case featureActivations = "featureActivations"
-            case globalConfiguration = "globalConfiguration"
-            case nielsenConfiguration = "nielsenConfiguration"
-            case outputGroups = "outputGroups"
-            case timecodeConfig = "timecodeConfig"
-            case videoDescriptions = "videoDescriptions"
+            case audioDescriptions
+            case availBlanking
+            case availConfiguration
+            case blackoutSlate
+            case captionDescriptions
+            case featureActivations
+            case globalConfiguration
+            case nielsenConfiguration
+            case outputGroups
+            case timecodeConfig
+            case videoDescriptions
         }
     }
 
     public struct FailoverCondition: AWSEncodableShape & AWSDecodableShape {
-
         /// Failover condition type-specific settings.
         public let failoverConditionSettings: FailoverConditionSettings?
 
@@ -4810,12 +4688,11 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case failoverConditionSettings = "failoverConditionSettings"
+            case failoverConditionSettings
         }
     }
 
     public struct FailoverConditionSettings: AWSEncodableShape & AWSDecodableShape {
-
         /// MediaLive will perform a failover if the specified audio selector is silent for the specified period.
         public let audioSilenceSettings: AudioSilenceFailoverSettings?
         /// MediaLive will perform a failover if content is not detected in this input for the specified period.
@@ -4836,14 +4713,13 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case audioSilenceSettings = "audioSilenceSettings"
-            case inputLossSettings = "inputLossSettings"
-            case videoBlackSettings = "videoBlackSettings"
+            case audioSilenceSettings
+            case inputLossSettings
+            case videoBlackSettings
         }
     }
 
     public struct FeatureActivations: AWSEncodableShape & AWSDecodableShape {
-
         /// Enables the Input Prepare feature. You can create Input Prepare actions in the schedule only if this feature is enabled.
         /// If you disable the feature on an existing schedule, make sure that you first delete all input prepare actions from the schedule.
         public let inputPrepareScheduleActions: FeatureActivationsInputPrepareScheduleActions?
@@ -4853,12 +4729,11 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case inputPrepareScheduleActions = "inputPrepareScheduleActions"
+            case inputPrepareScheduleActions
         }
     }
 
     public struct FecOutputSettings: AWSEncodableShape & AWSDecodableShape {
-
         /// Parameter D from SMPTE 2022-1. The height of the FEC protection matrix.  The number of transport stream packets per column error correction packet. Must be between 4 and 20, inclusive.
         public let columnDepth: Int?
         /// Enables column only or column and row based FEC
@@ -4880,14 +4755,13 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case columnDepth = "columnDepth"
-            case includeFec = "includeFec"
-            case rowLength = "rowLength"
+            case columnDepth
+            case includeFec
+            case rowLength
         }
     }
 
     public struct FixedModeScheduleActionStartSettings: AWSEncodableShape & AWSDecodableShape {
-
         /// Start time for the action to start in the channel. (Not the time for the action to be added to the schedule: actions are always added to the schedule immediately.) UTC format: yyyy-mm-ddThh:mm:ss.nnnZ. All the letters are digits (for example, mm might be 01) except for the two constants "T" for time and "Z" for "UTC format".
         public let time: String
 
@@ -4896,12 +4770,11 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case time = "time"
+            case time
         }
     }
 
     public struct Fmp4HlsSettings: AWSEncodableShape & AWSDecodableShape {
-
         /// List all the audio groups that are used with the video output stream. Input all the audio GROUP-IDs that are associated to the video, separate by ','.
         public let audioRenditionSets: String?
         /// If set to passthrough, Nielsen inaudible tones for media tracking will be detected in the input audio and an equivalent ID3 tag will be inserted in the output.
@@ -4916,14 +4789,13 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case audioRenditionSets = "audioRenditionSets"
-            case nielsenId3Behavior = "nielsenId3Behavior"
-            case timedMetadataBehavior = "timedMetadataBehavior"
+            case audioRenditionSets
+            case nielsenId3Behavior
+            case timedMetadataBehavior
         }
     }
 
     public struct FollowModeScheduleActionStartSettings: AWSEncodableShape & AWSDecodableShape {
-
         /// Identifies whether this action starts relative to the start or relative to the end of the reference action.
         public let followPoint: FollowPoint
         /// The action name of another action that this one refers to.
@@ -4935,13 +4807,12 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case followPoint = "followPoint"
-            case referenceActionName = "referenceActionName"
+            case followPoint
+            case referenceActionName
         }
     }
 
     public struct FrameCaptureCdnSettings: AWSEncodableShape & AWSDecodableShape {
-
         public let frameCaptureS3Settings: FrameCaptureS3Settings?
 
         public init(frameCaptureS3Settings: FrameCaptureS3Settings? = nil) {
@@ -4949,12 +4820,11 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case frameCaptureS3Settings = "frameCaptureS3Settings"
+            case frameCaptureS3Settings
         }
     }
 
     public struct FrameCaptureGroupSettings: AWSEncodableShape & AWSDecodableShape {
-
         /// The destination for the frame capture files. Either the URI for an Amazon S3 bucket and object, plus a file name prefix (for example, s3ssl://sportsDelivery/highlights/20180820/curling-) or the URI for a MediaStore container, plus a file name prefix (for example, mediastoressl://sportsDelivery/20180820/curling-). The final file names consist of the prefix from the destination field (for example, "curling-") + name modifier + the counter (5 digits, starting from 00001) + extension (which is always .jpg).  For example, curling-low.00001.jpg
         public let destination: OutputLocationRef
         /// Parameters that control interactions with the CDN.
@@ -4966,21 +4836,16 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case destination = "destination"
-            case frameCaptureCdnSettings = "frameCaptureCdnSettings"
+            case destination
+            case frameCaptureCdnSettings
         }
     }
 
     public struct FrameCaptureHlsSettings: AWSEncodableShape & AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct FrameCaptureOutputSettings: AWSEncodableShape & AWSDecodableShape {
-
         /// Required if the output group contains more than one output. This modifier forms part of the output file name.
         public let nameModifier: String?
 
@@ -4989,12 +4854,11 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case nameModifier = "nameModifier"
+            case nameModifier
         }
     }
 
     public struct FrameCaptureS3Settings: AWSEncodableShape & AWSDecodableShape {
-
         /// Specify the canned ACL to apply to each S3 request. Defaults to none.
         public let cannedAcl: S3CannedAcl?
 
@@ -5003,12 +4867,11 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case cannedAcl = "cannedAcl"
+            case cannedAcl
         }
     }
 
     public struct FrameCaptureSettings: AWSEncodableShape & AWSDecodableShape {
-
         /// The frequency at which to capture frames for inclusion in the output. May be specified in either seconds or milliseconds, as specified by captureIntervalUnits.
         public let captureInterval: Int?
         /// Unit for the frame capture interval.
@@ -5020,18 +4883,17 @@ extension MediaLive {
         }
 
         public func validate(name: String) throws {
-            try self.validate(self.captureInterval, name: "captureInterval", parent: name, max: 3600000)
+            try self.validate(self.captureInterval, name: "captureInterval", parent: name, max: 3_600_000)
             try self.validate(self.captureInterval, name: "captureInterval", parent: name, min: 1)
         }
 
         private enum CodingKeys: String, CodingKey {
-            case captureInterval = "captureInterval"
-            case captureIntervalUnits = "captureIntervalUnits"
+            case captureInterval
+            case captureIntervalUnits
         }
     }
 
     public struct GlobalConfiguration: AWSEncodableShape & AWSDecodableShape {
-
         /// Value to set the initial audio gain for the Live Event.
         public let initialAudioGain: Int?
         /// Indicates the action to take when the current input completes (e.g. end-of-file). When switchAndLoopInputs is configured the encoder will restart at the beginning of the first input.  When "none" is configured the encoder will transcode either black, a solid color, or a user specified slate images per the "Input Loss Behavior" configuration until the next input switch occurs (which is controlled through the Channel Schedule API).
@@ -5063,17 +4925,16 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case initialAudioGain = "initialAudioGain"
-            case inputEndAction = "inputEndAction"
-            case inputLossBehavior = "inputLossBehavior"
-            case outputLockingMode = "outputLockingMode"
-            case outputTimingSource = "outputTimingSource"
-            case supportLowFramerateInputs = "supportLowFramerateInputs"
+            case initialAudioGain
+            case inputEndAction
+            case inputLossBehavior
+            case outputLockingMode
+            case outputTimingSource
+            case supportLowFramerateInputs
         }
     }
 
     public struct H264ColorSpaceSettings: AWSEncodableShape & AWSDecodableShape {
-
         public let colorSpacePassthroughSettings: ColorSpacePassthroughSettings?
         public let rec601Settings: Rec601Settings?
         public let rec709Settings: Rec709Settings?
@@ -5085,14 +4946,13 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case colorSpacePassthroughSettings = "colorSpacePassthroughSettings"
-            case rec601Settings = "rec601Settings"
-            case rec709Settings = "rec709Settings"
+            case colorSpacePassthroughSettings
+            case rec601Settings
+            case rec709Settings
         }
     }
 
     public struct H264FilterSettings: AWSEncodableShape & AWSDecodableShape {
-
         public let temporalFilterSettings: TemporalFilterSettings?
 
         public init(temporalFilterSettings: TemporalFilterSettings? = nil) {
@@ -5100,12 +4960,11 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case temporalFilterSettings = "temporalFilterSettings"
+            case temporalFilterSettings
         }
     }
 
     public struct H264Settings: AWSEncodableShape & AWSDecodableShape {
-
         /// Adaptive quantization. Allows intra-frame quantizers to vary to improve visual quality.
         public let adaptiveQuantization: H264AdaptiveQuantization?
         /// Indicates that AFD values will be written into the output stream.  If afdSignaling is "auto", the system will try to preserve the input AFD value (in cases where multiple AFD values are valid). If set to "fixed", the AFD value will be the value configured in the fixedAfd parameter.
@@ -5283,52 +5142,51 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case adaptiveQuantization = "adaptiveQuantization"
-            case afdSignaling = "afdSignaling"
-            case bitrate = "bitrate"
-            case bufFillPct = "bufFillPct"
-            case bufSize = "bufSize"
-            case colorMetadata = "colorMetadata"
-            case colorSpaceSettings = "colorSpaceSettings"
-            case entropyEncoding = "entropyEncoding"
-            case filterSettings = "filterSettings"
-            case fixedAfd = "fixedAfd"
-            case flickerAq = "flickerAq"
-            case forceFieldPictures = "forceFieldPictures"
-            case framerateControl = "framerateControl"
-            case framerateDenominator = "framerateDenominator"
-            case framerateNumerator = "framerateNumerator"
-            case gopBReference = "gopBReference"
-            case gopClosedCadence = "gopClosedCadence"
-            case gopNumBFrames = "gopNumBFrames"
-            case gopSize = "gopSize"
-            case gopSizeUnits = "gopSizeUnits"
-            case level = "level"
-            case lookAheadRateControl = "lookAheadRateControl"
-            case maxBitrate = "maxBitrate"
-            case minIInterval = "minIInterval"
-            case numRefFrames = "numRefFrames"
-            case parControl = "parControl"
-            case parDenominator = "parDenominator"
-            case parNumerator = "parNumerator"
-            case profile = "profile"
-            case qualityLevel = "qualityLevel"
-            case qvbrQualityLevel = "qvbrQualityLevel"
-            case rateControlMode = "rateControlMode"
-            case scanType = "scanType"
-            case sceneChangeDetect = "sceneChangeDetect"
-            case slices = "slices"
-            case softness = "softness"
-            case spatialAq = "spatialAq"
-            case subgopLength = "subgopLength"
-            case syntax = "syntax"
-            case temporalAq = "temporalAq"
-            case timecodeInsertion = "timecodeInsertion"
+            case adaptiveQuantization
+            case afdSignaling
+            case bitrate
+            case bufFillPct
+            case bufSize
+            case colorMetadata
+            case colorSpaceSettings
+            case entropyEncoding
+            case filterSettings
+            case fixedAfd
+            case flickerAq
+            case forceFieldPictures
+            case framerateControl
+            case framerateDenominator
+            case framerateNumerator
+            case gopBReference
+            case gopClosedCadence
+            case gopNumBFrames
+            case gopSize
+            case gopSizeUnits
+            case level
+            case lookAheadRateControl
+            case maxBitrate
+            case minIInterval
+            case numRefFrames
+            case parControl
+            case parDenominator
+            case parNumerator
+            case profile
+            case qualityLevel
+            case qvbrQualityLevel
+            case rateControlMode
+            case scanType
+            case sceneChangeDetect
+            case slices
+            case softness
+            case spatialAq
+            case subgopLength
+            case syntax
+            case temporalAq
+            case timecodeInsertion
         }
     }
 
     public struct H265ColorSpaceSettings: AWSEncodableShape & AWSDecodableShape {
-
         public let colorSpacePassthroughSettings: ColorSpacePassthroughSettings?
         public let hdr10Settings: Hdr10Settings?
         public let rec601Settings: Rec601Settings?
@@ -5346,15 +5204,14 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case colorSpacePassthroughSettings = "colorSpacePassthroughSettings"
-            case hdr10Settings = "hdr10Settings"
-            case rec601Settings = "rec601Settings"
-            case rec709Settings = "rec709Settings"
+            case colorSpacePassthroughSettings
+            case hdr10Settings
+            case rec601Settings
+            case rec709Settings
         }
     }
 
     public struct H265FilterSettings: AWSEncodableShape & AWSDecodableShape {
-
         public let temporalFilterSettings: TemporalFilterSettings?
 
         public init(temporalFilterSettings: TemporalFilterSettings? = nil) {
@@ -5362,12 +5219,11 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case temporalFilterSettings = "temporalFilterSettings"
+            case temporalFilterSettings
         }
     }
 
     public struct H265Settings: AWSEncodableShape & AWSDecodableShape {
-
         /// Adaptive quantization. Allows intra-frame quantizers to vary to improve visual quality.
         public let adaptiveQuantization: H265AdaptiveQuantization?
         /// Indicates that AFD values will be written into the output stream.  If afdSignaling is "auto", the system will try to preserve the input AFD value (in cases where multiple AFD values are valid). If set to "fixed", the AFD value will be the value configured in the fixedAfd parameter.
@@ -5475,17 +5331,17 @@ extension MediaLive {
         }
 
         public func validate(name: String) throws {
-            try self.validate(self.bitrate, name: "bitrate", parent: name, max: 40000000)
-            try self.validate(self.bitrate, name: "bitrate", parent: name, min: 100000)
-            try self.validate(self.bufSize, name: "bufSize", parent: name, max: 80000000)
-            try self.validate(self.bufSize, name: "bufSize", parent: name, min: 100000)
+            try self.validate(self.bitrate, name: "bitrate", parent: name, max: 40_000_000)
+            try self.validate(self.bitrate, name: "bitrate", parent: name, min: 100_000)
+            try self.validate(self.bufSize, name: "bufSize", parent: name, max: 80_000_000)
+            try self.validate(self.bufSize, name: "bufSize", parent: name, min: 100_000)
             try self.colorSpaceSettings?.validate(name: "\(name).colorSpaceSettings")
             try self.validate(self.framerateDenominator, name: "framerateDenominator", parent: name, max: 3003)
             try self.validate(self.framerateDenominator, name: "framerateDenominator", parent: name, min: 1)
             try self.validate(self.framerateNumerator, name: "framerateNumerator", parent: name, min: 1)
             try self.validate(self.gopClosedCadence, name: "gopClosedCadence", parent: name, min: 0)
-            try self.validate(self.maxBitrate, name: "maxBitrate", parent: name, max: 40000000)
-            try self.validate(self.maxBitrate, name: "maxBitrate", parent: name, min: 100000)
+            try self.validate(self.maxBitrate, name: "maxBitrate", parent: name, max: 40_000_000)
+            try self.validate(self.maxBitrate, name: "maxBitrate", parent: name, min: 100_000)
             try self.validate(self.minIInterval, name: "minIInterval", parent: name, max: 30)
             try self.validate(self.minIInterval, name: "minIInterval", parent: name, min: 0)
             try self.validate(self.parDenominator, name: "parDenominator", parent: name, min: 1)
@@ -5497,40 +5353,39 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case adaptiveQuantization = "adaptiveQuantization"
-            case afdSignaling = "afdSignaling"
-            case alternativeTransferFunction = "alternativeTransferFunction"
-            case bitrate = "bitrate"
-            case bufSize = "bufSize"
-            case colorMetadata = "colorMetadata"
-            case colorSpaceSettings = "colorSpaceSettings"
-            case filterSettings = "filterSettings"
-            case fixedAfd = "fixedAfd"
-            case flickerAq = "flickerAq"
-            case framerateDenominator = "framerateDenominator"
-            case framerateNumerator = "framerateNumerator"
-            case gopClosedCadence = "gopClosedCadence"
-            case gopSize = "gopSize"
-            case gopSizeUnits = "gopSizeUnits"
-            case level = "level"
-            case lookAheadRateControl = "lookAheadRateControl"
-            case maxBitrate = "maxBitrate"
-            case minIInterval = "minIInterval"
-            case parDenominator = "parDenominator"
-            case parNumerator = "parNumerator"
-            case profile = "profile"
-            case qvbrQualityLevel = "qvbrQualityLevel"
-            case rateControlMode = "rateControlMode"
-            case scanType = "scanType"
-            case sceneChangeDetect = "sceneChangeDetect"
-            case slices = "slices"
-            case tier = "tier"
-            case timecodeInsertion = "timecodeInsertion"
+            case adaptiveQuantization
+            case afdSignaling
+            case alternativeTransferFunction
+            case bitrate
+            case bufSize
+            case colorMetadata
+            case colorSpaceSettings
+            case filterSettings
+            case fixedAfd
+            case flickerAq
+            case framerateDenominator
+            case framerateNumerator
+            case gopClosedCadence
+            case gopSize
+            case gopSizeUnits
+            case level
+            case lookAheadRateControl
+            case maxBitrate
+            case minIInterval
+            case parDenominator
+            case parNumerator
+            case profile
+            case qvbrQualityLevel
+            case rateControlMode
+            case scanType
+            case sceneChangeDetect
+            case slices
+            case tier
+            case timecodeInsertion
         }
     }
 
     public struct Hdr10Settings: AWSEncodableShape & AWSDecodableShape {
-
         /// Maximum Content Light Level
         /// An integer metadata value defining the maximum light level, in nits,
         /// of any single pixel within an encoded HDR video stream or file.
@@ -5553,13 +5408,12 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case maxCll = "maxCll"
-            case maxFall = "maxFall"
+            case maxCll
+            case maxFall
         }
     }
 
     public struct HlsAkamaiSettings: AWSEncodableShape & AWSDecodableShape {
-
         /// Number of seconds to wait before retrying connection to the CDN if the connection is lost.
         public let connectionRetryInterval: Int?
         /// Size in seconds of file cache for streaming outputs.
@@ -5595,18 +5449,17 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case connectionRetryInterval = "connectionRetryInterval"
-            case filecacheDuration = "filecacheDuration"
-            case httpTransferMode = "httpTransferMode"
-            case numRetries = "numRetries"
-            case restartDelay = "restartDelay"
-            case salt = "salt"
-            case token = "token"
+            case connectionRetryInterval
+            case filecacheDuration
+            case httpTransferMode
+            case numRetries
+            case restartDelay
+            case salt
+            case token
         }
     }
 
     public struct HlsBasicPutSettings: AWSEncodableShape & AWSDecodableShape {
-
         /// Number of seconds to wait before retrying connection to the CDN if the connection is lost.
         public let connectionRetryInterval: Int?
         /// Size in seconds of file cache for streaming outputs.
@@ -5633,15 +5486,14 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case connectionRetryInterval = "connectionRetryInterval"
-            case filecacheDuration = "filecacheDuration"
-            case numRetries = "numRetries"
-            case restartDelay = "restartDelay"
+            case connectionRetryInterval
+            case filecacheDuration
+            case numRetries
+            case restartDelay
         }
     }
 
     public struct HlsCdnSettings: AWSEncodableShape & AWSDecodableShape {
-
         public let hlsAkamaiSettings: HlsAkamaiSettings?
         public let hlsBasicPutSettings: HlsBasicPutSettings?
         public let hlsMediaStoreSettings: HlsMediaStoreSettings?
@@ -5664,16 +5516,15 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case hlsAkamaiSettings = "hlsAkamaiSettings"
-            case hlsBasicPutSettings = "hlsBasicPutSettings"
-            case hlsMediaStoreSettings = "hlsMediaStoreSettings"
-            case hlsS3Settings = "hlsS3Settings"
-            case hlsWebdavSettings = "hlsWebdavSettings"
+            case hlsAkamaiSettings
+            case hlsBasicPutSettings
+            case hlsMediaStoreSettings
+            case hlsS3Settings
+            case hlsWebdavSettings
         }
     }
 
     public struct HlsGroupSettings: AWSEncodableShape & AWSDecodableShape {
-
         /// Choose one or more ad marker types to pass SCTE35 signals through to this group of Apple HLS outputs.
         public let adMarkers: [HlsAdMarkers]?
         /// A partial URI prefix that will be prepended to each output in the media .m3u8 file. Can be used if base manifest is delivered from a different URL than the main .m3u8 file.
@@ -5843,53 +5694,52 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case adMarkers = "adMarkers"
-            case baseUrlContent = "baseUrlContent"
-            case baseUrlContent1 = "baseUrlContent1"
-            case baseUrlManifest = "baseUrlManifest"
-            case baseUrlManifest1 = "baseUrlManifest1"
-            case captionLanguageMappings = "captionLanguageMappings"
-            case captionLanguageSetting = "captionLanguageSetting"
-            case clientCache = "clientCache"
-            case codecSpecification = "codecSpecification"
-            case constantIv = "constantIv"
-            case destination = "destination"
-            case directoryStructure = "directoryStructure"
-            case discontinuityTags = "discontinuityTags"
-            case encryptionType = "encryptionType"
-            case hlsCdnSettings = "hlsCdnSettings"
-            case hlsId3SegmentTagging = "hlsId3SegmentTagging"
-            case iFrameOnlyPlaylists = "iFrameOnlyPlaylists"
-            case incompleteSegmentBehavior = "incompleteSegmentBehavior"
-            case indexNSegments = "indexNSegments"
-            case inputLossAction = "inputLossAction"
-            case ivInManifest = "ivInManifest"
-            case ivSource = "ivSource"
-            case keepSegments = "keepSegments"
-            case keyFormat = "keyFormat"
-            case keyFormatVersions = "keyFormatVersions"
-            case keyProviderSettings = "keyProviderSettings"
-            case manifestCompression = "manifestCompression"
-            case manifestDurationFormat = "manifestDurationFormat"
-            case minSegmentLength = "minSegmentLength"
-            case mode = "mode"
-            case outputSelection = "outputSelection"
-            case programDateTime = "programDateTime"
-            case programDateTimePeriod = "programDateTimePeriod"
-            case redundantManifest = "redundantManifest"
-            case segmentationMode = "segmentationMode"
-            case segmentLength = "segmentLength"
-            case segmentsPerSubdirectory = "segmentsPerSubdirectory"
-            case streamInfResolution = "streamInfResolution"
-            case timedMetadataId3Frame = "timedMetadataId3Frame"
-            case timedMetadataId3Period = "timedMetadataId3Period"
-            case timestampDeltaMilliseconds = "timestampDeltaMilliseconds"
-            case tsFileMode = "tsFileMode"
+            case adMarkers
+            case baseUrlContent
+            case baseUrlContent1
+            case baseUrlManifest
+            case baseUrlManifest1
+            case captionLanguageMappings
+            case captionLanguageSetting
+            case clientCache
+            case codecSpecification
+            case constantIv
+            case destination
+            case directoryStructure
+            case discontinuityTags
+            case encryptionType
+            case hlsCdnSettings
+            case hlsId3SegmentTagging
+            case iFrameOnlyPlaylists
+            case incompleteSegmentBehavior
+            case indexNSegments
+            case inputLossAction
+            case ivInManifest
+            case ivSource
+            case keepSegments
+            case keyFormat
+            case keyFormatVersions
+            case keyProviderSettings
+            case manifestCompression
+            case manifestDurationFormat
+            case minSegmentLength
+            case mode
+            case outputSelection
+            case programDateTime
+            case programDateTimePeriod
+            case redundantManifest
+            case segmentationMode
+            case segmentLength
+            case segmentsPerSubdirectory
+            case streamInfResolution
+            case timedMetadataId3Frame
+            case timedMetadataId3Period
+            case timestampDeltaMilliseconds
+            case tsFileMode
         }
     }
 
     public struct HlsId3SegmentTaggingScheduleActionSettings: AWSEncodableShape & AWSDecodableShape {
-
         /// ID3 tag to insert into each segment. Supports special keyword identifiers to substitute in segment-related values.\nSupported keyword identifiers: https://docs.aws.amazon.com/medialive/latest/ug/variable-data-identifiers.html
         public let tag: String
 
@@ -5898,12 +5748,11 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case tag = "tag"
+            case tag
         }
     }
 
     public struct HlsInputSettings: AWSEncodableShape & AWSDecodableShape {
-
         /// When specified the HLS stream with the m3u8 BANDWIDTH that most closely matches this value will be chosen, otherwise the highest bandwidth stream in the m3u8 will be chosen.  The bitrate is specified in bits per second, as in an HLS manifest.
         public let bandwidth: Int?
         /// When specified, reading of the HLS input will begin this many buffer segments from the end (most recently written segment).  When not specified, the HLS input will begin with the first segment specified in the m3u8.
@@ -5928,15 +5777,14 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case bandwidth = "bandwidth"
-            case bufferSegments = "bufferSegments"
-            case retries = "retries"
-            case retryInterval = "retryInterval"
+            case bandwidth
+            case bufferSegments
+            case retries
+            case retryInterval
         }
     }
 
     public struct HlsMediaStoreSettings: AWSEncodableShape & AWSDecodableShape {
-
         /// Number of seconds to wait before retrying connection to the CDN if the connection is lost.
         public let connectionRetryInterval: Int?
         /// Size in seconds of file cache for streaming outputs.
@@ -5966,16 +5814,15 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case connectionRetryInterval = "connectionRetryInterval"
-            case filecacheDuration = "filecacheDuration"
-            case mediaStoreStorageClass = "mediaStoreStorageClass"
-            case numRetries = "numRetries"
-            case restartDelay = "restartDelay"
+            case connectionRetryInterval
+            case filecacheDuration
+            case mediaStoreStorageClass
+            case numRetries
+            case restartDelay
         }
     }
 
     public struct HlsOutputSettings: AWSEncodableShape & AWSDecodableShape {
-
         /// Only applicable when this output is referencing an H.265 video description.
         /// Specifies whether MP4 segments should be packaged as HEV1 or HVC1.
         public let h265PackagingType: HlsH265PackagingType?
@@ -5999,15 +5846,14 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case h265PackagingType = "h265PackagingType"
-            case hlsSettings = "hlsSettings"
-            case nameModifier = "nameModifier"
-            case segmentModifier = "segmentModifier"
+            case h265PackagingType
+            case hlsSettings
+            case nameModifier
+            case segmentModifier
         }
     }
 
     public struct HlsS3Settings: AWSEncodableShape & AWSDecodableShape {
-
         /// Specify the canned ACL to apply to each S3 request. Defaults to none.
         public let cannedAcl: S3CannedAcl?
 
@@ -6016,12 +5862,11 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case cannedAcl = "cannedAcl"
+            case cannedAcl
         }
     }
 
     public struct HlsSettings: AWSEncodableShape & AWSDecodableShape {
-
         public let audioOnlyHlsSettings: AudioOnlyHlsSettings?
         public let fmp4HlsSettings: Fmp4HlsSettings?
         public let frameCaptureHlsSettings: FrameCaptureHlsSettings?
@@ -6039,15 +5884,14 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case audioOnlyHlsSettings = "audioOnlyHlsSettings"
-            case fmp4HlsSettings = "fmp4HlsSettings"
-            case frameCaptureHlsSettings = "frameCaptureHlsSettings"
-            case standardHlsSettings = "standardHlsSettings"
+            case audioOnlyHlsSettings
+            case fmp4HlsSettings
+            case frameCaptureHlsSettings
+            case standardHlsSettings
         }
     }
 
     public struct HlsTimedMetadataScheduleActionSettings: AWSEncodableShape & AWSDecodableShape {
-
         /// Base64 string formatted according to the ID3 specification: http://id3.org/id3v2.4.0-structure
         public let id3: String
 
@@ -6056,12 +5900,11 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case id3 = "id3"
+            case id3
         }
     }
 
     public struct HlsWebdavSettings: AWSEncodableShape & AWSDecodableShape {
-
         /// Number of seconds to wait before retrying connection to the CDN if the connection is lost.
         public let connectionRetryInterval: Int?
         /// Size in seconds of file cache for streaming outputs.
@@ -6091,24 +5934,19 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case connectionRetryInterval = "connectionRetryInterval"
-            case filecacheDuration = "filecacheDuration"
-            case httpTransferMode = "httpTransferMode"
-            case numRetries = "numRetries"
-            case restartDelay = "restartDelay"
+            case connectionRetryInterval
+            case filecacheDuration
+            case httpTransferMode
+            case numRetries
+            case restartDelay
         }
     }
 
     public struct ImmediateModeScheduleActionStartSettings: AWSEncodableShape & AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct Input: AWSDecodableShape {
-
         /// The Unique ARN of the input (generated, immutable).
         public let arn: String?
         /// A list of channel IDs that that input is attached to (currently an input can only be attached to one channel).
@@ -6162,27 +6000,26 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case arn = "arn"
-            case attachedChannels = "attachedChannels"
-            case destinations = "destinations"
-            case id = "id"
-            case inputClass = "inputClass"
-            case inputDevices = "inputDevices"
-            case inputPartnerIds = "inputPartnerIds"
-            case inputSourceType = "inputSourceType"
-            case mediaConnectFlows = "mediaConnectFlows"
-            case name = "name"
-            case roleArn = "roleArn"
-            case securityGroups = "securityGroups"
-            case sources = "sources"
-            case state = "state"
-            case tags = "tags"
-            case type = "type"
+            case arn
+            case attachedChannels
+            case destinations
+            case id
+            case inputClass
+            case inputDevices
+            case inputPartnerIds
+            case inputSourceType
+            case mediaConnectFlows
+            case name
+            case roleArn
+            case securityGroups
+            case sources
+            case state
+            case tags
+            case type
         }
     }
 
     public struct InputAttachment: AWSEncodableShape & AWSDecodableShape {
-
         /// User-specified settings for defining what the conditions are for declaring the input unhealthy and failing over to a different input.
         public let automaticInputFailoverSettings: AutomaticInputFailoverSettings?
         /// User-specified name for the attachment. This is required if the user wants to use this input in an input switch action.
@@ -6205,15 +6042,14 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case automaticInputFailoverSettings = "automaticInputFailoverSettings"
-            case inputAttachmentName = "inputAttachmentName"
-            case inputId = "inputId"
-            case inputSettings = "inputSettings"
+            case automaticInputFailoverSettings
+            case inputAttachmentName
+            case inputId
+            case inputSettings
         }
     }
 
     public struct InputChannelLevel: AWSEncodableShape & AWSDecodableShape {
-
         /// Remixing value. Units are in dB and acceptable values are within the range from -60 (mute) and 6 dB.
         public let gain: Int
         /// The index of the input channel used as a source.
@@ -6232,13 +6068,12 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case gain = "gain"
-            case inputChannel = "inputChannel"
+            case gain
+            case inputChannel
         }
     }
 
     public struct InputClippingSettings: AWSEncodableShape & AWSDecodableShape {
-
         /// The source of the timecodes in the source being clipped.
         public let inputTimecodeSource: InputTimecodeSource
         /// Settings to identify the start of the clip.
@@ -6253,14 +6088,13 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case inputTimecodeSource = "inputTimecodeSource"
-            case startTimecode = "startTimecode"
-            case stopTimecode = "stopTimecode"
+            case inputTimecodeSource
+            case startTimecode
+            case stopTimecode
         }
     }
 
     public struct InputDestination: AWSDecodableShape {
-
         /// The system-generated static IP address of endpoint.
         /// It remains fixed for the lifetime of the input.
         public let ip: String?
@@ -6279,15 +6113,14 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case ip = "ip"
-            case port = "port"
-            case url = "url"
-            case vpc = "vpc"
+            case ip
+            case port
+            case url
+            case vpc
         }
     }
 
     public struct InputDestinationRequest: AWSEncodableShape {
-
         /// A unique name for the location the RTMP stream is being pushed
         /// to.
         public let streamName: String?
@@ -6297,12 +6130,11 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case streamName = "streamName"
+            case streamName
         }
     }
 
     public struct InputDestinationVpc: AWSDecodableShape {
-
         /// The availability zone of the Input destination.
         public let availabilityZone: String?
         /// The network interface ID of the Input destination in the VPC.
@@ -6314,13 +6146,12 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case availabilityZone = "availabilityZone"
-            case networkInterfaceId = "networkInterfaceId"
+            case availabilityZone
+            case networkInterfaceId
         }
     }
 
     public struct InputDeviceConfigurableSettings: AWSEncodableShape {
-
         /// The input source that you want to use. If the device has a source connected to only one of its input ports, or if you don't care which source the device sends, specify Auto. If the device has sources connected to both its input ports, and you want to use a specific source, specify the source.
         public let configuredInput: InputDeviceConfiguredInput?
         /// The maximum bitrate in bits per second. Set a value here to throttle the bitrate of the source video.
@@ -6332,13 +6163,12 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case configuredInput = "configuredInput"
-            case maxBitrate = "maxBitrate"
+            case configuredInput
+            case maxBitrate
         }
     }
 
     public struct InputDeviceHdSettings: AWSDecodableShape {
-
         /// If you specified Auto as the configured input, specifies which of the sources is currently active (SDI or HDMI).
         public let activeInput: InputDeviceActiveInput?
         /// The source at the input device that is currently active. You can specify this source.
@@ -6368,19 +6198,18 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case activeInput = "activeInput"
-            case configuredInput = "configuredInput"
-            case deviceState = "deviceState"
-            case framerate = "framerate"
-            case height = "height"
-            case maxBitrate = "maxBitrate"
-            case scanType = "scanType"
-            case width = "width"
+            case activeInput
+            case configuredInput
+            case deviceState
+            case framerate
+            case height
+            case maxBitrate
+            case scanType
+            case width
         }
     }
 
     public struct InputDeviceNetworkSettings: AWSDecodableShape {
-
         /// The DNS addresses of the input device.
         public let dnsAddresses: [String]?
         /// The network gateway IP address.
@@ -6401,16 +6230,15 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case dnsAddresses = "dnsAddresses"
-            case gateway = "gateway"
-            case ipAddress = "ipAddress"
-            case ipScheme = "ipScheme"
-            case subnetMask = "subnetMask"
+            case dnsAddresses
+            case gateway
+            case ipAddress
+            case ipScheme
+            case subnetMask
         }
     }
 
     public struct InputDeviceRequest: AWSEncodableShape {
-
         /// The unique ID for the device.
         public let id: String?
 
@@ -6419,12 +6247,11 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case id = "id"
+            case id
         }
     }
 
     public struct InputDeviceSettings: AWSEncodableShape & AWSDecodableShape {
-
         /// The unique ID for the device.
         public let id: String?
 
@@ -6433,12 +6260,11 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case id = "id"
+            case id
         }
     }
 
     public struct InputDeviceSummary: AWSDecodableShape {
-
         /// The unique ARN of the input device.
         public let arn: String?
         /// The state of the connection between the input device and AWS.
@@ -6480,23 +6306,22 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case arn = "arn"
-            case connectionState = "connectionState"
-            case deviceSettingsSyncState = "deviceSettingsSyncState"
-            case deviceUpdateStatus = "deviceUpdateStatus"
-            case hdDeviceSettings = "hdDeviceSettings"
-            case id = "id"
-            case macAddress = "macAddress"
-            case name = "name"
-            case networkSettings = "networkSettings"
-            case serialNumber = "serialNumber"
-            case type = "type"
-            case uhdDeviceSettings = "uhdDeviceSettings"
+            case arn
+            case connectionState
+            case deviceSettingsSyncState
+            case deviceUpdateStatus
+            case hdDeviceSettings
+            case id
+            case macAddress
+            case name
+            case networkSettings
+            case serialNumber
+            case type
+            case uhdDeviceSettings
         }
     }
 
     public struct InputDeviceUhdSettings: AWSDecodableShape {
-
         /// If you specified Auto as the configured input, specifies which of the sources is currently active (SDI or HDMI).
         public let activeInput: InputDeviceActiveInput?
         /// The source at the input device that is currently active. You can specify this source.
@@ -6526,19 +6351,18 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case activeInput = "activeInput"
-            case configuredInput = "configuredInput"
-            case deviceState = "deviceState"
-            case framerate = "framerate"
-            case height = "height"
-            case maxBitrate = "maxBitrate"
-            case scanType = "scanType"
-            case width = "width"
+            case activeInput
+            case configuredInput
+            case deviceState
+            case framerate
+            case height
+            case maxBitrate
+            case scanType
+            case width
         }
     }
 
     public struct InputLocation: AWSEncodableShape & AWSDecodableShape {
-
         /// key used to extract the password from EC2 Parameter store
         public let passwordParam: String?
         /// Uniform Resource Identifier - This should be a path to a file accessible to the Live system (eg. a http:// URI) depending on the output type. For example, a RTMP destination should have a uri simliar to: "rtmp://fmsserver/live".
@@ -6553,14 +6377,13 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case passwordParam = "passwordParam"
-            case uri = "uri"
-            case username = "username"
+            case passwordParam
+            case uri
+            case username
         }
     }
 
     public struct InputLossBehavior: AWSEncodableShape & AWSDecodableShape {
-
         /// On input loss, the number of milliseconds to substitute black into the output before switching to the frame specified by inputLossImageType.  A value x, where 0 <= x <= 1,000,000 and a value of 1,000,000 will be interpreted as infinite.
         public let blackFrameMsec: Int?
         /// When input loss image type is "color" this field specifies the color to use. Value: 6 hex characters representing the values of RGB.
@@ -6581,25 +6404,24 @@ extension MediaLive {
         }
 
         public func validate(name: String) throws {
-            try self.validate(self.blackFrameMsec, name: "blackFrameMsec", parent: name, max: 1000000)
+            try self.validate(self.blackFrameMsec, name: "blackFrameMsec", parent: name, max: 1_000_000)
             try self.validate(self.blackFrameMsec, name: "blackFrameMsec", parent: name, min: 0)
             try self.validate(self.inputLossImageColor, name: "inputLossImageColor", parent: name, max: 6)
             try self.validate(self.inputLossImageColor, name: "inputLossImageColor", parent: name, min: 6)
-            try self.validate(self.repeatFrameMsec, name: "repeatFrameMsec", parent: name, max: 1000000)
+            try self.validate(self.repeatFrameMsec, name: "repeatFrameMsec", parent: name, max: 1_000_000)
             try self.validate(self.repeatFrameMsec, name: "repeatFrameMsec", parent: name, min: 0)
         }
 
         private enum CodingKeys: String, CodingKey {
-            case blackFrameMsec = "blackFrameMsec"
-            case inputLossImageColor = "inputLossImageColor"
-            case inputLossImageSlate = "inputLossImageSlate"
-            case inputLossImageType = "inputLossImageType"
-            case repeatFrameMsec = "repeatFrameMsec"
+            case blackFrameMsec
+            case inputLossImageColor
+            case inputLossImageSlate
+            case inputLossImageType
+            case repeatFrameMsec
         }
     }
 
     public struct InputLossFailoverSettings: AWSEncodableShape & AWSDecodableShape {
-
         /// The amount of time (in milliseconds) that no input is detected. After that time, an input failover will occur.
         public let inputLossThresholdMsec: Int?
 
@@ -6612,12 +6434,11 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case inputLossThresholdMsec = "inputLossThresholdMsec"
+            case inputLossThresholdMsec
         }
     }
 
     public struct InputPrepareScheduleActionSettings: AWSEncodableShape & AWSDecodableShape {
-
         /// The name of the input attachment that should be prepared by this action. If no name is provided, the action will stop the most recent prepare (if any) when activated.
         public let inputAttachmentNameReference: String?
         /// Settings to let you create a clip of the file input, in order to set up the input to ingest only a portion of the file.
@@ -6632,14 +6453,13 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case inputAttachmentNameReference = "inputAttachmentNameReference"
-            case inputClippingSettings = "inputClippingSettings"
-            case urlPath = "urlPath"
+            case inputAttachmentNameReference
+            case inputClippingSettings
+            case urlPath
         }
     }
 
     public struct InputSecurityGroup: AWSDecodableShape {
-
         /// Unique ARN of Input Security Group
         public let arn: String?
         /// The Id of the Input Security Group
@@ -6663,17 +6483,16 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case arn = "arn"
-            case id = "id"
-            case inputs = "inputs"
-            case state = "state"
-            case tags = "tags"
-            case whitelistRules = "whitelistRules"
+            case arn
+            case id
+            case inputs
+            case state
+            case tags
+            case whitelistRules
         }
     }
 
     public struct InputSettings: AWSEncodableShape & AWSDecodableShape {
-
         /// Used to select the audio stream to decode for inputs that have multiple available.
         public let audioSelectors: [AudioSelector]?
         /// Used to select the caption input to use for inputs that have multiple available.
@@ -6727,21 +6546,20 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case audioSelectors = "audioSelectors"
-            case captionSelectors = "captionSelectors"
-            case deblockFilter = "deblockFilter"
-            case denoiseFilter = "denoiseFilter"
-            case filterStrength = "filterStrength"
-            case inputFilter = "inputFilter"
-            case networkInputSettings = "networkInputSettings"
-            case smpte2038DataPreference = "smpte2038DataPreference"
-            case sourceEndBehavior = "sourceEndBehavior"
-            case videoSelector = "videoSelector"
+            case audioSelectors
+            case captionSelectors
+            case deblockFilter
+            case denoiseFilter
+            case filterStrength
+            case inputFilter
+            case networkInputSettings
+            case smpte2038DataPreference
+            case sourceEndBehavior
+            case videoSelector
         }
     }
 
     public struct InputSource: AWSDecodableShape {
-
         /// The key used to extract the password from EC2 Parameter store.
         public let passwordParam: String?
         /// This represents the customer's source URL where stream is
@@ -6757,14 +6575,13 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case passwordParam = "passwordParam"
-            case url = "url"
-            case username = "username"
+            case passwordParam
+            case url
+            case username
         }
     }
 
     public struct InputSourceRequest: AWSEncodableShape {
-
         /// The key used to extract the password from EC2 Parameter store.
         public let passwordParam: String?
         /// This represents the customer's source URL where stream is
@@ -6780,14 +6597,13 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case passwordParam = "passwordParam"
-            case url = "url"
-            case username = "username"
+            case passwordParam
+            case url
+            case username
         }
     }
 
     public struct InputSpecification: AWSEncodableShape & AWSDecodableShape {
-
         /// Input codec
         public let codec: InputCodec?
         /// Maximum input bitrate, categorized coarsely
@@ -6802,14 +6618,13 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case codec = "codec"
-            case maximumBitrate = "maximumBitrate"
-            case resolution = "resolution"
+            case codec
+            case maximumBitrate
+            case resolution
         }
     }
 
     public struct InputSwitchScheduleActionSettings: AWSEncodableShape & AWSDecodableShape {
-
         /// The name of the input attachment (not the name of the input!) to switch to. The name is specified in the channel configuration.
         public let inputAttachmentNameReference: String
         /// Settings to let you create a clip of the file input, in order to set up the input to ingest only a portion of the file.
@@ -6824,14 +6639,13 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case inputAttachmentNameReference = "inputAttachmentNameReference"
-            case inputClippingSettings = "inputClippingSettings"
-            case urlPath = "urlPath"
+            case inputAttachmentNameReference
+            case inputClippingSettings
+            case urlPath
         }
     }
 
     public struct InputVpcRequest: AWSEncodableShape {
-
         /// A list of up to 5 EC2 VPC security group IDs to attach to the Input VPC network interfaces.
         /// Requires subnetIds. If none are specified then the VPC default security group will be used.
         public let securityGroupIds: [String]?
@@ -6845,13 +6659,12 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case securityGroupIds = "securityGroupIds"
-            case subnetIds = "subnetIds"
+            case securityGroupIds
+            case subnetIds
         }
     }
 
     public struct InputWhitelistRule: AWSDecodableShape {
-
         /// The IPv4 CIDR that's whitelisted.
         public let cidr: String?
 
@@ -6860,12 +6673,11 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case cidr = "cidr"
+            case cidr
         }
     }
 
     public struct InputWhitelistRuleCidr: AWSEncodableShape {
-
         /// The IPv4 CIDR to whitelist.
         public let cidr: String?
 
@@ -6874,12 +6686,11 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case cidr = "cidr"
+            case cidr
         }
     }
 
     public struct KeyProviderSettings: AWSEncodableShape & AWSDecodableShape {
-
         public let staticKeySettings: StaticKeySettings?
 
         public init(staticKeySettings: StaticKeySettings? = nil) {
@@ -6891,13 +6702,13 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case staticKeySettings = "staticKeySettings"
+            case staticKeySettings
         }
     }
 
     public struct ListChannelsRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "maxResults")), 
+            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "maxResults")),
             AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "nextToken"))
         ]
 
@@ -6918,7 +6729,6 @@ extension MediaLive {
     }
 
     public struct ListChannelsResponse: AWSDecodableShape {
-
         public let channels: [ChannelSummary]?
         public let nextToken: String?
 
@@ -6928,15 +6738,15 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case channels = "channels"
-            case nextToken = "nextToken"
+            case channels
+            case nextToken
         }
     }
 
     public struct ListInputDeviceTransfersRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "maxResults")), 
-            AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "nextToken")), 
+            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "maxResults")),
+            AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "nextToken")),
             AWSMemberEncoding(label: "transferType", location: .querystring(locationName: "transferType"))
         ]
 
@@ -6959,7 +6769,6 @@ extension MediaLive {
     }
 
     public struct ListInputDeviceTransfersResponse: AWSDecodableShape {
-
         public let inputDeviceTransfers: [TransferringInputDeviceSummary]?
         public let nextToken: String?
 
@@ -6969,14 +6778,14 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case inputDeviceTransfers = "inputDeviceTransfers"
-            case nextToken = "nextToken"
+            case inputDeviceTransfers
+            case nextToken
         }
     }
 
     public struct ListInputDevicesRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "maxResults")), 
+            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "maxResults")),
             AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "nextToken"))
         ]
 
@@ -6997,7 +6806,6 @@ extension MediaLive {
     }
 
     public struct ListInputDevicesResponse: AWSDecodableShape {
-
         public let inputDevices: [InputDeviceSummary]?
         public let nextToken: String?
 
@@ -7007,14 +6815,14 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case inputDevices = "inputDevices"
-            case nextToken = "nextToken"
+            case inputDevices
+            case nextToken
         }
     }
 
     public struct ListInputSecurityGroupsRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "maxResults")), 
+            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "maxResults")),
             AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "nextToken"))
         ]
 
@@ -7035,7 +6843,6 @@ extension MediaLive {
     }
 
     public struct ListInputSecurityGroupsResponse: AWSDecodableShape {
-
         public let inputSecurityGroups: [InputSecurityGroup]?
         public let nextToken: String?
 
@@ -7045,14 +6852,14 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case inputSecurityGroups = "inputSecurityGroups"
-            case nextToken = "nextToken"
+            case inputSecurityGroups
+            case nextToken
         }
     }
 
     public struct ListInputsRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "maxResults")), 
+            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "maxResults")),
             AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "nextToken"))
         ]
 
@@ -7073,7 +6880,6 @@ extension MediaLive {
     }
 
     public struct ListInputsResponse: AWSDecodableShape {
-
         public let inputs: [Input]?
         public let nextToken: String?
 
@@ -7083,15 +6889,15 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case inputs = "inputs"
-            case nextToken = "nextToken"
+            case inputs
+            case nextToken
         }
     }
 
     public struct ListMultiplexProgramsRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "maxResults")), 
-            AWSMemberEncoding(label: "multiplexId", location: .uri(locationName: "multiplexId")), 
+            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "maxResults")),
+            AWSMemberEncoding(label: "multiplexId", location: .uri(locationName: "multiplexId")),
             AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "nextToken"))
         ]
 
@@ -7114,7 +6920,6 @@ extension MediaLive {
     }
 
     public struct ListMultiplexProgramsResponse: AWSDecodableShape {
-
         public let multiplexPrograms: [MultiplexProgramSummary]?
         public let nextToken: String?
 
@@ -7124,14 +6929,14 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case multiplexPrograms = "multiplexPrograms"
-            case nextToken = "nextToken"
+            case multiplexPrograms
+            case nextToken
         }
     }
 
     public struct ListMultiplexesRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "maxResults")), 
+            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "maxResults")),
             AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "nextToken"))
         ]
 
@@ -7152,7 +6957,6 @@ extension MediaLive {
     }
 
     public struct ListMultiplexesResponse: AWSDecodableShape {
-
         public let multiplexes: [MultiplexSummary]?
         public let nextToken: String?
 
@@ -7162,24 +6966,24 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case multiplexes = "multiplexes"
-            case nextToken = "nextToken"
+            case multiplexes
+            case nextToken
         }
     }
 
     public struct ListOfferingsRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "channelClass", location: .querystring(locationName: "channelClass")), 
-            AWSMemberEncoding(label: "channelConfiguration", location: .querystring(locationName: "channelConfiguration")), 
-            AWSMemberEncoding(label: "codec", location: .querystring(locationName: "codec")), 
-            AWSMemberEncoding(label: "duration", location: .querystring(locationName: "duration")), 
-            AWSMemberEncoding(label: "maximumBitrate", location: .querystring(locationName: "maximumBitrate")), 
-            AWSMemberEncoding(label: "maximumFramerate", location: .querystring(locationName: "maximumFramerate")), 
-            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "maxResults")), 
-            AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "nextToken")), 
-            AWSMemberEncoding(label: "resolution", location: .querystring(locationName: "resolution")), 
-            AWSMemberEncoding(label: "resourceType", location: .querystring(locationName: "resourceType")), 
-            AWSMemberEncoding(label: "specialFeature", location: .querystring(locationName: "specialFeature")), 
+            AWSMemberEncoding(label: "channelClass", location: .querystring(locationName: "channelClass")),
+            AWSMemberEncoding(label: "channelConfiguration", location: .querystring(locationName: "channelConfiguration")),
+            AWSMemberEncoding(label: "codec", location: .querystring(locationName: "codec")),
+            AWSMemberEncoding(label: "duration", location: .querystring(locationName: "duration")),
+            AWSMemberEncoding(label: "maximumBitrate", location: .querystring(locationName: "maximumBitrate")),
+            AWSMemberEncoding(label: "maximumFramerate", location: .querystring(locationName: "maximumFramerate")),
+            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "maxResults")),
+            AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "nextToken")),
+            AWSMemberEncoding(label: "resolution", location: .querystring(locationName: "resolution")),
+            AWSMemberEncoding(label: "resourceType", location: .querystring(locationName: "resourceType")),
+            AWSMemberEncoding(label: "specialFeature", location: .querystring(locationName: "specialFeature")),
             AWSMemberEncoding(label: "videoQuality", location: .querystring(locationName: "videoQuality"))
         ]
 
@@ -7220,7 +7024,6 @@ extension MediaLive {
     }
 
     public struct ListOfferingsResponse: AWSDecodableShape {
-
         public let nextToken: String?
         public let offerings: [Offering]?
 
@@ -7230,22 +7033,22 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case nextToken = "nextToken"
-            case offerings = "offerings"
+            case nextToken
+            case offerings
         }
     }
 
     public struct ListReservationsRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "channelClass", location: .querystring(locationName: "channelClass")), 
-            AWSMemberEncoding(label: "codec", location: .querystring(locationName: "codec")), 
-            AWSMemberEncoding(label: "maximumBitrate", location: .querystring(locationName: "maximumBitrate")), 
-            AWSMemberEncoding(label: "maximumFramerate", location: .querystring(locationName: "maximumFramerate")), 
-            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "maxResults")), 
-            AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "nextToken")), 
-            AWSMemberEncoding(label: "resolution", location: .querystring(locationName: "resolution")), 
-            AWSMemberEncoding(label: "resourceType", location: .querystring(locationName: "resourceType")), 
-            AWSMemberEncoding(label: "specialFeature", location: .querystring(locationName: "specialFeature")), 
+            AWSMemberEncoding(label: "channelClass", location: .querystring(locationName: "channelClass")),
+            AWSMemberEncoding(label: "codec", location: .querystring(locationName: "codec")),
+            AWSMemberEncoding(label: "maximumBitrate", location: .querystring(locationName: "maximumBitrate")),
+            AWSMemberEncoding(label: "maximumFramerate", location: .querystring(locationName: "maximumFramerate")),
+            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "maxResults")),
+            AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "nextToken")),
+            AWSMemberEncoding(label: "resolution", location: .querystring(locationName: "resolution")),
+            AWSMemberEncoding(label: "resourceType", location: .querystring(locationName: "resourceType")),
+            AWSMemberEncoding(label: "specialFeature", location: .querystring(locationName: "specialFeature")),
             AWSMemberEncoding(label: "videoQuality", location: .querystring(locationName: "videoQuality"))
         ]
 
@@ -7282,7 +7085,6 @@ extension MediaLive {
     }
 
     public struct ListReservationsResponse: AWSDecodableShape {
-
         public let nextToken: String?
         public let reservations: [Reservation]?
 
@@ -7292,8 +7094,8 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case nextToken = "nextToken"
-            case reservations = "reservations"
+            case nextToken
+            case reservations
         }
     }
 
@@ -7312,7 +7114,6 @@ extension MediaLive {
     }
 
     public struct ListTagsForResourceResponse: AWSDecodableShape {
-
         public let tags: [String: String]?
 
         public init(tags: [String: String]? = nil) {
@@ -7320,12 +7121,11 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case tags = "tags"
+            case tags
         }
     }
 
     public struct M2tsSettings: AWSEncodableShape & AWSDecodableShape {
-
         /// When set to drop, output audio streams will be removed from the program if the selected input audio stream is removed from the input. This allows the output audio configuration to dynamically change based on input configuration. If this is set to encodeSilence, all output audio streams will output encoded silence when not connected to an active input stream.
         public let absentInputAudioBehavior: M2tsAbsentInputAudioBehavior?
         /// When set to enabled, uses ARIB-compliant field muxing and removes video descriptor.
@@ -7494,58 +7294,57 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case absentInputAudioBehavior = "absentInputAudioBehavior"
-            case arib = "arib"
-            case aribCaptionsPid = "aribCaptionsPid"
-            case aribCaptionsPidControl = "aribCaptionsPidControl"
-            case audioBufferModel = "audioBufferModel"
-            case audioFramesPerPes = "audioFramesPerPes"
-            case audioPids = "audioPids"
-            case audioStreamType = "audioStreamType"
-            case bitrate = "bitrate"
-            case bufferModel = "bufferModel"
-            case ccDescriptor = "ccDescriptor"
-            case dvbNitSettings = "dvbNitSettings"
-            case dvbSdtSettings = "dvbSdtSettings"
-            case dvbSubPids = "dvbSubPids"
-            case dvbTdtSettings = "dvbTdtSettings"
-            case dvbTeletextPid = "dvbTeletextPid"
-            case ebif = "ebif"
-            case ebpAudioInterval = "ebpAudioInterval"
-            case ebpLookaheadMs = "ebpLookaheadMs"
-            case ebpPlacement = "ebpPlacement"
-            case ecmPid = "ecmPid"
-            case esRateInPes = "esRateInPes"
-            case etvPlatformPid = "etvPlatformPid"
-            case etvSignalPid = "etvSignalPid"
-            case fragmentTime = "fragmentTime"
-            case klv = "klv"
-            case klvDataPids = "klvDataPids"
-            case nielsenId3Behavior = "nielsenId3Behavior"
-            case nullPacketBitrate = "nullPacketBitrate"
-            case patInterval = "patInterval"
-            case pcrControl = "pcrControl"
-            case pcrPeriod = "pcrPeriod"
-            case pcrPid = "pcrPid"
-            case pmtInterval = "pmtInterval"
-            case pmtPid = "pmtPid"
-            case programNum = "programNum"
-            case rateMode = "rateMode"
-            case scte27Pids = "scte27Pids"
-            case scte35Control = "scte35Control"
-            case scte35Pid = "scte35Pid"
-            case segmentationMarkers = "segmentationMarkers"
-            case segmentationStyle = "segmentationStyle"
-            case segmentationTime = "segmentationTime"
-            case timedMetadataBehavior = "timedMetadataBehavior"
-            case timedMetadataPid = "timedMetadataPid"
-            case transportStreamId = "transportStreamId"
-            case videoPid = "videoPid"
+            case absentInputAudioBehavior
+            case arib
+            case aribCaptionsPid
+            case aribCaptionsPidControl
+            case audioBufferModel
+            case audioFramesPerPes
+            case audioPids
+            case audioStreamType
+            case bitrate
+            case bufferModel
+            case ccDescriptor
+            case dvbNitSettings
+            case dvbSdtSettings
+            case dvbSubPids
+            case dvbTdtSettings
+            case dvbTeletextPid
+            case ebif
+            case ebpAudioInterval
+            case ebpLookaheadMs
+            case ebpPlacement
+            case ecmPid
+            case esRateInPes
+            case etvPlatformPid
+            case etvSignalPid
+            case fragmentTime
+            case klv
+            case klvDataPids
+            case nielsenId3Behavior
+            case nullPacketBitrate
+            case patInterval
+            case pcrControl
+            case pcrPeriod
+            case pcrPid
+            case pmtInterval
+            case pmtPid
+            case programNum
+            case rateMode
+            case scte27Pids
+            case scte35Control
+            case scte35Pid
+            case segmentationMarkers
+            case segmentationStyle
+            case segmentationTime
+            case timedMetadataBehavior
+            case timedMetadataPid
+            case transportStreamId
+            case videoPid
         }
     }
 
     public struct M3u8Settings: AWSEncodableShape & AWSDecodableShape {
-
         /// The number of audio frames to insert for each PES packet.
         public let audioFramesPerPes: Int?
         /// Packet Identifier (PID) of the elementary audio stream(s) in the transport stream. Multiple values are accepted, and can be entered in ranges and/or by comma separation. Can be entered as decimal or hexadecimal values.
@@ -7616,28 +7415,27 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case audioFramesPerPes = "audioFramesPerPes"
-            case audioPids = "audioPids"
-            case ecmPid = "ecmPid"
-            case nielsenId3Behavior = "nielsenId3Behavior"
-            case patInterval = "patInterval"
-            case pcrControl = "pcrControl"
-            case pcrPeriod = "pcrPeriod"
-            case pcrPid = "pcrPid"
-            case pmtInterval = "pmtInterval"
-            case pmtPid = "pmtPid"
-            case programNum = "programNum"
-            case scte35Behavior = "scte35Behavior"
-            case scte35Pid = "scte35Pid"
-            case timedMetadataBehavior = "timedMetadataBehavior"
-            case timedMetadataPid = "timedMetadataPid"
-            case transportStreamId = "transportStreamId"
-            case videoPid = "videoPid"
+            case audioFramesPerPes
+            case audioPids
+            case ecmPid
+            case nielsenId3Behavior
+            case patInterval
+            case pcrControl
+            case pcrPeriod
+            case pcrPid
+            case pmtInterval
+            case pmtPid
+            case programNum
+            case scte35Behavior
+            case scte35Pid
+            case timedMetadataBehavior
+            case timedMetadataPid
+            case transportStreamId
+            case videoPid
         }
     }
 
     public struct MediaConnectFlow: AWSDecodableShape {
-
         /// The unique ARN of the MediaConnect Flow being used as a source.
         public let flowArn: String?
 
@@ -7646,12 +7444,11 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case flowArn = "flowArn"
+            case flowArn
         }
     }
 
     public struct MediaConnectFlowRequest: AWSEncodableShape {
-
         /// The ARN of the MediaConnect Flow that you want to use as a source.
         public let flowArn: String?
 
@@ -7660,12 +7457,11 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case flowArn = "flowArn"
+            case flowArn
         }
     }
 
     public struct MediaPackageGroupSettings: AWSEncodableShape & AWSDecodableShape {
-
         /// MediaPackage channel destination.
         public let destination: OutputLocationRef
 
@@ -7674,12 +7470,11 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case destination = "destination"
+            case destination
         }
     }
 
     public struct MediaPackageOutputDestinationSettings: AWSEncodableShape & AWSDecodableShape {
-
         /// ID of the channel in MediaPackage that is the destination for this output group. You do not need to specify the individual inputs in MediaPackage; MediaLive will handle the connection of the two MediaLive pipelines to the two MediaPackage inputs. The MediaPackage channel and MediaLive channel must be in the same region.
         public let channelId: String?
 
@@ -7692,20 +7487,15 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case channelId = "channelId"
+            case channelId
         }
     }
 
     public struct MediaPackageOutputSettings: AWSEncodableShape & AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct Mp2Settings: AWSEncodableShape & AWSDecodableShape {
-
         /// Average bitrate in bits/second.
         public let bitrate: Double?
         /// The MPEG2 Audio coding mode.  Valid values are codingMode10 (for mono) or codingMode20 (for stereo).
@@ -7720,14 +7510,13 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case bitrate = "bitrate"
-            case codingMode = "codingMode"
-            case sampleRate = "sampleRate"
+            case bitrate
+            case codingMode
+            case sampleRate
         }
     }
 
     public struct Mpeg2FilterSettings: AWSEncodableShape & AWSDecodableShape {
-
         public let temporalFilterSettings: TemporalFilterSettings?
 
         public init(temporalFilterSettings: TemporalFilterSettings? = nil) {
@@ -7735,12 +7524,11 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case temporalFilterSettings = "temporalFilterSettings"
+            case temporalFilterSettings
         }
     }
 
     public struct Mpeg2Settings: AWSEncodableShape & AWSDecodableShape {
-
         /// Choose Off to disable adaptive quantization. Or choose another value to enable the quantizer and set its strength. The strengths are: Auto, Off, Low, Medium, High. When you enable this field, MediaLive allows intra-frame quantizers to vary, which might improve visual quality.
         public let adaptiveQuantization: Mpeg2AdaptiveQuantization?
         /// Indicates the AFD values that MediaLive will write into the video encode. If you do not know what AFD signaling is, or if your downstream system has not given you guidance, choose AUTO.
@@ -7815,27 +7603,26 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case adaptiveQuantization = "adaptiveQuantization"
-            case afdSignaling = "afdSignaling"
-            case colorMetadata = "colorMetadata"
-            case colorSpace = "colorSpace"
-            case displayAspectRatio = "displayAspectRatio"
-            case filterSettings = "filterSettings"
-            case fixedAfd = "fixedAfd"
-            case framerateDenominator = "framerateDenominator"
-            case framerateNumerator = "framerateNumerator"
-            case gopClosedCadence = "gopClosedCadence"
-            case gopNumBFrames = "gopNumBFrames"
-            case gopSize = "gopSize"
-            case gopSizeUnits = "gopSizeUnits"
-            case scanType = "scanType"
-            case subgopLength = "subgopLength"
-            case timecodeInsertion = "timecodeInsertion"
+            case adaptiveQuantization
+            case afdSignaling
+            case colorMetadata
+            case colorSpace
+            case displayAspectRatio
+            case filterSettings
+            case fixedAfd
+            case framerateDenominator
+            case framerateNumerator
+            case gopClosedCadence
+            case gopNumBFrames
+            case gopSize
+            case gopSizeUnits
+            case scanType
+            case subgopLength
+            case timecodeInsertion
         }
     }
 
     public struct MsSmoothGroupSettings: AWSEncodableShape & AWSDecodableShape {
-
         /// The ID to include in each message in the sparse track. Ignored if sparseTrackType is NONE.
         public let acquisitionPointId: String?
         /// If set to passthrough for an audio-only MS Smooth output, the fragment absolute time will be set to the current timecode. This option does not write timecodes to the audio elementary stream.
@@ -7918,30 +7705,29 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case acquisitionPointId = "acquisitionPointId"
-            case audioOnlyTimecodeControl = "audioOnlyTimecodeControl"
-            case certificateMode = "certificateMode"
-            case connectionRetryInterval = "connectionRetryInterval"
-            case destination = "destination"
-            case eventId = "eventId"
-            case eventIdMode = "eventIdMode"
-            case eventStopBehavior = "eventStopBehavior"
-            case filecacheDuration = "filecacheDuration"
-            case fragmentLength = "fragmentLength"
-            case inputLossAction = "inputLossAction"
-            case numRetries = "numRetries"
-            case restartDelay = "restartDelay"
-            case segmentationMode = "segmentationMode"
-            case sendDelayMs = "sendDelayMs"
-            case sparseTrackType = "sparseTrackType"
-            case streamManifestBehavior = "streamManifestBehavior"
-            case timestampOffset = "timestampOffset"
-            case timestampOffsetMode = "timestampOffsetMode"
+            case acquisitionPointId
+            case audioOnlyTimecodeControl
+            case certificateMode
+            case connectionRetryInterval
+            case destination
+            case eventId
+            case eventIdMode
+            case eventStopBehavior
+            case filecacheDuration
+            case fragmentLength
+            case inputLossAction
+            case numRetries
+            case restartDelay
+            case segmentationMode
+            case sendDelayMs
+            case sparseTrackType
+            case streamManifestBehavior
+            case timestampOffset
+            case timestampOffsetMode
         }
     }
 
     public struct MsSmoothOutputSettings: AWSEncodableShape & AWSDecodableShape {
-
         /// Only applicable when this output is referencing an H.265 video description.
         /// Specifies whether MP4 segments should be packaged as HEV1 or HVC1.
         public let h265PackagingType: MsSmoothH265PackagingType?
@@ -7954,13 +7740,12 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case h265PackagingType = "h265PackagingType"
-            case nameModifier = "nameModifier"
+            case h265PackagingType
+            case nameModifier
         }
     }
 
     public struct Multiplex: AWSDecodableShape {
-
         /// The unique arn of the multiplex.
         public let arn: String?
         /// A list of availability zones for the multiplex.
@@ -7996,29 +7781,24 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case arn = "arn"
-            case availabilityZones = "availabilityZones"
-            case destinations = "destinations"
-            case id = "id"
-            case multiplexSettings = "multiplexSettings"
-            case name = "name"
-            case pipelinesRunningCount = "pipelinesRunningCount"
-            case programCount = "programCount"
-            case state = "state"
-            case tags = "tags"
+            case arn
+            case availabilityZones
+            case destinations
+            case id
+            case multiplexSettings
+            case name
+            case pipelinesRunningCount
+            case programCount
+            case state
+            case tags
         }
     }
 
     public struct MultiplexGroupSettings: AWSEncodableShape & AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct MultiplexMediaConnectOutputDestinationSettings: AWSDecodableShape {
-
         /// The MediaConnect entitlement ARN available as a Flow source.
         public let entitlementArn: String?
 
@@ -8027,12 +7807,11 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case entitlementArn = "entitlementArn"
+            case entitlementArn
         }
     }
 
     public struct MultiplexOutputDestination: AWSDecodableShape {
-
         /// Multiplex MediaConnect output destination settings.
         public let mediaConnectSettings: MultiplexMediaConnectOutputDestinationSettings?
 
@@ -8041,12 +7820,11 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case mediaConnectSettings = "mediaConnectSettings"
+            case mediaConnectSettings
         }
     }
 
     public struct MultiplexOutputSettings: AWSEncodableShape & AWSDecodableShape {
-
         /// Destination is a Multiplex.
         public let destination: OutputLocationRef
 
@@ -8055,12 +7833,11 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case destination = "destination"
+            case destination
         }
     }
 
     public struct MultiplexProgram: AWSDecodableShape {
-
         /// The MediaLive channel associated with the program.
         public let channelId: String?
         /// The settings for this multiplex program.
@@ -8081,16 +7858,15 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case channelId = "channelId"
-            case multiplexProgramSettings = "multiplexProgramSettings"
-            case packetIdentifiersMap = "packetIdentifiersMap"
-            case pipelineDetails = "pipelineDetails"
-            case programName = "programName"
+            case channelId
+            case multiplexProgramSettings
+            case packetIdentifiersMap
+            case pipelineDetails
+            case programName
         }
     }
 
     public struct MultiplexProgramChannelDestinationSettings: AWSEncodableShape & AWSDecodableShape {
-
         /// The ID of the Multiplex that the encoder is providing output to. You do not need to specify the individual inputs to the Multiplex; MediaLive will handle the connection of the two MediaLive pipelines to the two Multiplex instances.
         /// The Multiplex must be in the same region as the Channel.
         public let multiplexId: String?
@@ -8108,13 +7884,12 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case multiplexId = "multiplexId"
-            case programName = "programName"
+            case multiplexId
+            case programName
         }
     }
 
     public struct MultiplexProgramPacketIdentifiersMap: AWSDecodableShape {
-
         public let audioPids: [Int]?
         public let dvbSubPids: [Int]?
         public let dvbTeletextPid: Int?
@@ -8146,24 +7921,23 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case audioPids = "audioPids"
-            case dvbSubPids = "dvbSubPids"
-            case dvbTeletextPid = "dvbTeletextPid"
-            case etvPlatformPid = "etvPlatformPid"
-            case etvSignalPid = "etvSignalPid"
-            case klvDataPids = "klvDataPids"
-            case pcrPid = "pcrPid"
-            case pmtPid = "pmtPid"
-            case privateMetadataPid = "privateMetadataPid"
-            case scte27Pids = "scte27Pids"
-            case scte35Pid = "scte35Pid"
-            case timedMetadataPid = "timedMetadataPid"
-            case videoPid = "videoPid"
+            case audioPids
+            case dvbSubPids
+            case dvbTeletextPid
+            case etvPlatformPid
+            case etvSignalPid
+            case klvDataPids
+            case pcrPid
+            case pmtPid
+            case privateMetadataPid
+            case scte27Pids
+            case scte35Pid
+            case timedMetadataPid
+            case videoPid
         }
     }
 
     public struct MultiplexProgramPipelineDetail: AWSDecodableShape {
-
         /// Identifies the channel pipeline that is currently active for the pipeline (identified by PipelineId) in the multiplex.
         public let activeChannelPipeline: String?
         /// Identifies a specific pipeline in the multiplex.
@@ -8175,13 +7949,12 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case activeChannelPipeline = "activeChannelPipeline"
-            case pipelineId = "pipelineId"
+            case activeChannelPipeline
+            case pipelineId
         }
     }
 
     public struct MultiplexProgramServiceDescriptor: AWSEncodableShape & AWSDecodableShape {
-
         /// Name of the provider.
         public let providerName: String
         /// Name of the service.
@@ -8198,13 +7971,12 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case providerName = "providerName"
-            case serviceName = "serviceName"
+            case providerName
+            case serviceName
         }
     }
 
     public struct MultiplexProgramSettings: AWSEncodableShape & AWSDecodableShape {
-
         /// Indicates which pipeline is preferred by the multiplex for program ingest.
         public let preferredChannelPipeline: PreferredChannelPipeline?
         /// Unique program number.
@@ -8229,15 +8001,14 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case preferredChannelPipeline = "preferredChannelPipeline"
-            case programNumber = "programNumber"
-            case serviceDescriptor = "serviceDescriptor"
-            case videoSettings = "videoSettings"
+            case preferredChannelPipeline
+            case programNumber
+            case serviceDescriptor
+            case videoSettings
         }
     }
 
     public struct MultiplexProgramSummary: AWSDecodableShape {
-
         /// The MediaLive Channel associated with the program.
         public let channelId: String?
         /// The name of the multiplex program.
@@ -8249,13 +8020,12 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case channelId = "channelId"
-            case programName = "programName"
+            case channelId
+            case programName
         }
     }
 
     public struct MultiplexSettings: AWSEncodableShape & AWSDecodableShape {
-
         /// Maximum video buffer delay in milliseconds.
         public let maximumVideoBufferDelayMilliseconds: Int?
         /// Transport stream bit rate.
@@ -8275,24 +8045,23 @@ extension MediaLive {
         public func validate(name: String) throws {
             try self.validate(self.maximumVideoBufferDelayMilliseconds, name: "maximumVideoBufferDelayMilliseconds", parent: name, max: 3000)
             try self.validate(self.maximumVideoBufferDelayMilliseconds, name: "maximumVideoBufferDelayMilliseconds", parent: name, min: 800)
-            try self.validate(self.transportStreamBitrate, name: "transportStreamBitrate", parent: name, max: 100000000)
-            try self.validate(self.transportStreamBitrate, name: "transportStreamBitrate", parent: name, min: 1000000)
+            try self.validate(self.transportStreamBitrate, name: "transportStreamBitrate", parent: name, max: 100_000_000)
+            try self.validate(self.transportStreamBitrate, name: "transportStreamBitrate", parent: name, min: 1_000_000)
             try self.validate(self.transportStreamId, name: "transportStreamId", parent: name, max: 65535)
             try self.validate(self.transportStreamId, name: "transportStreamId", parent: name, min: 0)
-            try self.validate(self.transportStreamReservedBitrate, name: "transportStreamReservedBitrate", parent: name, max: 100000000)
+            try self.validate(self.transportStreamReservedBitrate, name: "transportStreamReservedBitrate", parent: name, max: 100_000_000)
             try self.validate(self.transportStreamReservedBitrate, name: "transportStreamReservedBitrate", parent: name, min: 0)
         }
 
         private enum CodingKeys: String, CodingKey {
-            case maximumVideoBufferDelayMilliseconds = "maximumVideoBufferDelayMilliseconds"
-            case transportStreamBitrate = "transportStreamBitrate"
-            case transportStreamId = "transportStreamId"
-            case transportStreamReservedBitrate = "transportStreamReservedBitrate"
+            case maximumVideoBufferDelayMilliseconds
+            case transportStreamBitrate
+            case transportStreamId
+            case transportStreamReservedBitrate
         }
     }
 
     public struct MultiplexSettingsSummary: AWSDecodableShape {
-
         /// Transport stream bit rate.
         public let transportStreamBitrate: Int?
 
@@ -8301,12 +8070,11 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case transportStreamBitrate = "transportStreamBitrate"
+            case transportStreamBitrate
         }
     }
 
     public struct MultiplexStatmuxVideoSettings: AWSEncodableShape & AWSDecodableShape {
-
         /// Maximum statmux bitrate.
         public let maximumBitrate: Int?
         /// Minimum statmux bitrate.
@@ -8321,23 +8089,22 @@ extension MediaLive {
         }
 
         public func validate(name: String) throws {
-            try self.validate(self.maximumBitrate, name: "maximumBitrate", parent: name, max: 100000000)
-            try self.validate(self.maximumBitrate, name: "maximumBitrate", parent: name, min: 100000)
-            try self.validate(self.minimumBitrate, name: "minimumBitrate", parent: name, max: 100000000)
-            try self.validate(self.minimumBitrate, name: "minimumBitrate", parent: name, min: 100000)
+            try self.validate(self.maximumBitrate, name: "maximumBitrate", parent: name, max: 100_000_000)
+            try self.validate(self.maximumBitrate, name: "maximumBitrate", parent: name, min: 100_000)
+            try self.validate(self.minimumBitrate, name: "minimumBitrate", parent: name, max: 100_000_000)
+            try self.validate(self.minimumBitrate, name: "minimumBitrate", parent: name, min: 100_000)
             try self.validate(self.priority, name: "priority", parent: name, max: 5)
             try self.validate(self.priority, name: "priority", parent: name, min: -5)
         }
 
         private enum CodingKeys: String, CodingKey {
-            case maximumBitrate = "maximumBitrate"
-            case minimumBitrate = "minimumBitrate"
-            case priority = "priority"
+            case maximumBitrate
+            case minimumBitrate
+            case priority
         }
     }
 
     public struct MultiplexSummary: AWSDecodableShape {
-
         /// The unique arn of the multiplex.
         public let arn: String?
         /// A list of availability zones for the multiplex.
@@ -8370,20 +8137,19 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case arn = "arn"
-            case availabilityZones = "availabilityZones"
-            case id = "id"
-            case multiplexSettings = "multiplexSettings"
-            case name = "name"
-            case pipelinesRunningCount = "pipelinesRunningCount"
-            case programCount = "programCount"
-            case state = "state"
-            case tags = "tags"
+            case arn
+            case availabilityZones
+            case id
+            case multiplexSettings
+            case name
+            case pipelinesRunningCount
+            case programCount
+            case state
+            case tags
         }
     }
 
     public struct MultiplexVideoSettings: AWSEncodableShape & AWSDecodableShape {
-
         /// The constant bitrate configuration for the video encode.
         /// When this field is defined, StatmuxSettings must be undefined.
         public let constantBitrate: Int?
@@ -8397,19 +8163,18 @@ extension MediaLive {
         }
 
         public func validate(name: String) throws {
-            try self.validate(self.constantBitrate, name: "constantBitrate", parent: name, max: 100000000)
-            try self.validate(self.constantBitrate, name: "constantBitrate", parent: name, min: 100000)
+            try self.validate(self.constantBitrate, name: "constantBitrate", parent: name, max: 100_000_000)
+            try self.validate(self.constantBitrate, name: "constantBitrate", parent: name, min: 100_000)
             try self.statmuxSettings?.validate(name: "\(name).statmuxSettings")
         }
 
         private enum CodingKeys: String, CodingKey {
-            case constantBitrate = "constantBitrate"
-            case statmuxSettings = "statmuxSettings"
+            case constantBitrate
+            case statmuxSettings
         }
     }
 
     public struct NetworkInputSettings: AWSEncodableShape & AWSDecodableShape {
-
         /// Specifies HLS input settings when the uri is for a HLS manifest.
         public let hlsInputSettings: HlsInputSettings?
         /// Check HTTPS server certificates. When set to checkCryptographyOnly, cryptography in the certificate will be checked, but not the server's name. Certain subdomains (notably S3 buckets that use dots in the bucket name) do not strictly match the corresponding certificate's wildcard pattern and would otherwise cause the event to error. This setting is ignored for protocols that do not use https.
@@ -8425,13 +8190,12 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case hlsInputSettings = "hlsInputSettings"
-            case serverValidation = "serverValidation"
+            case hlsInputSettings
+            case serverValidation
         }
     }
 
     public struct NielsenConfiguration: AWSEncodableShape & AWSDecodableShape {
-
         /// Enter the Distributor ID assigned to your organization by Nielsen.
         public let distributorId: String?
         /// Enables Nielsen PCM to ID3 tagging
@@ -8443,13 +8207,12 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case distributorId = "distributorId"
-            case nielsenPcmToId3Tagging = "nielsenPcmToId3Tagging"
+            case distributorId
+            case nielsenPcmToId3Tagging
         }
     }
 
     public struct Offering: AWSDecodableShape {
-
         /// Unique offering ARN, e.g. 'arn:aws:medialive:us-west-2:123456789012:offering:87654321'
         public let arn: String?
         /// Currency code for usagePrice and fixedPrice in ISO-4217 format, e.g. 'USD'
@@ -8488,22 +8251,21 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case arn = "arn"
-            case currencyCode = "currencyCode"
-            case duration = "duration"
-            case durationUnits = "durationUnits"
-            case fixedPrice = "fixedPrice"
-            case offeringDescription = "offeringDescription"
-            case offeringId = "offeringId"
-            case offeringType = "offeringType"
-            case region = "region"
-            case resourceSpecification = "resourceSpecification"
-            case usagePrice = "usagePrice"
+            case arn
+            case currencyCode
+            case duration
+            case durationUnits
+            case fixedPrice
+            case offeringDescription
+            case offeringId
+            case offeringType
+            case region
+            case resourceSpecification
+            case usagePrice
         }
     }
 
     public struct Output: AWSEncodableShape & AWSDecodableShape {
-
         /// The names of the AudioDescriptions used as audio sources for this output.
         public let audioDescriptionNames: [String]?
         /// The names of the CaptionDescriptions used as caption sources for this output.
@@ -8530,16 +8292,15 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case audioDescriptionNames = "audioDescriptionNames"
-            case captionDescriptionNames = "captionDescriptionNames"
-            case outputName = "outputName"
-            case outputSettings = "outputSettings"
-            case videoDescriptionName = "videoDescriptionName"
+            case audioDescriptionNames
+            case captionDescriptionNames
+            case outputName
+            case outputSettings
+            case videoDescriptionName
         }
     }
 
     public struct OutputDestination: AWSEncodableShape & AWSDecodableShape {
-
         /// User-specified id. This is used in an output group or an output.
         public let id: String?
         /// Destination settings for a MediaPackage output; one destination for both encoders.
@@ -8564,15 +8325,14 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case id = "id"
-            case mediaPackageSettings = "mediaPackageSettings"
-            case multiplexSettings = "multiplexSettings"
-            case settings = "settings"
+            case id
+            case mediaPackageSettings
+            case multiplexSettings
+            case settings
         }
     }
 
     public struct OutputDestinationSettings: AWSEncodableShape & AWSDecodableShape {
-
         /// key used to extract the password from EC2 Parameter store
         public let passwordParam: String?
         /// Stream name for RTMP destinations (URLs of type rtmp://)
@@ -8590,15 +8350,14 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case passwordParam = "passwordParam"
-            case streamName = "streamName"
-            case url = "url"
-            case username = "username"
+            case passwordParam
+            case streamName
+            case url
+            case username
         }
     }
 
     public struct OutputGroup: AWSEncodableShape & AWSDecodableShape {
-
         /// Custom output group name optionally defined by the user.  Only letters, numbers, and the underscore character allowed; only 32 characters allowed.
         public let name: String?
         /// Settings associated with the output group.
@@ -8620,14 +8379,13 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case name = "name"
-            case outputGroupSettings = "outputGroupSettings"
-            case outputs = "outputs"
+            case name
+            case outputGroupSettings
+            case outputs
         }
     }
 
     public struct OutputGroupSettings: AWSEncodableShape & AWSDecodableShape {
-
         public let archiveGroupSettings: ArchiveGroupSettings?
         public let frameCaptureGroupSettings: FrameCaptureGroupSettings?
         public let hlsGroupSettings: HlsGroupSettings?
@@ -8657,19 +8415,18 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case archiveGroupSettings = "archiveGroupSettings"
-            case frameCaptureGroupSettings = "frameCaptureGroupSettings"
-            case hlsGroupSettings = "hlsGroupSettings"
-            case mediaPackageGroupSettings = "mediaPackageGroupSettings"
-            case msSmoothGroupSettings = "msSmoothGroupSettings"
-            case multiplexGroupSettings = "multiplexGroupSettings"
-            case rtmpGroupSettings = "rtmpGroupSettings"
-            case udpGroupSettings = "udpGroupSettings"
+            case archiveGroupSettings
+            case frameCaptureGroupSettings
+            case hlsGroupSettings
+            case mediaPackageGroupSettings
+            case msSmoothGroupSettings
+            case multiplexGroupSettings
+            case rtmpGroupSettings
+            case udpGroupSettings
         }
     }
 
     public struct OutputLocationRef: AWSEncodableShape & AWSDecodableShape {
-
         public let destinationRefId: String?
 
         public init(destinationRefId: String? = nil) {
@@ -8677,12 +8434,11 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case destinationRefId = "destinationRefId"
+            case destinationRefId
         }
     }
 
     public struct OutputSettings: AWSEncodableShape & AWSDecodableShape {
-
         public let archiveOutputSettings: ArchiveOutputSettings?
         public let frameCaptureOutputSettings: FrameCaptureOutputSettings?
         public let hlsOutputSettings: HlsOutputSettings?
@@ -8711,27 +8467,22 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case archiveOutputSettings = "archiveOutputSettings"
-            case frameCaptureOutputSettings = "frameCaptureOutputSettings"
-            case hlsOutputSettings = "hlsOutputSettings"
-            case mediaPackageOutputSettings = "mediaPackageOutputSettings"
-            case msSmoothOutputSettings = "msSmoothOutputSettings"
-            case multiplexOutputSettings = "multiplexOutputSettings"
-            case rtmpOutputSettings = "rtmpOutputSettings"
-            case udpOutputSettings = "udpOutputSettings"
+            case archiveOutputSettings
+            case frameCaptureOutputSettings
+            case hlsOutputSettings
+            case mediaPackageOutputSettings
+            case msSmoothOutputSettings
+            case multiplexOutputSettings
+            case rtmpOutputSettings
+            case udpOutputSettings
         }
     }
 
     public struct PassThroughSettings: AWSEncodableShape & AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct PauseStateScheduleActionSettings: AWSEncodableShape & AWSDecodableShape {
-
         public let pipelines: [PipelinePauseStateSettings]?
 
         public init(pipelines: [PipelinePauseStateSettings]? = nil) {
@@ -8739,12 +8490,11 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case pipelines = "pipelines"
+            case pipelines
         }
     }
 
     public struct PipelineDetail: AWSDecodableShape {
-
         /// The name of the active input attachment currently being ingested by this pipeline.
         public let activeInputAttachmentName: String?
         /// The name of the input switch schedule action that occurred most recently and that resulted in the switch to the current input attachment for this pipeline.
@@ -8759,14 +8509,13 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case activeInputAttachmentName = "activeInputAttachmentName"
-            case activeInputSwitchActionName = "activeInputSwitchActionName"
-            case pipelineId = "pipelineId"
+            case activeInputAttachmentName
+            case activeInputSwitchActionName
+            case pipelineId
         }
     }
 
     public struct PipelinePauseStateSettings: AWSEncodableShape & AWSDecodableShape {
-
         /// Pipeline ID to pause ("PIPELINE_0" or "PIPELINE_1").
         public let pipelineId: PipelineId
 
@@ -8775,7 +8524,7 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case pipelineId = "pipelineId"
+            case pipelineId
         }
     }
 
@@ -8805,16 +8554,15 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case count = "count"
-            case name = "name"
-            case requestId = "requestId"
-            case start = "start"
-            case tags = "tags"
+            case count
+            case name
+            case requestId
+            case start
+            case tags
         }
     }
 
     public struct PurchaseOfferingResponse: AWSDecodableShape {
-
         public let reservation: Reservation?
 
         public init(reservation: Reservation? = nil) {
@@ -8822,32 +8570,20 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case reservation = "reservation"
+            case reservation
         }
     }
 
     public struct RawSettings: AWSEncodableShape & AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct Rec601Settings: AWSEncodableShape & AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct Rec709Settings: AWSEncodableShape & AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct RejectInputDeviceTransferRequest: AWSEncodableShape {
@@ -8865,15 +8601,10 @@ extension MediaLive {
     }
 
     public struct RejectInputDeviceTransferResponse: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct RemixSettings: AWSEncodableShape & AWSDecodableShape {
-
         /// Mapping of input channels to output channels, with appropriate gain adjustments.
         public let channelMappings: [AudioChannelMapping]
         /// Number of input channels to be used.
@@ -8899,14 +8630,13 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case channelMappings = "channelMappings"
-            case channelsIn = "channelsIn"
-            case channelsOut = "channelsOut"
+            case channelMappings
+            case channelsIn
+            case channelsOut
         }
     }
 
     public struct Reservation: AWSDecodableShape {
-
         /// Unique reservation ARN, e.g. 'arn:aws:medialive:us-west-2:123456789012:reservation:1234567'
         public let arn: String?
         /// Number of reserved resources
@@ -8966,29 +8696,28 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case arn = "arn"
-            case count = "count"
-            case currencyCode = "currencyCode"
-            case duration = "duration"
-            case durationUnits = "durationUnits"
-            case end = "end"
-            case fixedPrice = "fixedPrice"
-            case name = "name"
-            case offeringDescription = "offeringDescription"
-            case offeringId = "offeringId"
-            case offeringType = "offeringType"
-            case region = "region"
-            case reservationId = "reservationId"
-            case resourceSpecification = "resourceSpecification"
-            case start = "start"
-            case state = "state"
-            case tags = "tags"
-            case usagePrice = "usagePrice"
+            case arn
+            case count
+            case currencyCode
+            case duration
+            case durationUnits
+            case end
+            case fixedPrice
+            case name
+            case offeringDescription
+            case offeringId
+            case offeringType
+            case region
+            case reservationId
+            case resourceSpecification
+            case start
+            case state
+            case tags
+            case usagePrice
         }
     }
 
     public struct ReservationResourceSpecification: AWSDecodableShape {
-
         /// Channel class, e.g. 'STANDARD'
         public let channelClass: ChannelClass?
         /// Codec, e.g. 'AVC'
@@ -9018,27 +8747,22 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case channelClass = "channelClass"
-            case codec = "codec"
-            case maximumBitrate = "maximumBitrate"
-            case maximumFramerate = "maximumFramerate"
-            case resolution = "resolution"
-            case resourceType = "resourceType"
-            case specialFeature = "specialFeature"
-            case videoQuality = "videoQuality"
+            case channelClass
+            case codec
+            case maximumBitrate
+            case maximumFramerate
+            case resolution
+            case resourceType
+            case specialFeature
+            case videoQuality
         }
     }
 
     public struct RtmpCaptionInfoDestinationSettings: AWSEncodableShape & AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct RtmpGroupSettings: AWSEncodableShape & AWSDecodableShape {
-
         /// Choose the ad marker type for this output group. MediaLive will create a message based on the content of each SCTE-35 message, format it for that marker type, and insert it in the datastream.
         public let adMarkers: [RtmpAdMarkers]?
         /// Authentication scheme to use when connecting with CDN
@@ -9072,18 +8796,17 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case adMarkers = "adMarkers"
-            case authenticationScheme = "authenticationScheme"
-            case cacheFullBehavior = "cacheFullBehavior"
-            case cacheLength = "cacheLength"
-            case captionData = "captionData"
-            case inputLossAction = "inputLossAction"
-            case restartDelay = "restartDelay"
+            case adMarkers
+            case authenticationScheme
+            case cacheFullBehavior
+            case cacheLength
+            case captionData
+            case inputLossAction
+            case restartDelay
         }
     }
 
     public struct RtmpOutputSettings: AWSEncodableShape & AWSDecodableShape {
-
         /// If set to verifyAuthenticity, verify the tls certificate chain to a trusted Certificate Authority (CA).  This will cause rtmps outputs with self-signed certificates to fail.
         public let certificateMode: RtmpOutputCertificateMode?
         /// Number of seconds to wait before retrying a connection to the Flash Media server if the connection is lost.
@@ -9106,15 +8829,14 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case certificateMode = "certificateMode"
-            case connectionRetryInterval = "connectionRetryInterval"
-            case destination = "destination"
-            case numRetries = "numRetries"
+            case certificateMode
+            case connectionRetryInterval
+            case destination
+            case numRetries
         }
     }
 
     public struct ScheduleAction: AWSEncodableShape & AWSDecodableShape {
-
         /// The name of the action, must be unique within the schedule. This name provides the main reference to an action once it is added to the schedule. A name is unique if it is no longer in the schedule. The schedule is automatically cleaned up to remove actions with a start time of more than 1 hour ago (approximately) so at that point a name can be reused.
         public let actionName: String
         /// Settings for this schedule action.
@@ -9133,14 +8855,13 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case actionName = "actionName"
-            case scheduleActionSettings = "scheduleActionSettings"
-            case scheduleActionStartSettings = "scheduleActionStartSettings"
+            case actionName
+            case scheduleActionSettings
+            case scheduleActionStartSettings
         }
     }
 
     public struct ScheduleActionSettings: AWSEncodableShape & AWSDecodableShape {
-
         /// Action to insert HLS ID3 segment tagging
         public let hlsId3SegmentTaggingSettings: HlsId3SegmentTaggingScheduleActionSettings?
         /// Action to insert HLS metadata
@@ -9184,21 +8905,20 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case hlsId3SegmentTaggingSettings = "hlsId3SegmentTaggingSettings"
-            case hlsTimedMetadataSettings = "hlsTimedMetadataSettings"
-            case inputPrepareSettings = "inputPrepareSettings"
-            case inputSwitchSettings = "inputSwitchSettings"
-            case pauseStateSettings = "pauseStateSettings"
-            case scte35ReturnToNetworkSettings = "scte35ReturnToNetworkSettings"
-            case scte35SpliceInsertSettings = "scte35SpliceInsertSettings"
-            case scte35TimeSignalSettings = "scte35TimeSignalSettings"
-            case staticImageActivateSettings = "staticImageActivateSettings"
-            case staticImageDeactivateSettings = "staticImageDeactivateSettings"
+            case hlsId3SegmentTaggingSettings
+            case hlsTimedMetadataSettings
+            case inputPrepareSettings
+            case inputSwitchSettings
+            case pauseStateSettings
+            case scte35ReturnToNetworkSettings
+            case scte35SpliceInsertSettings
+            case scte35TimeSignalSettings
+            case staticImageActivateSettings
+            case staticImageDeactivateSettings
         }
     }
 
     public struct ScheduleActionStartSettings: AWSEncodableShape & AWSDecodableShape {
-
         /// Option for specifying the start time for an action.
         public let fixedModeScheduleActionStartSettings: FixedModeScheduleActionStartSettings?
         /// Option for specifying an action as relative to another action.
@@ -9213,22 +8933,17 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case fixedModeScheduleActionStartSettings = "fixedModeScheduleActionStartSettings"
-            case followModeScheduleActionStartSettings = "followModeScheduleActionStartSettings"
-            case immediateModeScheduleActionStartSettings = "immediateModeScheduleActionStartSettings"
+            case fixedModeScheduleActionStartSettings
+            case followModeScheduleActionStartSettings
+            case immediateModeScheduleActionStartSettings
         }
     }
 
     public struct Scte20PlusEmbeddedDestinationSettings: AWSEncodableShape & AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct Scte20SourceSettings: AWSEncodableShape & AWSDecodableShape {
-
         /// If upconvert, 608 data is both passed through via the "608 compatibility bytes" fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded.
         public let convert608To708: Scte20Convert608To708?
         /// Specifies the 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
@@ -9245,21 +8960,16 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case convert608To708 = "convert608To708"
-            case source608ChannelNumber = "source608ChannelNumber"
+            case convert608To708
+            case source608ChannelNumber
         }
     }
 
     public struct Scte27DestinationSettings: AWSEncodableShape & AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct Scte27SourceSettings: AWSEncodableShape & AWSDecodableShape {
-
         /// The pid field is used in conjunction with the caption selector languageCode field as follows:
         ///   - Specify PID and Language: Extracts captions from that PID; the language is "informational".
         ///   - Specify PID and omit Language: Extracts the specified PID.
@@ -9276,12 +8986,11 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case pid = "pid"
+            case pid
         }
     }
 
     public struct Scte35DeliveryRestrictions: AWSEncodableShape & AWSDecodableShape {
-
         /// Corresponds to SCTE-35 archive_allowed_flag.
         public let archiveAllowedFlag: Scte35ArchiveAllowedFlag
         /// Corresponds to SCTE-35 device_restrictions parameter.
@@ -9299,15 +9008,14 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case archiveAllowedFlag = "archiveAllowedFlag"
-            case deviceRestrictions = "deviceRestrictions"
-            case noRegionalBlackoutFlag = "noRegionalBlackoutFlag"
-            case webDeliveryAllowedFlag = "webDeliveryAllowedFlag"
+            case archiveAllowedFlag
+            case deviceRestrictions
+            case noRegionalBlackoutFlag
+            case webDeliveryAllowedFlag
         }
     }
 
     public struct Scte35Descriptor: AWSEncodableShape & AWSDecodableShape {
-
         /// SCTE-35 Descriptor Settings.
         public let scte35DescriptorSettings: Scte35DescriptorSettings
 
@@ -9320,12 +9028,11 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case scte35DescriptorSettings = "scte35DescriptorSettings"
+            case scte35DescriptorSettings
         }
     }
 
     public struct Scte35DescriptorSettings: AWSEncodableShape & AWSDecodableShape {
-
         /// SCTE-35 Segmentation Descriptor.
         public let segmentationDescriptorScte35DescriptorSettings: Scte35SegmentationDescriptor
 
@@ -9338,12 +9045,11 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case segmentationDescriptorScte35DescriptorSettings = "segmentationDescriptorScte35DescriptorSettings"
+            case segmentationDescriptorScte35DescriptorSettings
         }
     }
 
     public struct Scte35ReturnToNetworkScheduleActionSettings: AWSEncodableShape & AWSDecodableShape {
-
         /// The splice_event_id for the SCTE-35 splice_insert, as defined in SCTE-35.
         public let spliceEventId: Int64
 
@@ -9352,17 +9058,16 @@ extension MediaLive {
         }
 
         public func validate(name: String) throws {
-            try self.validate(self.spliceEventId, name: "spliceEventId", parent: name, max: 4294967295)
+            try self.validate(self.spliceEventId, name: "spliceEventId", parent: name, max: 4_294_967_295)
             try self.validate(self.spliceEventId, name: "spliceEventId", parent: name, min: 0)
         }
 
         private enum CodingKeys: String, CodingKey {
-            case spliceEventId = "spliceEventId"
+            case spliceEventId
         }
     }
 
     public struct Scte35SegmentationDescriptor: AWSEncodableShape & AWSDecodableShape {
-
         /// Holds the four SCTE-35 delivery restriction parameters.
         public let deliveryRestrictions: Scte35DeliveryRestrictions?
         /// Corresponds to SCTE-35 segmentation_event_cancel_indicator.
@@ -9401,9 +9106,9 @@ extension MediaLive {
         }
 
         public func validate(name: String) throws {
-            try self.validate(self.segmentationDuration, name: "segmentationDuration", parent: name, max: 1099511627775)
+            try self.validate(self.segmentationDuration, name: "segmentationDuration", parent: name, max: 1_099_511_627_775)
             try self.validate(self.segmentationDuration, name: "segmentationDuration", parent: name, min: 0)
-            try self.validate(self.segmentationEventId, name: "segmentationEventId", parent: name, max: 4294967295)
+            try self.validate(self.segmentationEventId, name: "segmentationEventId", parent: name, max: 4_294_967_295)
             try self.validate(self.segmentationEventId, name: "segmentationEventId", parent: name, min: 0)
             try self.validate(self.segmentationTypeId, name: "segmentationTypeId", parent: name, max: 255)
             try self.validate(self.segmentationTypeId, name: "segmentationTypeId", parent: name, min: 0)
@@ -9420,22 +9125,21 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case deliveryRestrictions = "deliveryRestrictions"
-            case segmentationCancelIndicator = "segmentationCancelIndicator"
-            case segmentationDuration = "segmentationDuration"
-            case segmentationEventId = "segmentationEventId"
-            case segmentationTypeId = "segmentationTypeId"
-            case segmentationUpid = "segmentationUpid"
-            case segmentationUpidType = "segmentationUpidType"
-            case segmentNum = "segmentNum"
-            case segmentsExpected = "segmentsExpected"
-            case subSegmentNum = "subSegmentNum"
-            case subSegmentsExpected = "subSegmentsExpected"
+            case deliveryRestrictions
+            case segmentationCancelIndicator
+            case segmentationDuration
+            case segmentationEventId
+            case segmentationTypeId
+            case segmentationUpid
+            case segmentationUpidType
+            case segmentNum
+            case segmentsExpected
+            case subSegmentNum
+            case subSegmentsExpected
         }
     }
 
     public struct Scte35SpliceInsert: AWSEncodableShape & AWSDecodableShape {
-
         /// When specified, this offset (in milliseconds) is added to the input Ad Avail PTS time. This only applies to embedded SCTE 104/35 messages and does not apply to OOB messages.
         public let adAvailOffset: Int?
         /// When set to ignore, Segment Descriptors with noRegionalBlackoutFlag set to 0 will no longer trigger blackouts or Ad Avail slates
@@ -9455,14 +9159,13 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case adAvailOffset = "adAvailOffset"
-            case noRegionalBlackoutFlag = "noRegionalBlackoutFlag"
-            case webDeliveryAllowedFlag = "webDeliveryAllowedFlag"
+            case adAvailOffset
+            case noRegionalBlackoutFlag
+            case webDeliveryAllowedFlag
         }
     }
 
     public struct Scte35SpliceInsertScheduleActionSettings: AWSEncodableShape & AWSDecodableShape {
-
         /// Optional, the duration for the splice_insert, in 90 KHz ticks. To convert seconds to ticks, multiple the seconds by 90,000. If you enter a duration, there is an expectation that the downstream system can read the duration and cue in at that time. If you do not enter a duration, the splice_insert will continue indefinitely and there is an expectation that you will enter a return_to_network to end the splice_insert at the appropriate time.
         public let duration: Int64?
         /// The splice_event_id for the SCTE-35 splice_insert, as defined in SCTE-35.
@@ -9474,20 +9177,19 @@ extension MediaLive {
         }
 
         public func validate(name: String) throws {
-            try self.validate(self.duration, name: "duration", parent: name, max: 8589934591)
+            try self.validate(self.duration, name: "duration", parent: name, max: 8_589_934_591)
             try self.validate(self.duration, name: "duration", parent: name, min: 0)
-            try self.validate(self.spliceEventId, name: "spliceEventId", parent: name, max: 4294967295)
+            try self.validate(self.spliceEventId, name: "spliceEventId", parent: name, max: 4_294_967_295)
             try self.validate(self.spliceEventId, name: "spliceEventId", parent: name, min: 0)
         }
 
         private enum CodingKeys: String, CodingKey {
-            case duration = "duration"
-            case spliceEventId = "spliceEventId"
+            case duration
+            case spliceEventId
         }
     }
 
     public struct Scte35TimeSignalApos: AWSEncodableShape & AWSDecodableShape {
-
         /// When specified, this offset (in milliseconds) is added to the input Ad Avail PTS time. This only applies to embedded SCTE 104/35 messages and does not apply to OOB messages.
         public let adAvailOffset: Int?
         /// When set to ignore, Segment Descriptors with noRegionalBlackoutFlag set to 0 will no longer trigger blackouts or Ad Avail slates
@@ -9507,14 +9209,13 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case adAvailOffset = "adAvailOffset"
-            case noRegionalBlackoutFlag = "noRegionalBlackoutFlag"
-            case webDeliveryAllowedFlag = "webDeliveryAllowedFlag"
+            case adAvailOffset
+            case noRegionalBlackoutFlag
+            case webDeliveryAllowedFlag
         }
     }
 
     public struct Scte35TimeSignalScheduleActionSettings: AWSEncodableShape & AWSDecodableShape {
-
         /// The list of SCTE-35 descriptors accompanying the SCTE-35 time_signal.
         public let scte35Descriptors: [Scte35Descriptor]
 
@@ -9529,20 +9230,15 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case scte35Descriptors = "scte35Descriptors"
+            case scte35Descriptors
         }
     }
 
     public struct SmpteTtDestinationSettings: AWSEncodableShape & AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct StandardHlsSettings: AWSEncodableShape & AWSDecodableShape {
-
         /// List all the audio groups that are used with the video output stream. Input all the audio GROUP-IDs that are associated to the video, separate by ','.
         public let audioRenditionSets: String?
         public let m3u8Settings: M3u8Settings
@@ -9557,8 +9253,8 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case audioRenditionSets = "audioRenditionSets"
-            case m3u8Settings = "m3u8Settings"
+            case audioRenditionSets
+            case m3u8Settings
         }
     }
 
@@ -9577,7 +9273,6 @@ extension MediaLive {
     }
 
     public struct StartChannelResponse: AWSDecodableShape {
-
         public let arn: String?
         public let cdiInputSpecification: CdiInputSpecification?
         public let channelClass: ChannelClass?
@@ -9617,23 +9312,23 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case arn = "arn"
-            case cdiInputSpecification = "cdiInputSpecification"
-            case channelClass = "channelClass"
-            case destinations = "destinations"
-            case egressEndpoints = "egressEndpoints"
-            case encoderSettings = "encoderSettings"
-            case id = "id"
-            case inputAttachments = "inputAttachments"
-            case inputSpecification = "inputSpecification"
-            case logLevel = "logLevel"
-            case name = "name"
-            case pipelineDetails = "pipelineDetails"
-            case pipelinesRunningCount = "pipelinesRunningCount"
-            case roleArn = "roleArn"
-            case state = "state"
-            case tags = "tags"
-            case vpc = "vpc"
+            case arn
+            case cdiInputSpecification
+            case channelClass
+            case destinations
+            case egressEndpoints
+            case encoderSettings
+            case id
+            case inputAttachments
+            case inputSpecification
+            case logLevel
+            case name
+            case pipelineDetails
+            case pipelinesRunningCount
+            case roleArn
+            case state
+            case tags
+            case vpc
         }
     }
 
@@ -9652,7 +9347,6 @@ extension MediaLive {
     }
 
     public struct StartMultiplexResponse: AWSDecodableShape {
-
         public let arn: String?
         public let availabilityZones: [String]?
         public let destinations: [MultiplexOutputDestination]?
@@ -9678,21 +9372,20 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case arn = "arn"
-            case availabilityZones = "availabilityZones"
-            case destinations = "destinations"
-            case id = "id"
-            case multiplexSettings = "multiplexSettings"
-            case name = "name"
-            case pipelinesRunningCount = "pipelinesRunningCount"
-            case programCount = "programCount"
-            case state = "state"
-            case tags = "tags"
+            case arn
+            case availabilityZones
+            case destinations
+            case id
+            case multiplexSettings
+            case name
+            case pipelinesRunningCount
+            case programCount
+            case state
+            case tags
         }
     }
 
     public struct StartTimecode: AWSEncodableShape & AWSDecodableShape {
-
         /// The timecode for the frame where you want to start the clip. Optional; if not specified, the clip starts at first frame in the file. Enter the timecode as HH:MM:SS:FF or HH:MM:SS;FF.
         public let timecode: String?
 
@@ -9701,12 +9394,11 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case timecode = "timecode"
+            case timecode
         }
     }
 
     public struct StaticImageActivateScheduleActionSettings: AWSEncodableShape & AWSDecodableShape {
-
         /// The duration in milliseconds for the image to remain on the video. If omitted or set to 0 the duration is unlimited and the image will remain until it is explicitly deactivated.
         public let duration: Int?
         /// The time in milliseconds for the image to fade in. The fade-in starts at the start time of the overlay. Default is 0 (no fade-in).
@@ -9756,21 +9448,20 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case duration = "duration"
-            case fadeIn = "fadeIn"
-            case fadeOut = "fadeOut"
-            case height = "height"
-            case image = "image"
-            case imageX = "imageX"
-            case imageY = "imageY"
-            case layer = "layer"
-            case opacity = "opacity"
-            case width = "width"
+            case duration
+            case fadeIn
+            case fadeOut
+            case height
+            case image
+            case imageX
+            case imageY
+            case layer
+            case opacity
+            case width
         }
     }
 
     public struct StaticImageDeactivateScheduleActionSettings: AWSEncodableShape & AWSDecodableShape {
-
         /// The time in milliseconds for the image to fade out. Default is 0 (no fade-out).
         public let fadeOut: Int?
         /// The image overlay layer to deactivate, 0 to 7. Default is 0.
@@ -9788,13 +9479,12 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case fadeOut = "fadeOut"
-            case layer = "layer"
+            case fadeOut
+            case layer
         }
     }
 
     public struct StaticKeySettings: AWSEncodableShape & AWSDecodableShape {
-
         /// The URL of the license server used for protecting content.
         public let keyProviderServer: InputLocation?
         /// Static key value as a 32 character hexadecimal string.
@@ -9811,8 +9501,8 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case keyProviderServer = "keyProviderServer"
-            case staticKeyValue = "staticKeyValue"
+            case keyProviderServer
+            case staticKeyValue
         }
     }
 
@@ -9831,7 +9521,6 @@ extension MediaLive {
     }
 
     public struct StopChannelResponse: AWSDecodableShape {
-
         public let arn: String?
         public let cdiInputSpecification: CdiInputSpecification?
         public let channelClass: ChannelClass?
@@ -9871,23 +9560,23 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case arn = "arn"
-            case cdiInputSpecification = "cdiInputSpecification"
-            case channelClass = "channelClass"
-            case destinations = "destinations"
-            case egressEndpoints = "egressEndpoints"
-            case encoderSettings = "encoderSettings"
-            case id = "id"
-            case inputAttachments = "inputAttachments"
-            case inputSpecification = "inputSpecification"
-            case logLevel = "logLevel"
-            case name = "name"
-            case pipelineDetails = "pipelineDetails"
-            case pipelinesRunningCount = "pipelinesRunningCount"
-            case roleArn = "roleArn"
-            case state = "state"
-            case tags = "tags"
-            case vpc = "vpc"
+            case arn
+            case cdiInputSpecification
+            case channelClass
+            case destinations
+            case egressEndpoints
+            case encoderSettings
+            case id
+            case inputAttachments
+            case inputSpecification
+            case logLevel
+            case name
+            case pipelineDetails
+            case pipelinesRunningCount
+            case roleArn
+            case state
+            case tags
+            case vpc
         }
     }
 
@@ -9906,7 +9595,6 @@ extension MediaLive {
     }
 
     public struct StopMultiplexResponse: AWSDecodableShape {
-
         public let arn: String?
         public let availabilityZones: [String]?
         public let destinations: [MultiplexOutputDestination]?
@@ -9932,21 +9620,20 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case arn = "arn"
-            case availabilityZones = "availabilityZones"
-            case destinations = "destinations"
-            case id = "id"
-            case multiplexSettings = "multiplexSettings"
-            case name = "name"
-            case pipelinesRunningCount = "pipelinesRunningCount"
-            case programCount = "programCount"
-            case state = "state"
-            case tags = "tags"
+            case arn
+            case availabilityZones
+            case destinations
+            case id
+            case multiplexSettings
+            case name
+            case pipelinesRunningCount
+            case programCount
+            case state
+            case tags
         }
     }
 
     public struct StopTimecode: AWSEncodableShape & AWSDecodableShape {
-
         /// If you specify a StopTimecode in an input (in order to clip the file), you can specify if you want the clip to exclude (the default) or include the frame specified by the timecode.
         public let lastFrameClippingBehavior: LastFrameClippingBehavior?
         /// The timecode for the frame where you want to stop the clip. Optional; if not specified, the clip continues to the end of the file. Enter the timecode as HH:MM:SS:FF or HH:MM:SS;FF.
@@ -9958,21 +9645,16 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case lastFrameClippingBehavior = "lastFrameClippingBehavior"
-            case timecode = "timecode"
+            case lastFrameClippingBehavior
+            case timecode
         }
     }
 
     public struct TeletextDestinationSettings: AWSEncodableShape & AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct TeletextSourceSettings: AWSEncodableShape & AWSDecodableShape {
-
         /// Optionally defines a region where TTML style captions will be displayed
         public let outputRectangle: CaptionRectangle?
         /// Specifies the teletext page number within the data stream from which to extract captions. Range of 0x100 (256) to 0x8FF (2303). Unused for passthrough. Should be specified as a hexadecimal string with no "0x" prefix.
@@ -9984,13 +9666,12 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case outputRectangle = "outputRectangle"
-            case pageNumber = "pageNumber"
+            case outputRectangle
+            case pageNumber
         }
     }
 
     public struct TemporalFilterSettings: AWSEncodableShape & AWSDecodableShape {
-
         /// If you enable this filter, the results are the following:
         /// - If the source content is noisy (it contains excessive digital artifacts), the filter cleans up the source.
         /// - If the source content is already clean, the filter tends to decrease the bitrate, especially when the rate control mode is QVBR.
@@ -10004,13 +9685,12 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case postFilterSharpening = "postFilterSharpening"
-            case strength = "strength"
+            case postFilterSharpening
+            case strength
         }
     }
 
     public struct TimecodeConfig: AWSEncodableShape & AWSDecodableShape {
-
         /// Identifies the source for the timecode that will be associated with the events outputs.
         /// -Embedded (embedded): Initialize the output timecode with timecode from the the source.  If no embedded timecode is detected in the source, the system falls back to using "Start at 0" (zerobased).
         /// -System Clock (systemclock): Use the UTC time.
@@ -10025,13 +9705,13 @@ extension MediaLive {
         }
 
         public func validate(name: String) throws {
-            try self.validate(self.syncThreshold, name: "syncThreshold", parent: name, max: 1000000)
+            try self.validate(self.syncThreshold, name: "syncThreshold", parent: name, max: 1_000_000)
             try self.validate(self.syncThreshold, name: "syncThreshold", parent: name, min: 1)
         }
 
         private enum CodingKeys: String, CodingKey {
-            case source = "source"
-            case syncThreshold = "syncThreshold"
+            case source
+            case syncThreshold
         }
     }
 
@@ -10053,22 +9733,17 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case targetCustomerId = "targetCustomerId"
-            case targetRegion = "targetRegion"
-            case transferMessage = "transferMessage"
+            case targetCustomerId
+            case targetRegion
+            case transferMessage
         }
     }
 
     public struct TransferInputDeviceResponse: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct TransferringInputDeviceSummary: AWSDecodableShape {
-
         /// The unique ID of the input device.
         public let id: String?
         /// The optional message that the sender has attached to the transfer.
@@ -10088,16 +9763,15 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case id = "id"
-            case message = "message"
-            case targetCustomerId = "targetCustomerId"
-            case targetRegion = "targetRegion"
-            case transferType = "transferType"
+            case id
+            case message
+            case targetCustomerId
+            case targetRegion
+            case transferType
         }
     }
 
     public struct TtmlDestinationSettings: AWSEncodableShape & AWSDecodableShape {
-
         /// When set to passthrough, passes through style and position information from a TTML-like input source (TTML, SMPTE-TT, CFF-TT) to the CFF-TT output or TTML output.
         public let styleControl: TtmlDestinationStyleControl?
 
@@ -10106,12 +9780,11 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case styleControl = "styleControl"
+            case styleControl
         }
     }
 
     public struct UdpContainerSettings: AWSEncodableShape & AWSDecodableShape {
-
         public let m2tsSettings: M2tsSettings?
 
         public init(m2tsSettings: M2tsSettings? = nil) {
@@ -10123,12 +9796,11 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case m2tsSettings = "m2tsSettings"
+            case m2tsSettings
         }
     }
 
     public struct UdpGroupSettings: AWSEncodableShape & AWSDecodableShape {
-
         /// Specifies behavior of last resort when input video is lost, and no more backup inputs are available. When dropTs is selected the entire transport stream will stop being emitted.  When dropProgram is selected the program can be dropped from the transport stream (and replaced with null packets to meet the TS bitrate requirement).  Or, when emitProgram is chosen the transport stream will continue to be produced normally with repeat frames, black frames, or slate frames substituted for the absent input video.
         public let inputLossAction: InputLossActionForUdpOut?
         /// Indicates ID3 frame that has the timecode.
@@ -10147,14 +9819,13 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case inputLossAction = "inputLossAction"
-            case timedMetadataId3Frame = "timedMetadataId3Frame"
-            case timedMetadataId3Period = "timedMetadataId3Period"
+            case inputLossAction
+            case timedMetadataId3Frame
+            case timedMetadataId3Period
         }
     }
 
     public struct UdpOutputSettings: AWSEncodableShape & AWSDecodableShape {
-
         /// UDP output buffering in milliseconds. Larger values increase latency through the transcoder but simultaneously assist the transcoder in maintaining a constant, low-jitter UDP/RTP output while accommodating clock recovery, input switching, input disruptions, picture reordering, etc.
         public let bufferMsec: Int?
         public let containerSettings: UdpContainerSettings
@@ -10178,10 +9849,10 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case bufferMsec = "bufferMsec"
-            case containerSettings = "containerSettings"
-            case destination = "destination"
-            case fecOutputSettings = "fecOutputSettings"
+            case bufferMsec
+            case containerSettings
+            case destination
+            case fecOutputSettings
         }
     }
 
@@ -10207,13 +9878,12 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case channelClass = "channelClass"
-            case destinations = "destinations"
+            case channelClass
+            case destinations
         }
     }
 
     public struct UpdateChannelClassResponse: AWSDecodableShape {
-
         public let channel: Channel?
 
         public init(channel: Channel? = nil) {
@@ -10221,7 +9891,7 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case channel = "channel"
+            case channel
         }
     }
 
@@ -10263,19 +9933,18 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case cdiInputSpecification = "cdiInputSpecification"
-            case destinations = "destinations"
-            case encoderSettings = "encoderSettings"
-            case inputAttachments = "inputAttachments"
-            case inputSpecification = "inputSpecification"
-            case logLevel = "logLevel"
-            case name = "name"
-            case roleArn = "roleArn"
+            case cdiInputSpecification
+            case destinations
+            case encoderSettings
+            case inputAttachments
+            case inputSpecification
+            case logLevel
+            case name
+            case roleArn
         }
     }
 
     public struct UpdateChannelResponse: AWSDecodableShape {
-
         public let channel: Channel?
 
         public init(channel: Channel? = nil) {
@@ -10283,7 +9952,7 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case channel = "channel"
+            case channel
         }
     }
 
@@ -10305,14 +9974,13 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case hdDeviceSettings = "hdDeviceSettings"
-            case name = "name"
-            case uhdDeviceSettings = "uhdDeviceSettings"
+            case hdDeviceSettings
+            case name
+            case uhdDeviceSettings
         }
     }
 
     public struct UpdateInputDeviceResponse: AWSDecodableShape {
-
         public let arn: String?
         public let connectionState: InputDeviceConnectionState?
         public let deviceSettingsSyncState: DeviceSettingsSyncState?
@@ -10342,18 +10010,18 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case arn = "arn"
-            case connectionState = "connectionState"
-            case deviceSettingsSyncState = "deviceSettingsSyncState"
-            case deviceUpdateStatus = "deviceUpdateStatus"
-            case hdDeviceSettings = "hdDeviceSettings"
-            case id = "id"
-            case macAddress = "macAddress"
-            case name = "name"
-            case networkSettings = "networkSettings"
-            case serialNumber = "serialNumber"
-            case type = "type"
-            case uhdDeviceSettings = "uhdDeviceSettings"
+            case arn
+            case connectionState
+            case deviceSettingsSyncState
+            case deviceUpdateStatus
+            case hdDeviceSettings
+            case id
+            case macAddress
+            case name
+            case networkSettings
+            case serialNumber
+            case type
+            case uhdDeviceSettings
         }
     }
 
@@ -10383,18 +10051,17 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case destinations = "destinations"
-            case inputDevices = "inputDevices"
-            case inputSecurityGroups = "inputSecurityGroups"
-            case mediaConnectFlows = "mediaConnectFlows"
-            case name = "name"
-            case roleArn = "roleArn"
-            case sources = "sources"
+            case destinations
+            case inputDevices
+            case inputSecurityGroups
+            case mediaConnectFlows
+            case name
+            case roleArn
+            case sources
         }
     }
 
     public struct UpdateInputResponse: AWSDecodableShape {
-
         public let input: Input?
 
         public init(input: Input? = nil) {
@@ -10402,7 +10069,7 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case input = "input"
+            case input
         }
     }
 
@@ -10422,13 +10089,12 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case tags = "tags"
-            case whitelistRules = "whitelistRules"
+            case tags
+            case whitelistRules
         }
     }
 
     public struct UpdateInputSecurityGroupResponse: AWSDecodableShape {
-
         public let securityGroup: InputSecurityGroup?
 
         public init(securityGroup: InputSecurityGroup? = nil) {
@@ -10436,13 +10102,13 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case securityGroup = "securityGroup"
+            case securityGroup
         }
     }
 
     public struct UpdateMultiplexProgramRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "multiplexId", location: .uri(locationName: "multiplexId")), 
+            AWSMemberEncoding(label: "multiplexId", location: .uri(locationName: "multiplexId")),
             AWSMemberEncoding(label: "programName", location: .uri(locationName: "programName"))
         ]
 
@@ -10461,12 +10127,11 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case multiplexProgramSettings = "multiplexProgramSettings"
+            case multiplexProgramSettings
         }
     }
 
     public struct UpdateMultiplexProgramResponse: AWSDecodableShape {
-
         public let multiplexProgram: MultiplexProgram?
 
         public init(multiplexProgram: MultiplexProgram? = nil) {
@@ -10474,7 +10139,7 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case multiplexProgram = "multiplexProgram"
+            case multiplexProgram
         }
     }
 
@@ -10498,13 +10163,12 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case multiplexSettings = "multiplexSettings"
-            case name = "name"
+            case multiplexSettings
+            case name
         }
     }
 
     public struct UpdateMultiplexResponse: AWSDecodableShape {
-
         public let multiplex: Multiplex?
 
         public init(multiplex: Multiplex? = nil) {
@@ -10512,7 +10176,7 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case multiplex = "multiplex"
+            case multiplex
         }
     }
 
@@ -10530,12 +10194,11 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case name = "name"
+            case name
         }
     }
 
     public struct UpdateReservationResponse: AWSDecodableShape {
-
         public let reservation: Reservation?
 
         public init(reservation: Reservation? = nil) {
@@ -10543,12 +10206,11 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case reservation = "reservation"
+            case reservation
         }
     }
 
     public struct VideoBlackFailoverSettings: AWSEncodableShape & AWSDecodableShape {
-
         /// A value used in calculating the threshold below which MediaLive considers a pixel to be 'black'. For the input to be considered black, every pixel in a frame must be below this threshold. The threshold is calculated as a percentage (expressed as a decimal) of white. Therefore .1 means 10% white (or 90% black). Note how the formula works for any color depth. For example, if you set this field to 0.1 in 10-bit color depth: (1023*0.1=102.3), which means a pixel value of 102 or less is 'black'. If you set this field to .1 in an 8-bit color depth: (255*0.1=25.5), which means a pixel value of 25 or less is 'black'. The range is 0.0 to 1.0, with any number of decimal places.
         public let blackDetectThreshold: Double?
         /// The amount of time (in milliseconds) that the active input must be black before automatic input failover occurs.
@@ -10564,13 +10226,12 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case blackDetectThreshold = "blackDetectThreshold"
-            case videoBlackThresholdMsec = "videoBlackThresholdMsec"
+            case blackDetectThreshold
+            case videoBlackThresholdMsec
         }
     }
 
     public struct VideoCodecSettings: AWSEncodableShape & AWSDecodableShape {
-
         public let frameCaptureSettings: FrameCaptureSettings?
         public let h264Settings: H264Settings?
         public let h265Settings: H265Settings?
@@ -10591,15 +10252,14 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case frameCaptureSettings = "frameCaptureSettings"
-            case h264Settings = "h264Settings"
-            case h265Settings = "h265Settings"
-            case mpeg2Settings = "mpeg2Settings"
+            case frameCaptureSettings
+            case h264Settings
+            case h265Settings
+            case mpeg2Settings
         }
     }
 
     public struct VideoDescription: AWSEncodableShape & AWSDecodableShape {
-
         /// Video codec settings.
         public let codecSettings: VideoCodecSettings?
         /// Output video height, in pixels. Must be an even number. For most codecs, you can leave this field and width blank in order to use the height and width (resolution) from the source. Note, however, that leaving blank is not recommended. For the Frame Capture codec, height and width are required.
@@ -10635,18 +10295,17 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case codecSettings = "codecSettings"
-            case height = "height"
-            case name = "name"
-            case respondToAfd = "respondToAfd"
-            case scalingBehavior = "scalingBehavior"
-            case sharpness = "sharpness"
-            case width = "width"
+            case codecSettings
+            case height
+            case name
+            case respondToAfd
+            case scalingBehavior
+            case sharpness
+            case width
         }
     }
 
     public struct VideoSelector: AWSEncodableShape & AWSDecodableShape {
-
         /// Specifies the color space of an input. This setting works in tandem with colorSpaceUsage and a video description's colorSpaceSettingsChoice to determine if any conversion will be performed.
         public let colorSpace: VideoSelectorColorSpace?
         /// Color space settings
@@ -10669,15 +10328,14 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case colorSpace = "colorSpace"
-            case colorSpaceSettings = "colorSpaceSettings"
-            case colorSpaceUsage = "colorSpaceUsage"
-            case selectorSettings = "selectorSettings"
+            case colorSpace
+            case colorSpaceSettings
+            case colorSpaceUsage
+            case selectorSettings
         }
     }
 
     public struct VideoSelectorColorSpaceSettings: AWSEncodableShape & AWSDecodableShape {
-
         public let hdr10Settings: Hdr10Settings?
 
         public init(hdr10Settings: Hdr10Settings? = nil) {
@@ -10689,12 +10347,11 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case hdr10Settings = "hdr10Settings"
+            case hdr10Settings
         }
     }
 
     public struct VideoSelectorPid: AWSEncodableShape & AWSDecodableShape {
-
         /// Selects a specific PID from within a video source.
         public let pid: Int?
 
@@ -10708,12 +10365,11 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case pid = "pid"
+            case pid
         }
     }
 
     public struct VideoSelectorProgramId: AWSEncodableShape & AWSDecodableShape {
-
         /// Selects a specific program from within a multi-program transport stream. If the program doesn't exist, the first program within the transport stream will be selected by default.
         public let programId: Int?
 
@@ -10727,12 +10383,11 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case programId = "programId"
+            case programId
         }
     }
 
     public struct VideoSelectorSettings: AWSEncodableShape & AWSDecodableShape {
-
         public let videoSelectorPid: VideoSelectorPid?
         public let videoSelectorProgramId: VideoSelectorProgramId?
 
@@ -10747,13 +10402,12 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case videoSelectorPid = "videoSelectorPid"
-            case videoSelectorProgramId = "videoSelectorProgramId"
+            case videoSelectorPid
+            case videoSelectorProgramId
         }
     }
 
     public struct VpcOutputSettings: AWSEncodableShape & AWSDecodableShape {
-
         /// List of public address allocation ids to associate with ENIs that will be created in Output VPC.
         /// Must specify one for SINGLE_PIPELINE, two for STANDARD channels
         public let publicAddressAllocationIds: [String]?
@@ -10771,14 +10425,13 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case publicAddressAllocationIds = "publicAddressAllocationIds"
-            case securityGroupIds = "securityGroupIds"
-            case subnetIds = "subnetIds"
+            case publicAddressAllocationIds
+            case securityGroupIds
+            case subnetIds
         }
     }
 
     public struct WavSettings: AWSEncodableShape & AWSDecodableShape {
-
         /// Bits per sample.
         public let bitDepth: Double?
         /// The audio coding mode for the WAV audio. The mode determines the number of channels in the audio.
@@ -10793,17 +10446,13 @@ extension MediaLive {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case bitDepth = "bitDepth"
-            case codingMode = "codingMode"
-            case sampleRate = "sampleRate"
+            case bitDepth
+            case codingMode
+            case sampleRate
         }
     }
 
     public struct WebvttDestinationSettings: AWSEncodableShape & AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 }

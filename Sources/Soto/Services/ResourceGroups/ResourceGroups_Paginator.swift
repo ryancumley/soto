@@ -72,6 +72,29 @@ extension ResourceGroups {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listGroupResourcesPaginator(
+        _ input: ListGroupResourcesInput,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListGroupResourcesInput, ListGroupResourcesOutput> {
+        return .init(
+            input: input,
+            command: listGroupResources,
+            inputKey: \ListGroupResourcesInput.nextToken,
+            outputKey: \ListGroupResourcesOutput.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Returns a list of existing resource groups in your account.  Minimum permissions  To run this command, you must have the following permissions:    resource-groups:ListGroups
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -125,6 +148,29 @@ extension ResourceGroups {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listGroupsPaginator(
+        _ input: ListGroupsInput,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListGroupsInput, ListGroupsOutput> {
+        return .init(
+            input: input,
+            command: listGroups,
+            inputKey: \ListGroupsInput.nextToken,
+            outputKey: \ListGroupsOutput.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Returns a list of AWS resource identifiers that matches the specified query. The query uses the same format as a resource query in a CreateGroup or UpdateGroupQuery operation.  Minimum permissions  To run this command, you must have the following permissions:    resource-groups:SearchResources
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -177,6 +223,29 @@ extension ResourceGroups {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func searchResourcesPaginator(
+        _ input: SearchResourcesInput,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<SearchResourcesInput, SearchResourcesOutput> {
+        return .init(
+            input: input,
+            command: searchResources,
+            inputKey: \SearchResourcesInput.nextToken,
+            outputKey: \SearchResourcesOutput.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 }
 
 extension ResourceGroups.ListGroupResourcesInput: AWSPaginateToken {

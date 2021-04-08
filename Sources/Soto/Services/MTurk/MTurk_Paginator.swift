@@ -72,6 +72,29 @@ extension MTurk {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listAssignmentsForHITPaginator(
+        _ input: ListAssignmentsForHITRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListAssignmentsForHITRequest, ListAssignmentsForHITResponse> {
+        return .init(
+            input: input,
+            command: listAssignmentsForHIT,
+            inputKey: \ListAssignmentsForHITRequest.nextToken,
+            outputKey: \ListAssignmentsForHITResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///   The ListBonusPayments operation retrieves the amounts of bonuses you have paid to Workers for a given HIT or assignment.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -124,6 +147,29 @@ extension MTurk {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listBonusPaymentsPaginator(
+        _ input: ListBonusPaymentsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListBonusPaymentsRequest, ListBonusPaymentsResponse> {
+        return .init(
+            input: input,
+            command: listBonusPayments,
+            inputKey: \ListBonusPaymentsRequest.nextToken,
+            outputKey: \ListBonusPaymentsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///   The ListHITs operation returns all of a Requester's HITs. The operation returns HITs of any status, except for HITs that have been deleted of with the DeleteHIT operation or that have been auto-deleted.
     ///
@@ -178,6 +224,29 @@ extension MTurk {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listHITsPaginator(
+        _ input: ListHITsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListHITsRequest, ListHITsResponse> {
+        return .init(
+            input: input,
+            command: listHITs,
+            inputKey: \ListHITsRequest.nextToken,
+            outputKey: \ListHITsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///   The ListHITsForQualificationType operation returns the HITs that use the given Qualification type for a Qualification requirement. The operation returns HITs of any status, except for HITs that have been deleted with the DeleteHIT operation or that have been auto-deleted.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -230,6 +299,29 @@ extension MTurk {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listHITsForQualificationTypePaginator(
+        _ input: ListHITsForQualificationTypeRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListHITsForQualificationTypeRequest, ListHITsForQualificationTypeResponse> {
+        return .init(
+            input: input,
+            command: listHITsForQualificationType,
+            inputKey: \ListHITsForQualificationTypeRequest.nextToken,
+            outputKey: \ListHITsForQualificationTypeResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///   The ListQualificationRequests operation retrieves requests for Qualifications of a particular Qualification type. The owner of the Qualification type calls this operation to poll for pending requests, and accepts them using the AcceptQualification operation.
     ///
@@ -284,6 +376,29 @@ extension MTurk {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listQualificationRequestsPaginator(
+        _ input: ListQualificationRequestsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListQualificationRequestsRequest, ListQualificationRequestsResponse> {
+        return .init(
+            input: input,
+            command: listQualificationRequests,
+            inputKey: \ListQualificationRequestsRequest.nextToken,
+            outputKey: \ListQualificationRequestsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///   The ListQualificationTypes operation returns a list of Qualification types, filtered by an optional search term.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -336,6 +451,29 @@ extension MTurk {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listQualificationTypesPaginator(
+        _ input: ListQualificationTypesRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListQualificationTypesRequest, ListQualificationTypesResponse> {
+        return .init(
+            input: input,
+            command: listQualificationTypes,
+            inputKey: \ListQualificationTypesRequest.nextToken,
+            outputKey: \ListQualificationTypesResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///   The ListReviewPolicyResultsForHIT operation retrieves the computed results and the actions taken in the course of executing your Review Policies for a given HIT. For information about how to specify Review Policies when you call CreateHIT, see Review Policies. The ListReviewPolicyResultsForHIT operation can return results for both Assignment-level and HIT-level review results.
     ///
@@ -390,6 +528,29 @@ extension MTurk {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listReviewPolicyResultsForHITPaginator(
+        _ input: ListReviewPolicyResultsForHITRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListReviewPolicyResultsForHITRequest, ListReviewPolicyResultsForHITResponse> {
+        return .init(
+            input: input,
+            command: listReviewPolicyResultsForHIT,
+            inputKey: \ListReviewPolicyResultsForHITRequest.nextToken,
+            outputKey: \ListReviewPolicyResultsForHITResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///   The ListReviewableHITs operation retrieves the HITs with Status equal to Reviewable or Status equal to Reviewing that belong to the Requester calling the operation.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -442,6 +603,29 @@ extension MTurk {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listReviewableHITsPaginator(
+        _ input: ListReviewableHITsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListReviewableHITsRequest, ListReviewableHITsResponse> {
+        return .init(
+            input: input,
+            command: listReviewableHITs,
+            inputKey: \ListReviewableHITsRequest.nextToken,
+            outputKey: \ListReviewableHITsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  The ListWorkersBlocks operation retrieves a list of Workers who are blocked from working on your HITs.
     ///
@@ -496,6 +680,29 @@ extension MTurk {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listWorkerBlocksPaginator(
+        _ input: ListWorkerBlocksRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListWorkerBlocksRequest, ListWorkerBlocksResponse> {
+        return .init(
+            input: input,
+            command: listWorkerBlocks,
+            inputKey: \ListWorkerBlocksRequest.nextToken,
+            outputKey: \ListWorkerBlocksResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///   The ListWorkersWithQualificationType operation returns all of the Workers that have been associated with a given Qualification type.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -548,6 +755,29 @@ extension MTurk {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listWorkersWithQualificationTypePaginator(
+        _ input: ListWorkersWithQualificationTypeRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListWorkersWithQualificationTypeRequest, ListWorkersWithQualificationTypeResponse> {
+        return .init(
+            input: input,
+            command: listWorkersWithQualificationType,
+            inputKey: \ListWorkersWithQualificationTypeRequest.nextToken,
+            outputKey: \ListWorkersWithQualificationTypeResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 }
 
 extension MTurk.ListAssignmentsForHITRequest: AWSPaginateToken {

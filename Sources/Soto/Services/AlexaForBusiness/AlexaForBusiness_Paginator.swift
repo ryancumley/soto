@@ -72,6 +72,29 @@ extension AlexaForBusiness {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listBusinessReportSchedulesPaginator(
+        _ input: ListBusinessReportSchedulesRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListBusinessReportSchedulesRequest, ListBusinessReportSchedulesResponse> {
+        return .init(
+            input: input,
+            command: listBusinessReportSchedules,
+            inputKey: \ListBusinessReportSchedulesRequest.nextToken,
+            outputKey: \ListBusinessReportSchedulesResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Lists conference providers under a specific AWS account.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -124,6 +147,29 @@ extension AlexaForBusiness {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listConferenceProvidersPaginator(
+        _ input: ListConferenceProvidersRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListConferenceProvidersRequest, ListConferenceProvidersResponse> {
+        return .init(
+            input: input,
+            command: listConferenceProviders,
+            inputKey: \ListConferenceProvidersRequest.nextToken,
+            outputKey: \ListConferenceProvidersResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Lists the device event history, including device connection status, for up to 30 days.
     ///
@@ -178,6 +224,29 @@ extension AlexaForBusiness {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listDeviceEventsPaginator(
+        _ input: ListDeviceEventsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListDeviceEventsRequest, ListDeviceEventsResponse> {
+        return .init(
+            input: input,
+            command: listDeviceEvents,
+            inputKey: \ListDeviceEventsRequest.nextToken,
+            outputKey: \ListDeviceEventsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Retrieves a list of gateway group summaries. Use GetGatewayGroup to retrieve details of a specific gateway group.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -230,6 +299,29 @@ extension AlexaForBusiness {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listGatewayGroupsPaginator(
+        _ input: ListGatewayGroupsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListGatewayGroupsRequest, ListGatewayGroupsResponse> {
+        return .init(
+            input: input,
+            command: listGatewayGroups,
+            inputKey: \ListGatewayGroupsRequest.nextToken,
+            outputKey: \ListGatewayGroupsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Retrieves a list of gateway summaries. Use GetGateway to retrieve details of a specific gateway. An optional gateway group ARN can be provided to only retrieve gateway summaries of gateways that are associated with that gateway group ARN.
     ///
@@ -284,6 +376,29 @@ extension AlexaForBusiness {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listGatewaysPaginator(
+        _ input: ListGatewaysRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListGatewaysRequest, ListGatewaysResponse> {
+        return .init(
+            input: input,
+            command: listGateways,
+            inputKey: \ListGatewaysRequest.nextToken,
+            outputKey: \ListGatewaysResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Lists all enabled skills in a specific skill group.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -336,6 +451,29 @@ extension AlexaForBusiness {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listSkillsPaginator(
+        _ input: ListSkillsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListSkillsRequest, ListSkillsResponse> {
+        return .init(
+            input: input,
+            command: listSkills,
+            inputKey: \ListSkillsRequest.nextToken,
+            outputKey: \ListSkillsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Lists all categories in the Alexa skill store.
     ///
@@ -390,6 +528,29 @@ extension AlexaForBusiness {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listSkillsStoreCategoriesPaginator(
+        _ input: ListSkillsStoreCategoriesRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListSkillsStoreCategoriesRequest, ListSkillsStoreCategoriesResponse> {
+        return .init(
+            input: input,
+            command: listSkillsStoreCategories,
+            inputKey: \ListSkillsStoreCategoriesRequest.nextToken,
+            outputKey: \ListSkillsStoreCategoriesResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Lists all skills in the Alexa skill store by category.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -442,6 +603,29 @@ extension AlexaForBusiness {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listSkillsStoreSkillsByCategoryPaginator(
+        _ input: ListSkillsStoreSkillsByCategoryRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListSkillsStoreSkillsByCategoryRequest, ListSkillsStoreSkillsByCategoryResponse> {
+        return .init(
+            input: input,
+            command: listSkillsStoreSkillsByCategory,
+            inputKey: \ListSkillsStoreSkillsByCategoryRequest.nextToken,
+            outputKey: \ListSkillsStoreSkillsByCategoryResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Lists all of the smart home appliances associated with a room.
     ///
@@ -496,6 +680,29 @@ extension AlexaForBusiness {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listSmartHomeAppliancesPaginator(
+        _ input: ListSmartHomeAppliancesRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListSmartHomeAppliancesRequest, ListSmartHomeAppliancesResponse> {
+        return .init(
+            input: input,
+            command: listSmartHomeAppliances,
+            inputKey: \ListSmartHomeAppliancesRequest.nextToken,
+            outputKey: \ListSmartHomeAppliancesResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Lists all tags for the specified resource.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -548,6 +755,29 @@ extension AlexaForBusiness {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listTagsPaginator(
+        _ input: ListTagsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListTagsRequest, ListTagsResponse> {
+        return .init(
+            input: input,
+            command: listTags,
+            inputKey: \ListTagsRequest.nextToken,
+            outputKey: \ListTagsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Searches address books and lists the ones that meet a set of filter and sort criteria.
     ///
@@ -602,6 +832,29 @@ extension AlexaForBusiness {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func searchAddressBooksPaginator(
+        _ input: SearchAddressBooksRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<SearchAddressBooksRequest, SearchAddressBooksResponse> {
+        return .init(
+            input: input,
+            command: searchAddressBooks,
+            inputKey: \SearchAddressBooksRequest.nextToken,
+            outputKey: \SearchAddressBooksResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Searches contacts and lists the ones that meet a set of filter and sort criteria.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -654,6 +907,29 @@ extension AlexaForBusiness {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func searchContactsPaginator(
+        _ input: SearchContactsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<SearchContactsRequest, SearchContactsResponse> {
+        return .init(
+            input: input,
+            command: searchContacts,
+            inputKey: \SearchContactsRequest.nextToken,
+            outputKey: \SearchContactsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Searches devices and lists the ones that meet a set of filter criteria.
     ///
@@ -708,6 +984,29 @@ extension AlexaForBusiness {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func searchDevicesPaginator(
+        _ input: SearchDevicesRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<SearchDevicesRequest, SearchDevicesResponse> {
+        return .init(
+            input: input,
+            command: searchDevices,
+            inputKey: \SearchDevicesRequest.nextToken,
+            outputKey: \SearchDevicesResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Searches network profiles and lists the ones that meet a set of filter and sort criteria.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -760,6 +1059,29 @@ extension AlexaForBusiness {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func searchNetworkProfilesPaginator(
+        _ input: SearchNetworkProfilesRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<SearchNetworkProfilesRequest, SearchNetworkProfilesResponse> {
+        return .init(
+            input: input,
+            command: searchNetworkProfiles,
+            inputKey: \SearchNetworkProfilesRequest.nextToken,
+            outputKey: \SearchNetworkProfilesResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Searches room profiles and lists the ones that meet a set of filter criteria.
     ///
@@ -814,6 +1136,29 @@ extension AlexaForBusiness {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func searchProfilesPaginator(
+        _ input: SearchProfilesRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<SearchProfilesRequest, SearchProfilesResponse> {
+        return .init(
+            input: input,
+            command: searchProfiles,
+            inputKey: \SearchProfilesRequest.nextToken,
+            outputKey: \SearchProfilesResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Searches rooms and lists the ones that meet a set of filter and sort criteria.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -866,6 +1211,29 @@ extension AlexaForBusiness {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func searchRoomsPaginator(
+        _ input: SearchRoomsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<SearchRoomsRequest, SearchRoomsResponse> {
+        return .init(
+            input: input,
+            command: searchRooms,
+            inputKey: \SearchRoomsRequest.nextToken,
+            outputKey: \SearchRoomsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Searches skill groups and lists the ones that meet a set of filter and sort criteria.
     ///
@@ -920,6 +1288,29 @@ extension AlexaForBusiness {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func searchSkillGroupsPaginator(
+        _ input: SearchSkillGroupsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<SearchSkillGroupsRequest, SearchSkillGroupsResponse> {
+        return .init(
+            input: input,
+            command: searchSkillGroups,
+            inputKey: \SearchSkillGroupsRequest.nextToken,
+            outputKey: \SearchSkillGroupsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Searches users and lists the ones that meet a set of filter and sort criteria.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -972,6 +1363,29 @@ extension AlexaForBusiness {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func searchUsersPaginator(
+        _ input: SearchUsersRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<SearchUsersRequest, SearchUsersResponse> {
+        return .init(
+            input: input,
+            command: searchUsers,
+            inputKey: \SearchUsersRequest.nextToken,
+            outputKey: \SearchUsersResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 }
 
 extension AlexaForBusiness.ListBusinessReportSchedulesRequest: AWSPaginateToken {

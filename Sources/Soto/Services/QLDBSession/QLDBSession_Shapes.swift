@@ -23,15 +23,10 @@ extension QLDBSession {
     // MARK: Shapes
 
     public struct AbortTransactionRequest: AWSEncodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct AbortTransactionResult: AWSDecodableShape {
-
         /// Contains server-side performance information for the command.
         public let timingInformation: TimingInformation?
 
@@ -45,7 +40,6 @@ extension QLDBSession {
     }
 
     public struct CommitTransactionRequest: AWSEncodableShape {
-
         /// Specifies the commit digest for the transaction to commit. For every active transaction, the commit digest must be passed. QLDB validates CommitDigest and rejects the commit with an error if the digest computed on the client does not match the digest computed by QLDB. The purpose of the CommitDigest parameter is to ensure that QLDB commits a transaction if and only if the server has processed the exact set of statements sent by the client, in the same order that client sent them, and with no duplicates.
         public let commitDigest: Data
         /// Specifies the transaction ID of the transaction to commit.
@@ -69,7 +63,6 @@ extension QLDBSession {
     }
 
     public struct CommitTransactionResult: AWSDecodableShape {
-
         /// The commit digest of the committed transaction.
         public let commitDigest: Data?
         /// Contains metrics about the number of I/O requests that were consumed.
@@ -95,15 +88,10 @@ extension QLDBSession {
     }
 
     public struct EndSessionRequest: AWSEncodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct EndSessionResult: AWSDecodableShape {
-
         /// Contains server-side performance information for the command.
         public let timingInformation: TimingInformation?
 
@@ -117,7 +105,6 @@ extension QLDBSession {
     }
 
     public struct ExecuteStatementRequest: AWSEncodableShape {
-
         /// Specifies the parameters for the parameterized statement in the request.
         public let parameters: [ValueHolder]?
         /// Specifies the statement of the request.
@@ -135,7 +122,7 @@ extension QLDBSession {
             try self.parameters?.forEach {
                 try $0.validate(name: "\(name).parameters[]")
             }
-            try self.validate(self.statement, name: "statement", parent: name, max: 100000)
+            try self.validate(self.statement, name: "statement", parent: name, max: 100_000)
             try self.validate(self.statement, name: "statement", parent: name, min: 1)
             try self.validate(self.transactionId, name: "transactionId", parent: name, max: 22)
             try self.validate(self.transactionId, name: "transactionId", parent: name, min: 22)
@@ -150,7 +137,6 @@ extension QLDBSession {
     }
 
     public struct ExecuteStatementResult: AWSDecodableShape {
-
         /// Contains metrics about the number of I/O requests that were consumed.
         public let consumedIOs: IOUsage?
         /// Contains the details of the first fetched page.
@@ -172,7 +158,6 @@ extension QLDBSession {
     }
 
     public struct FetchPageRequest: AWSEncodableShape {
-
         /// Specifies the next page token of the page to be fetched.
         public let nextPageToken: String
         /// Specifies the transaction ID of the page to be fetched.
@@ -199,7 +184,6 @@ extension QLDBSession {
     }
 
     public struct FetchPageResult: AWSDecodableShape {
-
         /// Contains metrics about the number of I/O requests that were consumed.
         public let consumedIOs: IOUsage?
         /// Contains details of the fetched page.
@@ -221,7 +205,6 @@ extension QLDBSession {
     }
 
     public struct IOUsage: AWSDecodableShape {
-
         /// The number of read I/O requests that the command made.
         public let readIOs: Int64?
         /// The number of write I/O requests that the command made.
@@ -239,7 +222,6 @@ extension QLDBSession {
     }
 
     public struct Page: AWSDecodableShape {
-
         /// The token of the next page.
         public let nextPageToken: String?
         /// A structure that contains values in multiple encoding formats.
@@ -257,7 +239,6 @@ extension QLDBSession {
     }
 
     public struct SendCommandRequest: AWSEncodableShape {
-
         /// Command to abort the current transaction.
         public let abortTransaction: AbortTransactionRequest?
         /// Command to commit the specified transaction.
@@ -309,7 +290,6 @@ extension QLDBSession {
     }
 
     public struct SendCommandResult: AWSDecodableShape {
-
         /// Contains the details of the aborted transaction.
         public let abortTransaction: AbortTransactionResult?
         /// Contains the details of the committed transaction.
@@ -347,7 +327,6 @@ extension QLDBSession {
     }
 
     public struct StartSessionRequest: AWSEncodableShape {
-
         /// The name of the ledger to start a new session against.
         public let ledgerName: String
 
@@ -367,7 +346,6 @@ extension QLDBSession {
     }
 
     public struct StartSessionResult: AWSDecodableShape {
-
         /// Session token of the started session. This SessionToken is required for every subsequent command that is issued during the current session.
         public let sessionToken: String?
         /// Contains server-side performance information for the command.
@@ -385,15 +363,10 @@ extension QLDBSession {
     }
 
     public struct StartTransactionRequest: AWSEncodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct StartTransactionResult: AWSDecodableShape {
-
         /// Contains server-side performance information for the command.
         public let timingInformation: TimingInformation?
         /// The transaction ID of the started transaction.
@@ -411,7 +384,6 @@ extension QLDBSession {
     }
 
     public struct TimingInformation: AWSDecodableShape {
-
         /// The amount of time that QLDB spent on processing the command, measured in milliseconds.
         public let processingTimeMilliseconds: Int64?
 
@@ -425,7 +397,6 @@ extension QLDBSession {
     }
 
     public struct ValueHolder: AWSEncodableShape & AWSDecodableShape {
-
         /// An Amazon Ion binary value contained in a ValueHolder structure.
         public let ionBinary: Data?
         /// An Amazon Ion plaintext value contained in a ValueHolder structure.
@@ -437,9 +408,9 @@ extension QLDBSession {
         }
 
         public func validate(name: String) throws {
-            try self.validate(self.ionBinary, name: "ionBinary", parent: name, max: 131072)
+            try self.validate(self.ionBinary, name: "ionBinary", parent: name, max: 131_072)
             try self.validate(self.ionBinary, name: "ionBinary", parent: name, min: 1)
-            try self.validate(self.ionText, name: "ionText", parent: name, max: 1048576)
+            try self.validate(self.ionText, name: "ionText", parent: name, max: 1_048_576)
             try self.validate(self.ionText, name: "ionText", parent: name, min: 1)
         }
 

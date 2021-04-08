@@ -72,6 +72,29 @@ extension Schemas {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listDiscoverersPaginator(
+        _ input: ListDiscoverersRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListDiscoverersRequest, ListDiscoverersResponse> {
+        return .init(
+            input: input,
+            command: listDiscoverers,
+            inputKey: \ListDiscoverersRequest.nextToken,
+            outputKey: \ListDiscoverersResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  List the registries.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -124,6 +147,29 @@ extension Schemas {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listRegistriesPaginator(
+        _ input: ListRegistriesRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListRegistriesRequest, ListRegistriesResponse> {
+        return .init(
+            input: input,
+            command: listRegistries,
+            inputKey: \ListRegistriesRequest.nextToken,
+            outputKey: \ListRegistriesResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Provides a list of the schema versions and related information.
     ///
@@ -178,6 +224,29 @@ extension Schemas {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listSchemaVersionsPaginator(
+        _ input: ListSchemaVersionsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListSchemaVersionsRequest, ListSchemaVersionsResponse> {
+        return .init(
+            input: input,
+            command: listSchemaVersions,
+            inputKey: \ListSchemaVersionsRequest.nextToken,
+            outputKey: \ListSchemaVersionsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  List the schemas.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -231,6 +300,29 @@ extension Schemas {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listSchemasPaginator(
+        _ input: ListSchemasRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListSchemasRequest, ListSchemasResponse> {
+        return .init(
+            input: input,
+            command: listSchemas,
+            inputKey: \ListSchemasRequest.nextToken,
+            outputKey: \ListSchemasResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Search the schemas
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -283,6 +375,29 @@ extension Schemas {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func searchSchemasPaginator(
+        _ input: SearchSchemasRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<SearchSchemasRequest, SearchSchemasResponse> {
+        return .init(
+            input: input,
+            command: searchSchemas,
+            inputKey: \SearchSchemasRequest.nextToken,
+            outputKey: \SearchSchemasResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 }
 
 extension Schemas.ListDiscoverersRequest: AWSPaginateToken {

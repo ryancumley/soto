@@ -448,7 +448,6 @@ extension Appflow {
     // MARK: Shapes
 
     public struct AggregationConfig: AWSEncodableShape & AWSDecodableShape {
-
         ///  Specifies whether Amazon AppFlow aggregates the flow records into a single file, or leave them unaggregated.
         public let aggregationType: AggregationType?
 
@@ -457,12 +456,11 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case aggregationType = "aggregationType"
+            case aggregationType
         }
     }
 
     public struct AmplitudeConnectorProfileCredentials: AWSEncodableShape {
-
         ///  A unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
         public let apiKey: String
         ///  The Secret Access Key portion of the credentials.
@@ -481,29 +479,20 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case apiKey = "apiKey"
-            case secretKey = "secretKey"
+            case apiKey
+            case secretKey
         }
     }
 
     public struct AmplitudeConnectorProfileProperties: AWSEncodableShape & AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct AmplitudeMetadata: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct AmplitudeSourceProperties: AWSEncodableShape & AWSDecodableShape {
-
         ///  The object specified in the Amplitude flow source.
         public let object: String
 
@@ -517,12 +506,11 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case object = "object"
+            case object
         }
     }
 
     public struct ConnectorConfiguration: AWSDecodableShape {
-
         ///  Specifies whether the connector can be used as a destination.
         public let canUseAsDestination: Bool?
         ///  Specifies whether the connector can be used as a source.
@@ -552,19 +540,18 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case canUseAsDestination = "canUseAsDestination"
-            case canUseAsSource = "canUseAsSource"
-            case connectorMetadata = "connectorMetadata"
-            case isPrivateLinkEnabled = "isPrivateLinkEnabled"
-            case isPrivateLinkEndpointUrlRequired = "isPrivateLinkEndpointUrlRequired"
-            case supportedDestinationConnectors = "supportedDestinationConnectors"
-            case supportedSchedulingFrequencies = "supportedSchedulingFrequencies"
-            case supportedTriggerTypes = "supportedTriggerTypes"
+            case canUseAsDestination
+            case canUseAsSource
+            case connectorMetadata
+            case isPrivateLinkEnabled
+            case isPrivateLinkEndpointUrlRequired
+            case supportedDestinationConnectors
+            case supportedSchedulingFrequencies
+            case supportedTriggerTypes
         }
     }
 
     public struct ConnectorEntity: AWSDecodableShape {
-
         ///  Specifies whether the connector entity is a parent or a category and has more entities nested underneath it. If another call is made with entitiesPath = "the_current_entity_name_with_hasNestedEntities_true", then it returns the nested entities underneath it. This provides a way to retrieve all supported entities in a recursive fashion.
         public let hasNestedEntities: Bool?
         ///  The label applied to the connector entity.
@@ -579,14 +566,13 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case hasNestedEntities = "hasNestedEntities"
-            case label = "label"
-            case name = "name"
+            case hasNestedEntities
+            case label
+            case name
         }
     }
 
     public struct ConnectorEntityField: AWSDecodableShape {
-
         ///  A description of the connector entity field.
         public let description: String?
         ///  The properties applied to a field when the connector is being used as a destination.
@@ -610,17 +596,16 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case description = "description"
-            case destinationProperties = "destinationProperties"
-            case identifier = "identifier"
-            case label = "label"
-            case sourceProperties = "sourceProperties"
-            case supportedFieldTypeDetails = "supportedFieldTypeDetails"
+            case description
+            case destinationProperties
+            case identifier
+            case label
+            case sourceProperties
+            case supportedFieldTypeDetails
         }
     }
 
     public struct ConnectorMetadata: AWSDecodableShape {
-
         ///  The connector metadata specific to Amplitude.
         public let amplitude: AmplitudeMetadata?
         ///  The connector metadata specific to Amazon Connect Customer Profiles.
@@ -710,7 +695,6 @@ extension Appflow {
     }
 
     public struct ConnectorOAuthRequest: AWSEncodableShape {
-
         ///  The code provided by the connector when it has been authenticated via the connected app.
         public let authCode: String?
         ///  The URL to which the authentication server redirects the browser after authorization has been granted.
@@ -729,13 +713,12 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case authCode = "authCode"
-            case redirectUri = "redirectUri"
+            case authCode
+            case redirectUri
         }
     }
 
     public struct ConnectorOperator: AWSEncodableShape & AWSDecodableShape {
-
         ///  The operation to be performed on the provided Amplitude source fields.
         public let amplitude: AmplitudeConnectorOperator?
         ///  The operation to be performed on the provided Datadog source fields.
@@ -801,7 +784,6 @@ extension Appflow {
     }
 
     public struct ConnectorProfile: AWSDecodableShape {
-
         ///  Indicates the connection mode and if it is public or private.
         public let connectionMode: ConnectionMode?
         ///  The Amazon Resource Name (ARN) of the connector profile.
@@ -831,19 +813,18 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case connectionMode = "connectionMode"
-            case connectorProfileArn = "connectorProfileArn"
-            case connectorProfileName = "connectorProfileName"
-            case connectorProfileProperties = "connectorProfileProperties"
-            case connectorType = "connectorType"
-            case createdAt = "createdAt"
-            case credentialsArn = "credentialsArn"
-            case lastUpdatedAt = "lastUpdatedAt"
+            case connectionMode
+            case connectorProfileArn
+            case connectorProfileName
+            case connectorProfileProperties
+            case connectorType
+            case createdAt
+            case credentialsArn
+            case lastUpdatedAt
         }
     }
 
     public struct ConnectorProfileConfig: AWSEncodableShape {
-
         ///  The connector-specific credentials required by each connector.
         public let connectorProfileCredentials: ConnectorProfileCredentials
         ///  The connector-specific properties of the profile configuration.
@@ -860,13 +841,12 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case connectorProfileCredentials = "connectorProfileCredentials"
-            case connectorProfileProperties = "connectorProfileProperties"
+            case connectorProfileCredentials
+            case connectorProfileProperties
         }
     }
 
     public struct ConnectorProfileCredentials: AWSEncodableShape {
-
         ///  The connector-specific credentials required when using Amplitude.
         public let amplitude: AmplitudeConnectorProfileCredentials?
         ///  The connector-specific credentials required when using Datadog.
@@ -959,7 +939,6 @@ extension Appflow {
     }
 
     public struct ConnectorProfileProperties: AWSEncodableShape & AWSDecodableShape {
-
         ///  The connector-specific properties required by Amplitude.
         public let amplitude: AmplitudeConnectorProfileProperties?
         ///  The connector-specific properties required by Datadog.
@@ -1047,7 +1026,6 @@ extension Appflow {
     }
 
     public struct CreateConnectorProfileRequest: AWSEncodableShape {
-
         ///  Indicates the connection mode and specifies whether it is public or private. Private flows use AWS PrivateLink to route data over AWS infrastructure without exposing it to the public internet.
         public let connectionMode: ConnectionMode
         ///  Defines the connector-specific configuration and credentials.
@@ -1077,16 +1055,15 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case connectionMode = "connectionMode"
-            case connectorProfileConfig = "connectorProfileConfig"
-            case connectorProfileName = "connectorProfileName"
-            case connectorType = "connectorType"
-            case kmsArn = "kmsArn"
+            case connectionMode
+            case connectorProfileConfig
+            case connectorProfileName
+            case connectorType
+            case kmsArn
         }
     }
 
     public struct CreateConnectorProfileResponse: AWSDecodableShape {
-
         ///  The Amazon Resource Name (ARN) of the connector profile.
         public let connectorProfileArn: String?
 
@@ -1095,12 +1072,11 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case connectorProfileArn = "connectorProfileArn"
+            case connectorProfileArn
         }
     }
 
     public struct CreateFlowRequest: AWSEncodableShape {
-
         ///  A description of the flow you want to create.
         public let description: String?
         ///  The configuration that controls how Amazon AppFlow places data in the destination connector.
@@ -1155,19 +1131,18 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case description = "description"
-            case destinationFlowConfigList = "destinationFlowConfigList"
-            case flowName = "flowName"
-            case kmsArn = "kmsArn"
-            case sourceFlowConfig = "sourceFlowConfig"
-            case tags = "tags"
-            case tasks = "tasks"
-            case triggerConfig = "triggerConfig"
+            case description
+            case destinationFlowConfigList
+            case flowName
+            case kmsArn
+            case sourceFlowConfig
+            case tags
+            case tasks
+            case triggerConfig
         }
     }
 
     public struct CreateFlowResponse: AWSDecodableShape {
-
         ///  The flow's Amazon Resource Name (ARN).
         public let flowArn: String?
         ///  Indicates the current status of the flow.
@@ -1179,13 +1154,12 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case flowArn = "flowArn"
-            case flowStatus = "flowStatus"
+            case flowArn
+            case flowStatus
         }
     }
 
     public struct CustomerProfilesDestinationProperties: AWSEncodableShape & AWSDecodableShape {
-
         ///  The unique name of the Amazon Connect Customer Profiles domain.
         public let domainName: String
         ///  The object specified in the Amazon Connect Customer Profiles flow destination.
@@ -1204,21 +1178,16 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case domainName = "domainName"
-            case objectTypeName = "objectTypeName"
+            case domainName
+            case objectTypeName
         }
     }
 
     public struct CustomerProfilesMetadata: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct DatadogConnectorProfileCredentials: AWSEncodableShape {
-
         ///  A unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
         public let apiKey: String
         ///  Application keys, in conjunction with your API key, give you full access to Datadog’s programmatic API. Application keys are associated with the user account that created them. The application key is used to log all requests made to the API.
@@ -1237,13 +1206,12 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case apiKey = "apiKey"
-            case applicationKey = "applicationKey"
+            case apiKey
+            case applicationKey
         }
     }
 
     public struct DatadogConnectorProfileProperties: AWSEncodableShape & AWSDecodableShape {
-
         ///  The location of the Datadog resource.
         public let instanceUrl: String
 
@@ -1257,20 +1225,15 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case instanceUrl = "instanceUrl"
+            case instanceUrl
         }
     }
 
     public struct DatadogMetadata: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct DatadogSourceProperties: AWSEncodableShape & AWSDecodableShape {
-
         ///  The object specified in the Datadog flow source.
         public let object: String
 
@@ -1284,12 +1247,11 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case object = "object"
+            case object
         }
     }
 
     public struct DeleteConnectorProfileRequest: AWSEncodableShape {
-
         ///  The name of the connector profile. The name is unique for each ConnectorProfile in your account.
         public let connectorProfileName: String
         ///  Indicates whether Amazon AppFlow should delete the profile, even if it is currently in use in one or more flows.
@@ -1306,21 +1268,16 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case connectorProfileName = "connectorProfileName"
-            case forceDelete = "forceDelete"
+            case connectorProfileName
+            case forceDelete
         }
     }
 
     public struct DeleteConnectorProfileResponse: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct DeleteFlowRequest: AWSEncodableShape {
-
         ///  The specified name of the flow. Spaces are not allowed. Use underscores (_) or hyphens (-) only.
         public let flowName: String
         ///  Indicates whether Amazon AppFlow should delete the flow, even if it is currently in use.
@@ -1337,21 +1294,16 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case flowName = "flowName"
-            case forceDelete = "forceDelete"
+            case flowName
+            case forceDelete
         }
     }
 
     public struct DeleteFlowResponse: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct DescribeConnectorEntityRequest: AWSEncodableShape {
-
         ///  The entity name for that connector.
         public let connectorEntityName: String
         ///  The name of the connector profile. The name is unique for each ConnectorProfile in the AWS account.
@@ -1373,14 +1325,13 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case connectorEntityName = "connectorEntityName"
-            case connectorProfileName = "connectorProfileName"
-            case connectorType = "connectorType"
+            case connectorEntityName
+            case connectorProfileName
+            case connectorType
         }
     }
 
     public struct DescribeConnectorEntityResponse: AWSDecodableShape {
-
         ///  Describes the fields for that connector entity. For example, for an account entity, the fields would be account name, account ID, and so on.
         public let connectorEntityFields: [ConnectorEntityField]
 
@@ -1389,12 +1340,11 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case connectorEntityFields = "connectorEntityFields"
+            case connectorEntityFields
         }
     }
 
     public struct DescribeConnectorProfilesRequest: AWSEncodableShape {
-
         ///  The name of the connector profile. The name is unique for each ConnectorProfile in the AWS account.
         public let connectorProfileNames: [String]?
         ///  The type of connector, such as Salesforce, Amplitude, and so on.
@@ -1425,15 +1375,14 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case connectorProfileNames = "connectorProfileNames"
-            case connectorType = "connectorType"
-            case maxResults = "maxResults"
-            case nextToken = "nextToken"
+            case connectorProfileNames
+            case connectorType
+            case maxResults
+            case nextToken
         }
     }
 
     public struct DescribeConnectorProfilesResponse: AWSDecodableShape {
-
         ///  Returns information about the connector profiles associated with the flow.
         public let connectorProfileDetails: [ConnectorProfile]?
         ///  The pagination token for the next page of data. If nextToken=null, this means that all records have been fetched.
@@ -1445,13 +1394,12 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case connectorProfileDetails = "connectorProfileDetails"
-            case nextToken = "nextToken"
+            case connectorProfileDetails
+            case nextToken
         }
     }
 
     public struct DescribeConnectorsRequest: AWSEncodableShape {
-
         ///  The type of connector, such as Salesforce, Amplitude, and so on.
         public let connectorTypes: [ConnectorType]?
         ///  The pagination token for the next page of data.
@@ -1470,13 +1418,12 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case connectorTypes = "connectorTypes"
-            case nextToken = "nextToken"
+            case connectorTypes
+            case nextToken
         }
     }
 
     public struct DescribeConnectorsResponse: AWSDecodableShape {
-
         ///  The configuration that is applied to the connectors used in the flow.
         public let connectorConfigurations: [ConnectorType: ConnectorConfiguration]?
         ///  The pagination token for the next page of data.
@@ -1488,13 +1435,12 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case connectorConfigurations = "connectorConfigurations"
-            case nextToken = "nextToken"
+            case connectorConfigurations
+            case nextToken
         }
     }
 
     public struct DescribeFlowExecutionRecordsRequest: AWSEncodableShape {
-
         ///  The specified name of the flow. Spaces are not allowed. Use underscores (_) or hyphens (-) only.
         public let flowName: String
         ///  Specifies the maximum number of items that should be returned in the result set. The default for maxResults is 20 (for all paginated API operations).
@@ -1518,14 +1464,13 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case flowName = "flowName"
-            case maxResults = "maxResults"
-            case nextToken = "nextToken"
+            case flowName
+            case maxResults
+            case nextToken
         }
     }
 
     public struct DescribeFlowExecutionRecordsResponse: AWSDecodableShape {
-
         ///  Returns a list of all instances when this flow was run.
         public let flowExecutions: [ExecutionRecord]?
         ///  The pagination token for the next page of data.
@@ -1537,13 +1482,12 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case flowExecutions = "flowExecutions"
-            case nextToken = "nextToken"
+            case flowExecutions
+            case nextToken
         }
     }
 
     public struct DescribeFlowRequest: AWSEncodableShape {
-
         ///  The specified name of the flow. Spaces are not allowed. Use underscores (_) or hyphens (-) only.
         public let flowName: String
 
@@ -1557,12 +1501,11 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case flowName = "flowName"
+            case flowName
         }
     }
 
     public struct DescribeFlowResponse: AWSDecodableShape {
-
         ///  Specifies when the flow was created.
         public let createdAt: Date?
         ///  The ARN of the user who created the flow.
@@ -1616,27 +1559,26 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case createdAt = "createdAt"
-            case createdBy = "createdBy"
-            case description = "description"
-            case destinationFlowConfigList = "destinationFlowConfigList"
-            case flowArn = "flowArn"
-            case flowName = "flowName"
-            case flowStatus = "flowStatus"
-            case flowStatusMessage = "flowStatusMessage"
-            case kmsArn = "kmsArn"
-            case lastRunExecutionDetails = "lastRunExecutionDetails"
-            case lastUpdatedAt = "lastUpdatedAt"
-            case lastUpdatedBy = "lastUpdatedBy"
-            case sourceFlowConfig = "sourceFlowConfig"
-            case tags = "tags"
-            case tasks = "tasks"
-            case triggerConfig = "triggerConfig"
+            case createdAt
+            case createdBy
+            case description
+            case destinationFlowConfigList
+            case flowArn
+            case flowName
+            case flowStatus
+            case flowStatusMessage
+            case kmsArn
+            case lastRunExecutionDetails
+            case lastUpdatedAt
+            case lastUpdatedBy
+            case sourceFlowConfig
+            case tags
+            case tasks
+            case triggerConfig
         }
     }
 
     public struct DestinationConnectorProperties: AWSEncodableShape & AWSDecodableShape {
-
         ///  The properties required to query Amazon Connect Customer Profiles.
         public let customerProfiles: CustomerProfilesDestinationProperties?
         ///  The properties required to query Amazon EventBridge.
@@ -1693,7 +1635,6 @@ extension Appflow {
     }
 
     public struct DestinationFieldProperties: AWSDecodableShape {
-
         ///  Specifies if the destination field can be created by the current user.
         public let isCreatable: Bool?
         ///  Specifies if the destination field can have a null value.
@@ -1714,16 +1655,15 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case isCreatable = "isCreatable"
-            case isNullable = "isNullable"
-            case isUpdatable = "isUpdatable"
-            case isUpsertable = "isUpsertable"
-            case supportedWriteOperations = "supportedWriteOperations"
+            case isCreatable
+            case isNullable
+            case isUpdatable
+            case isUpsertable
+            case supportedWriteOperations
         }
     }
 
     public struct DestinationFlowConfig: AWSEncodableShape & AWSDecodableShape {
-
         ///  The name of the connector profile. This name must be unique for each connector profile in the AWS account.
         public let connectorProfileName: String?
         ///  The type of connector, such as Salesforce, Amplitude, and so on.
@@ -1744,14 +1684,13 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case connectorProfileName = "connectorProfileName"
-            case connectorType = "connectorType"
-            case destinationConnectorProperties = "destinationConnectorProperties"
+            case connectorProfileName
+            case connectorType
+            case destinationConnectorProperties
         }
     }
 
     public struct DynatraceConnectorProfileCredentials: AWSEncodableShape {
-
         ///  The API tokens used by Dynatrace API to authenticate various API calls.
         public let apiToken: String
 
@@ -1765,12 +1704,11 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case apiToken = "apiToken"
+            case apiToken
         }
     }
 
     public struct DynatraceConnectorProfileProperties: AWSEncodableShape & AWSDecodableShape {
-
         ///  The location of the Dynatrace resource.
         public let instanceUrl: String
 
@@ -1784,20 +1722,15 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case instanceUrl = "instanceUrl"
+            case instanceUrl
         }
     }
 
     public struct DynatraceMetadata: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct DynatraceSourceProperties: AWSEncodableShape & AWSDecodableShape {
-
         ///  The object specified in the Dynatrace flow source.
         public let object: String
 
@@ -1811,12 +1744,11 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case object = "object"
+            case object
         }
     }
 
     public struct ErrorHandlingConfig: AWSEncodableShape & AWSDecodableShape {
-
         ///  Specifies the name of the Amazon S3 bucket.
         public let bucketName: String?
         ///  Specifies the Amazon S3 bucket prefix.
@@ -1839,14 +1771,13 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case bucketName = "bucketName"
-            case bucketPrefix = "bucketPrefix"
-            case failOnFirstDestinationError = "failOnFirstDestinationError"
+            case bucketName
+            case bucketPrefix
+            case failOnFirstDestinationError
         }
     }
 
     public struct ErrorInfo: AWSDecodableShape {
-
         ///  Specifies the error message that appears if a flow fails.
         public let executionMessage: String?
         ///  Specifies the failure count for the attempted flow.
@@ -1858,13 +1789,12 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case executionMessage = "executionMessage"
-            case putFailuresCount = "putFailuresCount"
+            case executionMessage
+            case putFailuresCount
         }
     }
 
     public struct EventBridgeDestinationProperties: AWSEncodableShape & AWSDecodableShape {
-
         public let errorHandlingConfig: ErrorHandlingConfig?
         ///  The object specified in the Amazon EventBridge flow destination.
         public let object: String
@@ -1881,21 +1811,16 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case errorHandlingConfig = "errorHandlingConfig"
-            case object = "object"
+            case errorHandlingConfig
+            case object
         }
     }
 
     public struct EventBridgeMetadata: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct ExecutionDetails: AWSDecodableShape {
-
         ///  Describes the details of the most recent flow run.
         public let mostRecentExecutionMessage: String?
         ///  Specifies the status of the most recent flow run.
@@ -1910,14 +1835,13 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case mostRecentExecutionMessage = "mostRecentExecutionMessage"
-            case mostRecentExecutionStatus = "mostRecentExecutionStatus"
-            case mostRecentExecutionTime = "mostRecentExecutionTime"
+            case mostRecentExecutionMessage
+            case mostRecentExecutionStatus
+            case mostRecentExecutionTime
         }
     }
 
     public struct ExecutionRecord: AWSDecodableShape {
-
         ///  The timestamp that indicates the last new or updated record to be transferred in the flow run.
         public let dataPullEndTime: Date?
         ///  The timestamp that determines the first new or updated record to be transferred in the flow run.
@@ -1944,18 +1868,17 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case dataPullEndTime = "dataPullEndTime"
-            case dataPullStartTime = "dataPullStartTime"
-            case executionId = "executionId"
-            case executionResult = "executionResult"
-            case executionStatus = "executionStatus"
-            case lastUpdatedAt = "lastUpdatedAt"
-            case startedAt = "startedAt"
+            case dataPullEndTime
+            case dataPullStartTime
+            case executionId
+            case executionResult
+            case executionStatus
+            case lastUpdatedAt
+            case startedAt
         }
     }
 
     public struct ExecutionResult: AWSDecodableShape {
-
         ///  The total number of bytes processed by the flow run.
         public let bytesProcessed: Int64?
         ///  The total number of bytes written as a result of the flow run.
@@ -1973,15 +1896,14 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case bytesProcessed = "bytesProcessed"
-            case bytesWritten = "bytesWritten"
-            case errorInfo = "errorInfo"
-            case recordsProcessed = "recordsProcessed"
+            case bytesProcessed
+            case bytesWritten
+            case errorInfo
+            case recordsProcessed
         }
     }
 
     public struct FieldTypeDetails: AWSDecodableShape {
-
         ///  The type of field, such as string, integer, date, and so on.
         public let fieldType: String
         ///  The list of operators supported by a field.
@@ -1996,14 +1918,13 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case fieldType = "fieldType"
-            case filterOperators = "filterOperators"
-            case supportedValues = "supportedValues"
+            case fieldType
+            case filterOperators
+            case supportedValues
         }
     }
 
     public struct FlowDefinition: AWSDecodableShape {
-
         ///  Specifies when the flow was created.
         public let createdAt: Date?
         ///  The ARN of the user who created the flow.
@@ -2048,24 +1969,23 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case createdAt = "createdAt"
-            case createdBy = "createdBy"
-            case description = "description"
-            case destinationConnectorType = "destinationConnectorType"
-            case flowArn = "flowArn"
-            case flowName = "flowName"
-            case flowStatus = "flowStatus"
-            case lastRunExecutionDetails = "lastRunExecutionDetails"
-            case lastUpdatedAt = "lastUpdatedAt"
-            case lastUpdatedBy = "lastUpdatedBy"
-            case sourceConnectorType = "sourceConnectorType"
-            case tags = "tags"
-            case triggerType = "triggerType"
+            case createdAt
+            case createdBy
+            case description
+            case destinationConnectorType
+            case flowArn
+            case flowName
+            case flowStatus
+            case lastRunExecutionDetails
+            case lastUpdatedAt
+            case lastUpdatedBy
+            case sourceConnectorType
+            case tags
+            case triggerType
         }
     }
 
     public struct GoogleAnalyticsConnectorProfileCredentials: AWSEncodableShape {
-
         ///  The credentials used to access protected Google Analytics resources.
         public let accessToken: String?
         ///  The identifier for the desired client.
@@ -2098,24 +2018,19 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case accessToken = "accessToken"
-            case clientId = "clientId"
-            case clientSecret = "clientSecret"
-            case oAuthRequest = "oAuthRequest"
-            case refreshToken = "refreshToken"
+            case accessToken
+            case clientId
+            case clientSecret
+            case oAuthRequest
+            case refreshToken
         }
     }
 
     public struct GoogleAnalyticsConnectorProfileProperties: AWSEncodableShape & AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct GoogleAnalyticsMetadata: AWSDecodableShape {
-
         ///  The desired authorization scope for the Google Analytics account.
         public let oAuthScopes: [String]?
 
@@ -2124,12 +2039,11 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case oAuthScopes = "oAuthScopes"
+            case oAuthScopes
         }
     }
 
     public struct GoogleAnalyticsSourceProperties: AWSEncodableShape & AWSDecodableShape {
-
         ///  The object specified in the Google Analytics flow source.
         public let object: String
 
@@ -2143,12 +2057,11 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case object = "object"
+            case object
         }
     }
 
     public struct HoneycodeConnectorProfileCredentials: AWSEncodableShape {
-
         ///  The credentials used to access protected Amazon Honeycode resources.
         public let accessToken: String?
         public let oAuthRequest: ConnectorOAuthRequest?
@@ -2170,22 +2083,17 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case accessToken = "accessToken"
-            case oAuthRequest = "oAuthRequest"
-            case refreshToken = "refreshToken"
+            case accessToken
+            case oAuthRequest
+            case refreshToken
         }
     }
 
     public struct HoneycodeConnectorProfileProperties: AWSEncodableShape & AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct HoneycodeDestinationProperties: AWSEncodableShape & AWSDecodableShape {
-
         public let errorHandlingConfig: ErrorHandlingConfig?
         ///  The object specified in the Amazon Honeycode flow destination.
         public let object: String
@@ -2202,13 +2110,12 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case errorHandlingConfig = "errorHandlingConfig"
-            case object = "object"
+            case errorHandlingConfig
+            case object
         }
     }
 
     public struct HoneycodeMetadata: AWSDecodableShape {
-
         ///  The desired authorization scope for the Amazon Honeycode account.
         public let oAuthScopes: [String]?
 
@@ -2217,12 +2124,11 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case oAuthScopes = "oAuthScopes"
+            case oAuthScopes
         }
     }
 
     public struct IncrementalPullConfig: AWSEncodableShape & AWSDecodableShape {
-
         ///  A field that specifies the date time or timestamp field as the criteria to use when importing incremental records from the source.
         public let datetimeTypeFieldName: String?
 
@@ -2236,12 +2142,11 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case datetimeTypeFieldName = "datetimeTypeFieldName"
+            case datetimeTypeFieldName
         }
     }
 
     public struct InforNexusConnectorProfileCredentials: AWSEncodableShape {
-
         ///  The Access Key portion of the credentials.
         public let accessKeyId: String
         ///  The encryption keys used to encrypt data.
@@ -2270,15 +2175,14 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case accessKeyId = "accessKeyId"
-            case datakey = "datakey"
-            case secretAccessKey = "secretAccessKey"
-            case userId = "userId"
+            case accessKeyId
+            case datakey
+            case secretAccessKey
+            case userId
         }
     }
 
     public struct InforNexusConnectorProfileProperties: AWSEncodableShape & AWSDecodableShape {
-
         ///  The location of the Infor Nexus resource.
         public let instanceUrl: String
 
@@ -2292,20 +2196,15 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case instanceUrl = "instanceUrl"
+            case instanceUrl
         }
     }
 
     public struct InforNexusMetadata: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct InforNexusSourceProperties: AWSEncodableShape & AWSDecodableShape {
-
         ///  The object specified in the Infor Nexus flow source.
         public let object: String
 
@@ -2319,12 +2218,11 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case object = "object"
+            case object
         }
     }
 
     public struct ListConnectorEntitiesRequest: AWSEncodableShape {
-
         ///  The name of the connector profile. The name is unique for each ConnectorProfile in the AWS account, and is used to query the downstream connector.
         public let connectorProfileName: String?
         ///  The type of connector, such as Salesforce, Amplitude, and so on.
@@ -2346,14 +2244,13 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case connectorProfileName = "connectorProfileName"
-            case connectorType = "connectorType"
-            case entitiesPath = "entitiesPath"
+            case connectorProfileName
+            case connectorType
+            case entitiesPath
         }
     }
 
     public struct ListConnectorEntitiesResponse: AWSDecodableShape {
-
         ///  The response of ListConnectorEntities lists entities grouped by category. This map's key represents the group name, and its value contains the list of entities belonging to that group.
         public let connectorEntityMap: [String: [ConnectorEntity]]
 
@@ -2362,12 +2259,11 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case connectorEntityMap = "connectorEntityMap"
+            case connectorEntityMap
         }
     }
 
     public struct ListFlowsRequest: AWSEncodableShape {
-
         ///  Specifies the maximum number of items that should be returned in the result set.
         public let maxResults: Int?
         ///  The pagination token for next page of data.
@@ -2386,13 +2282,12 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case maxResults = "maxResults"
-            case nextToken = "nextToken"
+            case maxResults
+            case nextToken
         }
     }
 
     public struct ListFlowsResponse: AWSDecodableShape {
-
         ///  The list of flows associated with your account.
         public let flows: [FlowDefinition]?
         ///  The pagination token for next page of data.
@@ -2404,8 +2299,8 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case flows = "flows"
-            case nextToken = "nextToken"
+            case flows
+            case nextToken
         }
     }
 
@@ -2430,7 +2325,6 @@ extension Appflow {
     }
 
     public struct ListTagsForResourceResponse: AWSDecodableShape {
-
         ///  The tags used to organize, track, or control access for your flow.
         public let tags: [String: String]?
 
@@ -2439,20 +2333,15 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case tags = "tags"
+            case tags
         }
     }
 
     public struct LookoutMetricsDestinationProperties: AWSEncodableShape & AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct MarketoConnectorProfileCredentials: AWSEncodableShape {
-
         ///  The credentials used to access protected Marketo resources.
         public let accessToken: String?
         ///  The identifier for the desired client.
@@ -2480,15 +2369,14 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case accessToken = "accessToken"
-            case clientId = "clientId"
-            case clientSecret = "clientSecret"
-            case oAuthRequest = "oAuthRequest"
+            case accessToken
+            case clientId
+            case clientSecret
+            case oAuthRequest
         }
     }
 
     public struct MarketoConnectorProfileProperties: AWSEncodableShape & AWSDecodableShape {
-
         ///  The location of the Marketo resource.
         public let instanceUrl: String
 
@@ -2502,20 +2390,15 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case instanceUrl = "instanceUrl"
+            case instanceUrl
         }
     }
 
     public struct MarketoMetadata: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct MarketoSourceProperties: AWSEncodableShape & AWSDecodableShape {
-
         ///  The object specified in the Marketo flow source.
         public let object: String
 
@@ -2529,12 +2412,11 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case object = "object"
+            case object
         }
     }
 
     public struct PrefixConfig: AWSEncodableShape & AWSDecodableShape {
-
         ///  Determines the level of granularity that's included in the prefix.
         public let prefixFormat: PrefixFormat?
         ///  Determines the format of the prefix, and whether it applies to the file name, file path, or both.
@@ -2546,13 +2428,12 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case prefixFormat = "prefixFormat"
-            case prefixType = "prefixType"
+            case prefixFormat
+            case prefixType
         }
     }
 
     public struct RedshiftConnectorProfileCredentials: AWSEncodableShape {
-
         ///  The password that corresponds to the user name.
         public let password: String
         ///  The name of the user.
@@ -2571,13 +2452,12 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case password = "password"
-            case username = "username"
+            case password
+            case username
         }
     }
 
     public struct RedshiftConnectorProfileProperties: AWSEncodableShape & AWSDecodableShape {
-
         ///  A name for the associated Amazon S3 bucket.
         public let bucketName: String
         ///  The object key for the destination bucket in which Amazon AppFlow places the files.
@@ -2607,15 +2487,14 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case bucketName = "bucketName"
-            case bucketPrefix = "bucketPrefix"
-            case databaseUrl = "databaseUrl"
-            case roleArn = "roleArn"
+            case bucketName
+            case bucketPrefix
+            case databaseUrl
+            case roleArn
         }
     }
 
     public struct RedshiftDestinationProperties: AWSEncodableShape & AWSDecodableShape {
-
         ///  The object key for the bucket in which Amazon AppFlow places the destination files.
         public let bucketPrefix: String?
         ///  The settings that determine how Amazon AppFlow handles an error when placing data in the Amazon Redshift destination. For example, this setting would determine if the flow should fail after one insertion error, or continue and attempt to insert every record regardless of the initial failure. ErrorHandlingConfig is a part of the destination connector details.
@@ -2644,23 +2523,18 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case bucketPrefix = "bucketPrefix"
-            case errorHandlingConfig = "errorHandlingConfig"
-            case intermediateBucketName = "intermediateBucketName"
-            case object = "object"
+            case bucketPrefix
+            case errorHandlingConfig
+            case intermediateBucketName
+            case object
         }
     }
 
     public struct RedshiftMetadata: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct S3DestinationProperties: AWSEncodableShape & AWSDecodableShape {
-
         ///  The Amazon S3 bucket name in which Amazon AppFlow places the transferred data.
         public let bucketName: String
         ///  The object key for the destination bucket in which Amazon AppFlow places the files.
@@ -2682,22 +2556,17 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case bucketName = "bucketName"
-            case bucketPrefix = "bucketPrefix"
-            case s3OutputFormatConfig = "s3OutputFormatConfig"
+            case bucketName
+            case bucketPrefix
+            case s3OutputFormatConfig
         }
     }
 
     public struct S3Metadata: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct S3OutputFormatConfig: AWSEncodableShape & AWSDecodableShape {
-
         public let aggregationConfig: AggregationConfig?
         ///  Indicates the file type that Amazon AppFlow places in the Amazon S3 bucket.
         public let fileType: FileType?
@@ -2711,14 +2580,13 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case aggregationConfig = "aggregationConfig"
-            case fileType = "fileType"
-            case prefixConfig = "prefixConfig"
+            case aggregationConfig
+            case fileType
+            case prefixConfig
         }
     }
 
     public struct S3SourceProperties: AWSEncodableShape & AWSDecodableShape {
-
         ///  The Amazon S3 bucket name where the source files are stored.
         public let bucketName: String
         ///  The object key for the Amazon S3 bucket in which the source files are stored.
@@ -2738,13 +2606,12 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case bucketName = "bucketName"
-            case bucketPrefix = "bucketPrefix"
+            case bucketName
+            case bucketPrefix
         }
     }
 
     public struct SalesforceConnectorProfileCredentials: AWSEncodableShape {
-
         ///  The credentials used to access protected Salesforce resources.
         public let accessToken: String?
         ///  The secret manager ARN, which contains the client ID and client secret of the connected app.
@@ -2773,15 +2640,14 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case accessToken = "accessToken"
-            case clientCredentialsArn = "clientCredentialsArn"
-            case oAuthRequest = "oAuthRequest"
-            case refreshToken = "refreshToken"
+            case accessToken
+            case clientCredentialsArn
+            case oAuthRequest
+            case refreshToken
         }
     }
 
     public struct SalesforceConnectorProfileProperties: AWSEncodableShape & AWSDecodableShape {
-
         ///  The location of the Salesforce resource.
         public let instanceUrl: String?
         ///  Indicates whether the connector profile applies to a sandbox or production environment.
@@ -2798,13 +2664,12 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case instanceUrl = "instanceUrl"
-            case isSandboxEnvironment = "isSandboxEnvironment"
+            case instanceUrl
+            case isSandboxEnvironment
         }
     }
 
     public struct SalesforceDestinationProperties: AWSEncodableShape & AWSDecodableShape {
-
         ///  The settings that determine how Amazon AppFlow handles an error when placing data in the Salesforce destination. For example, this setting would determine if the flow should fail after one insertion error, or continue and attempt to insert every record regardless of the initial failure. ErrorHandlingConfig is a part of the destination connector details.
         public let errorHandlingConfig: ErrorHandlingConfig?
         ///  The name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
@@ -2834,15 +2699,14 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case errorHandlingConfig = "errorHandlingConfig"
-            case idFieldNames = "idFieldNames"
-            case object = "object"
-            case writeOperationType = "writeOperationType"
+            case errorHandlingConfig
+            case idFieldNames
+            case object
+            case writeOperationType
         }
     }
 
     public struct SalesforceMetadata: AWSDecodableShape {
-
         ///  The desired authorization scope for the Salesforce account.
         public let oAuthScopes: [String]?
 
@@ -2851,12 +2715,11 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case oAuthScopes = "oAuthScopes"
+            case oAuthScopes
         }
     }
 
     public struct SalesforceSourceProperties: AWSEncodableShape & AWSDecodableShape {
-
         ///  The flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
         public let enableDynamicFieldUpdate: Bool?
         ///  Indicates whether Amazon AppFlow includes deleted files in the flow run.
@@ -2876,14 +2739,13 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case enableDynamicFieldUpdate = "enableDynamicFieldUpdate"
-            case includeDeletedRecords = "includeDeletedRecords"
-            case object = "object"
+            case enableDynamicFieldUpdate
+            case includeDeletedRecords
+            case object
         }
     }
 
     public struct ScheduledTriggerProperties: AWSEncodableShape & AWSDecodableShape {
-
         ///  Specifies whether a scheduled flow has an incremental data transfer or a complete data transfer for each flow run.
         public let dataPullMode: DataPullMode?
         ///  Specifies the date range for the records to import from the connector in the first flow run.
@@ -2919,18 +2781,17 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case dataPullMode = "dataPullMode"
-            case firstExecutionFrom = "firstExecutionFrom"
-            case scheduleEndTime = "scheduleEndTime"
-            case scheduleExpression = "scheduleExpression"
-            case scheduleOffset = "scheduleOffset"
-            case scheduleStartTime = "scheduleStartTime"
-            case timezone = "timezone"
+            case dataPullMode
+            case firstExecutionFrom
+            case scheduleEndTime
+            case scheduleExpression
+            case scheduleOffset
+            case scheduleStartTime
+            case timezone
         }
     }
 
     public struct ServiceNowConnectorProfileCredentials: AWSEncodableShape {
-
         ///  The password that corresponds to the user name.
         public let password: String
         ///  The name of the user.
@@ -2949,13 +2810,12 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case password = "password"
-            case username = "username"
+            case password
+            case username
         }
     }
 
     public struct ServiceNowConnectorProfileProperties: AWSEncodableShape & AWSDecodableShape {
-
         ///  The location of the ServiceNow resource.
         public let instanceUrl: String
 
@@ -2969,20 +2829,15 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case instanceUrl = "instanceUrl"
+            case instanceUrl
         }
     }
 
     public struct ServiceNowMetadata: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct ServiceNowSourceProperties: AWSEncodableShape & AWSDecodableShape {
-
         ///  The object specified in the ServiceNow flow source.
         public let object: String
 
@@ -2996,12 +2851,11 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case object = "object"
+            case object
         }
     }
 
     public struct SingularConnectorProfileCredentials: AWSEncodableShape {
-
         ///  A unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
         public let apiKey: String
 
@@ -3015,28 +2869,19 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case apiKey = "apiKey"
+            case apiKey
         }
     }
 
     public struct SingularConnectorProfileProperties: AWSEncodableShape & AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct SingularMetadata: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct SingularSourceProperties: AWSEncodableShape & AWSDecodableShape {
-
         ///  The object specified in the Singular flow source.
         public let object: String
 
@@ -3050,12 +2895,11 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case object = "object"
+            case object
         }
     }
 
     public struct SlackConnectorProfileCredentials: AWSEncodableShape {
-
         ///  The credentials used to access protected Slack resources.
         public let accessToken: String?
         ///  The identifier for the client.
@@ -3083,15 +2927,14 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case accessToken = "accessToken"
-            case clientId = "clientId"
-            case clientSecret = "clientSecret"
-            case oAuthRequest = "oAuthRequest"
+            case accessToken
+            case clientId
+            case clientSecret
+            case oAuthRequest
         }
     }
 
     public struct SlackConnectorProfileProperties: AWSEncodableShape & AWSDecodableShape {
-
         ///  The location of the Slack resource.
         public let instanceUrl: String
 
@@ -3105,12 +2948,11 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case instanceUrl = "instanceUrl"
+            case instanceUrl
         }
     }
 
     public struct SlackMetadata: AWSDecodableShape {
-
         ///  The desired authorization scope for the Slack account.
         public let oAuthScopes: [String]?
 
@@ -3119,12 +2961,11 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case oAuthScopes = "oAuthScopes"
+            case oAuthScopes
         }
     }
 
     public struct SlackSourceProperties: AWSEncodableShape & AWSDecodableShape {
-
         ///  The object specified in the Slack flow source.
         public let object: String
 
@@ -3138,12 +2979,11 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case object = "object"
+            case object
         }
     }
 
     public struct SnowflakeConnectorProfileCredentials: AWSEncodableShape {
-
         ///  The password that corresponds to the user name.
         public let password: String
         ///  The name of the user.
@@ -3162,13 +3002,12 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case password = "password"
-            case username = "username"
+            case password
+            case username
         }
     }
 
     public struct SnowflakeConnectorProfileProperties: AWSEncodableShape & AWSDecodableShape {
-
         ///  The name of the account.
         public let accountName: String?
         ///  The name of the Amazon S3 bucket associated with Snowflake.
@@ -3213,18 +3052,17 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case accountName = "accountName"
-            case bucketName = "bucketName"
-            case bucketPrefix = "bucketPrefix"
-            case privateLinkServiceName = "privateLinkServiceName"
-            case region = "region"
-            case stage = "stage"
-            case warehouse = "warehouse"
+            case accountName
+            case bucketName
+            case bucketPrefix
+            case privateLinkServiceName
+            case region
+            case stage
+            case warehouse
         }
     }
 
     public struct SnowflakeDestinationProperties: AWSEncodableShape & AWSDecodableShape {
-
         ///  The object key for the destination bucket in which Amazon AppFlow places the files.
         public let bucketPrefix: String?
         ///  The settings that determine how Amazon AppFlow handles an error when placing data in the Snowflake destination. For example, this setting would determine if the flow should fail after one insertion error, or continue and attempt to insert every record regardless of the initial failure. ErrorHandlingConfig is a part of the destination connector details.
@@ -3253,15 +3091,14 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case bucketPrefix = "bucketPrefix"
-            case errorHandlingConfig = "errorHandlingConfig"
-            case intermediateBucketName = "intermediateBucketName"
-            case object = "object"
+            case bucketPrefix
+            case errorHandlingConfig
+            case intermediateBucketName
+            case object
         }
     }
 
     public struct SnowflakeMetadata: AWSDecodableShape {
-
         ///  Specifies the supported AWS Regions when using Snowflake.
         public let supportedRegions: [String]?
 
@@ -3270,12 +3107,11 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case supportedRegions = "supportedRegions"
+            case supportedRegions
         }
     }
 
     public struct SourceConnectorProperties: AWSEncodableShape & AWSDecodableShape {
-
         ///  Specifies the information that is required for querying Amplitude.
         public let amplitude: AmplitudeSourceProperties?
         ///  Specifies the information that is required for querying Datadog.
@@ -3358,7 +3194,6 @@ extension Appflow {
     }
 
     public struct SourceFieldProperties: AWSDecodableShape {
-
         ///  Indicates if the field can be queried.
         public let isQueryable: Bool?
         ///  Indicates whether the field can be returned in a search result.
@@ -3370,13 +3205,12 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case isQueryable = "isQueryable"
-            case isRetrievable = "isRetrievable"
+            case isQueryable
+            case isRetrievable
         }
     }
 
     public struct SourceFlowConfig: AWSEncodableShape & AWSDecodableShape {
-
         ///  The name of the connector profile. This name must be unique for each connector profile in the AWS account.
         public let connectorProfileName: String?
         ///  The type of connector, such as Salesforce, Amplitude, and so on.
@@ -3401,15 +3235,14 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case connectorProfileName = "connectorProfileName"
-            case connectorType = "connectorType"
-            case incrementalPullConfig = "incrementalPullConfig"
-            case sourceConnectorProperties = "sourceConnectorProperties"
+            case connectorProfileName
+            case connectorType
+            case incrementalPullConfig
+            case sourceConnectorProperties
         }
     }
 
     public struct StartFlowRequest: AWSEncodableShape {
-
         ///  The specified name of the flow. Spaces are not allowed. Use underscores (_) or hyphens (-) only.
         public let flowName: String
 
@@ -3423,12 +3256,11 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case flowName = "flowName"
+            case flowName
         }
     }
 
     public struct StartFlowResponse: AWSDecodableShape {
-
         ///  Returns the internal execution ID of an on-demand flow when the flow is started. For scheduled or event-triggered flows, this value is null.
         public let executionId: String?
         ///  The flow's Amazon Resource Name (ARN).
@@ -3443,14 +3275,13 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case executionId = "executionId"
-            case flowArn = "flowArn"
-            case flowStatus = "flowStatus"
+            case executionId
+            case flowArn
+            case flowStatus
         }
     }
 
     public struct StopFlowRequest: AWSEncodableShape {
-
         ///  The specified name of the flow. Spaces are not allowed. Use underscores (_) or hyphens (-) only.
         public let flowName: String
 
@@ -3464,12 +3295,11 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case flowName = "flowName"
+            case flowName
         }
     }
 
     public struct StopFlowResponse: AWSDecodableShape {
-
         ///  The flow's Amazon Resource Name (ARN).
         public let flowArn: String?
         ///  Indicates the current status of the flow.
@@ -3481,13 +3311,12 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case flowArn = "flowArn"
-            case flowStatus = "flowStatus"
+            case flowArn
+            case flowStatus
         }
     }
 
     public struct SupportedFieldTypeDetails: AWSDecodableShape {
-
         ///  The initial supported version for fieldType. If this is later changed to a different version, v2 will be introduced.
         public let v1: FieldTypeDetails
 
@@ -3496,7 +3325,7 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case v1 = "v1"
+            case v1
         }
     }
 
@@ -3528,20 +3357,15 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case tags = "tags"
+            case tags
         }
     }
 
     public struct TagResourceResponse: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct Task: AWSEncodableShape & AWSDecodableShape {
-
         ///  The operation to be performed on the provided source fields.
         public let connectorOperator: ConnectorOperator?
         ///  A field in a destination connector, or a field value against which Amazon AppFlow validates a source field.
@@ -3575,16 +3399,15 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case connectorOperator = "connectorOperator"
-            case destinationField = "destinationField"
-            case sourceFields = "sourceFields"
-            case taskProperties = "taskProperties"
-            case taskType = "taskType"
+            case connectorOperator
+            case destinationField
+            case sourceFields
+            case taskProperties
+            case taskType
         }
     }
 
     public struct TrendmicroConnectorProfileCredentials: AWSEncodableShape {
-
         ///  The Secret Access Key portion of the credentials.
         public let apiSecretKey: String
 
@@ -3598,28 +3421,19 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case apiSecretKey = "apiSecretKey"
+            case apiSecretKey
         }
     }
 
     public struct TrendmicroConnectorProfileProperties: AWSEncodableShape & AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct TrendmicroMetadata: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct TrendmicroSourceProperties: AWSEncodableShape & AWSDecodableShape {
-
         ///  The object specified in the Trend Micro flow source.
         public let object: String
 
@@ -3633,12 +3447,11 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case object = "object"
+            case object
         }
     }
 
     public struct TriggerConfig: AWSEncodableShape & AWSDecodableShape {
-
         ///  Specifies the configuration details of a schedule-triggered flow as defined by the user. Currently, these settings only apply to the Scheduled trigger type.
         public let triggerProperties: TriggerProperties?
         ///  Specifies the type of flow trigger. This can be OnDemand, Scheduled, or Event.
@@ -3654,13 +3467,12 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case triggerProperties = "triggerProperties"
-            case triggerType = "triggerType"
+            case triggerProperties
+            case triggerType
         }
     }
 
     public struct TriggerProperties: AWSEncodableShape & AWSDecodableShape {
-
         ///  Specifies the configuration details of a schedule-triggered flow as defined by the user.
         public let scheduled: ScheduledTriggerProperties?
 
@@ -3679,7 +3491,7 @@ extension Appflow {
 
     public struct UntagResourceRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "resourceArn", location: .uri(locationName: "resourceArn")), 
+            AWSMemberEncoding(label: "resourceArn", location: .uri(locationName: "resourceArn")),
             AWSMemberEncoding(label: "tagKeys", location: .querystring(locationName: "tagKeys"))
         ]
 
@@ -3709,15 +3521,10 @@ extension Appflow {
     }
 
     public struct UntagResourceResponse: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct UpdateConnectorProfileRequest: AWSEncodableShape {
-
         ///  Indicates the connection mode and if it is public or private.
         public let connectionMode: ConnectionMode
         ///  Defines the connector-specific profile configuration and credentials.
@@ -3738,14 +3545,13 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case connectionMode = "connectionMode"
-            case connectorProfileConfig = "connectorProfileConfig"
-            case connectorProfileName = "connectorProfileName"
+            case connectionMode
+            case connectorProfileConfig
+            case connectorProfileName
         }
     }
 
     public struct UpdateConnectorProfileResponse: AWSDecodableShape {
-
         ///  The Amazon Resource Name (ARN) of the connector profile.
         public let connectorProfileArn: String?
 
@@ -3754,12 +3560,11 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case connectorProfileArn = "connectorProfileArn"
+            case connectorProfileArn
         }
     }
 
     public struct UpdateFlowRequest: AWSEncodableShape {
-
         ///  A description of the flow.
         public let description: String?
         ///  The configuration that controls how Amazon AppFlow transfers data to the destination connector.
@@ -3797,17 +3602,16 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case description = "description"
-            case destinationFlowConfigList = "destinationFlowConfigList"
-            case flowName = "flowName"
-            case sourceFlowConfig = "sourceFlowConfig"
-            case tasks = "tasks"
-            case triggerConfig = "triggerConfig"
+            case description
+            case destinationFlowConfigList
+            case flowName
+            case sourceFlowConfig
+            case tasks
+            case triggerConfig
         }
     }
 
     public struct UpdateFlowResponse: AWSDecodableShape {
-
         /// Indicates the current status of the flow.
         public let flowStatus: FlowStatus?
 
@@ -3816,12 +3620,11 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case flowStatus = "flowStatus"
+            case flowStatus
         }
     }
 
     public struct UpsolverDestinationProperties: AWSEncodableShape & AWSDecodableShape {
-
         ///  The Upsolver Amazon S3 bucket name in which Amazon AppFlow places the transferred data.
         public let bucketName: String
         ///  The object key for the destination Upsolver Amazon S3 bucket in which Amazon AppFlow places the files.
@@ -3844,22 +3647,17 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case bucketName = "bucketName"
-            case bucketPrefix = "bucketPrefix"
-            case s3OutputFormatConfig = "s3OutputFormatConfig"
+            case bucketName
+            case bucketPrefix
+            case s3OutputFormatConfig
         }
     }
 
     public struct UpsolverMetadata: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct UpsolverS3OutputFormatConfig: AWSEncodableShape & AWSDecodableShape {
-
         public let aggregationConfig: AggregationConfig?
         ///  Indicates the file type that Amazon AppFlow places in the Upsolver Amazon S3 bucket.
         public let fileType: FileType?
@@ -3872,14 +3670,13 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case aggregationConfig = "aggregationConfig"
-            case fileType = "fileType"
-            case prefixConfig = "prefixConfig"
+            case aggregationConfig
+            case fileType
+            case prefixConfig
         }
     }
 
     public struct VeevaConnectorProfileCredentials: AWSEncodableShape {
-
         ///  The password that corresponds to the user name.
         public let password: String
         ///  The name of the user.
@@ -3898,13 +3695,12 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case password = "password"
-            case username = "username"
+            case password
+            case username
         }
     }
 
     public struct VeevaConnectorProfileProperties: AWSEncodableShape & AWSDecodableShape {
-
         ///  The location of the Veeva resource.
         public let instanceUrl: String
 
@@ -3918,20 +3714,15 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case instanceUrl = "instanceUrl"
+            case instanceUrl
         }
     }
 
     public struct VeevaMetadata: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct VeevaSourceProperties: AWSEncodableShape & AWSDecodableShape {
-
         ///  The object specified in the Veeva flow source.
         public let object: String
 
@@ -3945,12 +3736,11 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case object = "object"
+            case object
         }
     }
 
     public struct ZendeskConnectorProfileCredentials: AWSEncodableShape {
-
         ///  The credentials used to access protected Zendesk resources.
         public let accessToken: String?
         ///  The identifier for the desired client.
@@ -3978,15 +3768,14 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case accessToken = "accessToken"
-            case clientId = "clientId"
-            case clientSecret = "clientSecret"
-            case oAuthRequest = "oAuthRequest"
+            case accessToken
+            case clientId
+            case clientSecret
+            case oAuthRequest
         }
     }
 
     public struct ZendeskConnectorProfileProperties: AWSEncodableShape & AWSDecodableShape {
-
         ///  The location of the Zendesk resource.
         public let instanceUrl: String
 
@@ -4000,12 +3789,11 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case instanceUrl = "instanceUrl"
+            case instanceUrl
         }
     }
 
     public struct ZendeskMetadata: AWSDecodableShape {
-
         ///  The desired authorization scope for the Zendesk account.
         public let oAuthScopes: [String]?
 
@@ -4014,12 +3802,11 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case oAuthScopes = "oAuthScopes"
+            case oAuthScopes
         }
     }
 
     public struct ZendeskSourceProperties: AWSEncodableShape & AWSDecodableShape {
-
         ///  The object specified in the Zendesk flow source.
         public let object: String
 
@@ -4033,7 +3820,7 @@ extension Appflow {
         }
 
         private enum CodingKeys: String, CodingKey {
-            case object = "object"
+            case object
         }
     }
 }

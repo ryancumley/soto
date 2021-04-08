@@ -71,6 +71,29 @@ extension MediaStoreData {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listItemsPaginator(
+        _ input: ListItemsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListItemsRequest, ListItemsResponse> {
+        return .init(
+            input: input,
+            command: listItems,
+            inputKey: \ListItemsRequest.nextToken,
+            outputKey: \ListItemsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 }
 
 extension MediaStoreData.ListItemsRequest: AWSPaginateToken {

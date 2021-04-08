@@ -72,6 +72,29 @@ extension FMS {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listComplianceStatusPaginator(
+        _ input: ListComplianceStatusRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListComplianceStatusRequest, ListComplianceStatusResponse> {
+        return .init(
+            input: input,
+            command: listComplianceStatus,
+            inputKey: \ListComplianceStatusRequest.nextToken,
+            outputKey: \ListComplianceStatusResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Returns a MemberAccounts object that lists the member accounts in the administrator's AWS organization. The ListMemberAccounts must be submitted by the account that is set as the AWS Firewall Manager administrator.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -125,6 +148,29 @@ extension FMS {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listMemberAccountsPaginator(
+        _ input: ListMemberAccountsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListMemberAccountsRequest, ListMemberAccountsResponse> {
+        return .init(
+            input: input,
+            command: listMemberAccounts,
+            inputKey: \ListMemberAccountsRequest.nextToken,
+            outputKey: \ListMemberAccountsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Returns an array of PolicySummary objects.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -177,6 +223,29 @@ extension FMS {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listPoliciesPaginator(
+        _ input: ListPoliciesRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListPoliciesRequest, ListPoliciesResponse> {
+        return .init(
+            input: input,
+            command: listPolicies,
+            inputKey: \ListPoliciesRequest.nextToken,
+            outputKey: \ListPoliciesResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 }
 
 extension FMS.ListComplianceStatusRequest: AWSPaginateToken {

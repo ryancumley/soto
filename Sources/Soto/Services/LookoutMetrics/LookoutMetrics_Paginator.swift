@@ -72,6 +72,29 @@ extension LookoutMetrics {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func describeAnomalyDetectionExecutionsPaginator(
+        _ input: DescribeAnomalyDetectionExecutionsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<DescribeAnomalyDetectionExecutionsRequest, DescribeAnomalyDetectionExecutionsResponse> {
+        return .init(
+            input: input,
+            command: describeAnomalyDetectionExecutions,
+            inputKey: \DescribeAnomalyDetectionExecutionsRequest.nextToken,
+            outputKey: \DescribeAnomalyDetectionExecutionsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Get feedback for an anomaly group.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -124,6 +147,29 @@ extension LookoutMetrics {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func getFeedbackPaginator(
+        _ input: GetFeedbackRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<GetFeedbackRequest, GetFeedbackResponse> {
+        return .init(
+            input: input,
+            command: getFeedback,
+            inputKey: \GetFeedbackRequest.nextToken,
+            outputKey: \GetFeedbackResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Lists the alerts attached to a detector.
     ///
@@ -178,6 +224,29 @@ extension LookoutMetrics {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listAlertsPaginator(
+        _ input: ListAlertsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListAlertsRequest, ListAlertsResponse> {
+        return .init(
+            input: input,
+            command: listAlerts,
+            inputKey: \ListAlertsRequest.nextToken,
+            outputKey: \ListAlertsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Lists the detectors in the current AWS Region.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -230,6 +299,29 @@ extension LookoutMetrics {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listAnomalyDetectorsPaginator(
+        _ input: ListAnomalyDetectorsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListAnomalyDetectorsRequest, ListAnomalyDetectorsResponse> {
+        return .init(
+            input: input,
+            command: listAnomalyDetectors,
+            inputKey: \ListAnomalyDetectorsRequest.nextToken,
+            outputKey: \ListAnomalyDetectorsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 
     ///  Returns a list of anomaly groups.
     ///
@@ -284,6 +376,29 @@ extension LookoutMetrics {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listAnomalyGroupSummariesPaginator(
+        _ input: ListAnomalyGroupSummariesRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListAnomalyGroupSummariesRequest, ListAnomalyGroupSummariesResponse> {
+        return .init(
+            input: input,
+            command: listAnomalyGroupSummaries,
+            inputKey: \ListAnomalyGroupSummariesRequest.nextToken,
+            outputKey: \ListAnomalyGroupSummariesResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Gets a list of anomalous metrics for a measure in an anomaly group.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -337,6 +452,29 @@ extension LookoutMetrics {
         )
     }
 
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listAnomalyGroupTimeSeriesPaginator(
+        _ input: ListAnomalyGroupTimeSeriesRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListAnomalyGroupTimeSeriesRequest, ListAnomalyGroupTimeSeriesResponse> {
+        return .init(
+            input: input,
+            command: listAnomalyGroupTimeSeries,
+            inputKey: \ListAnomalyGroupTimeSeriesRequest.nextToken,
+            outputKey: \ListAnomalyGroupTimeSeriesResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
+
     ///  Lists the datasets in the current AWS Region.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -389,6 +527,29 @@ extension LookoutMetrics {
             onPage: onPage
         )
     }
+
+    #if compiler(>=5.4) && $AsyncAwait
+    /// Return PaginatorSequence for operation.
+    ///
+    /// - Parameters:
+    ///   - input: Input for request
+    ///   - logger: Logger used flot logging
+    ///   - eventLoop: EventLoop to run this process on
+    public func listMetricSetsPaginator(
+        _ input: ListMetricSetsRequest,
+        logger: Logger = AWSClient.loggingDisabled,
+        on eventLoop: EventLoop? = nil
+    ) -> AWSClient.PaginatorSequence<ListMetricSetsRequest, ListMetricSetsResponse> {
+        return .init(
+            input: input,
+            command: listMetricSets,
+            inputKey: \ListMetricSetsRequest.nextToken,
+            outputKey: \ListMetricSetsResponse.nextToken,
+            logger: logger,
+            on: eventLoop
+        )
+    }
+    #endif
 }
 
 extension LookoutMetrics.DescribeAnomalyDetectionExecutionsRequest: AWSPaginateToken {

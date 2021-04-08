@@ -21,9 +21,9 @@ extension IoTWireless {
     // MARK: Enums
 
     public enum BatteryLevel: String, CustomStringConvertible, Codable {
-        case critical = "critical"
-        case low = "low"
-        case normal = "normal"
+        case critical
+        case low
+        case normal
         public var description: String { return self.rawValue }
     }
 
@@ -42,11 +42,11 @@ extension IoTWireless {
     }
 
     public enum Event: String, CustomStringConvertible, Codable {
-        case ack = "ack"
-        case discovered = "discovered"
-        case lost = "lost"
-        case nack = "nack"
-        case passthrough = "passthrough"
+        case ack
+        case discovered
+        case lost
+        case nack
+        case passthrough
         public var description: String { return self.rawValue }
     }
 
@@ -111,7 +111,6 @@ extension IoTWireless {
     // MARK: Shapes
 
     public struct AbpV10X: AWSEncodableShape & AWSDecodableShape {
-
         /// The DevAddr value.
         public let devAddr: String?
         /// Session keys for ABP v1.0.x
@@ -134,7 +133,6 @@ extension IoTWireless {
     }
 
     public struct AbpV11: AWSEncodableShape & AWSDecodableShape {
-
         /// The DevAddr value.
         public let devAddr: String?
         /// Session keys for ABP v1.1
@@ -157,7 +155,6 @@ extension IoTWireless {
     }
 
     public struct AssociateAwsAccountWithPartnerAccountRequest: AWSEncodableShape {
-
         /// Each resource must have a unique client request token. If you try to create a new resource with the same token as a resource that already exists, an exception occurs. If you omit this value, AWS SDKs will automatically generate a unique client request.
         public let clientRequestToken: String?
         /// The Sidewalk account credentials.
@@ -191,7 +188,6 @@ extension IoTWireless {
     }
 
     public struct AssociateAwsAccountWithPartnerAccountResponse: AWSDecodableShape {
-
         /// The Amazon Resource Name of the resource.
         public let arn: String?
         /// The Sidewalk account credentials.
@@ -233,11 +229,7 @@ extension IoTWireless {
     }
 
     public struct AssociateWirelessDeviceWithThingResponse: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct AssociateWirelessGatewayWithCertificateRequest: AWSEncodableShape {
@@ -267,7 +259,6 @@ extension IoTWireless {
     }
 
     public struct AssociateWirelessGatewayWithCertificateResponse: AWSDecodableShape {
-
         /// The ID of the certificate associated with the wireless gateway.
         public let iotCertificateId: String?
 
@@ -305,15 +296,10 @@ extension IoTWireless {
     }
 
     public struct AssociateWirelessGatewayWithThingResponse: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct CertificateList: AWSDecodableShape {
-
         /// The certificate chain algorithm provided by sidewalk.
         public let signingAlg: SigningAlg
         /// The value of the chosen sidewalk certificate.
@@ -331,7 +317,6 @@ extension IoTWireless {
     }
 
     public struct CreateDestinationRequest: AWSEncodableShape {
-
         /// Each resource must have a unique client request token. If you try to create a new resource with the same token as a resource that already exists, an exception occurs. If you omit this value, AWS SDKs will automatically generate a unique client request.
         public let clientRequestToken: String?
         /// The description of the new resource.
@@ -386,7 +371,6 @@ extension IoTWireless {
     }
 
     public struct CreateDestinationResponse: AWSDecodableShape {
-
         /// The Amazon Resource Name of the new resource.
         public let arn: String?
         /// The name of the new resource.
@@ -404,7 +388,6 @@ extension IoTWireless {
     }
 
     public struct CreateDeviceProfileRequest: AWSEncodableShape {
-
         /// Each resource must have a unique client request token. If you try to create a new resource with the same token as a resource that already exists, an exception occurs. If you omit this value, AWS SDKs will automatically generate a unique client request.
         public let clientRequestToken: String?
         /// The device profile information to use to create the device profile.
@@ -443,7 +426,6 @@ extension IoTWireless {
     }
 
     public struct CreateDeviceProfileResponse: AWSDecodableShape {
-
         /// The Amazon Resource Name of the new resource.
         public let arn: String?
         /// The ID of the new device profile.
@@ -461,7 +443,6 @@ extension IoTWireless {
     }
 
     public struct CreateServiceProfileRequest: AWSEncodableShape {
-
         /// Each resource must have a unique client request token. If you try to create a new resource with the same token as a resource that already exists, an exception occurs. If you omit this value, AWS SDKs will automatically generate a unique client request.
         public let clientRequestToken: String?
         /// The service profile information to use to create the service profile.
@@ -499,7 +480,6 @@ extension IoTWireless {
     }
 
     public struct CreateServiceProfileResponse: AWSDecodableShape {
-
         /// The Amazon Resource Name of the new resource.
         public let arn: String?
         /// The ID of the new service profile.
@@ -517,7 +497,6 @@ extension IoTWireless {
     }
 
     public struct CreateWirelessDeviceRequest: AWSEncodableShape {
-
         /// Each resource must have a unique client request token. If you try to create a new resource with the same token as a resource that already exists, an exception occurs. If you omit this value, AWS SDKs will automatically generate a unique client request.
         public let clientRequestToken: String?
         /// The description of the new resource.
@@ -571,7 +550,6 @@ extension IoTWireless {
     }
 
     public struct CreateWirelessDeviceResponse: AWSDecodableShape {
-
         /// The Amazon Resource Name of the new resource.
         public let arn: String?
         /// The ID of the new wireless device.
@@ -589,7 +567,6 @@ extension IoTWireless {
     }
 
     public struct CreateWirelessGatewayRequest: AWSEncodableShape {
-
         /// Each resource must have a unique client request token. If you try to create a new resource with the same token as a resource that already exists, an exception occurs. If you omit this value, AWS SDKs will automatically generate a unique client request.
         public let clientRequestToken: String?
         /// The description of the new resource.
@@ -633,7 +610,6 @@ extension IoTWireless {
     }
 
     public struct CreateWirelessGatewayResponse: AWSDecodableShape {
-
         /// The Amazon Resource Name of the new resource.
         public let arn: String?
         /// The ID of the new wireless gateway.
@@ -651,7 +627,6 @@ extension IoTWireless {
     }
 
     public struct CreateWirelessGatewayTaskDefinitionRequest: AWSEncodableShape {
-
         /// Whether to automatically create tasks using this task definition for all gateways with the specified current version. If false, the task must me created by calling CreateWirelessGatewayTask.
         public let autoCreateTasks: Bool
         /// Each resource must have a unique client request token. If you try to create a new resource with the same token as a resource that already exists, an exception occurs. If you omit this value, AWS SDKs will automatically generate a unique client request.
@@ -695,7 +670,6 @@ extension IoTWireless {
     }
 
     public struct CreateWirelessGatewayTaskDefinitionResponse: AWSDecodableShape {
-
         /// The Amazon Resource Name of the resource.
         public let arn: String?
         /// The ID of the new wireless gateway task definition.
@@ -739,7 +713,6 @@ extension IoTWireless {
     }
 
     public struct CreateWirelessGatewayTaskResponse: AWSDecodableShape {
-
         /// The status of the request.
         public let status: WirelessGatewayTaskStatus?
         /// The ID of the WirelessGatewayTaskDefinition.
@@ -777,11 +750,7 @@ extension IoTWireless {
     }
 
     public struct DeleteDestinationResponse: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct DeleteDeviceProfileRequest: AWSEncodableShape {
@@ -804,11 +773,7 @@ extension IoTWireless {
     }
 
     public struct DeleteDeviceProfileResponse: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct DeleteServiceProfileRequest: AWSEncodableShape {
@@ -831,11 +796,7 @@ extension IoTWireless {
     }
 
     public struct DeleteServiceProfileResponse: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct DeleteWirelessDeviceRequest: AWSEncodableShape {
@@ -858,11 +819,7 @@ extension IoTWireless {
     }
 
     public struct DeleteWirelessDeviceResponse: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct DeleteWirelessGatewayRequest: AWSEncodableShape {
@@ -885,11 +842,7 @@ extension IoTWireless {
     }
 
     public struct DeleteWirelessGatewayResponse: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct DeleteWirelessGatewayTaskDefinitionRequest: AWSEncodableShape {
@@ -913,11 +866,7 @@ extension IoTWireless {
     }
 
     public struct DeleteWirelessGatewayTaskDefinitionResponse: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct DeleteWirelessGatewayTaskRequest: AWSEncodableShape {
@@ -940,15 +889,10 @@ extension IoTWireless {
     }
 
     public struct DeleteWirelessGatewayTaskResponse: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct Destinations: AWSDecodableShape {
-
         /// The Amazon Resource Name of the resource.
         public let arn: String?
         /// The description of the resource.
@@ -982,7 +926,6 @@ extension IoTWireless {
     }
 
     public struct DeviceProfile: AWSDecodableShape {
-
         /// The Amazon Resource Name of the resource.
         public let arn: String?
         /// The ID of the device profile.
@@ -1005,7 +948,7 @@ extension IoTWireless {
 
     public struct DisassociateAwsAccountFromPartnerAccountRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "partnerAccountId", location: .uri(locationName: "PartnerAccountId")), 
+            AWSMemberEncoding(label: "partnerAccountId", location: .uri(locationName: "PartnerAccountId")),
             AWSMemberEncoding(label: "partnerType", location: .querystring(locationName: "partnerType"))
         ]
 
@@ -1027,11 +970,7 @@ extension IoTWireless {
     }
 
     public struct DisassociateAwsAccountFromPartnerAccountResponse: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct DisassociateWirelessDeviceFromThingRequest: AWSEncodableShape {
@@ -1054,11 +993,7 @@ extension IoTWireless {
     }
 
     public struct DisassociateWirelessDeviceFromThingResponse: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct DisassociateWirelessGatewayFromCertificateRequest: AWSEncodableShape {
@@ -1081,11 +1016,7 @@ extension IoTWireless {
     }
 
     public struct DisassociateWirelessGatewayFromCertificateResponse: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct DisassociateWirelessGatewayFromThingRequest: AWSEncodableShape {
@@ -1108,11 +1039,7 @@ extension IoTWireless {
     }
 
     public struct DisassociateWirelessGatewayFromThingResponse: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct GetDestinationRequest: AWSEncodableShape {
@@ -1136,7 +1063,6 @@ extension IoTWireless {
     }
 
     public struct GetDestinationResponse: AWSDecodableShape {
-
         /// The Amazon Resource Name of the resource.
         public let arn: String?
         /// The description of the resource.
@@ -1189,7 +1115,6 @@ extension IoTWireless {
     }
 
     public struct GetDeviceProfileResponse: AWSDecodableShape {
-
         /// The Amazon Resource Name of the resource.
         public let arn: String?
         /// The ID of the device profile.
@@ -1216,7 +1141,7 @@ extension IoTWireless {
 
     public struct GetPartnerAccountRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "partnerAccountId", location: .uri(locationName: "PartnerAccountId")), 
+            AWSMemberEncoding(label: "partnerAccountId", location: .uri(locationName: "PartnerAccountId")),
             AWSMemberEncoding(label: "partnerType", location: .querystring(locationName: "partnerType"))
         ]
 
@@ -1238,7 +1163,6 @@ extension IoTWireless {
     }
 
     public struct GetPartnerAccountResponse: AWSDecodableShape {
-
         /// Whether the partner account is linked to the AWS account.
         public let accountLinked: Bool?
         /// The Sidewalk account credentials.
@@ -1271,7 +1195,6 @@ extension IoTWireless {
     }
 
     public struct GetServiceEndpointResponse: AWSDecodableShape {
-
         /// The Root CA of the server trust certificate.
         public let serverTrust: String?
         /// The service endpoint value.
@@ -1312,7 +1235,6 @@ extension IoTWireless {
     }
 
     public struct GetServiceProfileResponse: AWSDecodableShape {
-
         /// The Amazon Resource Name of the resource.
         public let arn: String?
         /// The ID of the service profile.
@@ -1339,7 +1261,7 @@ extension IoTWireless {
 
     public struct GetWirelessDeviceRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "identifier", location: .uri(locationName: "Identifier")), 
+            AWSMemberEncoding(label: "identifier", location: .uri(locationName: "Identifier")),
             AWSMemberEncoding(label: "identifierType", location: .querystring(locationName: "identifierType"))
         ]
 
@@ -1361,7 +1283,6 @@ extension IoTWireless {
     }
 
     public struct GetWirelessDeviceResponse: AWSDecodableShape {
-
         /// The Amazon Resource Name of the resource.
         public let arn: String?
         /// The description of the resource.
@@ -1430,7 +1351,6 @@ extension IoTWireless {
     }
 
     public struct GetWirelessDeviceStatisticsResponse: AWSDecodableShape {
-
         /// The date and time when the most recent uplink was received.
         public let lastUplinkReceivedAt: String?
         /// Information about the wireless device's operations.
@@ -1475,7 +1395,6 @@ extension IoTWireless {
     }
 
     public struct GetWirelessGatewayCertificateResponse: AWSDecodableShape {
-
         /// The ID of the certificate associated with the wireless gateway.
         public let iotCertificateId: String?
         /// The ID of the certificate that is associated with the wireless gateway and used for the LoRaWANNetworkServer endpoint.
@@ -1512,7 +1431,6 @@ extension IoTWireless {
     }
 
     public struct GetWirelessGatewayFirmwareInformationResponse: AWSDecodableShape {
-
         /// Information about the wireless gateway's firmware.
         public let loRaWAN: LoRaWANGatewayCurrentVersion?
 
@@ -1527,7 +1445,7 @@ extension IoTWireless {
 
     public struct GetWirelessGatewayRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "identifier", location: .uri(locationName: "Identifier")), 
+            AWSMemberEncoding(label: "identifier", location: .uri(locationName: "Identifier")),
             AWSMemberEncoding(label: "identifierType", location: .querystring(locationName: "identifierType"))
         ]
 
@@ -1549,7 +1467,6 @@ extension IoTWireless {
     }
 
     public struct GetWirelessGatewayResponse: AWSDecodableShape {
-
         /// The Amazon Resource Name of the resource.
         public let arn: String?
         /// The description of the resource.
@@ -1606,7 +1523,6 @@ extension IoTWireless {
     }
 
     public struct GetWirelessGatewayStatisticsResponse: AWSDecodableShape {
-
         /// The connection status of the wireless gateway.
         public let connectionStatus: ConnectionStatus?
         /// The date and time when the most recent uplink was received.
@@ -1648,7 +1564,6 @@ extension IoTWireless {
     }
 
     public struct GetWirelessGatewayTaskDefinitionResponse: AWSDecodableShape {
-
         /// The Amazon Resource Name of the resource.
         public let arn: String?
         /// Whether to automatically create tasks using this task definition for all gateways with the specified current version. If false, the task must me created by calling CreateWirelessGatewayTask.
@@ -1693,7 +1608,6 @@ extension IoTWireless {
     }
 
     public struct GetWirelessGatewayTaskResponse: AWSDecodableShape {
-
         /// The date and time when the most recent uplink was received.
         public let lastUplinkReceivedAt: String?
         /// The status of the request.
@@ -1724,7 +1638,7 @@ extension IoTWireless {
 
     public struct ListDestinationsRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "maxResults")), 
+            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "maxResults")),
             AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "nextToken"))
         ]
 
@@ -1748,7 +1662,6 @@ extension IoTWireless {
     }
 
     public struct ListDestinationsResponse: AWSDecodableShape {
-
         /// The list of destinations.
         public let destinationList: [Destinations]?
         /// The token to use to get the next set of results, or null if there are no additional results.
@@ -1767,7 +1680,7 @@ extension IoTWireless {
 
     public struct ListDeviceProfilesRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "maxResults")), 
+            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "maxResults")),
             AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "nextToken"))
         ]
 
@@ -1791,7 +1704,6 @@ extension IoTWireless {
     }
 
     public struct ListDeviceProfilesResponse: AWSDecodableShape {
-
         /// The list of device profiles.
         public let deviceProfileList: [DeviceProfile]?
         /// The token to use to get the next set of results, or null if there are no additional results.
@@ -1810,7 +1722,7 @@ extension IoTWireless {
 
     public struct ListPartnerAccountsRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "maxResults")), 
+            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "maxResults")),
             AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "nextToken"))
         ]
 
@@ -1834,7 +1746,6 @@ extension IoTWireless {
     }
 
     public struct ListPartnerAccountsResponse: AWSDecodableShape {
-
         /// The token to use to get the next set of results, or null if there are no additional results.
         public let nextToken: String?
         /// The Sidewalk account credentials.
@@ -1853,7 +1764,7 @@ extension IoTWireless {
 
     public struct ListServiceProfilesRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "maxResults")), 
+            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "maxResults")),
             AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "nextToken"))
         ]
 
@@ -1877,7 +1788,6 @@ extension IoTWireless {
     }
 
     public struct ListServiceProfilesResponse: AWSDecodableShape {
-
         /// The token to use to get the next set of results, or null if there are no additional results.
         public let nextToken: String?
         /// The list of service profiles.
@@ -1915,7 +1825,6 @@ extension IoTWireless {
     }
 
     public struct ListTagsForResourceResponse: AWSDecodableShape {
-
         /// The tags to attach to the specified resource. Tags are metadata that you can use to manage a resource.
         public let tags: [Tag]?
 
@@ -1930,11 +1839,11 @@ extension IoTWireless {
 
     public struct ListWirelessDevicesRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "destinationName", location: .querystring(locationName: "destinationName")), 
-            AWSMemberEncoding(label: "deviceProfileId", location: .querystring(locationName: "deviceProfileId")), 
-            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "maxResults")), 
-            AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "nextToken")), 
-            AWSMemberEncoding(label: "serviceProfileId", location: .querystring(locationName: "serviceProfileId")), 
+            AWSMemberEncoding(label: "destinationName", location: .querystring(locationName: "destinationName")),
+            AWSMemberEncoding(label: "deviceProfileId", location: .querystring(locationName: "deviceProfileId")),
+            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "maxResults")),
+            AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "nextToken")),
+            AWSMemberEncoding(label: "serviceProfileId", location: .querystring(locationName: "serviceProfileId")),
             AWSMemberEncoding(label: "wirelessDeviceType", location: .querystring(locationName: "wirelessDeviceType"))
         ]
 
@@ -1974,7 +1883,6 @@ extension IoTWireless {
     }
 
     public struct ListWirelessDevicesResponse: AWSDecodableShape {
-
         /// The token to use to get the next set of results, or null if there are no additional results.
         public let nextToken: String?
         /// The ID of the wireless device.
@@ -1993,8 +1901,8 @@ extension IoTWireless {
 
     public struct ListWirelessGatewayTaskDefinitionsRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "maxResults")), 
-            AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "nextToken")), 
+            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "maxResults")),
+            AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "nextToken")),
             AWSMemberEncoding(label: "taskDefinitionType", location: .querystring(locationName: "taskDefinitionType"))
         ]
 
@@ -2021,7 +1929,6 @@ extension IoTWireless {
     }
 
     public struct ListWirelessGatewayTaskDefinitionsResponse: AWSDecodableShape {
-
         /// The token to use to get the next set of results, or null if there are no additional results.
         public let nextToken: String?
         /// The list of task definitions.
@@ -2040,7 +1947,7 @@ extension IoTWireless {
 
     public struct ListWirelessGatewaysRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "maxResults")), 
+            AWSMemberEncoding(label: "maxResults", location: .querystring(locationName: "maxResults")),
             AWSMemberEncoding(label: "nextToken", location: .querystring(locationName: "nextToken"))
         ]
 
@@ -2064,7 +1971,6 @@ extension IoTWireless {
     }
 
     public struct ListWirelessGatewaysResponse: AWSDecodableShape {
-
         /// The token to use to get the next set of results, or null if there are no additional results.
         public let nextToken: String?
         /// The ID of the wireless gateway.
@@ -2082,7 +1988,6 @@ extension IoTWireless {
     }
 
     public struct LoRaWANDevice: AWSEncodableShape & AWSDecodableShape {
-
         /// LoRaWAN object for create APIs
         public let abpV10X: AbpV10X?
         /// ABP device object for create APIs for v1.1
@@ -2130,7 +2035,6 @@ extension IoTWireless {
     }
 
     public struct LoRaWANDeviceMetadata: AWSDecodableShape {
-
         /// The DataRate value.
         public let dataRate: Int?
         /// The DevEUI value.
@@ -2164,7 +2068,6 @@ extension IoTWireless {
     }
 
     public struct LoRaWANDeviceProfile: AWSEncodableShape & AWSDecodableShape {
-
         /// The ClassBTimeout value.
         public let classBTimeout: Int?
         /// The ClassCTimeout value.
@@ -2232,8 +2135,8 @@ extension IoTWireless {
             try self.validate(self.classCTimeout, name: "classCTimeout", parent: name, max: 1000)
             try self.validate(self.classCTimeout, name: "classCTimeout", parent: name, min: 0)
             try self.factoryPresetFreqsList?.forEach {
-                try validate($0, name: "factoryPresetFreqsList[]", parent: name, max: 16700000)
-                try validate($0, name: "factoryPresetFreqsList[]", parent: name, min: 1000000)
+                try validate($0, name: "factoryPresetFreqsList[]", parent: name, max: 16_700_000)
+                try validate($0, name: "factoryPresetFreqsList[]", parent: name, min: 1_000_000)
             }
             try self.validate(self.factoryPresetFreqsList, name: "factoryPresetFreqsList", parent: name, max: 20)
             try self.validate(self.factoryPresetFreqsList, name: "factoryPresetFreqsList", parent: name, min: 0)
@@ -2244,8 +2147,8 @@ extension IoTWireless {
             try self.validate(self.maxEirp, name: "maxEirp", parent: name, min: 0)
             try self.validate(self.pingSlotDr, name: "pingSlotDr", parent: name, max: 15)
             try self.validate(self.pingSlotDr, name: "pingSlotDr", parent: name, min: 0)
-            try self.validate(self.pingSlotFreq, name: "pingSlotFreq", parent: name, max: 16700000)
-            try self.validate(self.pingSlotFreq, name: "pingSlotFreq", parent: name, min: 1000000)
+            try self.validate(self.pingSlotFreq, name: "pingSlotFreq", parent: name, max: 16_700_000)
+            try self.validate(self.pingSlotFreq, name: "pingSlotFreq", parent: name, min: 1_000_000)
             try self.validate(self.pingSlotPeriod, name: "pingSlotPeriod", parent: name, max: 4096)
             try self.validate(self.pingSlotPeriod, name: "pingSlotPeriod", parent: name, min: 128)
             try self.validate(self.regParamsRevision, name: "regParamsRevision", parent: name, max: 64)
@@ -2256,8 +2159,8 @@ extension IoTWireless {
             try self.validate(self.rxDelay1, name: "rxDelay1", parent: name, min: 0)
             try self.validate(self.rxDrOffset1, name: "rxDrOffset1", parent: name, max: 7)
             try self.validate(self.rxDrOffset1, name: "rxDrOffset1", parent: name, min: 0)
-            try self.validate(self.rxFreq2, name: "rxFreq2", parent: name, max: 16700000)
-            try self.validate(self.rxFreq2, name: "rxFreq2", parent: name, min: 1000000)
+            try self.validate(self.rxFreq2, name: "rxFreq2", parent: name, max: 16_700_000)
+            try self.validate(self.rxFreq2, name: "rxFreq2", parent: name, min: 1_000_000)
         }
 
         private enum CodingKeys: String, CodingKey {
@@ -2284,7 +2187,6 @@ extension IoTWireless {
     }
 
     public struct LoRaWANGateway: AWSEncodableShape & AWSDecodableShape {
-
         /// The gateway's EUI value.
         public let gatewayEui: String?
         /// The frequency band (RFRegion) value.
@@ -2307,7 +2209,6 @@ extension IoTWireless {
     }
 
     public struct LoRaWANGatewayCurrentVersion: AWSDecodableShape {
-
         /// The version of the gateways that should receive the update.
         public let currentVersion: LoRaWANGatewayVersion?
 
@@ -2321,7 +2222,6 @@ extension IoTWireless {
     }
 
     public struct LoRaWANGatewayMetadata: AWSDecodableShape {
-
         /// The gateway's EUI value.
         public let gatewayEui: String?
         /// The RSSI value.
@@ -2343,7 +2243,6 @@ extension IoTWireless {
     }
 
     public struct LoRaWANGatewayVersion: AWSEncodableShape & AWSDecodableShape {
-
         /// The model number of the wireless gateway.
         public let model: String?
         /// The version of the wireless gateway firmware.
@@ -2374,7 +2273,6 @@ extension IoTWireless {
     }
 
     public struct LoRaWANGetServiceProfileInfo: AWSDecodableShape {
-
         /// The AddGWMetaData value.
         public let addGwMetadata: Bool?
         /// The ChannelMask value.
@@ -2460,7 +2358,6 @@ extension IoTWireless {
     }
 
     public struct LoRaWANListDevice: AWSDecodableShape {
-
         /// The DevEUI value.
         public let devEui: String?
 
@@ -2474,7 +2371,6 @@ extension IoTWireless {
     }
 
     public struct LoRaWANSendDataToDevice: AWSEncodableShape {
-
         /// The Fport value.
         public let fPort: Int?
 
@@ -2493,7 +2389,6 @@ extension IoTWireless {
     }
 
     public struct LoRaWANServiceProfile: AWSEncodableShape {
-
         /// The AddGWMetaData value.
         public let addGwMetadata: Bool?
 
@@ -2507,7 +2402,6 @@ extension IoTWireless {
     }
 
     public struct LoRaWANUpdateDevice: AWSEncodableShape {
-
         /// The ID of the device profile for the wireless device.
         public let deviceProfileId: String?
         /// The ID of the service profile.
@@ -2530,7 +2424,6 @@ extension IoTWireless {
     }
 
     public struct LoRaWANUpdateGatewayTaskCreate: AWSEncodableShape & AWSDecodableShape {
-
         /// The version of the gateways that should receive the update.
         public let currentVersion: LoRaWANGatewayVersion?
         /// The CRC of the signature private key to check.
@@ -2549,7 +2442,7 @@ extension IoTWireless {
 
         public func validate(name: String) throws {
             try self.currentVersion?.validate(name: "\(name).currentVersion")
-            try self.validate(self.sigKeyCrc, name: "sigKeyCrc", parent: name, max: 4294967295)
+            try self.validate(self.sigKeyCrc, name: "sigKeyCrc", parent: name, max: 4_294_967_295)
             try self.validate(self.sigKeyCrc, name: "sigKeyCrc", parent: name, min: 1)
             try self.validate(self.updateSignature, name: "updateSignature", parent: name, max: 4096)
             try self.validate(self.updateSignature, name: "updateSignature", parent: name, min: 1)
@@ -2565,7 +2458,6 @@ extension IoTWireless {
     }
 
     public struct LoRaWANUpdateGatewayTaskEntry: AWSDecodableShape {
-
         /// The version of the gateways that should receive the update.
         public let currentVersion: LoRaWANGatewayVersion?
         /// The firmware version to update the gateway to.
@@ -2583,7 +2475,6 @@ extension IoTWireless {
     }
 
     public struct OtaaV10X: AWSEncodableShape & AWSDecodableShape {
-
         /// The AppEUI value.
         public let appEui: String?
         /// The AppKey value.
@@ -2606,7 +2497,6 @@ extension IoTWireless {
     }
 
     public struct OtaaV11: AWSEncodableShape & AWSDecodableShape {
-
         /// The AppKey value.
         public let appKey: String?
         /// The JoinEUI value.
@@ -2671,7 +2561,6 @@ extension IoTWireless {
     }
 
     public struct SendDataToWirelessDeviceResponse: AWSDecodableShape {
-
         /// The ID of the message sent to the wireless device.
         public let messageId: String?
 
@@ -2685,7 +2574,6 @@ extension IoTWireless {
     }
 
     public struct ServiceProfile: AWSDecodableShape {
-
         /// The Amazon Resource Name of the resource.
         public let arn: String?
         /// The ID of the service profile.
@@ -2707,7 +2595,6 @@ extension IoTWireless {
     }
 
     public struct SessionKeysAbpV10X: AWSEncodableShape & AWSDecodableShape {
-
         /// The AppSKey value.
         public let appSKey: String?
         /// The NwkSKey value.
@@ -2730,7 +2617,6 @@ extension IoTWireless {
     }
 
     public struct SessionKeysAbpV11: AWSEncodableShape & AWSDecodableShape {
-
         /// The AppSKey value.
         public let appSKey: String?
         /// The FNwkSIntKey value.
@@ -2763,7 +2649,6 @@ extension IoTWireless {
     }
 
     public struct SidewalkAccountInfo: AWSEncodableShape & AWSDecodableShape {
-
         /// The Sidewalk Amazon ID.
         public let amazonId: String?
         /// The Sidewalk application server private key.
@@ -2788,7 +2673,6 @@ extension IoTWireless {
     }
 
     public struct SidewalkAccountInfoWithFingerprint: AWSDecodableShape {
-
         /// The Sidewalk Amazon ID.
         public let amazonId: String?
         /// The Amazon Resource Name of the resource.
@@ -2810,7 +2694,6 @@ extension IoTWireless {
     }
 
     public struct SidewalkDevice: AWSDecodableShape {
-
         /// The sidewalk device certificates for Ed25519 and P256r1.
         public let deviceCertificates: [CertificateList]?
         /// The sidewalk device identification.
@@ -2832,7 +2715,6 @@ extension IoTWireless {
     }
 
     public struct SidewalkDeviceMetadata: AWSDecodableShape {
-
         /// Sidewalk device battery level.
         public let batteryLevel: BatteryLevel?
         /// Device state defines the device status of sidewalk device.
@@ -2858,7 +2740,6 @@ extension IoTWireless {
     }
 
     public struct SidewalkListDevice: AWSDecodableShape {
-
         /// The Sidewalk Amazon ID.
         public let amazonId: String?
         /// The sidewalk device certificates for Ed25519 and P256r1.
@@ -2884,7 +2765,6 @@ extension IoTWireless {
     }
 
     public struct SidewalkSendDataToDevice: AWSEncodableShape {
-
         /// The sequence number.
         public let seq: Int?
 
@@ -2903,7 +2783,6 @@ extension IoTWireless {
     }
 
     public struct SidewalkUpdateAccount: AWSEncodableShape {
-
         /// The new Sidewalk application server private key.
         public let appServerPrivateKey: String?
 
@@ -2923,7 +2802,6 @@ extension IoTWireless {
     }
 
     public struct Tag: AWSEncodableShape & AWSDecodableShape {
-
         /// The tag's key value.
         public let key: String
         /// The tag's value.
@@ -2978,11 +2856,7 @@ extension IoTWireless {
     }
 
     public struct TagResourceResponse: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct TestWirelessDeviceRequest: AWSEncodableShape {
@@ -3005,7 +2879,6 @@ extension IoTWireless {
     }
 
     public struct TestWirelessDeviceResponse: AWSDecodableShape {
-
         /// The result returned by the test.
         public let result: String?
 
@@ -3020,7 +2893,7 @@ extension IoTWireless {
 
     public struct UntagResourceRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "resourceArn", location: .querystring(locationName: "resourceArn")), 
+            AWSMemberEncoding(label: "resourceArn", location: .querystring(locationName: "resourceArn")),
             AWSMemberEncoding(label: "tagKeys", location: .querystring(locationName: "tagKeys"))
         ]
 
@@ -3049,11 +2922,7 @@ extension IoTWireless {
     }
 
     public struct UntagResourceResponse: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct UpdateDestinationRequest: AWSEncodableShape {
@@ -3098,16 +2967,12 @@ extension IoTWireless {
     }
 
     public struct UpdateDestinationResponse: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct UpdatePartnerAccountRequest: AWSEncodableShape {
         public static var _encoding = [
-            AWSMemberEncoding(label: "partnerAccountId", location: .uri(locationName: "PartnerAccountId")), 
+            AWSMemberEncoding(label: "partnerAccountId", location: .uri(locationName: "PartnerAccountId")),
             AWSMemberEncoding(label: "partnerType", location: .querystring(locationName: "partnerType"))
         ]
 
@@ -3135,11 +3000,7 @@ extension IoTWireless {
     }
 
     public struct UpdatePartnerAccountResponse: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct UpdateWirelessDeviceRequest: AWSEncodableShape {
@@ -3184,11 +3045,7 @@ extension IoTWireless {
     }
 
     public struct UpdateWirelessDeviceResponse: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct UpdateWirelessGatewayRequest: AWSEncodableShape {
@@ -3222,15 +3079,10 @@ extension IoTWireless {
     }
 
     public struct UpdateWirelessGatewayResponse: AWSDecodableShape {
-
-
-        public init() {
-        }
-
+        public init() {}
     }
 
     public struct UpdateWirelessGatewayTaskCreate: AWSEncodableShape & AWSDecodableShape {
-
         /// The properties that relate to the LoRaWAN wireless gateway.
         public let loRaWAN: LoRaWANUpdateGatewayTaskCreate?
         /// The IAM role used to read data from the S3 bucket.
@@ -3260,7 +3112,6 @@ extension IoTWireless {
     }
 
     public struct UpdateWirelessGatewayTaskEntry: AWSDecodableShape {
-
         /// The Amazon Resource Name of the resource.
         public let arn: String?
         /// The ID of the new wireless gateway task entry.
@@ -3282,7 +3133,6 @@ extension IoTWireless {
     }
 
     public struct WirelessDeviceStatistics: AWSDecodableShape {
-
         /// The Amazon Resource Name of the resource.
         public let arn: String?
         /// The name of the destination to which the device is assigned.
@@ -3324,7 +3174,6 @@ extension IoTWireless {
     }
 
     public struct WirelessGatewayStatistics: AWSDecodableShape {
-
         /// The Amazon Resource Name of the resource.
         public let arn: String?
         /// The description of the resource.
@@ -3358,7 +3207,6 @@ extension IoTWireless {
     }
 
     public struct WirelessMetadata: AWSEncodableShape {
-
         /// LoRaWAN device info.
         public let loRaWAN: LoRaWANSendDataToDevice?
         /// The Sidewalk account credentials.

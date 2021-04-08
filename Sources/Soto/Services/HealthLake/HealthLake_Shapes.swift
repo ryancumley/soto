@@ -49,7 +49,6 @@ extension HealthLake {
     // MARK: Shapes
 
     public struct CreateFHIRDatastoreRequest: AWSEncodableShape {
-
         /// Optional user provided token used for ensuring idempotency.
         public let clientToken: String?
         /// The user generated name for the Data Store.
@@ -84,7 +83,6 @@ extension HealthLake {
     }
 
     public struct CreateFHIRDatastoreResponse: AWSDecodableShape {
-
         /// The datastore ARN is generated during the creation of the Data Store and can be found in the output from the initial Data Store creation call.
         public let datastoreArn: String
         /// The AWS endpoint for the created Data Store. For preview, only US-east-1 endpoints are supported.
@@ -110,7 +108,6 @@ extension HealthLake {
     }
 
     public struct DatastoreFilter: AWSEncodableShape {
-
         /// A filter that allows the user to set cutoff dates for records. All Data Stores created after the specified date will be included in the results.
         public let createdAfter: Date?
         /// A filter that allows the user to set cutoff dates for records. All Data Stores created before the specified date will be included in the results.
@@ -142,7 +139,6 @@ extension HealthLake {
     }
 
     public struct DatastoreProperties: AWSDecodableShape {
-
         /// The time that a Data Store was created.
         public let createdAt: Date?
         /// The Amazon Resource Name used in the creation of the Data Store.
@@ -184,7 +180,6 @@ extension HealthLake {
     }
 
     public struct DeleteFHIRDatastoreRequest: AWSEncodableShape {
-
         ///  The AWS-generated ID for the Data Store to be deleted.
         public let datastoreId: String?
 
@@ -204,7 +199,6 @@ extension HealthLake {
     }
 
     public struct DeleteFHIRDatastoreResponse: AWSDecodableShape {
-
         /// The Amazon Resource Name (ARN) that gives Amazon HealthLake access permission.
         public let datastoreArn: String
         /// The AWS endpoint for the Data Store the user has requested to be deleted.
@@ -230,7 +224,6 @@ extension HealthLake {
     }
 
     public struct DescribeFHIRDatastoreRequest: AWSEncodableShape {
-
         /// The AWS-generated Data Store id. This is part of the ‘CreateFHIRDatastore’ output.
         public let datastoreId: String?
 
@@ -250,7 +243,6 @@ extension HealthLake {
     }
 
     public struct DescribeFHIRDatastoreResponse: AWSDecodableShape {
-
         /// All properties associated with a Data Store, including the Data Store ID, Data Store ARN, Data Store name, Data Store status, created at, Data Store type version, and Data Store endpoint.
         public let datastoreProperties: DatastoreProperties
 
@@ -264,7 +256,6 @@ extension HealthLake {
     }
 
     public struct DescribeFHIRExportJobRequest: AWSEncodableShape {
-
         /// The AWS generated ID for the Data Store from which files are being exported from for an export job.
         public let datastoreId: String
         /// The AWS generated ID for an export job.
@@ -291,7 +282,6 @@ extension HealthLake {
     }
 
     public struct DescribeFHIRExportJobResponse: AWSDecodableShape {
-
         /// Displays the properties of the export job, including the ID, Arn, Name, and the status of the job.
         public let exportJobProperties: ExportJobProperties
 
@@ -305,7 +295,6 @@ extension HealthLake {
     }
 
     public struct DescribeFHIRImportJobRequest: AWSEncodableShape {
-
         /// The AWS-generated ID of the Data Store.
         public let datastoreId: String
         /// The AWS-generated job ID.
@@ -332,7 +321,6 @@ extension HealthLake {
     }
 
     public struct DescribeFHIRImportJobResponse: AWSDecodableShape {
-
         /// The properties of the Import job request, including the ID, ARN, name, and the status of the job.
         public let importJobProperties: ImportJobProperties
 
@@ -346,7 +334,6 @@ extension HealthLake {
     }
 
     public struct ExportJobProperties: AWSDecodableShape {
-
         /// The Amazon Resource Name used during the initiation of the job.
         public let dataAccessRoleArn: String?
         /// The AWS generated ID for the Data Store from which files are being exported for an export job.
@@ -392,7 +379,6 @@ extension HealthLake {
     }
 
     public struct ImportJobProperties: AWSDecodableShape {
-
         /// The Amazon Resource Name (ARN) that gives Amazon HealthLake access to your input data.
         public let dataAccessRoleArn: String?
         /// The datastore id used when the Import job was created.
@@ -438,7 +424,6 @@ extension HealthLake {
     }
 
     public struct InputDataConfig: AWSEncodableShape & AWSDecodableShape {
-
         /// The S3Uri is the user specified S3 location of the FHIR data to be imported into Amazon HealthLake.
         public let s3Uri: String?
 
@@ -457,7 +442,6 @@ extension HealthLake {
     }
 
     public struct ListFHIRDatastoresRequest: AWSEncodableShape {
-
         /// Lists all filters associated with a FHIR Data Store request.
         public let filter: DatastoreFilter?
         /// The maximum number of Data Stores returned in a single page of a ListFHIRDatastoresRequest call.
@@ -487,7 +471,6 @@ extension HealthLake {
     }
 
     public struct ListFHIRDatastoresResponse: AWSDecodableShape {
-
         /// All properties associated with the listed Data Stores.
         public let datastorePropertiesList: [DatastoreProperties]
         /// Pagination token that can be used to retrieve the next page of results.
@@ -505,7 +488,6 @@ extension HealthLake {
     }
 
     public struct OutputDataConfig: AWSEncodableShape & AWSDecodableShape {
-
         /// The S3Uri is the user specified S3 location to which data will be exported from a FHIR Data Store.
         public let s3Uri: String?
 
@@ -524,7 +506,6 @@ extension HealthLake {
     }
 
     public struct PreloadDataConfig: AWSEncodableShape & AWSDecodableShape {
-
         /// The type of preloaded data. Only Synthea preloaded data is supported.
         public let preloadDataType: PreloadDataType
 
@@ -538,7 +519,6 @@ extension HealthLake {
     }
 
     public struct StartFHIRExportJobRequest: AWSEncodableShape {
-
         /// An optional user provided token used for ensuring idempotency.
         public let clientToken: String
         /// The Amazon Resource Name used during the initiation of the job.
@@ -584,7 +564,6 @@ extension HealthLake {
     }
 
     public struct StartFHIRExportJobResponse: AWSDecodableShape {
-
         /// The AWS generated ID for the Data Store from which files are being exported for an export job.
         public let datastoreId: String?
         /// The AWS generated ID for an export job.
@@ -606,7 +585,6 @@ extension HealthLake {
     }
 
     public struct StartFHIRImportJobRequest: AWSEncodableShape {
-
         /// Optional user provided token used for ensuring idempotency.
         public let clientToken: String
         /// The Amazon Resource Name (ARN) that gives Amazon HealthLake access permission.
@@ -652,7 +630,6 @@ extension HealthLake {
     }
 
     public struct StartFHIRImportJobResponse: AWSDecodableShape {
-
         /// The AWS-generated Data Store ID.
         public let datastoreId: String?
         /// The AWS-generated job ID.
