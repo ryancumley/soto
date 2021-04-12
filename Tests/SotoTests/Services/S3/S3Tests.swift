@@ -744,14 +744,14 @@ class S3AsyncTests: XCTestCase {
 
     // MARK: TESTS
 
-    func testHeadBucket() throws {
+    func testHeadBucketAsync() throws {
         let name = TestEnvironment.generateResourceName()
         self.s3Test(bucket: name) {
             try await Self.s3.headBucket(.init(bucket: name))
         }
     }
 
-    func testPutGetObject() {
+    func testPutGetObjectAsync() {
         let name = TestEnvironment.generateResourceName()
         let filename = "testfile.txt"
         let contents = "testing S3.PutObject and S3.GetObject"
@@ -771,7 +771,7 @@ class S3AsyncTests: XCTestCase {
         }
     }
 
-    func testPutGetObjectWithSpecialName() {
+    func testPutGetObjectWithSpecialNameAsync() {
         let name = TestEnvironment.generateResourceName()
         let filename = "test $filé+!@£$%2F%^&*()_=-[]{}\\|';:\",./?><~`.txt"
         let contents = "testing S3.PutObject and S3.GetObject"
@@ -791,7 +791,7 @@ class S3AsyncTests: XCTestCase {
         }
     }
 
-    func testCopy() {
+    func testCopyAsync() {
         let name = TestEnvironment.generateResourceName()
         let keyName = "file1"
         let newKeyName = "file2"
@@ -805,7 +805,7 @@ class S3AsyncTests: XCTestCase {
     }
 
     /// test uploaded objects are returned in ListObjects
-    func testListObjects() {
+    func testListObjectsAsync() {
         let name = TestEnvironment.generateResourceName()
         let contents = "testing S3.ListObjectsV2"
 
@@ -820,7 +820,7 @@ class S3AsyncTests: XCTestCase {
         }
     }
 
-    func testStreamPutObject() {
+    func testStreamPutObjectAsync() {
         let s3 = Self.s3.with(timeout: .minutes(2))
         let name = TestEnvironment.generateResourceName()
         let dataSize = 240 * 1024
@@ -846,7 +846,7 @@ class S3AsyncTests: XCTestCase {
     }
 
     /// test lifecycle rules are uploaded and downloaded ok
-    func testLifecycleRule() {
+    func testLifecycleRuleAsync() {
         let name = TestEnvironment.generateResourceName()
 
         self.s3Test(bucket: name) {
@@ -871,7 +871,7 @@ class S3AsyncTests: XCTestCase {
         }
     }
 
-    func testMultipleUpload() {
+    func testMultipleUploadAsync() {
         let name = TestEnvironment.generateResourceName()
         self.s3Test(bucket: name) {
             await Task.withGroup(resultType: Void.self) { group in
@@ -889,7 +889,7 @@ class S3AsyncTests: XCTestCase {
     }
 
     /// testing decoding of values in xml attributes
-    func testGetAclRequestPayer() {
+    func testGetAclRequestPayerAsync() {
         let name = TestEnvironment.generateResourceName()
         let contents = "testing xml attributes header"
 
@@ -904,7 +904,7 @@ class S3AsyncTests: XCTestCase {
         }
     }
 
-    func testListPaginator() {
+    func testListPaginatorAsync() {
         let name = TestEnvironment.generateResourceName()
         self.s3Test(bucket: name) {
             await Task.withGroup(resultType: Void.self) { group in
@@ -926,7 +926,7 @@ class S3AsyncTests: XCTestCase {
         }
     }
 
-    func testStreamRequestObject() {
+    func testStreamRequestObjectAsync() {
         // testing eventLoop so need to use MultiThreadedEventLoopGroup
         let elg = MultiThreadedEventLoopGroup(numberOfThreads: 3)
         let httpClient = HTTPClient(eventLoopGroupProvider: .shared(elg))
@@ -972,7 +972,7 @@ class S3AsyncTests: XCTestCase {
         }
     }
 
-    func testStreamResponseObject() {
+    func testStreamResponseObjectAsync() {
         // testing eventLoop so need to use MultiThreadedEventLoopGroup
         let elg = MultiThreadedEventLoopGroup(numberOfThreads: 3)
         let httpClient = HTTPClient(eventLoopGroupProvider: .shared(elg))
@@ -1018,7 +1018,7 @@ class S3AsyncTests: XCTestCase {
     }
 
     /// testing Date format in response headers
-    func testMultipartAbortDate() {
+    func testMultipartAbortDateAsync() {
         let name = TestEnvironment.generateResourceName()
 
         self.s3Test(bucket: name) {
@@ -1034,7 +1034,7 @@ class S3AsyncTests: XCTestCase {
         }
     }
 
-    func testSignedURL() {
+    func testSignedURLAsync() {
         // doesnt work with LocalStack
         guard !TestEnvironment.isUsingLocalstack else { return }
 
@@ -1062,7 +1062,7 @@ class S3AsyncTests: XCTestCase {
         }
     }
 
-    func testDualStack() {
+    func testDualStackAsync() {
         // doesnt work with LocalStack
         guard !TestEnvironment.isUsingLocalstack else { return }
 
@@ -1086,7 +1086,7 @@ class S3AsyncTests: XCTestCase {
         }
     }
 
-    func testTransferAccelerated() {
+    func testTransferAcceleratedAsync() {
         // doesnt work with LocalStack
         guard !TestEnvironment.isUsingLocalstack else { return }
 
@@ -1112,7 +1112,7 @@ class S3AsyncTests: XCTestCase {
         }
     }
 
-    func testError() {
+    func testErrorAsync() {
         // get wrong error with LocalStack
         guard !TestEnvironment.isUsingLocalstack else { return }
 
