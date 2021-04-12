@@ -874,7 +874,7 @@ class S3AsyncTests: XCTestCase {
     func testMultipleUpload() {
         let name = TestEnvironment.generateResourceName()
         self.s3Test(bucket: name) {
-            try await Task.withGroup(resultType: Void.self) { group in
+            await Task.withGroup(resultType: Void.self) { group in
                 for index in 1...16 {
                     await group.add {
                         let body = "testMultipleUpload - " + index.description
@@ -907,7 +907,7 @@ class S3AsyncTests: XCTestCase {
     func testListPaginator() {
         let name = TestEnvironment.generateResourceName()
         self.s3Test(bucket: name) {
-            try await Task.withGroup(resultType: Void.self) { group in
+            await Task.withGroup(resultType: Void.self) { group in
                 for index in 1...16 {
                     let body = "testMultipleUpload - " + index.description
                     let filename = "file" + index.description
@@ -1116,7 +1116,9 @@ class S3AsyncTests: XCTestCase {
         // get wrong error with LocalStack
         guard !TestEnvironment.isUsingLocalstack else { return }
 
-        runAsyncAndBlock {
+        let dg = DispatchGroup()
+        dg.enter()
+        Task.runDetached {
             do {
                 _ = try await Self.s3.deleteBucket(.init(bucket: "nosuch-bucket-name3458bjhdfgdf"))
             } catch {
@@ -1127,7 +1129,9 @@ class S3AsyncTests: XCTestCase {
                     XCTFail("Wrong error: \(error)")
                 }
             }
+            dg.leave()
         }
+        dg.wait()
     }
 }
 
