@@ -21,41 +21,37 @@ env:
   AWS_LOG_LEVEL: "trace"
 
 jobs:
-  macos:
-    runs-on: macOS-latest
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v1
-      with:
-        fetch-depth: 1
-    - name: SPM build
-      run: swift build
-
   linux:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        image: ['swift:5.1', 'swift:5.2', 'swift:5.3']
+        tag: ['nightly-5.4-bionic', 'nightly-5.4-focal', 'nightly-5.4-centos8', 'nightly-5.4-amazonlinux2']
+    container:
+      image: swiftlang/swift:${{ matrix.tag }}
+      env:
+        LOCALSTACK_ENDPOINT : "http://localstack:4566"
     services:
       localstack:
         image: localstack/localstack
-    container:
-      image: ${{ matrix.image }}
-      env:
-        LOCALSTACK_ENDPOINT : "http://localstack:4566"
     steps:
     - name: Checkout
       uses: actions/checkout@v1
       with:
         fetch-depth: 1
-    - name: Install dependencies
+    - name: Install dependencies (Ubuntu)
+      if: ${{ matrix.tag == 'nightly-bionic' || matrix.tag == 'nightly-focal'}}
       run: |
         apt-get update -qq
         apt-get install -q -y tzdata zlib1g-dev
+    - name: Install dependencies (Amazon Linux2/CentOS8)
+      if: ${{ matrix.tag == 'nightly-amazonlinux2' || matrix.tag == 'nightly-centos8'}}
+      run: |
+        yum -y update
+        yum -y install zlib-devel
     - name: Test Resource Prefix
       # set AWS_TEST_RESOURCE_PREFIX environment variable to a random series of 8 letters
       run: |
         echo AWS_TEST_RESOURCE_PREFIX=$(cat /dev/urandom | tr -dc 'a-z' | head -c 8) >> $GITHUB_ENV
     - name: Test
       run: |
-        swift test --enable-test-discovery --sanitize=thread
+        swift test --enable-test-discovery

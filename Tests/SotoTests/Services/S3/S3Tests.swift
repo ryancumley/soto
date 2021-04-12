@@ -722,7 +722,7 @@ class S3AsyncTests: XCTestCase {
     }
 
     /// Runs test: construct bucket with supplied name, runs process and deletes bucket
-    func s3Test(bucket name: String, s3: S3 = S3AsyncTests.s3, _ process: @escaping () async throws -> ()) {
+    func s3Test(bucket name: String, s3: S3 = S3AsyncTests.s3, _ process: @escaping () async throws -> Void) {
         let dg = DispatchGroup()
         dg.enter()
         Task.runDetached {
@@ -741,11 +741,12 @@ class S3AsyncTests: XCTestCase {
         }
         dg.wait()
     }
+
     // MARK: TESTS
 
     func testHeadBucket() throws {
         let name = TestEnvironment.generateResourceName()
-        s3Test(bucket: name) {
+        self.s3Test(bucket: name) {
             try await Self.s3.headBucket(.init(bucket: name))
         }
     }
@@ -754,7 +755,7 @@ class S3AsyncTests: XCTestCase {
         let name = TestEnvironment.generateResourceName()
         let filename = "testfile.txt"
         let contents = "testing S3.PutObject and S3.GetObject"
-        s3Test(bucket: name) {
+        self.s3Test(bucket: name) {
             let putRequest = S3.PutObjectRequest(
                 acl: .publicRead,
                 body: .string(contents),
@@ -774,7 +775,7 @@ class S3AsyncTests: XCTestCase {
         let name = TestEnvironment.generateResourceName()
         let filename = "test $filé+!@£$%2F%^&*()_=-[]{}\\|';:\",./?><~`.txt"
         let contents = "testing S3.PutObject and S3.GetObject"
-        s3Test(bucket: name) {
+        self.s3Test(bucket: name) {
             let putRequest = S3.PutObjectRequest(
                 acl: .publicRead,
                 body: .string(contents),
@@ -795,7 +796,7 @@ class S3AsyncTests: XCTestCase {
         let keyName = "file1"
         let newKeyName = "file2"
         let contents = "testing S3.PutObject and S3.GetObject"
-        s3Test(bucket: name) {
+        self.s3Test(bucket: name) {
             _ = try await Self.s3.putObject(.init(body: .string(contents), bucket: name, key: keyName))
             _ = try await Self.s3.copyObject(.init(bucket: name, copySource: "\(name)/\(keyName)", key: newKeyName))
             let getResponse = try await Self.s3.getObject(.init(bucket: name, key: newKeyName))
@@ -808,7 +809,7 @@ class S3AsyncTests: XCTestCase {
         let name = TestEnvironment.generateResourceName()
         let contents = "testing S3.ListObjectsV2"
 
-        s3Test(bucket: name) {
+        self.s3Test(bucket: name) {
             let putResponse = try await Self.s3.putObject(.init(body: .string(contents), bucket: name, key: name))
             let eTag = try XCTUnwrap(putResponse.eTag)
             let listResponse = try await Self.s3.listObjectsV2(.init(bucket: name))
@@ -828,7 +829,7 @@ class S3AsyncTests: XCTestCase {
         var byteBuffer = ByteBufferAllocator().buffer(capacity: dataSize)
         byteBuffer.writeBytes(data)
 
-        s3Test(bucket: name) {
+        self.s3Test(bucket: name) {
             let payload = AWSPayload.stream(size: dataSize) { eventLoop in
                 let size = min(blockSize, byteBuffer.readableBytes)
                 if size == 0 {
@@ -848,7 +849,7 @@ class S3AsyncTests: XCTestCase {
     func testLifecycleRule() {
         let name = TestEnvironment.generateResourceName()
 
-        s3Test(bucket: name) {
+        self.s3Test(bucket: name) {
             // set lifecycle rules
             let incompleteMultipartUploads = S3.AbortIncompleteMultipartUpload(daysAfterInitiation: 7) // clear incomplete multipart uploads after 7 days
             let filter = S3.LifecycleRuleFilter(prefix: "") // everything
@@ -872,7 +873,7 @@ class S3AsyncTests: XCTestCase {
 
     func testMultipleUpload() {
         let name = TestEnvironment.generateResourceName()
-        s3Test(bucket: name) {
+        self.s3Test(bucket: name) {
             try await Task.withGroup(resultType: Void.self) { group in
                 for index in 1...16 {
                     await group.add {
@@ -892,7 +893,7 @@ class S3AsyncTests: XCTestCase {
         let name = TestEnvironment.generateResourceName()
         let contents = "testing xml attributes header"
 
-        s3Test(bucket: name) {
+        self.s3Test(bucket: name) {
             let putRequest = S3.PutObjectRequest(
                 body: .string(contents),
                 bucket: name,
@@ -905,9 +906,9 @@ class S3AsyncTests: XCTestCase {
 
     func testListPaginator() {
         let name = TestEnvironment.generateResourceName()
-        s3Test(bucket: name) {
+        self.s3Test(bucket: name) {
             try await Task.withGroup(resultType: Void.self) { group in
-                for index in (1...16) {
+                for index in 1...16 {
                     let body = "testMultipleUpload - " + index.description
                     let filename = "file" + index.description
                     await group.add {
@@ -917,7 +918,7 @@ class S3AsyncTests: XCTestCase {
             }
             let list = try await Self.s3.listObjectsV2(.init(bucket: name)).contents
             let paginator = Self.s3.listObjectsV2Paginator(.init(bucket: name, maxKeys: 5))
-            let list2 = try await paginator.reduce([], { $0 + ($1.contents ?? [])})
+            let list2 = try await paginator.reduce([]) { $0 + ($1.contents ?? []) }
             XCTAssertEqual(list?.count, list2.count)
             for i in 0..<list2.count {
                 XCTAssertEqual(list2[i].key, list?[i].key)
@@ -962,7 +963,7 @@ class S3AsyncTests: XCTestCase {
         }
         let name = TestEnvironment.generateResourceName()
 
-        s3Test(bucket: name, s3: s3) {
+        self.s3Test(bucket: name, s3: s3) {
             let putRequest = S3.PutObjectRequest(body: payload, bucket: name, key: "tempfile")
             _ = try await s3.putObject(putRequest, on: runOnEventLoop)
             let getRequest = S3.GetObjectRequest(bucket: name, key: "tempfile")
@@ -1002,7 +1003,7 @@ class S3AsyncTests: XCTestCase {
         let runOnEventLoop = s3.client.eventLoopGroup.next()
         var byteBufferCollate = ByteBufferAllocator().buffer(capacity: dataSize)
 
-        s3Test(bucket: name, s3: s3) {
+        self.s3Test(bucket: name, s3: s3) {
             let putRequest = S3.PutObjectRequest(body: .data(data), bucket: name, key: "tempfile")
             _ = try await s3.putObject(putRequest, on: runOnEventLoop)
             let getRequest = S3.GetObjectRequest(bucket: name, key: "tempfile")
@@ -1020,7 +1021,7 @@ class S3AsyncTests: XCTestCase {
     func testMultipartAbortDate() {
         let name = TestEnvironment.generateResourceName()
 
-        s3Test(bucket: name) {
+        self.s3Test(bucket: name) {
             let rule = S3.LifecycleRule(abortIncompleteMultipartUpload: .init(daysAfterInitiation: 7), filter: .init(prefix: ""), id: "multipart-upload", status: .enabled)
             let request = S3.PutBucketLifecycleConfigurationRequest(
                 bucket: name,
@@ -1042,7 +1043,7 @@ class S3AsyncTests: XCTestCase {
         defer { XCTAssertNoThrow(try httpClient.syncShutdown()) }
         let s3Url = URL(string: "https://\(name).s3.us-east-1.amazonaws.com/\(name)!=%25+/*()_.txt")!
 
-        s3Test(bucket: name) {
+        self.s3Test(bucket: name) {
             let putURL = try await Self.s3.signURL(url: s3Url, httpMethod: .PUT, expires: .minutes(5)).get()
             let buffer = ByteBufferAllocator().buffer(string: "Testing upload via signed URL")
 
@@ -1069,7 +1070,7 @@ class S3AsyncTests: XCTestCase {
         let name = TestEnvironment.generateResourceName()
         let filename = "testfile.txt"
         let contents = "testing S3.PutObject and S3.GetObject"
-        s3Test(bucket: name, s3: s3) {
+        self.s3Test(bucket: name, s3: s3) {
             let putRequest = S3.PutObjectRequest(
                 acl: .publicRead,
                 body: .string(contents),
@@ -1093,7 +1094,7 @@ class S3AsyncTests: XCTestCase {
         let name = TestEnvironment.generateResourceName()
         let filename = "testfile.txt"
         let contents = "testing S3.PutObject and S3.GetObject"
-        s3Test(bucket: name) {
+        self.s3Test(bucket: name) {
             let accelerationRequest = S3.PutBucketAccelerateConfigurationRequest(accelerateConfiguration: .init(status: .enabled), bucket: name)
             _ = try await Self.s3.putBucketAccelerateConfiguration(accelerationRequest)
             let putRequest = S3.PutObjectRequest(

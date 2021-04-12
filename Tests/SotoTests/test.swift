@@ -73,4 +73,3 @@ enum TestEnvironment {
         return AWSClient.loggingDisabled
     }()
 }
-

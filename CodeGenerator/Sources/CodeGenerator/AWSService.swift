@@ -451,7 +451,7 @@ extension AWSService {
             } else {
                 moreResultsKey = nil
             }
-            if self.api.serviceName == "DynamoDB", (operation.name == "BatchGetItem") {
+            if self.api.serviceName == "DynamoDB", operation.name == "BatchGetItem" {
                 processedInputTokens = []
             }
             if processedInputTokens.isEmpty, moreResultsKey == nil {
