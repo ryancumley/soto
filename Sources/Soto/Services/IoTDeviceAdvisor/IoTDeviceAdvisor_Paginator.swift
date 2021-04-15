@@ -72,29 +72,6 @@ extension IoTDeviceAdvisor {
         )
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listSuiteDefinitionsPaginator(
-        _ input: ListSuiteDefinitionsRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListSuiteDefinitionsRequest, ListSuiteDefinitionsResponse> {
-        return .init(
-            input: input,
-            command: listSuiteDefinitions,
-            inputKey: \ListSuiteDefinitionsRequest.nextToken,
-            outputKey: \ListSuiteDefinitionsResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
-
     ///  Lists the runs of the specified Device Advisor test suite. You can list all runs of the test suite, or the runs of a specific version of the test suite.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -148,29 +125,6 @@ extension IoTDeviceAdvisor {
         )
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listSuiteRunsPaginator(
-        _ input: ListSuiteRunsRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListSuiteRunsRequest, ListSuiteRunsResponse> {
-        return .init(
-            input: input,
-            command: listSuiteRuns,
-            inputKey: \ListSuiteRunsRequest.nextToken,
-            outputKey: \ListSuiteRunsResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
-
     ///  Lists all the test cases in the test suite.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -223,29 +177,6 @@ extension IoTDeviceAdvisor {
             onPage: onPage
         )
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listTestCasesPaginator(
-        _ input: ListTestCasesRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListTestCasesRequest, ListTestCasesResponse> {
-        return .init(
-            input: input,
-            command: listTestCases,
-            inputKey: \ListTestCasesRequest.nextToken,
-            outputKey: \ListTestCasesResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
 }
 
 extension IoTDeviceAdvisor.ListSuiteDefinitionsRequest: AWSPaginateToken {

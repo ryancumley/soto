@@ -72,29 +72,6 @@ extension ServerlessApplicationRepository {
         )
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listApplicationDependenciesPaginator(
-        _ input: ListApplicationDependenciesRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListApplicationDependenciesRequest, ListApplicationDependenciesResponse> {
-        return .init(
-            input: input,
-            command: listApplicationDependencies,
-            inputKey: \ListApplicationDependenciesRequest.nextToken,
-            outputKey: \ListApplicationDependenciesResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
-
     ///  Lists versions for the specified application.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -148,29 +125,6 @@ extension ServerlessApplicationRepository {
         )
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listApplicationVersionsPaginator(
-        _ input: ListApplicationVersionsRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListApplicationVersionsRequest, ListApplicationVersionsResponse> {
-        return .init(
-            input: input,
-            command: listApplicationVersions,
-            inputKey: \ListApplicationVersionsRequest.nextToken,
-            outputKey: \ListApplicationVersionsResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
-
     ///  Lists applications owned by the requester.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -223,29 +177,6 @@ extension ServerlessApplicationRepository {
             onPage: onPage
         )
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listApplicationsPaginator(
-        _ input: ListApplicationsRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListApplicationsRequest, ListApplicationsResponse> {
-        return .init(
-            input: input,
-            command: listApplications,
-            inputKey: \ListApplicationsRequest.nextToken,
-            outputKey: \ListApplicationsResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
 }
 
 extension ServerlessApplicationRepository.ListApplicationDependenciesRequest: AWSPaginateToken {

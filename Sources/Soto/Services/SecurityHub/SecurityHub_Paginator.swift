@@ -72,29 +72,6 @@ extension SecurityHub {
         )
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func describeActionTargetsPaginator(
-        _ input: DescribeActionTargetsRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<DescribeActionTargetsRequest, DescribeActionTargetsResponse> {
-        return .init(
-            input: input,
-            command: describeActionTargets,
-            inputKey: \DescribeActionTargetsRequest.nextToken,
-            outputKey: \DescribeActionTargetsResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
-
     ///  Returns information about product integrations in Security Hub. You can optionally provide an integration ARN. If you provide an integration ARN, then the results only include that integration. If you do not provide an integration ARN, then the results include all of the available product integrations.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -147,29 +124,6 @@ extension SecurityHub {
             onPage: onPage
         )
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func describeProductsPaginator(
-        _ input: DescribeProductsRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<DescribeProductsRequest, DescribeProductsResponse> {
-        return .init(
-            input: input,
-            command: describeProducts,
-            inputKey: \DescribeProductsRequest.nextToken,
-            outputKey: \DescribeProductsResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
 
     ///  Returns a list of the available standards in Security Hub. For each standard, the results include the standard ARN, the name, and a description.
     ///
@@ -224,29 +178,6 @@ extension SecurityHub {
         )
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func describeStandardsPaginator(
-        _ input: DescribeStandardsRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<DescribeStandardsRequest, DescribeStandardsResponse> {
-        return .init(
-            input: input,
-            command: describeStandards,
-            inputKey: \DescribeStandardsRequest.nextToken,
-            outputKey: \DescribeStandardsResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
-
     ///  Returns a list of security standards controls. For each control, the results include information about whether it is currently enabled, the severity, and a link to remediation information.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -299,29 +230,6 @@ extension SecurityHub {
             onPage: onPage
         )
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func describeStandardsControlsPaginator(
-        _ input: DescribeStandardsControlsRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<DescribeStandardsControlsRequest, DescribeStandardsControlsResponse> {
-        return .init(
-            input: input,
-            command: describeStandardsControls,
-            inputKey: \DescribeStandardsControlsRequest.nextToken,
-            outputKey: \DescribeStandardsControlsResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
 
     ///  Returns a list of the standards that are currently enabled.
     ///
@@ -376,29 +284,6 @@ extension SecurityHub {
         )
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func getEnabledStandardsPaginator(
-        _ input: GetEnabledStandardsRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<GetEnabledStandardsRequest, GetEnabledStandardsResponse> {
-        return .init(
-            input: input,
-            command: getEnabledStandards,
-            inputKey: \GetEnabledStandardsRequest.nextToken,
-            outputKey: \GetEnabledStandardsResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
-
     ///  Returns a list of findings that match the specified criteria.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -451,29 +336,6 @@ extension SecurityHub {
             onPage: onPage
         )
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func getFindingsPaginator(
-        _ input: GetFindingsRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<GetFindingsRequest, GetFindingsResponse> {
-        return .init(
-            input: input,
-            command: getFindings,
-            inputKey: \GetFindingsRequest.nextToken,
-            outputKey: \GetFindingsResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
 
     ///  Lists and describes insights for the specified insight ARNs.
     ///
@@ -528,29 +390,6 @@ extension SecurityHub {
         )
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func getInsightsPaginator(
-        _ input: GetInsightsRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<GetInsightsRequest, GetInsightsResponse> {
-        return .init(
-            input: input,
-            command: getInsights,
-            inputKey: \GetInsightsRequest.nextToken,
-            outputKey: \GetInsightsResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
-
     ///  Lists all findings-generating solutions (products) that you are subscribed to receive findings from in Security Hub.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -603,29 +442,6 @@ extension SecurityHub {
             onPage: onPage
         )
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listEnabledProductsForImportPaginator(
-        _ input: ListEnabledProductsForImportRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListEnabledProductsForImportRequest, ListEnabledProductsForImportResponse> {
-        return .init(
-            input: input,
-            command: listEnabledProductsForImport,
-            inputKey: \ListEnabledProductsForImportRequest.nextToken,
-            outputKey: \ListEnabledProductsForImportResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
 
     ///  Lists all Security Hub membership invitations that were sent to the current AWS account. This operation is only used by accounts that do not belong to an organization. Organization accounts do not receive invitations.
     ///
@@ -680,29 +496,6 @@ extension SecurityHub {
         )
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listInvitationsPaginator(
-        _ input: ListInvitationsRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListInvitationsRequest, ListInvitationsResponse> {
-        return .init(
-            input: input,
-            command: listInvitations,
-            inputKey: \ListInvitationsRequest.nextToken,
-            outputKey: \ListInvitationsResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
-
     ///  Lists details about all member accounts for the current Security Hub master account. The results include both member accounts that belong to an organization and member accounts that were invited manually.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -756,29 +549,6 @@ extension SecurityHub {
         )
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listMembersPaginator(
-        _ input: ListMembersRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListMembersRequest, ListMembersResponse> {
-        return .init(
-            input: input,
-            command: listMembers,
-            inputKey: \ListMembersRequest.nextToken,
-            outputKey: \ListMembersResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
-
     ///  Lists the Security Hub administrator accounts. Can only be called by the organization management account.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -831,29 +601,6 @@ extension SecurityHub {
             onPage: onPage
         )
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listOrganizationAdminAccountsPaginator(
-        _ input: ListOrganizationAdminAccountsRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListOrganizationAdminAccountsRequest, ListOrganizationAdminAccountsResponse> {
-        return .init(
-            input: input,
-            command: listOrganizationAdminAccounts,
-            inputKey: \ListOrganizationAdminAccountsRequest.nextToken,
-            outputKey: \ListOrganizationAdminAccountsResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
 }
 
 extension SecurityHub.DescribeActionTargetsRequest: AWSPaginateToken {

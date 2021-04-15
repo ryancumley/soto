@@ -71,29 +71,6 @@ extension TimestreamQuery {
             onPage: onPage
         )
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func queryPaginator(
-        _ input: QueryRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<QueryRequest, QueryResponse> {
-        return .init(
-            input: input,
-            command: query,
-            inputKey: \QueryRequest.nextToken,
-            outputKey: \QueryResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
 }
 
 extension TimestreamQuery.QueryRequest: AWSPaginateToken {

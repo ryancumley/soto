@@ -68,44 +68,20 @@ public struct IoTEventsData: AWSService {
         return self.client.execute(operation: "BatchPutMessage", path: "/inputs/messages", httpMethod: .POST, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    public func batchPutMessage(_ input: BatchPutMessageRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws -> BatchPutMessageResponse {
-        return try await self.client.execute(operation: "BatchPutMessage", path: "/inputs/messages", httpMethod: .POST, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
-    }
-    #endif
-
     /// Updates the state, variable values, and timer settings of one or more detectors (instances) of a specified detector model.
     public func batchUpdateDetector(_ input: BatchUpdateDetectorRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<BatchUpdateDetectorResponse> {
         return self.client.execute(operation: "BatchUpdateDetector", path: "/detectors", httpMethod: .POST, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    public func batchUpdateDetector(_ input: BatchUpdateDetectorRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws -> BatchUpdateDetectorResponse {
-        return try await self.client.execute(operation: "BatchUpdateDetector", path: "/detectors", httpMethod: .POST, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
-    }
-    #endif
 
     /// Returns information about the specified detector (instance).
     public func describeDetector(_ input: DescribeDetectorRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<DescribeDetectorResponse> {
         return self.client.execute(operation: "DescribeDetector", path: "/detectors/{detectorModelName}/keyValues/", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    public func describeDetector(_ input: DescribeDetectorRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws -> DescribeDetectorResponse {
-        return try await self.client.execute(operation: "DescribeDetector", path: "/detectors/{detectorModelName}/keyValues/", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
-    }
-    #endif
-
     /// Lists detectors (the instances of a detector model).
     public func listDetectors(_ input: ListDetectorsRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<ListDetectorsResponse> {
         return self.client.execute(operation: "ListDetectors", path: "/detectors/{detectorModelName}", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    public func listDetectors(_ input: ListDetectorsRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws -> ListDetectorsResponse {
-        return try await self.client.execute(operation: "ListDetectors", path: "/detectors/{detectorModelName}", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
-    }
-    #endif
 }
 
 extension IoTEventsData {

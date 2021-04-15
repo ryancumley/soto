@@ -72,29 +72,6 @@ extension XRay {
         )
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func batchGetTracesPaginator(
-        _ input: BatchGetTracesRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<BatchGetTracesRequest, BatchGetTracesResult> {
-        return .init(
-            input: input,
-            command: batchGetTraces,
-            inputKey: \BatchGetTracesRequest.nextToken,
-            outputKey: \BatchGetTracesResult.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
-
     ///  Retrieves all active group details.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -147,29 +124,6 @@ extension XRay {
             onPage: onPage
         )
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func getGroupsPaginator(
-        _ input: GetGroupsRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<GetGroupsRequest, GetGroupsResult> {
-        return .init(
-            input: input,
-            command: getGroups,
-            inputKey: \GetGroupsRequest.nextToken,
-            outputKey: \GetGroupsResult.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
 
     ///  X-Ray reevaluates insights periodically until they're resolved, and records each intermediate state as an event. You can review an insight's events in the Impact Timeline on the Inspect page in the X-Ray console.
     ///
@@ -224,29 +178,6 @@ extension XRay {
         )
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func getInsightEventsPaginator(
-        _ input: GetInsightEventsRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<GetInsightEventsRequest, GetInsightEventsResult> {
-        return .init(
-            input: input,
-            command: getInsightEvents,
-            inputKey: \GetInsightEventsRequest.nextToken,
-            outputKey: \GetInsightEventsResult.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
-
     ///  Retrieves the summaries of all insights in the specified group matching the provided filter values.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -299,29 +230,6 @@ extension XRay {
             onPage: onPage
         )
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func getInsightSummariesPaginator(
-        _ input: GetInsightSummariesRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<GetInsightSummariesRequest, GetInsightSummariesResult> {
-        return .init(
-            input: input,
-            command: getInsightSummaries,
-            inputKey: \GetInsightSummariesRequest.nextToken,
-            outputKey: \GetInsightSummariesResult.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
 
     ///  Retrieves all sampling rules.
     ///
@@ -376,29 +284,6 @@ extension XRay {
         )
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func getSamplingRulesPaginator(
-        _ input: GetSamplingRulesRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<GetSamplingRulesRequest, GetSamplingRulesResult> {
-        return .init(
-            input: input,
-            command: getSamplingRules,
-            inputKey: \GetSamplingRulesRequest.nextToken,
-            outputKey: \GetSamplingRulesResult.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
-
     ///  Retrieves information about recent sampling results for all sampling rules.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -451,29 +336,6 @@ extension XRay {
             onPage: onPage
         )
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func getSamplingStatisticSummariesPaginator(
-        _ input: GetSamplingStatisticSummariesRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<GetSamplingStatisticSummariesRequest, GetSamplingStatisticSummariesResult> {
-        return .init(
-            input: input,
-            command: getSamplingStatisticSummaries,
-            inputKey: \GetSamplingStatisticSummariesRequest.nextToken,
-            outputKey: \GetSamplingStatisticSummariesResult.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
 
     ///  Retrieves a document that describes services that process incoming requests, and downstream services that they call as a result. Root services process incoming requests and make calls to downstream services. Root services are applications that use the AWS X-Ray SDK. Downstream services can be other applications, AWS resources, HTTP web APIs, or SQL databases.
     ///
@@ -528,29 +390,6 @@ extension XRay {
         )
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func getServiceGraphPaginator(
-        _ input: GetServiceGraphRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<GetServiceGraphRequest, GetServiceGraphResult> {
-        return .init(
-            input: input,
-            command: getServiceGraph,
-            inputKey: \GetServiceGraphRequest.nextToken,
-            outputKey: \GetServiceGraphResult.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
-
     ///  Get an aggregation of service statistics defined by a specific time range.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -603,29 +442,6 @@ extension XRay {
             onPage: onPage
         )
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func getTimeSeriesServiceStatisticsPaginator(
-        _ input: GetTimeSeriesServiceStatisticsRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<GetTimeSeriesServiceStatisticsRequest, GetTimeSeriesServiceStatisticsResult> {
-        return .init(
-            input: input,
-            command: getTimeSeriesServiceStatistics,
-            inputKey: \GetTimeSeriesServiceStatisticsRequest.nextToken,
-            outputKey: \GetTimeSeriesServiceStatisticsResult.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
 
     ///  Retrieves a service graph for one or more specific trace IDs.
     ///
@@ -680,29 +496,6 @@ extension XRay {
         )
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func getTraceGraphPaginator(
-        _ input: GetTraceGraphRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<GetTraceGraphRequest, GetTraceGraphResult> {
-        return .init(
-            input: input,
-            command: getTraceGraph,
-            inputKey: \GetTraceGraphRequest.nextToken,
-            outputKey: \GetTraceGraphResult.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
-
     ///  Retrieves IDs and annotations for traces available for a specified time frame using an optional filter. To get the full traces, pass the trace IDs to BatchGetTraces. A filter expression can target traced requests that hit specific service nodes or edges, have errors, or come from a known user. For example, the following filter expression targets traces that pass through api.example.com:  service("api.example.com")  This filter expression finds traces that have an annotation named account with the value 12345:  annotation.account = "12345"  For a full list of indexed fields and keywords that you can use in filter expressions, see Using Filter Expressions in the AWS X-Ray Developer Guide.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -755,29 +548,6 @@ extension XRay {
             onPage: onPage
         )
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func getTraceSummariesPaginator(
-        _ input: GetTraceSummariesRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<GetTraceSummariesRequest, GetTraceSummariesResult> {
-        return .init(
-            input: input,
-            command: getTraceSummaries,
-            inputKey: \GetTraceSummariesRequest.nextToken,
-            outputKey: \GetTraceSummariesResult.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
 }
 
 extension XRay.BatchGetTracesRequest: AWSPaginateToken {

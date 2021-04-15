@@ -71,29 +71,6 @@ extension CognitoIdentity {
             onPage: onPage
         )
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listIdentityPoolsPaginator(
-        _ input: ListIdentityPoolsInput,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListIdentityPoolsInput, ListIdentityPoolsResponse> {
-        return .init(
-            input: input,
-            command: listIdentityPools,
-            inputKey: \ListIdentityPoolsInput.nextToken,
-            outputKey: \ListIdentityPoolsResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
 }
 
 extension CognitoIdentity.ListIdentityPoolsInput: AWSPaginateToken {

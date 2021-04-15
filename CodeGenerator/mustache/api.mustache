@@ -97,14 +97,6 @@ public struct {{ name }}: AWSService {
     {{^outputShape}}@discardableResult {{/outputShape}}public func {{funcName}}({{#inputShape}}_ input: {{.}}, {{/inputShape}}logger: {{logger}} = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<{{#outputShape}}{{.}}{{/outputShape}}{{^outputShape}}Void{{/outputShape}}> {
         return self.client.execute(operation: "{{name}}", path: "{{path}}", httpMethod: .{{httpMethod}}, serviceConfig: self.config{{#inputShape}}, input: input{{/inputShape}}, logger: logger, on: eventLoop)
     }
-#if compiler(>=5.4) && $AsyncAwait
-{{#deprecated}}
-    @available(*, deprecated, message:"{{.}}")
-{{/deprecated}}
-    public func {{funcName}}({{#inputShape}}_ input: {{.}}, {{/inputShape}}logger: {{logger}} = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws{{#outputShape}} -> {{.}}{{/outputShape}} {
-        return try await self.client.execute(operation: "{{name}}", path: "{{path}}", httpMethod: .{{httpMethod}}, serviceConfig: self.config{{#inputShape}}, input: input{{/inputShape}}, logger: logger, on: eventLoop)
-    }
-#endif
 {{/operations}}
 {{#first(streamingOperations)}}
 
@@ -120,14 +112,6 @@ public struct {{ name }}: AWSService {
     {{^outputShape}}@discardableResult {{/outputShape}}public func {{funcName}}Streaming({{#inputShape}}_ input: {{.}}, {{/inputShape}}logger: {{logger}} = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil, _ stream: @escaping ({{streaming}}, EventLoop)->EventLoopFuture<Void>) -> EventLoopFuture<{{#outputShape}}{{.}}{{/outputShape}}{{^outputShape}}Void{{/outputShape}}> {
         return self.client.execute(operation: "{{name}}", path: "{{path}}", httpMethod: .{{httpMethod}}, serviceConfig: self.config{{#inputShape}}, input: input{{/inputShape}}, logger: logger, on: eventLoop, stream: stream)
     }
-#if compiler(>=5.4) && $AsyncAwait
-{{#deprecated}}
-    @available(*, deprecated, message:"{{.}}")
-{{/deprecated}}
-    public func {{funcName}}Streaming({{#inputShape}}_ input: {{.}}, {{/inputShape}}logger: {{logger}} = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil, _ stream: @escaping ({{streaming}}, EventLoop) -> EventLoopFuture<Void>) async throws{{#outputShape}} -> {{.}}{{/outputShape}} {
-        return try await self.client.execute(operation: "{{name}}", path: "{{path}}", httpMethod: .{{httpMethod}}, serviceConfig: self.config{{#inputShape}}, input: input{{/inputShape}}, logger: logger, on: eventLoop, stream: stream)
-    }
-#endif
 {{/streamingOperations}}
 {{/first(streamingOperations)}}
 }

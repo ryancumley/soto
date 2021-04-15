@@ -72,29 +72,6 @@ extension DataExchange {
         )
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listDataSetRevisionsPaginator(
-        _ input: ListDataSetRevisionsRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListDataSetRevisionsRequest, ListDataSetRevisionsResponse> {
-        return .init(
-            input: input,
-            command: listDataSetRevisions,
-            inputKey: \ListDataSetRevisionsRequest.nextToken,
-            outputKey: \ListDataSetRevisionsResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
-
     ///  This operation lists your data sets. When listing by origin OWNED, results are sorted by CreatedAt in descending order. When listing by origin ENTITLED, there is no order and the maxResults parameter is ignored.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -147,29 +124,6 @@ extension DataExchange {
             onPage: onPage
         )
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listDataSetsPaginator(
-        _ input: ListDataSetsRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListDataSetsRequest, ListDataSetsResponse> {
-        return .init(
-            input: input,
-            command: listDataSets,
-            inputKey: \ListDataSetsRequest.nextToken,
-            outputKey: \ListDataSetsResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
 
     ///  This operation lists your jobs sorted by CreatedAt in descending order.
     ///
@@ -224,29 +178,6 @@ extension DataExchange {
         )
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listJobsPaginator(
-        _ input: ListJobsRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListJobsRequest, ListJobsResponse> {
-        return .init(
-            input: input,
-            command: listJobs,
-            inputKey: \ListJobsRequest.nextToken,
-            outputKey: \ListJobsResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
-
     ///  This operation lists a revision's assets sorted alphabetically in descending order.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -299,29 +230,6 @@ extension DataExchange {
             onPage: onPage
         )
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listRevisionAssetsPaginator(
-        _ input: ListRevisionAssetsRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListRevisionAssetsRequest, ListRevisionAssetsResponse> {
-        return .init(
-            input: input,
-            command: listRevisionAssets,
-            inputKey: \ListRevisionAssetsRequest.nextToken,
-            outputKey: \ListRevisionAssetsResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
 }
 
 extension DataExchange.ListDataSetRevisionsRequest: AWSPaginateToken {

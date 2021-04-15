@@ -67,154 +67,70 @@ public struct FIS: AWSService {
         return self.client.execute(operation: "CreateExperimentTemplate", path: "/experimentTemplates", httpMethod: .POST, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    public func createExperimentTemplate(_ input: CreateExperimentTemplateRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws -> CreateExperimentTemplateResponse {
-        return try await self.client.execute(operation: "CreateExperimentTemplate", path: "/experimentTemplates", httpMethod: .POST, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
-    }
-    #endif
-
     /// Deletes the specified experiment template.
     public func deleteExperimentTemplate(_ input: DeleteExperimentTemplateRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<DeleteExperimentTemplateResponse> {
         return self.client.execute(operation: "DeleteExperimentTemplate", path: "/experimentTemplates/{id}", httpMethod: .DELETE, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    public func deleteExperimentTemplate(_ input: DeleteExperimentTemplateRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws -> DeleteExperimentTemplateResponse {
-        return try await self.client.execute(operation: "DeleteExperimentTemplate", path: "/experimentTemplates/{id}", httpMethod: .DELETE, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
-    }
-    #endif
 
     /// Gets information about the specified AWS FIS action.
     public func getAction(_ input: GetActionRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<GetActionResponse> {
         return self.client.execute(operation: "GetAction", path: "/actions/{id}", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    public func getAction(_ input: GetActionRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws -> GetActionResponse {
-        return try await self.client.execute(operation: "GetAction", path: "/actions/{id}", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
-    }
-    #endif
-
     /// Gets information about the specified experiment.
     public func getExperiment(_ input: GetExperimentRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<GetExperimentResponse> {
         return self.client.execute(operation: "GetExperiment", path: "/experiments/{id}", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    public func getExperiment(_ input: GetExperimentRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws -> GetExperimentResponse {
-        return try await self.client.execute(operation: "GetExperiment", path: "/experiments/{id}", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
-    }
-    #endif
 
     /// Gets information about the specified experiment template.
     public func getExperimentTemplate(_ input: GetExperimentTemplateRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<GetExperimentTemplateResponse> {
         return self.client.execute(operation: "GetExperimentTemplate", path: "/experimentTemplates/{id}", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    public func getExperimentTemplate(_ input: GetExperimentTemplateRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws -> GetExperimentTemplateResponse {
-        return try await self.client.execute(operation: "GetExperimentTemplate", path: "/experimentTemplates/{id}", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
-    }
-    #endif
-
     /// Lists the available AWS FIS actions.
     public func listActions(_ input: ListActionsRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<ListActionsResponse> {
         return self.client.execute(operation: "ListActions", path: "/actions", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    public func listActions(_ input: ListActionsRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws -> ListActionsResponse {
-        return try await self.client.execute(operation: "ListActions", path: "/actions", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
-    }
-    #endif
 
     /// Lists your experiment templates.
     public func listExperimentTemplates(_ input: ListExperimentTemplatesRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<ListExperimentTemplatesResponse> {
         return self.client.execute(operation: "ListExperimentTemplates", path: "/experimentTemplates", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    public func listExperimentTemplates(_ input: ListExperimentTemplatesRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws -> ListExperimentTemplatesResponse {
-        return try await self.client.execute(operation: "ListExperimentTemplates", path: "/experimentTemplates", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
-    }
-    #endif
-
     /// Lists your experiments.
     public func listExperiments(_ input: ListExperimentsRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<ListExperimentsResponse> {
         return self.client.execute(operation: "ListExperiments", path: "/experiments", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    public func listExperiments(_ input: ListExperimentsRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws -> ListExperimentsResponse {
-        return try await self.client.execute(operation: "ListExperiments", path: "/experiments", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
-    }
-    #endif
 
     /// Lists the tags for the specified resource.
     public func listTagsForResource(_ input: ListTagsForResourceRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<ListTagsForResourceResponse> {
         return self.client.execute(operation: "ListTagsForResource", path: "/tags/{resourceArn}", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    public func listTagsForResource(_ input: ListTagsForResourceRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws -> ListTagsForResourceResponse {
-        return try await self.client.execute(operation: "ListTagsForResource", path: "/tags/{resourceArn}", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
-    }
-    #endif
-
     /// Starts running an experiment from the specified experiment template.
     public func startExperiment(_ input: StartExperimentRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<StartExperimentResponse> {
         return self.client.execute(operation: "StartExperiment", path: "/experiments", httpMethod: .POST, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    public func startExperiment(_ input: StartExperimentRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws -> StartExperimentResponse {
-        return try await self.client.execute(operation: "StartExperiment", path: "/experiments", httpMethod: .POST, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
-    }
-    #endif
 
     /// Stops the specified experiment.
     public func stopExperiment(_ input: StopExperimentRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<StopExperimentResponse> {
         return self.client.execute(operation: "StopExperiment", path: "/experiments/{id}", httpMethod: .DELETE, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    public func stopExperiment(_ input: StopExperimentRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws -> StopExperimentResponse {
-        return try await self.client.execute(operation: "StopExperiment", path: "/experiments/{id}", httpMethod: .DELETE, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
-    }
-    #endif
-
     /// Applies the specified tags to the specified resource.
     public func tagResource(_ input: TagResourceRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<TagResourceResponse> {
         return self.client.execute(operation: "TagResource", path: "/tags/{resourceArn}", httpMethod: .POST, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    public func tagResource(_ input: TagResourceRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws -> TagResourceResponse {
-        return try await self.client.execute(operation: "TagResource", path: "/tags/{resourceArn}", httpMethod: .POST, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
-    }
-    #endif
 
     /// Removes the specified tags from the specified resource.
     public func untagResource(_ input: UntagResourceRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<UntagResourceResponse> {
         return self.client.execute(operation: "UntagResource", path: "/tags/{resourceArn}", httpMethod: .DELETE, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    public func untagResource(_ input: UntagResourceRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws -> UntagResourceResponse {
-        return try await self.client.execute(operation: "UntagResource", path: "/tags/{resourceArn}", httpMethod: .DELETE, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
-    }
-    #endif
-
     /// Updates the specified experiment template.
     public func updateExperimentTemplate(_ input: UpdateExperimentTemplateRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<UpdateExperimentTemplateResponse> {
         return self.client.execute(operation: "UpdateExperimentTemplate", path: "/experimentTemplates/{id}", httpMethod: .PATCH, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    public func updateExperimentTemplate(_ input: UpdateExperimentTemplateRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws -> UpdateExperimentTemplateResponse {
-        return try await self.client.execute(operation: "UpdateExperimentTemplate", path: "/experimentTemplates/{id}", httpMethod: .PATCH, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
-    }
-    #endif
 }
 
 extension FIS {

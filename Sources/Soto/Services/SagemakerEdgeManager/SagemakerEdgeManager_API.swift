@@ -68,22 +68,10 @@ public struct SagemakerEdgeManager: AWSService {
         return self.client.execute(operation: "GetDeviceRegistration", path: "/GetDeviceRegistration", httpMethod: .POST, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    public func getDeviceRegistration(_ input: GetDeviceRegistrationRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws -> GetDeviceRegistrationResult {
-        return try await self.client.execute(operation: "GetDeviceRegistration", path: "/GetDeviceRegistration", httpMethod: .POST, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
-    }
-    #endif
-
     /// Use to get the current status of devices registered on SageMaker Edge Manager.
     @discardableResult public func sendHeartbeat(_ input: SendHeartbeatRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<Void> {
         return self.client.execute(operation: "SendHeartbeat", path: "/SendHeartbeat", httpMethod: .POST, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    public func sendHeartbeat(_ input: SendHeartbeatRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws {
-        return try await self.client.execute(operation: "SendHeartbeat", path: "/SendHeartbeat", httpMethod: .POST, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
-    }
-    #endif
 }
 
 extension SagemakerEdgeManager {

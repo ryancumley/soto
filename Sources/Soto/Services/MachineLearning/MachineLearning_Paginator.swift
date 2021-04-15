@@ -72,29 +72,6 @@ extension MachineLearning {
         )
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func describeBatchPredictionsPaginator(
-        _ input: DescribeBatchPredictionsInput,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<DescribeBatchPredictionsInput, DescribeBatchPredictionsOutput> {
-        return .init(
-            input: input,
-            command: describeBatchPredictions,
-            inputKey: \DescribeBatchPredictionsInput.nextToken,
-            outputKey: \DescribeBatchPredictionsOutput.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
-
     ///  Returns a list of DataSource that match the search criteria in the request.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -147,29 +124,6 @@ extension MachineLearning {
             onPage: onPage
         )
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func describeDataSourcesPaginator(
-        _ input: DescribeDataSourcesInput,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<DescribeDataSourcesInput, DescribeDataSourcesOutput> {
-        return .init(
-            input: input,
-            command: describeDataSources,
-            inputKey: \DescribeDataSourcesInput.nextToken,
-            outputKey: \DescribeDataSourcesOutput.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
 
     ///  Returns a list of DescribeEvaluations that match the search criteria in the request.
     ///
@@ -224,29 +178,6 @@ extension MachineLearning {
         )
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func describeEvaluationsPaginator(
-        _ input: DescribeEvaluationsInput,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<DescribeEvaluationsInput, DescribeEvaluationsOutput> {
-        return .init(
-            input: input,
-            command: describeEvaluations,
-            inputKey: \DescribeEvaluationsInput.nextToken,
-            outputKey: \DescribeEvaluationsOutput.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
-
     ///  Returns a list of MLModel that match the search criteria in the request.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -299,29 +230,6 @@ extension MachineLearning {
             onPage: onPage
         )
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func describeMLModelsPaginator(
-        _ input: DescribeMLModelsInput,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<DescribeMLModelsInput, DescribeMLModelsOutput> {
-        return .init(
-            input: input,
-            command: describeMLModels,
-            inputKey: \DescribeMLModelsInput.nextToken,
-            outputKey: \DescribeMLModelsOutput.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
 }
 
 extension MachineLearning.DescribeBatchPredictionsInput: AWSPaginateToken {

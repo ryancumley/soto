@@ -649,6 +649,7 @@ class S3Tests: XCTestCase {
 
 #if compiler(>=5.4) && $AsyncAwait
 
+@available(macOS 9999, iOS 9999, watchOS 9999, tvOS 9999, *)
 class S3AsyncTests: XCTestCase {
     static var client: AWSClient!
     static var s3: S3!
@@ -725,7 +726,7 @@ class S3AsyncTests: XCTestCase {
     func s3Test(bucket name: String, s3: S3 = S3AsyncTests.s3, _ process: @escaping () async throws -> Void) {
         let dg = DispatchGroup()
         dg.enter()
-        Task.runDetached {
+        detach {
             do {
                 try await Self.createBucket(name: name, s3: s3)
                 do {
@@ -874,14 +875,15 @@ class S3AsyncTests: XCTestCase {
     func testMultipleUploadAsync() {
         let name = TestEnvironment.generateResourceName()
         self.s3Test(bucket: name) {
-            await Task.withGroup(resultType: Void.self) { group in
+            await withThrowingTaskGroup(of: String?.self) { group in
                 for index in 1...16 {
-                    await group.add {
+                    group.spawn {
                         let body = "testMultipleUpload - " + index.description
                         let filename = "file" + index.description
                         _ = try await Self.s3.putObject(.init(body: .string(body), bucket: name, key: filename))
                         let bodyOutput = try await Self.s3.getObject(.init(bucket: name, key: filename)).body
                         XCTAssertEqual(bodyOutput?.asString(), body)
+                        return bodyOutput?.asString()
                     }
                 }
             }
@@ -907,12 +909,12 @@ class S3AsyncTests: XCTestCase {
     func testListPaginatorAsync() {
         let name = TestEnvironment.generateResourceName()
         self.s3Test(bucket: name) {
-            await Task.withGroup(resultType: Void.self) { group in
+            await withThrowingTaskGroup(of: String?.self) { group in
                 for index in 1...16 {
                     let body = "testMultipleUpload - " + index.description
                     let filename = "file" + index.description
-                    await group.add {
-                        _ = try await Self.s3.putObject(.init(body: .string(body), bucket: name, key: filename))
+                    group.spawn {
+                        return try await Self.s3.putObject(.init(body: .string(body), bucket: name, key: filename)).eTag
                     }
                 }
             }
@@ -1118,7 +1120,7 @@ class S3AsyncTests: XCTestCase {
 
         let dg = DispatchGroup()
         dg.enter()
-        Task.runDetached {
+        detach {
             do {
                 _ = try await Self.s3.deleteBucket(.init(bucket: "nosuch-bucket-name3458bjhdfgdf"))
             } catch {

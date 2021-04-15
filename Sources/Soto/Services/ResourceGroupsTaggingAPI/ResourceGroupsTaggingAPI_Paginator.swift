@@ -72,29 +72,6 @@ extension ResourceGroupsTaggingAPI {
         )
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func getComplianceSummaryPaginator(
-        _ input: GetComplianceSummaryInput,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<GetComplianceSummaryInput, GetComplianceSummaryOutput> {
-        return .init(
-            input: input,
-            command: getComplianceSummary,
-            inputKey: \GetComplianceSummaryInput.paginationToken,
-            outputKey: \GetComplianceSummaryOutput.paginationToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
-
     ///  Returns all the tagged or previously tagged resources that are located in the specified Region for the AWS account. Depending on what information you want returned, you can also specify the following:    Filters that specify what tags and resource types you want returned. The response includes all tags that are associated with the requested resources.   Information about compliance with the account's effective tag policy. For more information on tag policies, see Tag Policies in the AWS Organizations User Guide.    This operation supports pagination, where the response can be sent in multiple pages. You should check the PaginationToken response parameter to determine if there are additional results available to return. Repeat the query, passing the PaginationToken response parameter value as an input to the next request until you recieve a null value. A null value for PaginationToken indicates that there are no more results waiting to be returned.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -147,29 +124,6 @@ extension ResourceGroupsTaggingAPI {
             onPage: onPage
         )
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func getResourcesPaginator(
-        _ input: GetResourcesInput,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<GetResourcesInput, GetResourcesOutput> {
-        return .init(
-            input: input,
-            command: getResources,
-            inputKey: \GetResourcesInput.paginationToken,
-            outputKey: \GetResourcesOutput.paginationToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
 
     ///  Returns all tag keys currently in use in the specified Region for the calling AWS account. This operation supports pagination, where the response can be sent in multiple pages. You should check the PaginationToken response parameter to determine if there are additional results available to return. Repeat the query, passing the PaginationToken response parameter value as an input to the next request until you recieve a null value. A null value for PaginationToken indicates that there are no more results waiting to be returned.
     ///
@@ -224,29 +178,6 @@ extension ResourceGroupsTaggingAPI {
         )
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func getTagKeysPaginator(
-        _ input: GetTagKeysInput,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<GetTagKeysInput, GetTagKeysOutput> {
-        return .init(
-            input: input,
-            command: getTagKeys,
-            inputKey: \GetTagKeysInput.paginationToken,
-            outputKey: \GetTagKeysOutput.paginationToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
-
     ///  Returns all tag values for the specified key that are used in the specified AWS Region for the calling AWS account. This operation supports pagination, where the response can be sent in multiple pages. You should check the PaginationToken response parameter to determine if there are additional results available to return. Repeat the query, passing the PaginationToken response parameter value as an input to the next request until you recieve a null value. A null value for PaginationToken indicates that there are no more results waiting to be returned.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -299,29 +230,6 @@ extension ResourceGroupsTaggingAPI {
             onPage: onPage
         )
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func getTagValuesPaginator(
-        _ input: GetTagValuesInput,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<GetTagValuesInput, GetTagValuesOutput> {
-        return .init(
-            input: input,
-            command: getTagValues,
-            inputKey: \GetTagValuesInput.paginationToken,
-            outputKey: \GetTagValuesOutput.paginationToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
 }
 
 extension ResourceGroupsTaggingAPI.GetComplianceSummaryInput: AWSPaginateToken {

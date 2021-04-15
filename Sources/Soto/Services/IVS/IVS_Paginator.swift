@@ -72,29 +72,6 @@ extension IVS {
         )
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listChannelsPaginator(
-        _ input: ListChannelsRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListChannelsRequest, ListChannelsResponse> {
-        return .init(
-            input: input,
-            command: listChannels,
-            inputKey: \ListChannelsRequest.nextToken,
-            outputKey: \ListChannelsResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
-
     ///  Gets summary information about playback key pairs.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -147,29 +124,6 @@ extension IVS {
             onPage: onPage
         )
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listPlaybackKeyPairsPaginator(
-        _ input: ListPlaybackKeyPairsRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListPlaybackKeyPairsRequest, ListPlaybackKeyPairsResponse> {
-        return .init(
-            input: input,
-            command: listPlaybackKeyPairs,
-            inputKey: \ListPlaybackKeyPairsRequest.nextToken,
-            outputKey: \ListPlaybackKeyPairsResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
 
     ///  Gets summary information about stream keys for the specified channel.
     ///
@@ -224,29 +178,6 @@ extension IVS {
         )
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listStreamKeysPaginator(
-        _ input: ListStreamKeysRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListStreamKeysRequest, ListStreamKeysResponse> {
-        return .init(
-            input: input,
-            command: listStreamKeys,
-            inputKey: \ListStreamKeysRequest.nextToken,
-            outputKey: \ListStreamKeysResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
-
     ///  Gets summary information about live streams in your account, in the AWS region where the API request is processed.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -300,29 +231,6 @@ extension IVS {
         )
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listStreamsPaginator(
-        _ input: ListStreamsRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListStreamsRequest, ListStreamsResponse> {
-        return .init(
-            input: input,
-            command: listStreams,
-            inputKey: \ListStreamsRequest.nextToken,
-            outputKey: \ListStreamsResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
-
     ///  Gets information about AWS tags for the specified ARN.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -375,29 +283,6 @@ extension IVS {
             onPage: onPage
         )
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listTagsForResourcePaginator(
-        _ input: ListTagsForResourceRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListTagsForResourceRequest, ListTagsForResourceResponse> {
-        return .init(
-            input: input,
-            command: listTagsForResource,
-            inputKey: \ListTagsForResourceRequest.nextToken,
-            outputKey: \ListTagsForResourceResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
 }
 
 extension IVS.ListChannelsRequest: AWSPaginateToken {

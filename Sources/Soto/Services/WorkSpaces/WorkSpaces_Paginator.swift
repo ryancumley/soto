@@ -72,29 +72,6 @@ extension WorkSpaces {
         )
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func describeWorkspaceBundlesPaginator(
-        _ input: DescribeWorkspaceBundlesRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<DescribeWorkspaceBundlesRequest, DescribeWorkspaceBundlesResult> {
-        return .init(
-            input: input,
-            command: describeWorkspaceBundles,
-            inputKey: \DescribeWorkspaceBundlesRequest.nextToken,
-            outputKey: \DescribeWorkspaceBundlesResult.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
-
     ///  Describes the available directories that are registered with Amazon WorkSpaces.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -148,29 +125,6 @@ extension WorkSpaces {
         )
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func describeWorkspaceDirectoriesPaginator(
-        _ input: DescribeWorkspaceDirectoriesRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<DescribeWorkspaceDirectoriesRequest, DescribeWorkspaceDirectoriesResult> {
-        return .init(
-            input: input,
-            command: describeWorkspaceDirectories,
-            inputKey: \DescribeWorkspaceDirectoriesRequest.nextToken,
-            outputKey: \DescribeWorkspaceDirectoriesResult.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
-
     ///  Describes the specified WorkSpaces. You can filter the results by using the bundle identifier, directory identifier, or owner, but you can specify only one filter at a time.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -223,29 +177,6 @@ extension WorkSpaces {
             onPage: onPage
         )
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func describeWorkspacesPaginator(
-        _ input: DescribeWorkspacesRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<DescribeWorkspacesRequest, DescribeWorkspacesResult> {
-        return .init(
-            input: input,
-            command: describeWorkspaces,
-            inputKey: \DescribeWorkspacesRequest.nextToken,
-            outputKey: \DescribeWorkspacesResult.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
 }
 
 extension WorkSpaces.DescribeWorkspaceBundlesRequest: AWSPaginateToken {

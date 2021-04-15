@@ -72,29 +72,6 @@ extension AuditManager {
         )
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func getChangeLogsPaginator(
-        _ input: GetChangeLogsRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<GetChangeLogsRequest, GetChangeLogsResponse> {
-        return .init(
-            input: input,
-            command: getChangeLogs,
-            inputKey: \GetChangeLogsRequest.nextToken,
-            outputKey: \GetChangeLogsResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
-
     ///   Returns a list of delegations from an audit owner to a delegate.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -147,29 +124,6 @@ extension AuditManager {
             onPage: onPage
         )
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func getDelegationsPaginator(
-        _ input: GetDelegationsRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<GetDelegationsRequest, GetDelegationsResponse> {
-        return .init(
-            input: input,
-            command: getDelegations,
-            inputKey: \GetDelegationsRequest.nextToken,
-            outputKey: \GetDelegationsResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
 
     ///   Returns all evidence from a specified evidence folder in AWS Audit Manager.
     ///
@@ -224,29 +178,6 @@ extension AuditManager {
         )
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func getEvidenceByEvidenceFolderPaginator(
-        _ input: GetEvidenceByEvidenceFolderRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<GetEvidenceByEvidenceFolderRequest, GetEvidenceByEvidenceFolderResponse> {
-        return .init(
-            input: input,
-            command: getEvidenceByEvidenceFolder,
-            inputKey: \GetEvidenceByEvidenceFolderRequest.nextToken,
-            outputKey: \GetEvidenceByEvidenceFolderResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
-
     ///   Returns the evidence folders from a specified assessment in AWS Audit Manager.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -299,29 +230,6 @@ extension AuditManager {
             onPage: onPage
         )
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func getEvidenceFoldersByAssessmentPaginator(
-        _ input: GetEvidenceFoldersByAssessmentRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<GetEvidenceFoldersByAssessmentRequest, GetEvidenceFoldersByAssessmentResponse> {
-        return .init(
-            input: input,
-            command: getEvidenceFoldersByAssessment,
-            inputKey: \GetEvidenceFoldersByAssessmentRequest.nextToken,
-            outputKey: \GetEvidenceFoldersByAssessmentResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
 
     ///   Returns a list of evidence folders associated with a specified control of an assessment in AWS Audit Manager.
     ///
@@ -376,29 +284,6 @@ extension AuditManager {
         )
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func getEvidenceFoldersByAssessmentControlPaginator(
-        _ input: GetEvidenceFoldersByAssessmentControlRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<GetEvidenceFoldersByAssessmentControlRequest, GetEvidenceFoldersByAssessmentControlResponse> {
-        return .init(
-            input: input,
-            command: getEvidenceFoldersByAssessmentControl,
-            inputKey: \GetEvidenceFoldersByAssessmentControlRequest.nextToken,
-            outputKey: \GetEvidenceFoldersByAssessmentControlResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
-
     ///   Returns a list of the frameworks available in the AWS Audit Manager framework library.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -451,29 +336,6 @@ extension AuditManager {
             onPage: onPage
         )
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listAssessmentFrameworksPaginator(
-        _ input: ListAssessmentFrameworksRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListAssessmentFrameworksRequest, ListAssessmentFrameworksResponse> {
-        return .init(
-            input: input,
-            command: listAssessmentFrameworks,
-            inputKey: \ListAssessmentFrameworksRequest.nextToken,
-            outputKey: \ListAssessmentFrameworksResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
 
     ///   Returns a list of assessment reports created in AWS Audit Manager.
     ///
@@ -528,29 +390,6 @@ extension AuditManager {
         )
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listAssessmentReportsPaginator(
-        _ input: ListAssessmentReportsRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListAssessmentReportsRequest, ListAssessmentReportsResponse> {
-        return .init(
-            input: input,
-            command: listAssessmentReports,
-            inputKey: \ListAssessmentReportsRequest.nextToken,
-            outputKey: \ListAssessmentReportsResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
-
     ///   Returns a list of current and past assessments from AWS Audit Manager.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -603,29 +442,6 @@ extension AuditManager {
             onPage: onPage
         )
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listAssessmentsPaginator(
-        _ input: ListAssessmentsRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListAssessmentsRequest, ListAssessmentsResponse> {
-        return .init(
-            input: input,
-            command: listAssessments,
-            inputKey: \ListAssessmentsRequest.nextToken,
-            outputKey: \ListAssessmentsResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
 
     ///   Returns a list of controls from AWS Audit Manager.
     ///
@@ -680,29 +496,6 @@ extension AuditManager {
         )
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listControlsPaginator(
-        _ input: ListControlsRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListControlsRequest, ListControlsResponse> {
-        return .init(
-            input: input,
-            command: listControls,
-            inputKey: \ListControlsRequest.nextToken,
-            outputKey: \ListControlsResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
-
     ///   Returns a list of keywords that pre-mapped to the specified control data source.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -756,29 +549,6 @@ extension AuditManager {
         )
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listKeywordsForDataSourcePaginator(
-        _ input: ListKeywordsForDataSourceRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListKeywordsForDataSourceRequest, ListKeywordsForDataSourceResponse> {
-        return .init(
-            input: input,
-            command: listKeywordsForDataSource,
-            inputKey: \ListKeywordsForDataSourceRequest.nextToken,
-            outputKey: \ListKeywordsForDataSourceResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
-
     ///   Returns a list of all AWS Audit Manager notifications.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -831,29 +601,6 @@ extension AuditManager {
             onPage: onPage
         )
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listNotificationsPaginator(
-        _ input: ListNotificationsRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListNotificationsRequest, ListNotificationsResponse> {
-        return .init(
-            input: input,
-            command: listNotifications,
-            inputKey: \ListNotificationsRequest.nextToken,
-            outputKey: \ListNotificationsResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
 }
 
 extension AuditManager.GetChangeLogsRequest: AWSPaginateToken {

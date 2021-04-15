@@ -72,29 +72,6 @@ extension AppMesh {
         )
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listGatewayRoutesPaginator(
-        _ input: ListGatewayRoutesInput,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListGatewayRoutesInput, ListGatewayRoutesOutput> {
-        return .init(
-            input: input,
-            command: listGatewayRoutes,
-            inputKey: \ListGatewayRoutesInput.nextToken,
-            outputKey: \ListGatewayRoutesOutput.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
-
     ///  Returns a list of existing service meshes.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -147,29 +124,6 @@ extension AppMesh {
             onPage: onPage
         )
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listMeshesPaginator(
-        _ input: ListMeshesInput,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListMeshesInput, ListMeshesOutput> {
-        return .init(
-            input: input,
-            command: listMeshes,
-            inputKey: \ListMeshesInput.nextToken,
-            outputKey: \ListMeshesOutput.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
 
     ///  Returns a list of existing routes in a service mesh.
     ///
@@ -224,29 +178,6 @@ extension AppMesh {
         )
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listRoutesPaginator(
-        _ input: ListRoutesInput,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListRoutesInput, ListRoutesOutput> {
-        return .init(
-            input: input,
-            command: listRoutes,
-            inputKey: \ListRoutesInput.nextToken,
-            outputKey: \ListRoutesOutput.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
-
     ///  List the tags for an App Mesh resource.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -299,29 +230,6 @@ extension AppMesh {
             onPage: onPage
         )
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listTagsForResourcePaginator(
-        _ input: ListTagsForResourceInput,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListTagsForResourceInput, ListTagsForResourceOutput> {
-        return .init(
-            input: input,
-            command: listTagsForResource,
-            inputKey: \ListTagsForResourceInput.nextToken,
-            outputKey: \ListTagsForResourceOutput.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
 
     ///  Returns a list of existing virtual gateways in a service mesh.
     ///
@@ -376,29 +284,6 @@ extension AppMesh {
         )
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listVirtualGatewaysPaginator(
-        _ input: ListVirtualGatewaysInput,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListVirtualGatewaysInput, ListVirtualGatewaysOutput> {
-        return .init(
-            input: input,
-            command: listVirtualGateways,
-            inputKey: \ListVirtualGatewaysInput.nextToken,
-            outputKey: \ListVirtualGatewaysOutput.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
-
     ///  Returns a list of existing virtual nodes.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -451,29 +336,6 @@ extension AppMesh {
             onPage: onPage
         )
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listVirtualNodesPaginator(
-        _ input: ListVirtualNodesInput,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListVirtualNodesInput, ListVirtualNodesOutput> {
-        return .init(
-            input: input,
-            command: listVirtualNodes,
-            inputKey: \ListVirtualNodesInput.nextToken,
-            outputKey: \ListVirtualNodesOutput.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
 
     ///  Returns a list of existing virtual routers in a service mesh.
     ///
@@ -528,29 +390,6 @@ extension AppMesh {
         )
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listVirtualRoutersPaginator(
-        _ input: ListVirtualRoutersInput,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListVirtualRoutersInput, ListVirtualRoutersOutput> {
-        return .init(
-            input: input,
-            command: listVirtualRouters,
-            inputKey: \ListVirtualRoutersInput.nextToken,
-            outputKey: \ListVirtualRoutersOutput.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
-
     ///  Returns a list of existing virtual services in a service mesh.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -603,29 +442,6 @@ extension AppMesh {
             onPage: onPage
         )
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listVirtualServicesPaginator(
-        _ input: ListVirtualServicesInput,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListVirtualServicesInput, ListVirtualServicesOutput> {
-        return .init(
-            input: input,
-            command: listVirtualServices,
-            inputKey: \ListVirtualServicesInput.nextToken,
-            outputKey: \ListVirtualServicesOutput.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
 }
 
 extension AppMesh.ListGatewayRoutesInput: AWSPaginateToken {

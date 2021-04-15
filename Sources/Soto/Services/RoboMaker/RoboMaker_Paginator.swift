@@ -72,29 +72,6 @@ extension RoboMaker {
         )
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listDeploymentJobsPaginator(
-        _ input: ListDeploymentJobsRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListDeploymentJobsRequest, ListDeploymentJobsResponse> {
-        return .init(
-            input: input,
-            command: listDeploymentJobs,
-            inputKey: \ListDeploymentJobsRequest.nextToken,
-            outputKey: \ListDeploymentJobsResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
-
     ///  Returns a list of fleets. You can optionally provide filters to retrieve specific fleets.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -147,29 +124,6 @@ extension RoboMaker {
             onPage: onPage
         )
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listFleetsPaginator(
-        _ input: ListFleetsRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListFleetsRequest, ListFleetsResponse> {
-        return .init(
-            input: input,
-            command: listFleets,
-            inputKey: \ListFleetsRequest.nextToken,
-            outputKey: \ListFleetsResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
 
     ///  Returns a list of robot application. You can optionally provide filters to retrieve specific robot applications.
     ///
@@ -224,29 +178,6 @@ extension RoboMaker {
         )
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listRobotApplicationsPaginator(
-        _ input: ListRobotApplicationsRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListRobotApplicationsRequest, ListRobotApplicationsResponse> {
-        return .init(
-            input: input,
-            command: listRobotApplications,
-            inputKey: \ListRobotApplicationsRequest.nextToken,
-            outputKey: \ListRobotApplicationsResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
-
     ///  Returns a list of robots. You can optionally provide filters to retrieve specific robots.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -299,29 +230,6 @@ extension RoboMaker {
             onPage: onPage
         )
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listRobotsPaginator(
-        _ input: ListRobotsRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListRobotsRequest, ListRobotsResponse> {
-        return .init(
-            input: input,
-            command: listRobots,
-            inputKey: \ListRobotsRequest.nextToken,
-            outputKey: \ListRobotsResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
 
     ///  Returns a list of simulation applications. You can optionally provide filters to retrieve specific simulation applications.
     ///
@@ -376,29 +284,6 @@ extension RoboMaker {
         )
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listSimulationApplicationsPaginator(
-        _ input: ListSimulationApplicationsRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListSimulationApplicationsRequest, ListSimulationApplicationsResponse> {
-        return .init(
-            input: input,
-            command: listSimulationApplications,
-            inputKey: \ListSimulationApplicationsRequest.nextToken,
-            outputKey: \ListSimulationApplicationsResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
-
     ///  Returns a list simulation job batches. You can optionally provide filters to retrieve specific simulation batch jobs.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -451,29 +336,6 @@ extension RoboMaker {
             onPage: onPage
         )
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listSimulationJobBatchesPaginator(
-        _ input: ListSimulationJobBatchesRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListSimulationJobBatchesRequest, ListSimulationJobBatchesResponse> {
-        return .init(
-            input: input,
-            command: listSimulationJobBatches,
-            inputKey: \ListSimulationJobBatchesRequest.nextToken,
-            outputKey: \ListSimulationJobBatchesResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
 
     ///  Returns a list of simulation jobs. You can optionally provide filters to retrieve specific simulation jobs.
     ///
@@ -528,29 +390,6 @@ extension RoboMaker {
         )
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listSimulationJobsPaginator(
-        _ input: ListSimulationJobsRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListSimulationJobsRequest, ListSimulationJobsResponse> {
-        return .init(
-            input: input,
-            command: listSimulationJobs,
-            inputKey: \ListSimulationJobsRequest.nextToken,
-            outputKey: \ListSimulationJobsResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
-
     ///  Lists world export jobs.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -603,29 +442,6 @@ extension RoboMaker {
             onPage: onPage
         )
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listWorldExportJobsPaginator(
-        _ input: ListWorldExportJobsRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListWorldExportJobsRequest, ListWorldExportJobsResponse> {
-        return .init(
-            input: input,
-            command: listWorldExportJobs,
-            inputKey: \ListWorldExportJobsRequest.nextToken,
-            outputKey: \ListWorldExportJobsResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
 
     ///  Lists world generator jobs.
     ///
@@ -680,29 +496,6 @@ extension RoboMaker {
         )
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listWorldGenerationJobsPaginator(
-        _ input: ListWorldGenerationJobsRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListWorldGenerationJobsRequest, ListWorldGenerationJobsResponse> {
-        return .init(
-            input: input,
-            command: listWorldGenerationJobs,
-            inputKey: \ListWorldGenerationJobsRequest.nextToken,
-            outputKey: \ListWorldGenerationJobsResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
-
     ///  Lists world templates.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -756,29 +549,6 @@ extension RoboMaker {
         )
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listWorldTemplatesPaginator(
-        _ input: ListWorldTemplatesRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListWorldTemplatesRequest, ListWorldTemplatesResponse> {
-        return .init(
-            input: input,
-            command: listWorldTemplates,
-            inputKey: \ListWorldTemplatesRequest.nextToken,
-            outputKey: \ListWorldTemplatesResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
-
     ///  Lists worlds.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -831,29 +601,6 @@ extension RoboMaker {
             onPage: onPage
         )
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listWorldsPaginator(
-        _ input: ListWorldsRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListWorldsRequest, ListWorldsResponse> {
-        return .init(
-            input: input,
-            command: listWorlds,
-            inputKey: \ListWorldsRequest.nextToken,
-            outputKey: \ListWorldsResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
 }
 
 extension RoboMaker.ListDeploymentJobsRequest: AWSPaginateToken {

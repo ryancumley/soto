@@ -71,29 +71,6 @@ extension HealthLake {
             onPage: onPage
         )
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listFHIRDatastoresPaginator(
-        _ input: ListFHIRDatastoresRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListFHIRDatastoresRequest, ListFHIRDatastoresResponse> {
-        return .init(
-            input: input,
-            command: listFHIRDatastores,
-            inputKey: \ListFHIRDatastoresRequest.nextToken,
-            outputKey: \ListFHIRDatastoresResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
 }
 
 extension HealthLake.ListFHIRDatastoresRequest: AWSPaginateToken {

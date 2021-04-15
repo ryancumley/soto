@@ -67,363 +67,165 @@ public struct AppConfig: AWSService {
         return self.client.execute(operation: "CreateApplication", path: "/applications", httpMethod: .POST, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    public func createApplication(_ input: CreateApplicationRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws -> Application {
-        return try await self.client.execute(operation: "CreateApplication", path: "/applications", httpMethod: .POST, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
-    }
-    #endif
-
     /// Information that enables AppConfig to access the configuration source. Valid configuration sources include Systems Manager (SSM) documents, SSM Parameter Store parameters, and Amazon S3 objects. A configuration profile includes the following information.   The Uri location of the configuration data.   The AWS Identity and Access Management (IAM) role that provides access to the configuration data.   A validator for the configuration data. Available validators include either a JSON Schema or an AWS Lambda function.   For more information, see Create a Configuration and a Configuration Profile in the AWS AppConfig User Guide.
     public func createConfigurationProfile(_ input: CreateConfigurationProfileRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<ConfigurationProfile> {
         return self.client.execute(operation: "CreateConfigurationProfile", path: "/applications/{ApplicationId}/configurationprofiles", httpMethod: .POST, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    public func createConfigurationProfile(_ input: CreateConfigurationProfileRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws -> ConfigurationProfile {
-        return try await self.client.execute(operation: "CreateConfigurationProfile", path: "/applications/{ApplicationId}/configurationprofiles", httpMethod: .POST, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
-    }
-    #endif
 
     /// A deployment strategy defines important criteria for rolling out your configuration to the designated targets. A deployment strategy includes: the overall duration required, a percentage of targets to receive the deployment during each interval, an algorithm that defines how percentage grows, and bake time.
     public func createDeploymentStrategy(_ input: CreateDeploymentStrategyRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<DeploymentStrategy> {
         return self.client.execute(operation: "CreateDeploymentStrategy", path: "/deploymentstrategies", httpMethod: .POST, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    public func createDeploymentStrategy(_ input: CreateDeploymentStrategyRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws -> DeploymentStrategy {
-        return try await self.client.execute(operation: "CreateDeploymentStrategy", path: "/deploymentstrategies", httpMethod: .POST, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
-    }
-    #endif
-
     /// For each application, you define one or more environments. An environment is a logical deployment group of AppConfig targets, such as applications in a Beta or Production environment. You can also define environments for application subcomponents such as the Web, Mobile and Back-end components for your application. You can configure Amazon CloudWatch alarms for each environment. The system monitors alarms during a configuration deployment. If an alarm is triggered, the system rolls back the configuration.
     public func createEnvironment(_ input: CreateEnvironmentRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<Environment> {
         return self.client.execute(operation: "CreateEnvironment", path: "/applications/{ApplicationId}/environments", httpMethod: .POST, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    public func createEnvironment(_ input: CreateEnvironmentRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws -> Environment {
-        return try await self.client.execute(operation: "CreateEnvironment", path: "/applications/{ApplicationId}/environments", httpMethod: .POST, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
-    }
-    #endif
 
     /// Create a new configuration in the AppConfig configuration store.
     public func createHostedConfigurationVersion(_ input: CreateHostedConfigurationVersionRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<HostedConfigurationVersion> {
         return self.client.execute(operation: "CreateHostedConfigurationVersion", path: "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}/hostedconfigurationversions", httpMethod: .POST, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    public func createHostedConfigurationVersion(_ input: CreateHostedConfigurationVersionRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws -> HostedConfigurationVersion {
-        return try await self.client.execute(operation: "CreateHostedConfigurationVersion", path: "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}/hostedconfigurationversions", httpMethod: .POST, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
-    }
-    #endif
-
     /// Delete an application. Deleting an application does not delete a configuration from a host.
     @discardableResult public func deleteApplication(_ input: DeleteApplicationRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<Void> {
         return self.client.execute(operation: "DeleteApplication", path: "/applications/{ApplicationId}", httpMethod: .DELETE, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    public func deleteApplication(_ input: DeleteApplicationRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws {
-        return try await self.client.execute(operation: "DeleteApplication", path: "/applications/{ApplicationId}", httpMethod: .DELETE, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
-    }
-    #endif
 
     /// Delete a configuration profile. Deleting a configuration profile does not delete a configuration from a host.
     @discardableResult public func deleteConfigurationProfile(_ input: DeleteConfigurationProfileRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<Void> {
         return self.client.execute(operation: "DeleteConfigurationProfile", path: "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}", httpMethod: .DELETE, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    public func deleteConfigurationProfile(_ input: DeleteConfigurationProfileRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws {
-        return try await self.client.execute(operation: "DeleteConfigurationProfile", path: "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}", httpMethod: .DELETE, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
-    }
-    #endif
-
     /// Delete a deployment strategy. Deleting a deployment strategy does not delete a configuration from a host.
     @discardableResult public func deleteDeploymentStrategy(_ input: DeleteDeploymentStrategyRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<Void> {
         return self.client.execute(operation: "DeleteDeploymentStrategy", path: "/deployementstrategies/{DeploymentStrategyId}", httpMethod: .DELETE, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    public func deleteDeploymentStrategy(_ input: DeleteDeploymentStrategyRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws {
-        return try await self.client.execute(operation: "DeleteDeploymentStrategy", path: "/deployementstrategies/{DeploymentStrategyId}", httpMethod: .DELETE, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
-    }
-    #endif
 
     /// Delete an environment. Deleting an environment does not delete a configuration from a host.
     @discardableResult public func deleteEnvironment(_ input: DeleteEnvironmentRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<Void> {
         return self.client.execute(operation: "DeleteEnvironment", path: "/applications/{ApplicationId}/environments/{EnvironmentId}", httpMethod: .DELETE, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    public func deleteEnvironment(_ input: DeleteEnvironmentRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws {
-        return try await self.client.execute(operation: "DeleteEnvironment", path: "/applications/{ApplicationId}/environments/{EnvironmentId}", httpMethod: .DELETE, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
-    }
-    #endif
-
     /// Delete a version of a configuration from the AppConfig configuration store.
     @discardableResult public func deleteHostedConfigurationVersion(_ input: DeleteHostedConfigurationVersionRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<Void> {
         return self.client.execute(operation: "DeleteHostedConfigurationVersion", path: "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}/hostedconfigurationversions/{VersionNumber}", httpMethod: .DELETE, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    public func deleteHostedConfigurationVersion(_ input: DeleteHostedConfigurationVersionRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws {
-        return try await self.client.execute(operation: "DeleteHostedConfigurationVersion", path: "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}/hostedconfigurationversions/{VersionNumber}", httpMethod: .DELETE, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
-    }
-    #endif
 
     /// Retrieve information about an application.
     public func getApplication(_ input: GetApplicationRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<Application> {
         return self.client.execute(operation: "GetApplication", path: "/applications/{ApplicationId}", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    public func getApplication(_ input: GetApplicationRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws -> Application {
-        return try await self.client.execute(operation: "GetApplication", path: "/applications/{ApplicationId}", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
-    }
-    #endif
-
     /// Receive information about a configuration.  AWS AppConfig uses the value of the ClientConfigurationVersion parameter to identify the configuration version on your clients. If you don’t send ClientConfigurationVersion with each call to GetConfiguration, your clients receive the current configuration. You are charged each time your clients receive a configuration. To avoid excess charges, we recommend that you include the ClientConfigurationVersion value with every call to GetConfiguration. This value must be saved on your client. Subsequent calls to GetConfiguration must pass this value by using the ClientConfigurationVersion parameter.
     public func getConfiguration(_ input: GetConfigurationRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<Configuration> {
         return self.client.execute(operation: "GetConfiguration", path: "/applications/{Application}/environments/{Environment}/configurations/{Configuration}", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    public func getConfiguration(_ input: GetConfigurationRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws -> Configuration {
-        return try await self.client.execute(operation: "GetConfiguration", path: "/applications/{Application}/environments/{Environment}/configurations/{Configuration}", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
-    }
-    #endif
 
     /// Retrieve information about a configuration profile.
     public func getConfigurationProfile(_ input: GetConfigurationProfileRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<ConfigurationProfile> {
         return self.client.execute(operation: "GetConfigurationProfile", path: "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    public func getConfigurationProfile(_ input: GetConfigurationProfileRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws -> ConfigurationProfile {
-        return try await self.client.execute(operation: "GetConfigurationProfile", path: "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
-    }
-    #endif
-
     /// Retrieve information about a configuration deployment.
     public func getDeployment(_ input: GetDeploymentRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<Deployment> {
         return self.client.execute(operation: "GetDeployment", path: "/applications/{ApplicationId}/environments/{EnvironmentId}/deployments/{DeploymentNumber}", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    public func getDeployment(_ input: GetDeploymentRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws -> Deployment {
-        return try await self.client.execute(operation: "GetDeployment", path: "/applications/{ApplicationId}/environments/{EnvironmentId}/deployments/{DeploymentNumber}", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
-    }
-    #endif
 
     /// Retrieve information about a deployment strategy. A deployment strategy defines important criteria for rolling out your configuration to the designated targets. A deployment strategy includes: the overall duration required, a percentage of targets to receive the deployment during each interval, an algorithm that defines how percentage grows, and bake time.
     public func getDeploymentStrategy(_ input: GetDeploymentStrategyRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<DeploymentStrategy> {
         return self.client.execute(operation: "GetDeploymentStrategy", path: "/deploymentstrategies/{DeploymentStrategyId}", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    public func getDeploymentStrategy(_ input: GetDeploymentStrategyRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws -> DeploymentStrategy {
-        return try await self.client.execute(operation: "GetDeploymentStrategy", path: "/deploymentstrategies/{DeploymentStrategyId}", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
-    }
-    #endif
-
     /// Retrieve information about an environment. An environment is a logical deployment group of AppConfig applications, such as applications in a Production environment or in an EU_Region environment. Each configuration deployment targets an environment. You can enable one or more Amazon CloudWatch alarms for an environment. If an alarm is triggered during a deployment, AppConfig roles back the configuration.
     public func getEnvironment(_ input: GetEnvironmentRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<Environment> {
         return self.client.execute(operation: "GetEnvironment", path: "/applications/{ApplicationId}/environments/{EnvironmentId}", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    public func getEnvironment(_ input: GetEnvironmentRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws -> Environment {
-        return try await self.client.execute(operation: "GetEnvironment", path: "/applications/{ApplicationId}/environments/{EnvironmentId}", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
-    }
-    #endif
 
     /// Get information about a specific configuration version.
     public func getHostedConfigurationVersion(_ input: GetHostedConfigurationVersionRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<HostedConfigurationVersion> {
         return self.client.execute(operation: "GetHostedConfigurationVersion", path: "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}/hostedconfigurationversions/{VersionNumber}", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    public func getHostedConfigurationVersion(_ input: GetHostedConfigurationVersionRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws -> HostedConfigurationVersion {
-        return try await self.client.execute(operation: "GetHostedConfigurationVersion", path: "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}/hostedconfigurationversions/{VersionNumber}", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
-    }
-    #endif
-
     /// List all applications in your AWS account.
     public func listApplications(_ input: ListApplicationsRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<Applications> {
         return self.client.execute(operation: "ListApplications", path: "/applications", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    public func listApplications(_ input: ListApplicationsRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws -> Applications {
-        return try await self.client.execute(operation: "ListApplications", path: "/applications", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
-    }
-    #endif
 
     /// Lists the configuration profiles for an application.
     public func listConfigurationProfiles(_ input: ListConfigurationProfilesRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<ConfigurationProfiles> {
         return self.client.execute(operation: "ListConfigurationProfiles", path: "/applications/{ApplicationId}/configurationprofiles", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    public func listConfigurationProfiles(_ input: ListConfigurationProfilesRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws -> ConfigurationProfiles {
-        return try await self.client.execute(operation: "ListConfigurationProfiles", path: "/applications/{ApplicationId}/configurationprofiles", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
-    }
-    #endif
-
     /// List deployment strategies.
     public func listDeploymentStrategies(_ input: ListDeploymentStrategiesRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<DeploymentStrategies> {
         return self.client.execute(operation: "ListDeploymentStrategies", path: "/deploymentstrategies", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    public func listDeploymentStrategies(_ input: ListDeploymentStrategiesRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws -> DeploymentStrategies {
-        return try await self.client.execute(operation: "ListDeploymentStrategies", path: "/deploymentstrategies", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
-    }
-    #endif
 
     /// Lists the deployments for an environment.
     public func listDeployments(_ input: ListDeploymentsRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<Deployments> {
         return self.client.execute(operation: "ListDeployments", path: "/applications/{ApplicationId}/environments/{EnvironmentId}/deployments", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    public func listDeployments(_ input: ListDeploymentsRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws -> Deployments {
-        return try await self.client.execute(operation: "ListDeployments", path: "/applications/{ApplicationId}/environments/{EnvironmentId}/deployments", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
-    }
-    #endif
-
     /// List the environments for an application.
     public func listEnvironments(_ input: ListEnvironmentsRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<Environments> {
         return self.client.execute(operation: "ListEnvironments", path: "/applications/{ApplicationId}/environments", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    public func listEnvironments(_ input: ListEnvironmentsRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws -> Environments {
-        return try await self.client.execute(operation: "ListEnvironments", path: "/applications/{ApplicationId}/environments", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
-    }
-    #endif
 
     /// View a list of configurations stored in the AppConfig configuration store by version.
     public func listHostedConfigurationVersions(_ input: ListHostedConfigurationVersionsRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<HostedConfigurationVersions> {
         return self.client.execute(operation: "ListHostedConfigurationVersions", path: "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}/hostedconfigurationversions", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    public func listHostedConfigurationVersions(_ input: ListHostedConfigurationVersionsRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws -> HostedConfigurationVersions {
-        return try await self.client.execute(operation: "ListHostedConfigurationVersions", path: "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}/hostedconfigurationversions", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
-    }
-    #endif
-
     /// Retrieves the list of key-value tags assigned to the resource.
     public func listTagsForResource(_ input: ListTagsForResourceRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<ResourceTags> {
         return self.client.execute(operation: "ListTagsForResource", path: "/tags/{ResourceArn}", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    public func listTagsForResource(_ input: ListTagsForResourceRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws -> ResourceTags {
-        return try await self.client.execute(operation: "ListTagsForResource", path: "/tags/{ResourceArn}", httpMethod: .GET, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
-    }
-    #endif
 
     /// Starts a deployment.
     public func startDeployment(_ input: StartDeploymentRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<Deployment> {
         return self.client.execute(operation: "StartDeployment", path: "/applications/{ApplicationId}/environments/{EnvironmentId}/deployments", httpMethod: .POST, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    public func startDeployment(_ input: StartDeploymentRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws -> Deployment {
-        return try await self.client.execute(operation: "StartDeployment", path: "/applications/{ApplicationId}/environments/{EnvironmentId}/deployments", httpMethod: .POST, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
-    }
-    #endif
-
     /// Stops a deployment. This API action works only on deployments that have a status of DEPLOYING. This action moves the deployment to a status of ROLLED_BACK.
     public func stopDeployment(_ input: StopDeploymentRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<Deployment> {
         return self.client.execute(operation: "StopDeployment", path: "/applications/{ApplicationId}/environments/{EnvironmentId}/deployments/{DeploymentNumber}", httpMethod: .DELETE, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    public func stopDeployment(_ input: StopDeploymentRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws -> Deployment {
-        return try await self.client.execute(operation: "StopDeployment", path: "/applications/{ApplicationId}/environments/{EnvironmentId}/deployments/{DeploymentNumber}", httpMethod: .DELETE, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
-    }
-    #endif
 
     /// Metadata to assign to an AppConfig resource. Tags help organize and categorize your AppConfig resources. Each tag consists of a key and an optional value, both of which you define. You can specify a maximum of 50 tags for a resource.
     @discardableResult public func tagResource(_ input: TagResourceRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<Void> {
         return self.client.execute(operation: "TagResource", path: "/tags/{ResourceArn}", httpMethod: .POST, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    public func tagResource(_ input: TagResourceRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws {
-        return try await self.client.execute(operation: "TagResource", path: "/tags/{ResourceArn}", httpMethod: .POST, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
-    }
-    #endif
-
     /// Deletes a tag key and value from an AppConfig resource.
     @discardableResult public func untagResource(_ input: UntagResourceRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<Void> {
         return self.client.execute(operation: "UntagResource", path: "/tags/{ResourceArn}", httpMethod: .DELETE, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    public func untagResource(_ input: UntagResourceRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws {
-        return try await self.client.execute(operation: "UntagResource", path: "/tags/{ResourceArn}", httpMethod: .DELETE, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
-    }
-    #endif
 
     /// Updates an application.
     public func updateApplication(_ input: UpdateApplicationRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<Application> {
         return self.client.execute(operation: "UpdateApplication", path: "/applications/{ApplicationId}", httpMethod: .PATCH, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    public func updateApplication(_ input: UpdateApplicationRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws -> Application {
-        return try await self.client.execute(operation: "UpdateApplication", path: "/applications/{ApplicationId}", httpMethod: .PATCH, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
-    }
-    #endif
-
     /// Updates a configuration profile.
     public func updateConfigurationProfile(_ input: UpdateConfigurationProfileRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<ConfigurationProfile> {
         return self.client.execute(operation: "UpdateConfigurationProfile", path: "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}", httpMethod: .PATCH, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    public func updateConfigurationProfile(_ input: UpdateConfigurationProfileRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws -> ConfigurationProfile {
-        return try await self.client.execute(operation: "UpdateConfigurationProfile", path: "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}", httpMethod: .PATCH, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
-    }
-    #endif
 
     /// Updates a deployment strategy.
     public func updateDeploymentStrategy(_ input: UpdateDeploymentStrategyRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<DeploymentStrategy> {
         return self.client.execute(operation: "UpdateDeploymentStrategy", path: "/deploymentstrategies/{DeploymentStrategyId}", httpMethod: .PATCH, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    public func updateDeploymentStrategy(_ input: UpdateDeploymentStrategyRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws -> DeploymentStrategy {
-        return try await self.client.execute(operation: "UpdateDeploymentStrategy", path: "/deploymentstrategies/{DeploymentStrategyId}", httpMethod: .PATCH, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
-    }
-    #endif
-
     /// Updates an environment.
     public func updateEnvironment(_ input: UpdateEnvironmentRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<Environment> {
         return self.client.execute(operation: "UpdateEnvironment", path: "/applications/{ApplicationId}/environments/{EnvironmentId}", httpMethod: .PATCH, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    public func updateEnvironment(_ input: UpdateEnvironmentRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws -> Environment {
-        return try await self.client.execute(operation: "UpdateEnvironment", path: "/applications/{ApplicationId}/environments/{EnvironmentId}", httpMethod: .PATCH, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
-    }
-    #endif
-
     /// Uses the validators in a configuration profile to validate a configuration.
     @discardableResult public func validateConfiguration(_ input: ValidateConfigurationRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) -> EventLoopFuture<Void> {
         return self.client.execute(operation: "ValidateConfiguration", path: "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}/validators", httpMethod: .POST, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    public func validateConfiguration(_ input: ValidateConfigurationRequest, logger: Logger = AWSClient.loggingDisabled, on eventLoop: EventLoop? = nil) async throws {
-        return try await self.client.execute(operation: "ValidateConfiguration", path: "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}/validators", httpMethod: .POST, serviceConfig: self.config, input: input, logger: logger, on: eventLoop)
-    }
-    #endif
 }
 
 extension AppConfig {

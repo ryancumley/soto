@@ -72,29 +72,6 @@ extension CodeGuruReviewer {
         )
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listCodeReviewsPaginator(
-        _ input: ListCodeReviewsRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListCodeReviewsRequest, ListCodeReviewsResponse> {
-        return .init(
-            input: input,
-            command: listCodeReviews,
-            inputKey: \ListCodeReviewsRequest.nextToken,
-            outputKey: \ListCodeReviewsResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
-
     ///   Returns a list of  RecommendationFeedbackSummary  objects that contain customer recommendation feedback for all CodeGuru Reviewer users.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -147,29 +124,6 @@ extension CodeGuruReviewer {
             onPage: onPage
         )
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listRecommendationFeedbackPaginator(
-        _ input: ListRecommendationFeedbackRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListRecommendationFeedbackRequest, ListRecommendationFeedbackResponse> {
-        return .init(
-            input: input,
-            command: listRecommendationFeedback,
-            inputKey: \ListRecommendationFeedbackRequest.nextToken,
-            outputKey: \ListRecommendationFeedbackResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
 
     ///   Returns the list of all recommendations for a completed code review.
     ///
@@ -224,29 +178,6 @@ extension CodeGuruReviewer {
         )
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listRecommendationsPaginator(
-        _ input: ListRecommendationsRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListRecommendationsRequest, ListRecommendationsResponse> {
-        return .init(
-            input: input,
-            command: listRecommendations,
-            inputKey: \ListRecommendationsRequest.nextToken,
-            outputKey: \ListRecommendationsResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
-
     ///   Returns a list of  RepositoryAssociationSummary  objects that contain summary information about a repository association. You can filter the returned list by  ProviderType ,  Name ,  State , and  Owner .
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -299,29 +230,6 @@ extension CodeGuruReviewer {
             onPage: onPage
         )
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listRepositoryAssociationsPaginator(
-        _ input: ListRepositoryAssociationsRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListRepositoryAssociationsRequest, ListRepositoryAssociationsResponse> {
-        return .init(
-            input: input,
-            command: listRepositoryAssociations,
-            inputKey: \ListRepositoryAssociationsRequest.nextToken,
-            outputKey: \ListRepositoryAssociationsResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
 }
 
 extension CodeGuruReviewer.ListCodeReviewsRequest: AWSPaginateToken {

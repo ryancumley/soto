@@ -83,37 +83,6 @@ extension {{name}} {
             onPage: onPage
         )
     }
-
-#if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-{{#operation.deprecated}}
-    @available(*, deprecated, message:"{{.}}")
-{{/operation.deprecated}}
-    public func {{operation.funcName}}Paginator(
-        _ input: {{operation.inputShape}},
-        logger: {{logger}} = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<{{operation.inputShape}}, {{operation.outputShape}}> {
-        return .init(
-            input: input,
-            command: {{operation.funcName}},
-{{#inputKey}}
-            inputKey: \{{operation.inputShape}}.{{.}},
-{{/inputKey}}
-            outputKey: \{{operation.outputShape}}.{{outputKey}},
-{{#moreResultsKey}}
-            moreResultsKey: \{{operation.outputShape}}.{{.}},
-{{/moreResultsKey}}
-            logger: logger,
-            on: eventLoop
-        )
-    }
-#endif
 {{^last()}}
 
 {{/last()}}

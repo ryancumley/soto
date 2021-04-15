@@ -72,29 +72,6 @@ extension KinesisVideo {
         )
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listSignalingChannelsPaginator(
-        _ input: ListSignalingChannelsInput,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListSignalingChannelsInput, ListSignalingChannelsOutput> {
-        return .init(
-            input: input,
-            command: listSignalingChannels,
-            inputKey: \ListSignalingChannelsInput.nextToken,
-            outputKey: \ListSignalingChannelsOutput.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
-
     ///  Returns an array of StreamInfo objects. Each object describes a stream. To retrieve only streams that satisfy a specific condition, you can specify a StreamNameCondition.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -147,29 +124,6 @@ extension KinesisVideo {
             onPage: onPage
         )
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listStreamsPaginator(
-        _ input: ListStreamsInput,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListStreamsInput, ListStreamsOutput> {
-        return .init(
-            input: input,
-            command: listStreams,
-            inputKey: \ListStreamsInput.nextToken,
-            outputKey: \ListStreamsOutput.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
 }
 
 extension KinesisVideo.ListSignalingChannelsInput: AWSPaginateToken {

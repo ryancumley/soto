@@ -72,29 +72,6 @@ extension Kendra {
         )
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listDataSourceSyncJobsPaginator(
-        _ input: ListDataSourceSyncJobsRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListDataSourceSyncJobsRequest, ListDataSourceSyncJobsResponse> {
-        return .init(
-            input: input,
-            command: listDataSourceSyncJobs,
-            inputKey: \ListDataSourceSyncJobsRequest.nextToken,
-            outputKey: \ListDataSourceSyncJobsResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
-
     ///  Lists the data sources that you have created.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -148,29 +125,6 @@ extension Kendra {
         )
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listDataSourcesPaginator(
-        _ input: ListDataSourcesRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListDataSourcesRequest, ListDataSourcesResponse> {
-        return .init(
-            input: input,
-            command: listDataSources,
-            inputKey: \ListDataSourcesRequest.nextToken,
-            outputKey: \ListDataSourcesResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
-
     ///  Lists the Amazon Kendra indexes that you have created.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -223,29 +177,6 @@ extension Kendra {
             onPage: onPage
         )
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listIndicesPaginator(
-        _ input: ListIndicesRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListIndicesRequest, ListIndicesResponse> {
-        return .init(
-            input: input,
-            command: listIndices,
-            inputKey: \ListIndicesRequest.nextToken,
-            outputKey: \ListIndicesResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
 }
 
 extension Kendra.ListDataSourceSyncJobsRequest: AWSPaginateToken {

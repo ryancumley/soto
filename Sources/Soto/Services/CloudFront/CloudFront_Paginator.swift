@@ -72,29 +72,6 @@ extension CloudFront {
         )
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listCloudFrontOriginAccessIdentitiesPaginator(
-        _ input: ListCloudFrontOriginAccessIdentitiesRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListCloudFrontOriginAccessIdentitiesRequest, ListCloudFrontOriginAccessIdentitiesResult> {
-        return .init(
-            input: input,
-            command: listCloudFrontOriginAccessIdentities,
-            inputKey: \ListCloudFrontOriginAccessIdentitiesRequest.marker,
-            outputKey: \ListCloudFrontOriginAccessIdentitiesResult.cloudFrontOriginAccessIdentityList?.nextMarker,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
-
     ///  List CloudFront distributions.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -147,29 +124,6 @@ extension CloudFront {
             onPage: onPage
         )
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listDistributionsPaginator(
-        _ input: ListDistributionsRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListDistributionsRequest, ListDistributionsResult> {
-        return .init(
-            input: input,
-            command: listDistributions,
-            inputKey: \ListDistributionsRequest.marker,
-            outputKey: \ListDistributionsResult.distributionList?.nextMarker,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
 
     ///  Lists invalidation batches.
     ///
@@ -224,29 +178,6 @@ extension CloudFront {
         )
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listInvalidationsPaginator(
-        _ input: ListInvalidationsRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListInvalidationsRequest, ListInvalidationsResult> {
-        return .init(
-            input: input,
-            command: listInvalidations,
-            inputKey: \ListInvalidationsRequest.marker,
-            outputKey: \ListInvalidationsResult.invalidationList?.nextMarker,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
-
     ///  List streaming distributions.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -299,29 +230,6 @@ extension CloudFront {
             onPage: onPage
         )
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listStreamingDistributionsPaginator(
-        _ input: ListStreamingDistributionsRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListStreamingDistributionsRequest, ListStreamingDistributionsResult> {
-        return .init(
-            input: input,
-            command: listStreamingDistributions,
-            inputKey: \ListStreamingDistributionsRequest.marker,
-            outputKey: \ListStreamingDistributionsResult.streamingDistributionList?.nextMarker,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
 }
 
 extension CloudFront.ListCloudFrontOriginAccessIdentitiesRequest: AWSPaginateToken {

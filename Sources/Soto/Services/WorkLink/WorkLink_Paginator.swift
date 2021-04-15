@@ -72,29 +72,6 @@ extension WorkLink {
         )
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listDevicesPaginator(
-        _ input: ListDevicesRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListDevicesRequest, ListDevicesResponse> {
-        return .init(
-            input: input,
-            command: listDevices,
-            inputKey: \ListDevicesRequest.nextToken,
-            outputKey: \ListDevicesResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
-
     ///  Retrieves a list of domains associated to a specified fleet.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -147,29 +124,6 @@ extension WorkLink {
             onPage: onPage
         )
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listDomainsPaginator(
-        _ input: ListDomainsRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListDomainsRequest, ListDomainsResponse> {
-        return .init(
-            input: input,
-            command: listDomains,
-            inputKey: \ListDomainsRequest.nextToken,
-            outputKey: \ListDomainsResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
 
     ///  Retrieves a list of fleets for the current account and Region.
     ///
@@ -224,29 +178,6 @@ extension WorkLink {
         )
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listFleetsPaginator(
-        _ input: ListFleetsRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListFleetsRequest, ListFleetsResponse> {
-        return .init(
-            input: input,
-            command: listFleets,
-            inputKey: \ListFleetsRequest.nextToken,
-            outputKey: \ListFleetsResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
-
     ///  Retrieves a list of website authorization providers associated with a specified fleet.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -300,29 +231,6 @@ extension WorkLink {
         )
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listWebsiteAuthorizationProvidersPaginator(
-        _ input: ListWebsiteAuthorizationProvidersRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListWebsiteAuthorizationProvidersRequest, ListWebsiteAuthorizationProvidersResponse> {
-        return .init(
-            input: input,
-            command: listWebsiteAuthorizationProviders,
-            inputKey: \ListWebsiteAuthorizationProvidersRequest.nextToken,
-            outputKey: \ListWebsiteAuthorizationProvidersResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
-
     ///  Retrieves a list of certificate authorities added for the current account and Region.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -375,29 +283,6 @@ extension WorkLink {
             onPage: onPage
         )
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listWebsiteCertificateAuthoritiesPaginator(
-        _ input: ListWebsiteCertificateAuthoritiesRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListWebsiteCertificateAuthoritiesRequest, ListWebsiteCertificateAuthoritiesResponse> {
-        return .init(
-            input: input,
-            command: listWebsiteCertificateAuthorities,
-            inputKey: \ListWebsiteCertificateAuthoritiesRequest.nextToken,
-            outputKey: \ListWebsiteCertificateAuthoritiesResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
 }
 
 extension WorkLink.ListDevicesRequest: AWSPaginateToken {

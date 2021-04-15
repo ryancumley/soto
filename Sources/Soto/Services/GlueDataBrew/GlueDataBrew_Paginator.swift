@@ -72,29 +72,6 @@ extension GlueDataBrew {
         )
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listDatasetsPaginator(
-        _ input: ListDatasetsRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListDatasetsRequest, ListDatasetsResponse> {
-        return .init(
-            input: input,
-            command: listDatasets,
-            inputKey: \ListDatasetsRequest.nextToken,
-            outputKey: \ListDatasetsResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
-
     ///  Lists all of the previous runs of a particular DataBrew job.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -147,29 +124,6 @@ extension GlueDataBrew {
             onPage: onPage
         )
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listJobRunsPaginator(
-        _ input: ListJobRunsRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListJobRunsRequest, ListJobRunsResponse> {
-        return .init(
-            input: input,
-            command: listJobRuns,
-            inputKey: \ListJobRunsRequest.nextToken,
-            outputKey: \ListJobRunsResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
 
     ///  Lists all of the DataBrew jobs that are defined.
     ///
@@ -224,29 +178,6 @@ extension GlueDataBrew {
         )
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listJobsPaginator(
-        _ input: ListJobsRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListJobsRequest, ListJobsResponse> {
-        return .init(
-            input: input,
-            command: listJobs,
-            inputKey: \ListJobsRequest.nextToken,
-            outputKey: \ListJobsResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
-
     ///  Lists all of the DataBrew projects that are defined.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -299,29 +230,6 @@ extension GlueDataBrew {
             onPage: onPage
         )
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listProjectsPaginator(
-        _ input: ListProjectsRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListProjectsRequest, ListProjectsResponse> {
-        return .init(
-            input: input,
-            command: listProjects,
-            inputKey: \ListProjectsRequest.nextToken,
-            outputKey: \ListProjectsResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
 
     ///  Lists the versions of a particular DataBrew recipe, except for LATEST_WORKING.
     ///
@@ -376,29 +284,6 @@ extension GlueDataBrew {
         )
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listRecipeVersionsPaginator(
-        _ input: ListRecipeVersionsRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListRecipeVersionsRequest, ListRecipeVersionsResponse> {
-        return .init(
-            input: input,
-            command: listRecipeVersions,
-            inputKey: \ListRecipeVersionsRequest.nextToken,
-            outputKey: \ListRecipeVersionsResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
-
     ///  Lists all of the DataBrew recipes that are defined.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -452,29 +337,6 @@ extension GlueDataBrew {
         )
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listRecipesPaginator(
-        _ input: ListRecipesRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListRecipesRequest, ListRecipesResponse> {
-        return .init(
-            input: input,
-            command: listRecipes,
-            inputKey: \ListRecipesRequest.nextToken,
-            outputKey: \ListRecipesResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
-
     ///  Lists the DataBrew schedules that are defined.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -527,29 +389,6 @@ extension GlueDataBrew {
             onPage: onPage
         )
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listSchedulesPaginator(
-        _ input: ListSchedulesRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListSchedulesRequest, ListSchedulesResponse> {
-        return .init(
-            input: input,
-            command: listSchedules,
-            inputKey: \ListSchedulesRequest.nextToken,
-            outputKey: \ListSchedulesResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
 }
 
 extension GlueDataBrew.ListDatasetsRequest: AWSPaginateToken {

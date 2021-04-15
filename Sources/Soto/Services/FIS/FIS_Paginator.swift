@@ -72,29 +72,6 @@ extension FIS {
         )
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listActionsPaginator(
-        _ input: ListActionsRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListActionsRequest, ListActionsResponse> {
-        return .init(
-            input: input,
-            command: listActions,
-            inputKey: \ListActionsRequest.nextToken,
-            outputKey: \ListActionsResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
-
     ///  Lists your experiment templates.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -148,29 +125,6 @@ extension FIS {
         )
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listExperimentTemplatesPaginator(
-        _ input: ListExperimentTemplatesRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListExperimentTemplatesRequest, ListExperimentTemplatesResponse> {
-        return .init(
-            input: input,
-            command: listExperimentTemplates,
-            inputKey: \ListExperimentTemplatesRequest.nextToken,
-            outputKey: \ListExperimentTemplatesResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
-
     ///  Lists your experiments.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -223,29 +177,6 @@ extension FIS {
             onPage: onPage
         )
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listExperimentsPaginator(
-        _ input: ListExperimentsRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListExperimentsRequest, ListExperimentsResponse> {
-        return .init(
-            input: input,
-            command: listExperiments,
-            inputKey: \ListExperimentsRequest.nextToken,
-            outputKey: \ListExperimentsResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
 }
 
 extension FIS.ListActionsRequest: AWSPaginateToken {

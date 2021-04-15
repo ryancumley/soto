@@ -72,29 +72,6 @@ extension Imagebuilder {
         )
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listComponentBuildVersionsPaginator(
-        _ input: ListComponentBuildVersionsRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListComponentBuildVersionsRequest, ListComponentBuildVersionsResponse> {
-        return .init(
-            input: input,
-            command: listComponentBuildVersions,
-            inputKey: \ListComponentBuildVersionsRequest.nextToken,
-            outputKey: \ListComponentBuildVersionsResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
-
     ///  Returns the list of component build versions for the specified semantic version.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -147,29 +124,6 @@ extension Imagebuilder {
             onPage: onPage
         )
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listComponentsPaginator(
-        _ input: ListComponentsRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListComponentsRequest, ListComponentsResponse> {
-        return .init(
-            input: input,
-            command: listComponents,
-            inputKey: \ListComponentsRequest.nextToken,
-            outputKey: \ListComponentsResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
 
     ///  Returns a list of container recipes.
     ///
@@ -224,29 +178,6 @@ extension Imagebuilder {
         )
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listContainerRecipesPaginator(
-        _ input: ListContainerRecipesRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListContainerRecipesRequest, ListContainerRecipesResponse> {
-        return .init(
-            input: input,
-            command: listContainerRecipes,
-            inputKey: \ListContainerRecipesRequest.nextToken,
-            outputKey: \ListContainerRecipesResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
-
     ///  Returns a list of distribution configurations.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -299,29 +230,6 @@ extension Imagebuilder {
             onPage: onPage
         )
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listDistributionConfigurationsPaginator(
-        _ input: ListDistributionConfigurationsRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListDistributionConfigurationsRequest, ListDistributionConfigurationsResponse> {
-        return .init(
-            input: input,
-            command: listDistributionConfigurations,
-            inputKey: \ListDistributionConfigurationsRequest.nextToken,
-            outputKey: \ListDistributionConfigurationsResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
 
     ///   Returns a list of image build versions.
     ///
@@ -376,29 +284,6 @@ extension Imagebuilder {
         )
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listImageBuildVersionsPaginator(
-        _ input: ListImageBuildVersionsRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListImageBuildVersionsRequest, ListImageBuildVersionsResponse> {
-        return .init(
-            input: input,
-            command: listImageBuildVersions,
-            inputKey: \ListImageBuildVersionsRequest.nextToken,
-            outputKey: \ListImageBuildVersionsResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
-
     ///  List the Packages that are associated with an Image Build Version, as determined by AWS Systems Manager Inventory at build time.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -451,29 +336,6 @@ extension Imagebuilder {
             onPage: onPage
         )
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listImagePackagesPaginator(
-        _ input: ListImagePackagesRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListImagePackagesRequest, ListImagePackagesResponse> {
-        return .init(
-            input: input,
-            command: listImagePackages,
-            inputKey: \ListImagePackagesRequest.nextToken,
-            outputKey: \ListImagePackagesResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
 
     ///   Returns a list of images created by the specified pipeline.
     ///
@@ -528,29 +390,6 @@ extension Imagebuilder {
         )
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listImagePipelineImagesPaginator(
-        _ input: ListImagePipelineImagesRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListImagePipelineImagesRequest, ListImagePipelineImagesResponse> {
-        return .init(
-            input: input,
-            command: listImagePipelineImages,
-            inputKey: \ListImagePipelineImagesRequest.nextToken,
-            outputKey: \ListImagePipelineImagesResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
-
     ///  Returns a list of image pipelines.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -603,29 +442,6 @@ extension Imagebuilder {
             onPage: onPage
         )
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listImagePipelinesPaginator(
-        _ input: ListImagePipelinesRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListImagePipelinesRequest, ListImagePipelinesResponse> {
-        return .init(
-            input: input,
-            command: listImagePipelines,
-            inputKey: \ListImagePipelinesRequest.nextToken,
-            outputKey: \ListImagePipelinesResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
 
     ///   Returns a list of image recipes.
     ///
@@ -680,29 +496,6 @@ extension Imagebuilder {
         )
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listImageRecipesPaginator(
-        _ input: ListImageRecipesRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListImageRecipesRequest, ListImageRecipesResponse> {
-        return .init(
-            input: input,
-            command: listImageRecipes,
-            inputKey: \ListImageRecipesRequest.nextToken,
-            outputKey: \ListImageRecipesResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
-
     ///   Returns the list of images that you have access to.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -756,29 +549,6 @@ extension Imagebuilder {
         )
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listImagesPaginator(
-        _ input: ListImagesRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListImagesRequest, ListImagesResponse> {
-        return .init(
-            input: input,
-            command: listImages,
-            inputKey: \ListImagesRequest.nextToken,
-            outputKey: \ListImagesResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
-
     ///   Returns a list of infrastructure configurations.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -831,29 +601,6 @@ extension Imagebuilder {
             onPage: onPage
         )
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listInfrastructureConfigurationsPaginator(
-        _ input: ListInfrastructureConfigurationsRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListInfrastructureConfigurationsRequest, ListInfrastructureConfigurationsResponse> {
-        return .init(
-            input: input,
-            command: listInfrastructureConfigurations,
-            inputKey: \ListInfrastructureConfigurationsRequest.nextToken,
-            outputKey: \ListInfrastructureConfigurationsResponse.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
 }
 
 extension Imagebuilder.ListComponentBuildVersionsRequest: AWSPaginateToken {

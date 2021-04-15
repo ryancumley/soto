@@ -72,29 +72,6 @@ extension Cloud9 {
         )
     }
 
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func describeEnvironmentMembershipsPaginator(
-        _ input: DescribeEnvironmentMembershipsRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<DescribeEnvironmentMembershipsRequest, DescribeEnvironmentMembershipsResult> {
-        return .init(
-            input: input,
-            command: describeEnvironmentMemberships,
-            inputKey: \DescribeEnvironmentMembershipsRequest.nextToken,
-            outputKey: \DescribeEnvironmentMembershipsResult.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
-
     ///  Gets a list of AWS Cloud9 development environment identifiers.
     ///
     /// Provide paginated results to closure `onPage` for it to combine them into one result.
@@ -147,29 +124,6 @@ extension Cloud9 {
             onPage: onPage
         )
     }
-
-    #if compiler(>=5.4) && $AsyncAwait
-    /// Return PaginatorSequence for operation.
-    ///
-    /// - Parameters:
-    ///   - input: Input for request
-    ///   - logger: Logger used flot logging
-    ///   - eventLoop: EventLoop to run this process on
-    public func listEnvironmentsPaginator(
-        _ input: ListEnvironmentsRequest,
-        logger: Logger = AWSClient.loggingDisabled,
-        on eventLoop: EventLoop? = nil
-    ) -> AWSClient.PaginatorSequence<ListEnvironmentsRequest, ListEnvironmentsResult> {
-        return .init(
-            input: input,
-            command: listEnvironments,
-            inputKey: \ListEnvironmentsRequest.nextToken,
-            outputKey: \ListEnvironmentsResult.nextToken,
-            logger: logger,
-            on: eventLoop
-        )
-    }
-    #endif
 }
 
 extension Cloud9.DescribeEnvironmentMembershipsRequest: AWSPaginateToken {
