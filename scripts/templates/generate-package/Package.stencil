@@ -29,9 +29,9 @@ let package = Package(
     targets: [
 {%for target in targets %}
 {%if target.hasExtension %}
-        .target(name: "Soto{{target.name}}", dependencies: [{%for dep in target.dependencies %}{{dep}}{%if not forloop.last %}, {%endif +%}{%endfor %}], path: "./Sources/Soto/", sources: ["Services/{{target.name}}", "Extensions/{{target.name}}"], swiftSettings: [.unsafeFlags(["-Xfrontend", "-enable-experimental-concurrency"])]){%if not forloop.last %},{%endif +%}
+        .target(name: "Soto{{target.name}}", dependencies: [{%for dep in target.dependencies %}{{dep}}{%if not forloop.last %}, {%endif +%}{%endfor %}], path: "./Sources/Soto/", sources: ["Services/{{target.name}}", "Extensions/{{target.name}}"]){%if not forloop.last %},{%endif +%}
 {%else %}
-        .target(name: "Soto{{target.name}}", dependencies: [{%for dep in target.dependencies %}{{dep}}{%if not forloop.last %}, {%endif +%}{%endfor %}], path: "./Sources/Soto/Services/{{target.name}}", swiftSettings: [.unsafeFlags(["-Xfrontend", "-enable-experimental-concurrency"])]),
+        .target(name: "Soto{{target.name}}", dependencies: [{%for dep in target.dependencies %}{{dep}}{%if not forloop.last %}, {%endif +%}{%endfor %}], path: "./Sources/Soto/Services/{{target.name}}"),
 {%endif %}
 {%endfor %}
         .target(name: "CSotoZlib", linkerSettings: [.linkedLibrary("z")]),
@@ -42,8 +42,7 @@ let package = Package(
 {%for target in testTargets %}
                 "Soto{{target}}"{%if not forloop.last %},{%endif +%}
 {%endfor %}
-            ],
-            swiftSettings: [.unsafeFlags(["-Xfrontend", "-enable-experimental-concurrency"])]
+            ]
         )
     ]
 )
