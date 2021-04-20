@@ -12,7 +12,7 @@ on:
     paths:
     - '**.swift'
   workflow_dispatch:
-  
+
 env:
   AWS_ACCESS_KEY_ID : ${{ secrets.AWS_ACCESS_KEY_ID }}
   AWS_SECRET_ACCESS_KEY : ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -21,38 +21,41 @@ env:
   AWS_LOG_LEVEL: "trace"
 
 jobs:
-  linux:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        image: ['swift:5.1', 'swift:5.2', 'swift:5.3', 'swiftlang/swift:nightly-focal']
-    container:
-      image: ${{ matrix.image }}
-      env:
-        LOCALSTACK_ENDPOINT : "http://localstack:4566"
-    services:
-      localstack:
-        image: localstack/localstack
+  macos:
+    runs-on: macOS-latest
     steps:
     - name: Checkout
       uses: actions/checkout@v1
       with:
         fetch-depth: 1
-    - name: Install dependencies (Ubuntu)
-      if: ${{ matrix.tag == 'nightly-bionic' || matrix.tag == 'nightly-focal'}}
+    - name: SPM build
+      run: swift build
+
+  linux:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        image: ['swift:5.1', 'swift:5.2', 'swift:5.3', 'swiftlang/swift:nightly-focal']
+    services:
+      localstack:
+        image: localstack/localstack
+    container:
+      image: ${{ matrix.image }}
+      env:
+        LOCALSTACK_ENDPOINT : "http://localstack:4566"
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v1
+      with:
+        fetch-depth: 1
+    - name: Install dependencies
       run: |
         apt-get update -qq
         apt-get install -q -y tzdata zlib1g-dev
-    - name: Install dependencies (Amazon Linux2/CentOS8)
-      if: ${{ matrix.tag == 'nightly-amazonlinux2' || matrix.tag == 'nightly-centos8'}}
-      run: |
-        yum -y update
-        yum -y install zlib-devel
     - name: Test Resource Prefix
       # set AWS_TEST_RESOURCE_PREFIX environment variable to a random series of 8 letters
       run: |
         echo AWS_TEST_RESOURCE_PREFIX=$(cat /dev/urandom | tr -dc 'a-z' | head -c 8) >> $GITHUB_ENV
     - name: Test
       run: |
-        swift --version
         swift test --enable-test-discovery
