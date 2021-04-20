@@ -25,9 +25,9 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        tag: ['nightly-bionic', 'nightly-focal', 'nightly-centos8', 'nightly-amazonlinux2']
+        image: ['swift:5.1', 'swift:5.2', 'swift:5.3', 'swiftlang/swift:nightly-focal']
     container:
-      image: swiftlang/swift:${{ matrix.tag }}
+      image: ${{ matrix.image }}
       env:
         LOCALSTACK_ENDPOINT : "http://localstack:4566"
     services:
@@ -54,4 +54,5 @@ jobs:
         echo AWS_TEST_RESOURCE_PREFIX=$(cat /dev/urandom | tr -dc 'a-z' | head -c 8) >> $GITHUB_ENV
     - name: Test
       run: |
+        swift --version
         swift test --enable-test-discovery
