@@ -100,7 +100,7 @@ class S3AsyncTests: XCTestCase {
     func s3Test(bucket name: String, s3: S3 = S3AsyncTests.s3, _ process: @escaping () async throws -> Void) {
         let dg = DispatchGroup()
         dg.enter()
-        detach {
+        Task.detached {
             do {
                 try await Self.createBucket(name: name, s3: s3)
                 do {
@@ -251,7 +251,7 @@ class S3AsyncTests: XCTestCase {
         self.s3Test(bucket: name) {
             await withThrowingTaskGroup(of: String?.self) { group in
                 for index in 1...16 {
-                    group.spawn {
+                    group.async {
                         let body = "testMultipleUpload - " + index.description
                         let filename = "file" + index.description
                         _ = try await Self.s3.putObject(.init(body: .string(body), bucket: name, key: filename))
@@ -287,7 +287,7 @@ class S3AsyncTests: XCTestCase {
                 for index in 1...16 {
                     let body = "testMultipleUpload - " + index.description
                     let filename = "file" + index.description
-                    group.spawn {
+                    group.async {
                         return try await Self.s3.putObject(.init(body: .string(body), bucket: name, key: filename)).eTag
                     }
                 }
@@ -494,7 +494,7 @@ class S3AsyncTests: XCTestCase {
 
         let dg = DispatchGroup()
         dg.enter()
-        detach {
+        Task.detached {
             do {
                 _ = try await Self.s3.deleteBucket(.init(bucket: "nosuch-bucket-name3458bjhdfgdf"))
             } catch {
