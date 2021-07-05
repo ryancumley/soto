@@ -6560,6 +6560,8 @@ extension Chime {
         public let audioFallbackUrl: String?
         /// The audio host URL.
         public let audioHostUrl: String?
+        /// The event ingestion URL.
+        public let eventIngestionUrl: String?
         /// The screen data URL.
         public let screenDataUrl: String?
         /// The screen sharing URL.
@@ -6571,9 +6573,10 @@ extension Chime {
         /// The turn control URL.
         public let turnControlUrl: String?
 
-        public init(audioFallbackUrl: String? = nil, audioHostUrl: String? = nil, screenDataUrl: String? = nil, screenSharingUrl: String? = nil, screenViewingUrl: String? = nil, signalingUrl: String? = nil, turnControlUrl: String? = nil) {
+        public init(audioFallbackUrl: String? = nil, audioHostUrl: String? = nil, eventIngestionUrl: String? = nil, screenDataUrl: String? = nil, screenSharingUrl: String? = nil, screenViewingUrl: String? = nil, signalingUrl: String? = nil, turnControlUrl: String? = nil) {
             self.audioFallbackUrl = audioFallbackUrl
             self.audioHostUrl = audioHostUrl
+            self.eventIngestionUrl = eventIngestionUrl
             self.screenDataUrl = screenDataUrl
             self.screenSharingUrl = screenSharingUrl
             self.screenViewingUrl = screenViewingUrl
@@ -6584,6 +6587,7 @@ extension Chime {
         private enum CodingKeys: String, CodingKey {
             case audioFallbackUrl = "AudioFallbackUrl"
             case audioHostUrl = "AudioHostUrl"
+            case eventIngestionUrl = "EventIngestionUrl"
             case screenDataUrl = "ScreenDataUrl"
             case screenSharingUrl = "ScreenSharingUrl"
             case screenViewingUrl = "ScreenViewingUrl"
@@ -8549,11 +8553,14 @@ extension Chime {
 
         /// The Amazon Chime account ID.
         public let accountId: String
+        /// The default license applied when you add users to an Amazon Chime account.
+        public let defaultLicense: License?
         /// The new name for the specified Amazon Chime account.
         public let name: String?
 
-        public init(accountId: String, name: String? = nil) {
+        public init(accountId: String, defaultLicense: License? = nil, name: String? = nil) {
             self.accountId = accountId
+            self.defaultLicense = defaultLicense
             self.name = name
         }
 
@@ -8565,6 +8572,7 @@ extension Chime {
         }
 
         private enum CodingKeys: String, CodingKey {
+            case defaultLicense = "DefaultLicense"
             case name = "Name"
         }
     }
@@ -9156,6 +9164,47 @@ extension Chime {
 
         private enum CodingKeys: String, CodingKey {
             case room = "Room"
+        }
+    }
+
+    public struct UpdateSipMediaApplicationCallRequest: AWSEncodableShape {
+        public static var _encoding = [
+            AWSMemberEncoding(label: "sipMediaApplicationId", location: .uri(locationName: "sipMediaApplicationId")),
+            AWSMemberEncoding(label: "transactionId", location: .uri(locationName: "transactionId"))
+        ]
+
+        /// Arguments made available to the Lambda function as part of the CALL_UPDATE_REQUESTED event. Can contain 0-20 key-value pairs.
+        public let arguments: [String: String]
+        /// The ID of the SIP media application handling the call.
+        public let sipMediaApplicationId: String
+        /// The ID of the call transaction.
+        public let transactionId: String
+
+        public init(arguments: [String: String], sipMediaApplicationId: String, transactionId: String) {
+            self.arguments = arguments
+            self.sipMediaApplicationId = sipMediaApplicationId
+            self.transactionId = transactionId
+        }
+
+        public func validate(name: String) throws {
+            try self.validate(self.sipMediaApplicationId, name: "sipMediaApplicationId", parent: name, pattern: ".*\\S.*")
+            try self.validate(self.transactionId, name: "transactionId", parent: name, pattern: ".*\\S.*")
+        }
+
+        private enum CodingKeys: String, CodingKey {
+            case arguments = "Arguments"
+        }
+    }
+
+    public struct UpdateSipMediaApplicationCallResponse: AWSDecodableShape {
+        public let sipMediaApplicationCall: SipMediaApplicationCall?
+
+        public init(sipMediaApplicationCall: SipMediaApplicationCall? = nil) {
+            self.sipMediaApplicationCall = sipMediaApplicationCall
+        }
+
+        private enum CodingKeys: String, CodingKey {
+            case sipMediaApplicationCall = "SipMediaApplicationCall"
         }
     }
 

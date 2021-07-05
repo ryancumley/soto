@@ -110,6 +110,7 @@ extension CloudFront {
         case tlsv12016 = "TLSv1_2016"
         case tlsv122018 = "TLSv1.2_2018"
         case tlsv122019 = "TLSv1.2_2019"
+        case tlsv122021 = "TLSv1.2_2021"
         public var description: String { return self.rawValue }
     }
 
